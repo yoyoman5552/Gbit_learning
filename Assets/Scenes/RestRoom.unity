@@ -7559,7 +7559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1069956037
 Transform:
   m_ObjectHideFlags: 0
@@ -10198,6 +10198,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 729506559, guid: 4719545142d97b2428d796f3a41df4af, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 729506559, guid: 4719545142d97b2428d796f3a41df4af, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2039895547
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 4719545142d97b2428d796f3a41df4af, type: 3}
       propertyPath: m_Name
       value: GameManager
