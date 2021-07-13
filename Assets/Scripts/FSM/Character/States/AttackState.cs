@@ -53,6 +53,6 @@ public class AttackState : FSMState
             bullet.GetComponent<bulletController>().bulletFire(playerTransform.position-enemyTransform.position);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
-       
+        
     }
 }
