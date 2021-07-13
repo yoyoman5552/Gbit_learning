@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public Image[] bagUIList;
     private Text detailText;
-    private Image characterImage;
+    //private Image characterImage;
     private Image BackGround;
     private Text objectName;
 
@@ -42,10 +42,10 @@ public class UIManager : MonoBehaviour
     public void CallTalkUI(string detail, Sprite showCharacter)
     {
         //显示简短UI
-        BackGround = talkWindow.transform.GetChild(0).GetComponent<Image>();
-        detailText = talkWindow.transform.GetChild(1).GetComponent<Text>();
-        characterImage = talkWindow.transform.GetChild(2).GetComponent<Image>();
-        characterImage.sprite = showCharacter;
+        // BackGround = talkWindow.transform.GetChild(0).GetComponent<Image>();
+        detailText = talkWindow.transform.GetComponentInChildren<Text>();
+        //characterImage = talkWindow.transform.GetChild(2).GetComponent<Image>();
+        //characterImage.sprite = showCharacter;
 
         detailText.text = detail;
         talkWindow.SetActive(true);
@@ -54,10 +54,10 @@ public class UIManager : MonoBehaviour
     public void CallDetailUI(string name, string detail, Sprite showObject)
     {
         //显示物品信息UI
-        BackGround = PopUpWindow.transform.GetChild(0).GetComponent<Image>();
-        detailText = PopUpWindow.transform.GetChild(1).GetComponent<Text>();
-        characterImage = PopUpWindow.transform.GetChild(2).GetComponent<Image>();
-        objectName = PopUpWindow.transform.GetChild(3).GetComponent<Text>();
+        //BackGround = PopUpWindow.transform.GetChild(0).GetComponent<Image>();
+        detailText = PopUpWindow.transform.GetChild(2).GetComponent<Text>();
+        Image characterImage = PopUpWindow.transform.GetChild(3).GetComponent<Image>();
+        objectName = PopUpWindow.transform.GetChild(4).GetComponent<Text>();
 
         characterImage.sprite = showObject;
         objectName.text = name;
