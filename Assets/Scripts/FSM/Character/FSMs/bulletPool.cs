@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//´´½¨µ¯Ä»¶ÔÏó³Ø
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½
 public class bulletPool : MonoBehaviour
 {
     public static bulletPool bulletPoolInstance;
     public GameObject bulletPrefab;
     private List<GameObject> bulletObjects = new List<GameObject>();
     public int bulletAmount;
-    // Start is called before the first frame update
     private void Awake()
     {
+        if (bulletPoolInstance != null)
+        {
+            Debug.Log("bulletPoolé‡å¤å®ä¾‹");
+            Destroy(gameObject);
+            return;
+        }
         bulletPoolInstance = this;
     }
     void Start()

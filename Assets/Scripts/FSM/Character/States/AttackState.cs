@@ -21,7 +21,7 @@ public class AttackState : FSMState
         if (!hadShoot)
         {
             hadShoot = true;
-            remoteAttack();
+            remoteAttack(fsm);
         }
         else
         {
@@ -37,10 +37,10 @@ public class AttackState : FSMState
     {
         Debug.Log("attack state out");
     }
-    private void remoteAttack()
+    private void remoteAttack(FSMBase fsm)
     {
         //寻找主人  //暂时
-        Transform enemyTransform = GameObject.FindWithTag("Enemy").transform;
+        Transform enemyTransform = fsm.transform;
 
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
