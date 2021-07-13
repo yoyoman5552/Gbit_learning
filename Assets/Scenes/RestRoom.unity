@@ -10198,6 +10198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 130789046, guid: 4719545142d97b2428d796f3a41df4af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 729506559, guid: 4719545142d97b2428d796f3a41df4af, type: 3}
       propertyPath: m_SortingLayer
       value: 5
@@ -14262,7 +14266,7 @@ GameObject:
   - component: {fileID: 2007925409213109160}
   m_Layer: 0
   m_Name: "\u8DF3\u8DC3\u70B9"
-  m_TagString: Interactive
+  m_TagString: QuickInteractive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
