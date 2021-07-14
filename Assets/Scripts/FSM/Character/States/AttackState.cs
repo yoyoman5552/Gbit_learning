@@ -13,7 +13,8 @@ public class AttackState : FSMState
     private bool finishAttack = false;
     private float meleeTimer;
     private float initMeleeTimer = 5.0f;
-    private bool canGo = true;
+    private float AttackEndTimer;
+    private float initAttackEndTimer = 5.0f;
 
 
 
@@ -23,6 +24,7 @@ public class AttackState : FSMState
         //        throw new System.NotImplementedException();
         shootTimeGap = initShootTimeGap;
         meleeTimer = initMeleeTimer;
+        AttackEndTimer = initAttackEndTimer;
     }
     public override void EnterState(FSMBase fsm)
     {
@@ -44,13 +46,12 @@ public class AttackState : FSMState
             {
                 shootTimeGap = initShootTimeGap;
                 hadShoot = false;
-
-
-                //近战所使用变量：重新判断可检测玩家第一次进入攻击范围
-                firstDetectPlayer = true;
             }
         }
 
+
+
+        //近战攻击方法
         if(finishAttack)
         {
             meleeTimer -= Time.deltaTime;
@@ -58,11 +59,21 @@ public class AttackState : FSMState
             {
                 meleeTimer = initMeleeTimer;
                 finishAttack = false;
+                //重新检测玩家位置
+                firstDetectPlayer = true;
             }
         }
         else
         {
+            //敌人短暂蓄力后突进
+            //TODO:短暂蓄力
             Melee(fsm);
+            AttackEndTimer -= Time.deltaTime;
+            if(AttackEndTimer<=0)
+            {
+                finishAttack = true;
+                AttackEndTimer = initAttackEndTimer;
+            }
         }
 
 
@@ -89,7 +100,8 @@ public class AttackState : FSMState
             bullet.GetComponent<bulletController>().bulletFire(playerTransform.position-enemyTransform.position);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
-        //多线弹幕初步
+
+        //多线弹幕初步测试
         
         //偏转角度
         /*
@@ -130,21 +142,40 @@ public class AttackState : FSMState
     //近战
     private void Melee(FSMBase fsm)
     {
-
+        //RaycastHit2D ray = Physics2D.
         Transform EnemyTransform = fsm.transform;
-        if(firstDetectPlayer)
+        if (firstDetectPlayer)
         {
             firstDetectPosition = GameManager.Instance.player.transform.position;
             firstDetectPlayer = false;
         }
-        //TODO:突进方法
-        EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 15 * Time.deltaTime);
+
+
+        //近战攻击：冲刺
+
+        //射线检测突进路径上的物体
+
+        //与玩家直线上没有其他障碍物则进行冲刺
+
+        //TODO：有障碍物时 缩小攻击范围，使其重新搜索玩家 或 进入待机状态
+
+
+        Vector3 rayDirection = firstDetectPosition - EnemyTransform.position;
+        Vector3 detectRayPosition = EnemyTransform.position + 0.5f*rayDirection.normalized;
+        RaycastHit2D hit = Physics2D.Raycast(detectRayPosition, rayDirection, 10.0f, LayerMask.GetMask("Default"));
+        if (hit.collider != null && hit.collider.name == "PlayerCircleDetect")
         {
-            if((EnemyTransform.position - firstDetectPosition).sqrMagnitude<0.5f)
-            {
-                finishAttack = true;
-                Debug.Log("Melee_attack_finish");
-            }
+            EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
         }
+        else
+        {
+            Debug.Log(hit.collider.name);
+        }
+        if ((EnemyTransform.position - firstDetectPosition).sqrMagnitude < 0.5f)
+        {
+            finishAttack = true;
+            Debug.Log("Melee_attack_finish");
+        }
+
     }
 }
