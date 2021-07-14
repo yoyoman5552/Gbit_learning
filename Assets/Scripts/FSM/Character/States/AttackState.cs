@@ -10,6 +10,7 @@ public class AttackState : FSMState
         stateID = FSMStateID.Attack;
         //        throw new System.NotImplementedException();
         shootTimeGap = initShootTimeGap;
+        
     }
     public override void EnterState(FSMBase fsm)
     {
