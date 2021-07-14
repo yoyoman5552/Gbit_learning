@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public GameObject talkWindow;
     [Tooltip("物品信息UI")]
     public GameObject PopUpWindow;
+    [Tooltip("目标UI")]
+    public GameObject targetUI;
     //背包UI列表
     [HideInInspector]
     public Image[] bagUIList;
