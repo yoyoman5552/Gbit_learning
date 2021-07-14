@@ -14,8 +14,10 @@ public class AttackState : FSMState
     private float meleeTimer;
     private float initMeleeTimer = 5.0f;
     private float AttackEndTimer;
-    private float initAttackEndTimer = 5.0f;
-
+    private float initAttackEndTimer = 2.0f;
+    
+    //用于暂存初始攻击距离的变量
+    private float attackArea = 3;
 
 
     public override void Init()
@@ -29,6 +31,7 @@ public class AttackState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         Debug.Log("attack state in");
+       
     }
     public override void ActionState(FSMBase fsm)
     {
@@ -81,6 +84,7 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         Debug.Log("attack state out");
+        
     }
 
     //远程攻击
@@ -137,7 +141,10 @@ public class AttackState : FSMState
         }
         */
     }
+    private void sprintPlayerDetect()
+    {
 
+    }
 
     //近战
     private void Melee(FSMBase fsm)
@@ -162,15 +169,7 @@ public class AttackState : FSMState
 
         Vector3 rayDirection = firstDetectPosition - EnemyTransform.position;
         Vector3 detectRayPosition = EnemyTransform.position + 0.5f*rayDirection.normalized;
-        RaycastHit2D hit = Physics2D.Raycast(detectRayPosition, rayDirection, 10.0f, LayerMask.GetMask("Default"));
-        if (hit.collider != null && hit.collider.name == "PlayerCircleDetect")
-        {
-            EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
-        }
-        else
-        {
-            Debug.Log(hit.collider.name);
-        }
+        EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
         if ((EnemyTransform.position - firstDetectPosition).sqrMagnitude < 0.5f)
         {
             finishAttack = true;
