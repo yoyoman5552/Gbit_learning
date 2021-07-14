@@ -69,7 +69,8 @@ public class GameManager : MonoBehaviour
             room.SetActive(false);
         }
         //FIXME:选择初始房间
-        ChangeRoom(roomList.Find(s=>s.name=="Room1"), Vector3.zero);
+        GameObject firstRoom = roomList.Find(s => s.name == "Room1");
+        ChangeRoom(firstRoom, this.transform.Find("StartPos").position);
     }
     /// <summary>
     /// 切换房间
@@ -119,6 +120,7 @@ public class GameManager : MonoBehaviour
         //切换房间
         if (currentRoom != null)
             currentRoom.SetActive(false);
+
         targetRoom.SetActive(true);
         currentRoom = targetRoom;
         //人物位置设置
