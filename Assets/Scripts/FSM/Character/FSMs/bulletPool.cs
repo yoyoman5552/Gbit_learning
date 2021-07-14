@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//������Ļ�����
+//
 public class bulletPool : MonoBehaviour
 {
     public static bulletPool bulletPoolInstance;
     public GameObject bulletPrefab;
     private List<GameObject> bulletObjects = new List<GameObject>();
-    public int bulletAmount;
+    private int bulletAmount = 0;
+    public int initBulletAmount;
+    private bool destroying;
     private void Awake()
     {
         if (bulletPoolInstance != null)
@@ -21,12 +23,7 @@ public class bulletPool : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < bulletAmount; i++)
-        {
-            GameObject bulletCreate = Instantiate(bulletPrefab);
-            bulletCreate.SetActive(false);
-            bulletObjects.Add(bulletCreate);
-        }
+        initBulletPool();
     }
 
     // Update is called once per frame
@@ -34,19 +31,54 @@ public class bulletPool : MonoBehaviour
     {
 
     }
+    private void initBulletPool()
+    {
+        if(bulletAmount!=0)
+        {
+
+        }
+        bulletAmount = initBulletAmount;
+        for (int i = 0; i < bulletAmount; i++)
+        {
+            GameObject bulletCreate = Instantiate(bulletPrefab);
+            bulletCreate.SetActive(false);
+            bulletObjects.Add(bulletCreate);
+        }
+        destroying = false;
+    }
 
     public GameObject askForBullet()
     {
-        for (int i = 0; i < bulletAmount; i++)
+        if (!destroying)
         {
-            if (!bulletObjects[i].activeInHierarchy)
+            for (int i = 0; i < bulletAmount; i++)
             {
-                return bulletObjects[i];
+                if (!bulletObjects[i].activeInHierarchy)
+                {
+                    return bulletObjects[i];
+                }
             }
+            GameObject newBullet = Instantiate(bulletPrefab);
+            bulletObjects.Add(newBullet);
+            bulletAmount++;
+            //print(bulletObjects.Count);
+            return newBullet;
         }
-        GameObject newBullet = Instantiate(bulletPrefab);
-        bulletObjects.Add(newBullet);
-        return newBullet;
+        return null;
+    }
+    public void DestroyBulletsInPool()
+    {
+        destroying = true;
+        int lenght = bulletAmount;
+        for (int i = 0; i < lenght; i++)
+        {
+            GameObject bulletDestroy = bulletObjects[bulletAmount-1];
+            bulletObjects.Remove(bulletObjects[bulletAmount-1]);
+            Destroy(bulletDestroy);
+            bulletAmount--;
+
+        }
+        initBulletPool();
     }
 }
 

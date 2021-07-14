@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = playerPos;
         //房间初始化
         RoomInit();
+        
     }
     private void RoomInit()
     {
@@ -136,5 +137,6 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.LeftDownTF = roomDetail.Find("GridLimit").Find("LeftDownPos");
         GridManager.Instance.RightUpTF = roomDetail.Find("GridLimit").Find("RightUpPos");
         GridManager.Instance.Init();
+        bulletPool.bulletPoolInstance.DestroyBulletsInPool();
     }
 }
