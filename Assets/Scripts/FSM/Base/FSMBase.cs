@@ -42,6 +42,14 @@ public abstract class FSMBase : MonoBehaviour {
     [HideInInspector]
     public Vector3 moveVelocity;
 
+    //近战攻击方式:true为冲刺，false为冲刺后的近战
+    [HideInInspector]
+    public bool meleeAttackStyle;
+
+    [Tooltip("是否远程攻击")]
+    public bool AttackStyle;
+
+
     //TODO:是否需要给敌人设置一个巡逻范围：只会在巡逻范围内随机选择点来巡逻
     /*     [Tooltip("巡逻范围,以左下点和右上点为主")]
         public Transform[] patrolTFs; */
