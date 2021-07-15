@@ -10,6 +10,7 @@ public class BossDeadState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
+        Debug.Log("Dead");
     }
     public override void ActionState(FSMBase fsm)
     {

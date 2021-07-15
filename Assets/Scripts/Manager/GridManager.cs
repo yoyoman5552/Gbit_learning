@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class GridManager : MonoBehaviour
-{
+{ 
     [Header("公共变量")]
     [Tooltip("网格大小")]
     public float cellsize = 1;

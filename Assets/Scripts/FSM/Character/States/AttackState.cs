@@ -15,7 +15,7 @@ public class AttackState : FSMState
     private float initMeleeTimer = 5.0f;
     private float AttackEndTimer;
     private float initAttackEndTimer = 2.0f;
-    
+
     //用于暂存初始攻击距离的变量
     private float attackArea = 3;
 
@@ -31,11 +31,11 @@ public class AttackState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         Debug.Log("attack state in");
-       
+
     }
     public override void ActionState(FSMBase fsm)
     {
-        
+
         //TODO:远程攻击方法：现在为测试近战，暂时取消
         if (!hadShoot)
         {
@@ -45,7 +45,7 @@ public class AttackState : FSMState
         else
         {
             shootTimeGap -= Time.deltaTime;
-            if(shootTimeGap<=0)
+            if (shootTimeGap <= 0)
             {
                 shootTimeGap = initShootTimeGap;
                 hadShoot = false;
@@ -55,10 +55,10 @@ public class AttackState : FSMState
 
 
         //近战攻击方法
-        if(finishAttack)
+        if (finishAttack)
         {
             meleeTimer -= Time.deltaTime;
-            if(meleeTimer<=0)
+            if (meleeTimer <= 0)
             {
                 meleeTimer = initMeleeTimer;
                 finishAttack = false;
@@ -72,7 +72,7 @@ public class AttackState : FSMState
             //TODO:短暂蓄力
             Melee(fsm);
             AttackEndTimer -= Time.deltaTime;
-            if(AttackEndTimer<=0)
+            if (AttackEndTimer <= 0)
             {
                 finishAttack = true;
                 AttackEndTimer = initAttackEndTimer;
@@ -84,7 +84,7 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         Debug.Log("attack state out");
-        
+
     }
 
     //远程攻击
@@ -96,17 +96,18 @@ public class AttackState : FSMState
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
         //if (playerTransform == null) Debug.Log(1);
-        GameObject bullet = bulletPool.bulletPoolInstance.askForBullet();
+        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
+        //BulletPool.bulletPoolInstance.askForBullet();
         if (bullet != null)
         {
             bullet.SetActive(true);
             bullet.transform.position = enemyTransform.position;
-            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position-enemyTransform.position);
+            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - enemyTransform.position, 2f);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
 
         //多线弹幕初步测试
-        
+
         //偏转角度
         /*
         float offsetRight = 270;
@@ -168,7 +169,7 @@ public class AttackState : FSMState
 
 
         Vector3 rayDirection = firstDetectPosition - EnemyTransform.position;
-        Vector3 detectRayPosition = EnemyTransform.position + 0.5f*rayDirection.normalized;
+        Vector3 detectRayPosition = EnemyTransform.position + 0.5f * rayDirection.normalized;
         EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
         if ((EnemyTransform.position - firstDetectPosition).sqrMagnitude < 0.5f)
         {

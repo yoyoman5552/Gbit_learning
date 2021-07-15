@@ -41,6 +41,8 @@ public abstract class FSMBase : MonoBehaviour {
     //移动方向
     [HideInInspector]
     public Vector3 moveVelocity;
+    [HideInInspector]
+    public IAttack attackWay;
 
     //TODO:是否需要给敌人设置一个巡逻范围：只会在巡逻范围内随机选择点来巡逻
     /*     [Tooltip("巡逻范围,以左下点和右上点为主")]

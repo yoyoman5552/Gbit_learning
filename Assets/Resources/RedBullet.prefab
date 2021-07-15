@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6914994498268103227}
   - component: {fileID: 8485331726889017935}
   m_Layer: 0
-  m_Name: "\u5B50\u5F39"
+  m_Name: RedBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.65, y: 1.5}
+    oldSize: {x: 0.66, y: 0.6}
     newSize: {x: 1.65, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -145,5 +145,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c04db95ca261b14a88c10b8a5bb833c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 200
-  initSetBulletFalseTimer: 1
+  initSetBulletFalseTimer: 20

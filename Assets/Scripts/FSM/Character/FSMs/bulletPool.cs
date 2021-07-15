@@ -1,15 +1,16 @@
-using System.Collections;
+/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //
-public class bulletPool : MonoBehaviour
+public class BulletPool : MonoBehaviour
 {
-    public static bulletPool bulletPoolInstance;
-    public GameObject bulletPrefab;
+    public static BulletPool bulletPoolInstance;
+    public GameObject[] bulletPrefabs;
     private List<GameObject> bulletObjects = new List<GameObject>();
-    private int bulletAmount = 0;
-    public int initBulletAmount;
+    private Dictionary<GameObject, List<GameObject>> map;
+    //    private int bulletAmount = 0;
+    //    public int initBulletAmount;
     private bool destroying;
     private void Awake()
     {
@@ -33,35 +34,40 @@ public class bulletPool : MonoBehaviour
     }
     private void initBulletPool()
     {
-        if(bulletAmount!=0)
-        {
+        /*         if (bulletAmount != 0)
+                {
 
-        }
-        bulletAmount = initBulletAmount;
-        for (int i = 0; i < bulletAmount; i++)
-        {
-            GameObject bulletCreate = Instantiate(bulletPrefab);
-            bulletCreate.SetActive(false);
-            bulletObjects.Add(bulletCreate);
-        }
+                }
+                bulletAmount = initBulletAmount;
+         */        /*         for (int i = 0; i < bulletAmount; i++)
+                        {
+                            GameObject bulletCreate = Instantiate(bulletPrefab);
+                            bulletCreate.SetActive(false);
+                            bulletObjects.Add(bulletCreate);
+                        }
+                 *//*
+        map = new Dictionary<GameObject, List<GameObject>>();
         destroying = false;
     }
 
-    public GameObject askForBullet()
+    public GameObject askForBullet(GameObject obj)
     {
         if (!destroying)
         {
-            for (int i = 0; i < bulletAmount; i++)
-            {
-                if (!bulletObjects[i].activeInHierarchy)
-                {
-                    return bulletObjects[i];
-                }
-            }
-            GameObject newBullet = Instantiate(bulletPrefab);
-            bulletObjects.Add(newBullet);
-            bulletAmount++;
-            //print(bulletObjects.Count);
+            
+            /*             GameObject target = bulletObjects.Find(s => s.activeInHierarchy && s == obj);
+                        for (int i = 0; i < bulletAmount; i++)
+                        {
+                            if (!bulletObjects[i].activeInHierarchy)
+                            {
+                                return bulletObjects[i];
+                            }
+                        }
+                        GameObject newBullet = Instantiate(bulletPrefab);
+                        bulletObjects.Add(newBullet);
+                        bulletAmount++;
+                        //print(bulletObjects.Count);
+             *//*
             return newBullet;
         }
         return null;
@@ -72,8 +78,8 @@ public class bulletPool : MonoBehaviour
         int lenght = bulletAmount;
         for (int i = 0; i < lenght; i++)
         {
-            GameObject bulletDestroy = bulletObjects[bulletAmount-1];
-            bulletObjects.Remove(bulletObjects[bulletAmount-1]);
+            GameObject bulletDestroy = bulletObjects[bulletAmount - 1];
+            bulletObjects.Remove(bulletObjects[bulletAmount - 1]);
             Destroy(bulletDestroy);
             bulletAmount--;
 
@@ -82,3 +88,4 @@ public class bulletPool : MonoBehaviour
     }
 }
 
+ */

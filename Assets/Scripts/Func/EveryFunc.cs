@@ -40,9 +40,7 @@ namespace EveryFunc
         BossDead,
         //炮台相关
         BatteryIdle,
-        BatteryAttackOne,
-        BatteryAttackTwo,
-        BatteryAttackThree
+        BatteryAttack
     }
     public enum BatteryAttackType
     {
@@ -84,6 +82,8 @@ namespace EveryFunc
         public static float HurtedTime = 0.2f;
         [Tooltip("炮塔数量")]
         public static int batteryCount = 4;
+        [Tooltip("时钟的插值")]
+        public static int ClockRatio=30;
     }
     /// <summary>
     /// 通用方法

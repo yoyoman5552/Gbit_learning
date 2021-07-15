@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 public class BatteryIdleState : FSMState
 {
+    BatteryFSM batteryFSM;
     public override void Init()
     {
         stateID = FSMStateID.BatteryIdle;
@@ -10,6 +11,7 @@ public class BatteryIdleState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
+        batteryFSM = fsm.GetComponent<BatteryFSM>();
     }
     public override void ActionState(FSMBase fsm)
     {
