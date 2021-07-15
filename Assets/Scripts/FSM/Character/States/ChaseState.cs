@@ -6,7 +6,7 @@ public class ChaseState : FSMState {
     //FIXME:人物撞墙，追击状态有点问题
     private List<PathNode> pathList;
     private Vector3 nextPos;
-    private float defaultAttackArea = 3;
+    private float defaultAttackArea;
     private bool firstGetAttackArea = true;
     public override void Init () {
         stateID = FSMStateID.Chase;
@@ -20,7 +20,7 @@ public class ChaseState : FSMState {
     {
         if(firstGetAttackArea)
         {
-            //defaultAttackArea = fsm.attackRadius;
+            defaultAttackArea = fsm.attackRadius;
             firstGetAttackArea = false;
         }
         Debug.Log ("chase state in");
