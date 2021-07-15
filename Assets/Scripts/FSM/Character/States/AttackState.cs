@@ -2,45 +2,85 @@ using EveryFunc;
 using UnityEngine;
 public class AttackState : FSMState
 {
+
     //攻击间隔：远程攻击变量
+        //子弹发射攻速
     private float initShootTimeGap = 0.4f;
     private float shootTimeGap;
+        //判断当前是否已经发射子弹
     private bool hadShoot = false;
 
+
     //近战攻击变量
+    //近战攻击：冲刺后近身攻击，当玩家与怪物距离至某一段距离时，恢复冲刺判断
     private bool firstDetectPlayer = true;
+
+        //冲刺终点
     private Vector3 firstDetectPosition;
-    private bool finishAttack = false;
-    private float meleeTimer;
-    private float initMeleeTimer = 5.0f;
+
+        //冲刺是否结束
+    private bool finishAttack = true;
+
+        //冲刺技能加载时间//可加感叹号供玩家反应
+    private float sprintTimer;
+    private float initSprintTimer = 2.5f;
+
+
+
+        //防止在冲刺状态中被卡住后无法再次冲刺
     private float AttackEndTimer;
     private float initAttackEndTimer = 2.0f;
 
-    //用于暂存初始攻击距离的变量
-    private float attackArea = 3;
+        //冲刺后的近战普通攻击的加载时间
+    private float meleeTimer;
+    private float initMeleeTimer = 0.5f;
+    //private bool hadMelee = false;
+
+
 
 
     public override void Init()
     {
         stateID = FSMStateID.Attack;
         //        throw new System.NotImplementedException();
+
+        //倒计时变量的初始化
         shootTimeGap = initShootTimeGap;
-        meleeTimer = initMeleeTimer;
+        sprintTimer = initSprintTimer;
         AttackEndTimer = initAttackEndTimer;
+        meleeTimer = initMeleeTimer;
     }
     public override void EnterState(FSMBase fsm)
     {
         Debug.Log("attack state in");
-
+       
     }
     public override void ActionState(FSMBase fsm)
     {
+               
+        if(fsm.AttackStyle)
+        {
+            RemoteAttack(fsm);
+        }
+        else
+        {
+            MeleeAttack(fsm);
+        }
+        
+    }
+    public override void ExitState(FSMBase fsm)
+    {
+        Debug.Log("attack state out");
+        
+    }
 
-        //TODO:远程攻击方法：现在为测试近战，暂时取消
+    //远程攻击接口
+    private void RemoteAttack(FSMBase fsm)
+    {
         if (!hadShoot)
         {
             hadShoot = true;
-            //remoteAttack(fsm);
+            remoteAttack_Achieve(fsm);
         }
         else
         {
@@ -51,26 +91,35 @@ public class AttackState : FSMState
                 hadShoot = false;
             }
         }
+    }
+    //近战攻击接口
+    private void MeleeAttack(FSMBase fsm)
+    {
+        //近战攻击方法：冲刺撞击玩家后对玩家进行近身攻击
 
-
-
-        //近战攻击方法
+        //冲刺
         if (finishAttack)
         {
-            meleeTimer -= Time.deltaTime;
-            if (meleeTimer <= 0)
+
+            if (fsm.meleeAttackStyle)
             {
-                meleeTimer = initMeleeTimer;
-                finishAttack = false;
-                //重新检测玩家位置
-                firstDetectPlayer = true;
+                //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
+                //TODO:加标志
+                sprintTimer -= Time.deltaTime;
+                if (sprintTimer <= 0)
+                {
+                    sprintTimer = initSprintTimer;
+                    finishAttack = false;
+                    //重新检测玩家位置
+                    firstDetectPlayer = true;
+                }
             }
         }
         else
         {
-            //敌人短暂蓄力后突进
-            //TODO:短暂蓄力
-            Melee(fsm);
+            Sprint_Achieve(fsm);
+
+            //防止冲刺失败后无法重置冲刺
             AttackEndTimer -= Time.deltaTime;
             if (AttackEndTimer <= 0)
             {
@@ -79,49 +128,59 @@ public class AttackState : FSMState
             }
         }
 
-
+        //冲刺后的近身攻击
+        if (!fsm.meleeAttackStyle)
+        {
+            if (meleeTimer <= 0)
+            {
+                melee();
+                meleeTimer = initMeleeTimer;
+            }
+            meleeTimer -= Time.deltaTime;
+        }
     }
-    public override void ExitState(FSMBase fsm)
+    //远程攻击实现
+    private void remoteAttack_Achieve(FSMBase fsm)
     {
-        Debug.Log("attack state out");
-
-    }
-
-    //远程攻击
-    private void remoteAttack(FSMBase fsm)
-    {
-        //寻找主人  //暂时
+        //寻找主人  
         Transform enemyTransform = fsm.transform;
-
+        
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
         //if (playerTransform == null) Debug.Log(1);
-        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
-        //BulletPool.bulletPoolInstance.askForBullet();
+        GameObject bullet = bulletPool.bulletPoolInstance.askForBullet();
         if (bullet != null)
         {
             bullet.SetActive(true);
             bullet.transform.position = enemyTransform.position;
-            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - enemyTransform.position, 2f);
+            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position-enemyTransform.position);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
 
+        //发射多条弹幕
+        #region description
         //多线弹幕初步测试
 
-        //偏转角度
         /*
-        float offsetRight = 270;
-        float offsetLeft = -270;
+        //偏转角度
+        
+        float offsetRight = 15;
+        float offsetLeft = -15;
+        
         GameObject leftBullet = bulletPool.bulletPoolInstance.askForBullet();
         if(leftBullet!=null)
         {
             leftBullet.SetActive(true);
             leftBullet.transform.position = enemyTransform.position;
             Vector3 fireDiretion = playerTransform.position - enemyTransform.position;
+            fireDiretion = fireDiretion.normalized;
+            
             float addAngleX = fireDiretion.x;
             float addAngleY = fireDiretion.y;
-            fireDiretion.x = addAngleX * Mathf.Cos(offsetLeft) + addAngleY * Mathf.Sin(offsetLeft);
-            fireDiretion.y = addAngleX * Mathf.Sin(-offsetLeft) + addAngleY * Mathf.Cos(offsetLeft);
+
+            fireDiretion.x = addAngleX * Mathf.Cos(offsetLeft*Mathf.Deg2Rad) + addAngleY * Mathf.Sin(offsetLeft * Mathf.Deg2Rad);
+            fireDiretion.y = addAngleX * -Mathf.Sin(offsetLeft * Mathf.Deg2Rad) + addAngleY * Mathf.Cos(offsetLeft * Mathf.Deg2Rad);
+
             //fireDiretion = (leftQuaternion + nowRotation).eulerAngles;
             leftBullet.GetComponent<bulletController>().bulletFire(fireDiretion);
             //playerTransform.up*leftQuaternion
@@ -134,21 +193,19 @@ public class AttackState : FSMState
             Vector3 fireDiretion = playerTransform.position - enemyTransform.position;
             float addAngleX = fireDiretion.x;
             float addAngleY = fireDiretion.y;
-            fireDiretion.x = addAngleX * Mathf.Cos(offsetRight) + addAngleY * Mathf.Sin(offsetRight);
-            fireDiretion.y = addAngleX * Mathf.Sin(-offsetRight) + addAngleY * Mathf.Cos(offsetRight);
+            fireDiretion.x = addAngleX * Mathf.Cos(offsetRight * Mathf.Deg2Rad) + addAngleY * Mathf.Sin(offsetRight * Mathf.Deg2Rad);
+            fireDiretion.y = addAngleX * -Mathf.Sin(offsetRight * Mathf.Deg2Rad) + addAngleY * Mathf.Cos(offsetRight * Mathf.Deg2Rad);
             //fireDiretion = (leftQuaternion + nowRotation).eulerAngles;
             rightBullet.GetComponent<bulletController>().bulletFire(fireDiretion);
             //playerTransform.up*leftQuaternion
         }
         */
-    }
-    private void sprintPlayerDetect()
-    {
-
+        #endregion
     }
 
-    //近战
-    private void Melee(FSMBase fsm)
+
+    //冲刺实现
+    private void Sprint_Achieve(FSMBase fsm)
     {
         //RaycastHit2D ray = Physics2D.
         Transform EnemyTransform = fsm.transform;
@@ -167,15 +224,26 @@ public class AttackState : FSMState
 
         //TODO：有障碍物时 缩小攻击范围，使其重新搜索玩家 或 进入待机状态
 
+        //实现方法：通过chaseState中增加射线检测碰撞实现
+
 
         Vector3 rayDirection = firstDetectPosition - EnemyTransform.position;
-        Vector3 detectRayPosition = EnemyTransform.position + 0.5f * rayDirection.normalized;
+        Vector3 detectRayPosition = EnemyTransform.position + 0.5f*rayDirection.normalized;
         EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
         if ((EnemyTransform.position - firstDetectPosition).sqrMagnitude < 0.5f)
         {
+            fsm.attackRadius = 1.0f;
+            fsm.meleeAttackStyle = false;
             finishAttack = true;
-            Debug.Log("Melee_attack_finish");
+            Debug.Log("Sprint_attack_finish");
         }
+
+    }
+    
+    private void melee()
+    {
+        //TODO:近战攻击动画
+        //玩家受伤
 
     }
 }
