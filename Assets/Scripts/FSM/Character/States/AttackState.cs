@@ -52,7 +52,7 @@ public class AttackState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
-        Debug.Log("attack state in");
+       // Debug.Log("attack state in");
 
     }
     public override void ActionState(FSMBase fsm)
@@ -70,7 +70,7 @@ public class AttackState : FSMState
     }
     public override void ExitState(FSMBase fsm)
     {
-        Debug.Log("attack state out");
+//        Debug.Log("attack state out");
 
     }
 
@@ -146,7 +146,7 @@ public class AttackState : FSMState
         Transform enemyTransform = fsm.transform;
 
         //寻找玩家
-        Transform playerTransform = GameManager.Instance.player.transform;
+        Transform playerTransform = fsm.targetTF;
         //if (playerTransform == null) Debug.Log(1);
         GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
         if (bullet != null)

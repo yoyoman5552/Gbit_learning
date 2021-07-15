@@ -13,17 +13,14 @@ public class ChaseState : FSMState {
         //        throw new System.NotImplementedException();
     }
 
-
     //玩家与敌人间距离
     private float Distance;
-    public override void EnterState (FSMBase fsm) 
-    {
-        if(firstGetAttackArea)
-        {
+    public override void EnterState (FSMBase fsm) {
+        if (firstGetAttackArea) {
             defaultAttackArea = fsm.attackRadius;
             firstGetAttackArea = false;
         }
-        Debug.Log ("chase state in");
+        // Debug.Log ("chase state in");
         //fsm.isDoneChase = false;
         fsm.m_speed = fsm.chaseSpeed;
         pathList = GridManager.Instance.FindPath (fsm.transform.position, fsm.targetTF.position);
@@ -32,15 +29,14 @@ public class ChaseState : FSMState {
             nextPos = GridManager.Instance.GetWorldCenterPosition (pathList[1].x, pathList[1].y);
             fsm.MovePosition (nextPos);
         }
-        Debug.Log ("pathList count:" + pathList.Count + ",nextPos:" + nextPos);
+        // Debug.Log ("pathList count:" + pathList.Count + ",nextPos:" + nextPos);
         /*  else {
                     fsm.isDoneChase = true;
                 }
          */
     }
-    public override void ActionState (FSMBase fsm) 
-    {
-        
+    public override void ActionState (FSMBase fsm) {
+
         //如果到达位置
         pathList = GridManager.Instance.FindPath (fsm.transform.position, fsm.targetTF.position);
         //没有方法抵达
@@ -55,35 +51,25 @@ public class ChaseState : FSMState {
         nextPos = GridManager.Instance.GetWorldCenterPosition (pathList[1].x, pathList[1].y);
         fsm.MovePosition (nextPos);
 
-
         //近战攻击的改进：冲刺路径上有障碍物时，缩小攻击检测距离使敌人重新寻找新路径，当路径上没有障碍物时，恢复初始攻击距离
         //射线检测
         //近战攻击状态为冲刺状态时检测
-        if (fsm.meleeAttackStyle)
-        {
-            if (rayDetect(fsm))
-            {
+        if (fsm.meleeAttackStyle) {
+            if (rayDetect (fsm)) {
                 fsm.attackRadius = defaultAttackArea;
-            }
-            else
-            {
+            } else {
                 fsm.attackRadius = 0;
             }
         }
 
-
         //距离检测
-        if (!fsm.meleeAttackStyle)
-        {
-            Distance = detectDistance(fsm);
-            if (Distance >= defaultAttackArea-0.5f)
-            {
+        if (!fsm.meleeAttackStyle) {
+            Distance = detectDistance (fsm);
+            if (Distance >= defaultAttackArea - 0.5f) {
                 //Debug.Log(defaultAttackArea);
                 fsm.attackRadius = defaultAttackArea;
                 fsm.meleeAttackStyle = true;
-            }
-            else
-            {
+            } else {
                 fsm.attackRadius = 1.0f;
             }
         }
@@ -91,31 +77,29 @@ public class ChaseState : FSMState {
 
     public override void ExitState (FSMBase fsm) {
         //fsm.isDoneChase = false;
+        fsm.attackRadius = defaultAttackArea;
         fsm.StopPosition ();
-       
-        
+
     }
 
-    private float detectDistance(FSMBase fsm)
-    {
+    private float detectDistance (FSMBase fsm) {
         Transform Player = GameManager.Instance.player.transform;
         Transform meleeEnemy = fsm.transform;
-        Debug.Log(Mathf.Sqrt((Player.position - meleeEnemy.position).sqrMagnitude));
-        return (Mathf.Sqrt((Player.position - meleeEnemy.position).sqrMagnitude));
+        //Debug.Log (Mathf.Sqrt ((Player.position - meleeEnemy.position).sqrMagnitude));
+        return (Mathf.Sqrt ((Player.position - meleeEnemy.position).sqrMagnitude));
     }
 
-    private bool rayDetect(FSMBase fsm)
-    {
-        Vector3 rayDirection = GameManager.Instance.player.transform.position - fsm.transform.position;
+    private bool rayDetect (FSMBase fsm) {
+        Vector3 rayDirection = fsm.targetTF.position - fsm.transform.position;
         Vector3 detectRayPosition = fsm.transform.position + 0.5f * rayDirection.normalized;
-        RaycastHit2D hit = Physics2D.Raycast(detectRayPosition, rayDirection, 10.0f, LayerMask.GetMask("Default"));
-        if (hit.collider != null && hit.collider.name == "PlayerCircleDetect")
-        {
-            return true;  
-        }
-        else
-        {
-            return false;   
+        RaycastHit2D hit = Physics2D.Raycast (detectRayPosition, rayDirection, 10.0f, LayerMask.GetMask ("Default"));
+        /*         if (hit.collider != null)
+                    Debug.Log ("hit:" + hit.collider.name);
+         */
+        if (hit.collider != null && hit.collider.name == "PlayerCircleDetect") {
+            return true;
+        } else {
+            return false;
         }
     }
 }

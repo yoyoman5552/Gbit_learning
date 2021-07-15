@@ -35,6 +35,7 @@ namespace EveryFunc.FSM {
             chase.addMap (FSMTriggerID.TargetGet, FSMStateID.Attack);
             //TODO:attack和Dead
             //attack的映射
+            attack.addMap (FSMTriggerID.GetHurted, FSMStateID.Hurted);
             attack.addMap (FSMTriggerID.TargetLost, FSMStateID.Idle);
             attack.addMap (FSMTriggerID.OutOfAttackRange, FSMStateID.Chase);
 
@@ -44,7 +45,7 @@ namespace EveryFunc.FSM {
             statesList.Add (chase);
             statesList.Add (attack);
             statesList.Add (hurted);
-
+            
         }
     }
 }
