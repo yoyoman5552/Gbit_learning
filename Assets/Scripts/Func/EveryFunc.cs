@@ -32,7 +32,22 @@ namespace EveryFunc
         Attack,
         Chase,
         Hurted,
-        Dead
+        Dead,
+        //Boss相关
+        BossIdle,
+        BossWeak,
+        BossAttack,
+        BossDead,
+        //炮台相关
+        BatteryIdle,
+        BatteryAttackOne,
+        BatteryAttackTwo,
+        BatteryAttackThree
+    }
+    public enum BatteryAttackType
+    {
+        Core_UnFollow_Sector,
+        Core_Follow_One
     }
     public enum FSMTriggerID
     {
@@ -43,7 +58,11 @@ namespace EveryFunc
         TargetGet,
         TargetLost,
         OutOfAttackRange,
-        GetHurted
+        GetHurted,
+        Dead,
+        //Boss相关
+        BossHurtedDone,
+        BossWeakDone
     }
     public enum BreakLevel
     {
@@ -63,6 +82,8 @@ namespace EveryFunc
         public static float g = -20f;
         [Tooltip("受击时间")]
         public static float HurtedTime = 0.2f;
+        [Tooltip("炮塔数量")]
+        public static int batteryCount = 4;
     }
     /// <summary>
     /// 通用方法
