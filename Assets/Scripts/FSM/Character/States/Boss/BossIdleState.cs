@@ -15,6 +15,10 @@ public class BossIdleState : FSMState
     }
     public override void ActionState(FSMBase fsm)
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            fsm.ChangeActiveState(FSMStateID.BossAttack);
+        }
     }
     public override void ExitState(FSMBase fsm)
     {

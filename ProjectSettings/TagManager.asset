@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Interactive
   - QuickInteractive
+  - Room
+  - Wall
+  - UI
+  - Enemy
+  - Breakable
+  - Ground
   layers:
   - Default
   - TransparentFX

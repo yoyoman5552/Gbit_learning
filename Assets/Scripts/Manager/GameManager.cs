@@ -137,6 +137,6 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.LeftDownTF = roomDetail.Find("GridLimit").Find("LeftDownPos");
         GridManager.Instance.RightUpTF = roomDetail.Find("GridLimit").Find("RightUpPos");
         GridManager.Instance.Init();
-        bulletPool.bulletPoolInstance.DestroyBulletsInPool();
+        //BulletPool.bulletPoolInstance.DestroyBulletsInPool();
     }
 }

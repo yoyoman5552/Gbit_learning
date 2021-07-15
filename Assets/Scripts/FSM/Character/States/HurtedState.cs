@@ -17,6 +17,7 @@ public class HurtedState : FSMState
     {
         base.EnterState(fsm);
         hurtedTimer = fsm.hurtedTime;
+        //fsm.material.SetFloat("FlushAmount",1f);
         //播放待机动画
         //            fsm.animator.SetBool()
     }
@@ -33,6 +34,7 @@ public class HurtedState : FSMState
 
     public override void ExitState(FSMBase fsm)
     {
+        //fsm.material.SetFloat("FlushAmount",0f);
         //删除映射
         ClearAll();
     }
