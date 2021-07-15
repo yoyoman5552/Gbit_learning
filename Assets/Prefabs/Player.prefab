@@ -384,6 +384,9 @@ MonoBehaviour:
   lightStrength: 0.015
   heavyPause: 12
   heavyStrength: 0.065
+  attackInterval: 0.7
+  comboStep: 0
+  timer: 0
 --- !u!61 &1176573137242192439
 BoxCollider2D:
   m_ObjectHideFlags: 0
