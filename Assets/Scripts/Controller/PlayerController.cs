@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public float autoHealInterval = 1f;
     //跳跃时间
     public float smoothTime = 0.5f;
+    [Tooltip("玩家是否会死亡")]
+    public bool playerWillDead;
 
     [Header("私有变量")]
 
@@ -102,6 +104,10 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (CheckDead())
+        {
+            return;
+        }
         //如果时间暂停了
         if (Time.timeScale == 0) return;
         //获取键盘输入
@@ -126,6 +132,13 @@ public class PlayerController : MonoBehaviour
         //受伤检测
         HurtedCheck();
     }
+
+    private bool CheckDead()
+    {
+        if (!playerWillDead) return false;
+        return m_hp <= 0;
+    }
+
     private void FixedUpdate()
     {
         //移动
