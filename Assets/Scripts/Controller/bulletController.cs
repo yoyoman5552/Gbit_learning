@@ -8,6 +8,8 @@ public class bulletController : MonoBehaviour
     private float setBulletFalseTimer;
     public float initSetBulletFalseTimer;
     private bool isShoot = false;
+    public int damage = 1;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,34 +24,35 @@ public class bulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isShoot)
+        if (isShoot)
         {
             setBulletFalseTimer -= Time.deltaTime;
-            if(setBulletFalseTimer<=0)
+            if (setBulletFalseTimer <= 0)
             {
-                
+
                 this.gameObject.SetActive(false);
                 initTimeFlag();
             }
         }
     }
-    public void bulletFire(Vector3 playerPosition,float bulletSpeed)
+    public void bulletFire(Vector3 playerPosition, float bulletSpeed)
     {
         isShoot = true;
         playerPosition = playerPosition.normalized;
         //this.transform.position = Vector3.Lerp(transform.position, playerPosition, bulletSpeed * Time.deltaTime);
-        if(rb!=null) rb.AddForce(playerPosition*bulletSpeed*ConstantList.speedPer);
+        if (rb != null) rb.AddForce(playerPosition * bulletSpeed * ConstantList.speedPer);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.CompareTag("Wall"))
+        if (collider.CompareTag("Wall"))
         {
             this.gameObject.SetActive(false);
             initTimeFlag();
-            
+
         }
-        else if(collision.CompareTag("Player"))
+        else if (collider.CompareTag("Player"))
         {
+            collider.GetComponent<PlayerController>().TakenDamage(damage, collider.transform.position - transform.position);
             this.gameObject.SetActive(false);
             initTimeFlag();
         }

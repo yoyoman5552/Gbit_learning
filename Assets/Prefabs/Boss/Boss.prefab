@@ -249,11 +249,15 @@ MonoBehaviour:
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
   attackWay: {fileID: 0}
+  meleeAttackStyle: 0
+  AttackStyle: 0
+  material: {fileID: 0}
   rb: {fileID: 0}
   targetTF: {fileID: 0}
   walkAble: 0
   m_speed: 0
   isHurted: 0
+  test_stateID: 0
   hurtedThreshold: 40
   m_hurtedCount: 0
   batteryArray:

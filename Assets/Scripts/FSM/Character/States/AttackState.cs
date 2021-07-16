@@ -35,7 +35,7 @@ public class AttackState : FSMState
     private float meleeTimer;
     private float initMeleeTimer = 0.5f;
     //private bool hadMelee = false;
-
+    private float originRadius;
 
 
 
@@ -45,15 +45,22 @@ public class AttackState : FSMState
         //        throw new System.NotImplementedException();
 
         //倒计时变量的初始化
-        shootTimeGap = initShootTimeGap;
-        sprintTimer = initSprintTimer;
-        AttackEndTimer = initAttackEndTimer;
-        meleeTimer = initMeleeTimer;
+        /*         shootTimeGap = initShootTimeGap;
+                sprintTimer = initSprintTimer;
+                AttackEndTimer = initAttackEndTimer;
+         */        //        meleeTimer = initMeleeTimer;
     }
     public override void EnterState(FSMBase fsm)
     {
-        Debug.Log("attack state in");
+        //翻转贴图方向
+        float dir = fsm.targetTF.position.x - fsm.transform.position.x;
+        fsm.textureClip(dir);
 
+        //        Debug.Log("attack state in");
+        meleeTimer = fsm.attackInterval;
+        shootTimeGap = fsm.attackInterval;
+        sprintTimer = initSprintTimer;
+        AttackEndTimer = initAttackEndTimer;
     }
     public override void ActionState(FSMBase fsm)
     {
@@ -66,11 +73,10 @@ public class AttackState : FSMState
         {
             MeleeAttack(fsm);
         }
-
     }
     public override void ExitState(FSMBase fsm)
     {
-        Debug.Log("attack state out");
+        //        Debug.Log("attack state out");
 
     }
 
@@ -87,7 +93,7 @@ public class AttackState : FSMState
             shootTimeGap -= Time.deltaTime;
             if (shootTimeGap <= 0)
             {
-                shootTimeGap = initShootTimeGap;
+                shootTimeGap = fsm.attackInterval;
                 hadShoot = false;
             }
         }
@@ -230,12 +236,22 @@ public class AttackState : FSMState
         Vector3 rayDirection = firstDetectPosition - EnemyTransform.position;
         Vector3 detectRayPosition = EnemyTransform.position + 0.5f * rayDirection.normalized;
         EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
-        if ((EnemyTransform.position - firstDetectPosition).sqrMagnitude < 0.5f)
+        if (Vector3.Distance(EnemyTransform.position, firstDetectPosition) < 0.5f)
         {
             fsm.attackRadius = 1.0f;
             fsm.meleeAttackStyle = false;
             finishAttack = true;
             Debug.Log("Sprint_attack_finish");
+        }
+        //攻击范围检测
+        var targetArray = Physics2D.OverlapCircleAll(fsm.transform.position, 1f);
+        foreach (var target in targetArray)
+        {
+            if (target.CompareTag("Player"))
+            {
+                target.GetComponent<PlayerController>().TakenDamage(fsm.damage, 4 * (target.transform.position - fsm.transform.position));
+                break;
+            }
         }
 
     }

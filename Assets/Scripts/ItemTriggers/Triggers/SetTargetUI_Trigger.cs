@@ -5,7 +5,7 @@ public class SetTargetUI_Trigger : ITrigger
     private Text targetText;
     private void Start()
     {
-        targetText = UIManager.Instance.targetUI.GetComponent<Text>();
+        targetText = UIManager.Instance.targetUI.GetComponentInChildren<Text>();
     }
     public override void Action()
     {

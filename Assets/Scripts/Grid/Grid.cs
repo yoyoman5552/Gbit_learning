@@ -6,7 +6,7 @@ using UnityEngine;
 public class Grid<TGridObject>
 {
     //是否要画线
-    private bool isDrawLine = false;
+    public bool isDrawLine = false;
     private int width;
     private int height;
     private float cellsize;
@@ -29,16 +29,16 @@ public class Grid<TGridObject>
                 gridArray[x, y] = createGridObject(this, x, y);
                 if (isDrawLine)
                 {
-                    debugTextArray[x, y] = EveryFunction.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellsize, cellsize) * 0.5f, 45, Color.white, TextAnchor.MiddleCenter, TextAlignment.Center);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+                    debugTextArray[x, y] = EveryFunction.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellsize, cellsize) * 0.5f, 45, Color.red, TextAnchor.MiddleCenter, TextAlignment.Center);
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.red, 100f);
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.red, 100f);
                 }
             }
         }
         if (isDrawLine)
         {
-            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
-            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
+            Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.red, 100f);
+            Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.red, 100f);
         }
     }
 

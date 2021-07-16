@@ -10,18 +10,19 @@ public class PlayerChildController : MonoBehaviour
     public float lightStrength;
     public int heavyPause;
     public float heavyStrength;
+    [Tooltip("伤害间隔")]
+    public float attackInterval = 0.4f;
     private BreakLevel attackType;
-    private bool isAttack;
+    [HideInInspector]
+    public bool isAttack;
     private int heavyAttack = 1;
     //private string attackType;
     private int comboStep = 0;
     private float timer;
-    private float interval = 2;
     private Animator playerAnimator;
     private SpriteRenderer mySprit;
     private PlayerController controller;
     //    private Vector3 childCorrectScale = new Vector3(1, 1, 1);
-    private bool hitOnce;
     private void Awake()
     {
         mySprit = GetComponent<SpriteRenderer>();
@@ -31,8 +32,7 @@ public class PlayerChildController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = interval;
-        hitOnce = false;
+        timer = attackInterval;
     }
 
     // Update is called once per frame
@@ -54,52 +54,47 @@ public class PlayerChildController : MonoBehaviour
 
 
             //缺少将hitonece = false玩家第二段攻击失效
-            hitOnce = false;
 
             isAttack = true;
             attackType = BreakLevel.easy;
-            comboStep++;
-            if (comboStep > 3)
-                comboStep = 1;
-            print(comboStep);
-            timer = interval;
             playerAnimator.SetTrigger("LightAttack");
-            playerAnimator.SetInteger("ComboStep", comboStep);
+            playerAnimator.SetInteger("ComboStep", comboStep + 1);
+            comboStep = (comboStep + 1) % 4;
         }
-        if (Input.GetKeyDown(KeyCode.K) && !isAttack)
-        {
+        /*         if (Input.GetKeyDown(KeyCode.K) && !isAttack)
+                {
 
-            hitOnce = false;
+                    hitOnce = false;
 
-            isAttack = true;
-            attackType = BreakLevel.hard;
-            playerAnimator.SetTrigger("HeavyAttack");
-            playerAnimator.SetInteger("ComboStep", heavyAttack);
-        }
-        if (timer != 0)
+                    isAttack = true;
+                    attackType = BreakLevel.hard;
+                    playerAnimator.SetTrigger("HeavyAttack");
+                    playerAnimator.SetInteger("ComboStep", heavyAttack);
+                } */
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                timer = 0;
-                comboStep = 0;
-            }
+        }
+        else if (timer > -10)
+        {
+            timer = -999;
+            comboStep = 0;
         }
     }
     public void AttackOver()
     {
+        timer = attackInterval;
         isAttack = false;
-        hitOnce = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((other.CompareTag("Breakable") || other.CompareTag("Enemy")) && !hitOnce)
+        if ((other.CompareTag("Breakable") || other.CompareTag("Enemy")))
         {
-            hitOnce = true;
             if (attackType == BreakLevel.easy)
             {
                 AttackSense.Instance.HitPause(lightPause);
                 AttackSense.Instance.CameraShake(shakeTime, lightStrength);
+
 
             }
             else if (attackType == BreakLevel.hard)
@@ -110,20 +105,20 @@ public class PlayerChildController : MonoBehaviour
 
             if (other.CompareTag("Enemy"))
             {
-                Debug.Log("触碰到Enemy");
-                if (mySprit.transform.localScale.x > 0)
-                    other.GetComponent<Enemy>().GetHit(Vector2.left);
-                else if (mySprit.transform.localScale.x <= 0)
-                    other.GetComponent<Enemy>().GetHit(Vector2.right);
+                other.GetComponent<FSMBase>().TakenDamage((int)attackType + 1, other.transform.position - this.transform.position);
+
+                /*                 if (mySprit.transform.localScale.x > 0)
+                                    other.GetComponent<Enemy>().GetHit(Vector2.left);
+                                else if (mySprit.transform.localScale.x <= 0)
+                                    other.GetComponent<Enemy>().GetHit(Vector2.right);
+                 */
             }
             if (other.CompareTag("Breakable"))
             {
-                Debug.Log("触碰到Interactive");
                 if (other.GetComponent<Breakable_Trigger>() != null)
                 {
                     BreakLevel level = other.GetComponent<Breakable_Trigger>().level;
                     //如果攻击比他强
-                    Debug.Log("attackType:" + (int)attackType + "," + (attackType >= level));
                     if ((int)attackType >= (int)level)
                         other.GetComponent<Breakable_Trigger>().Action();
                 }

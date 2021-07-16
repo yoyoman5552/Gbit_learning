@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using EveryFunc;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+//using UnityEngine.Rendering.Volume;
 //[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
@@ -20,8 +23,15 @@ public class PlayerController : MonoBehaviour
     public float m_speed;
     //当前血量
     public int m_hp;
+    [Tooltip("多久时间自动回血")]
+    public float autoHealTime = 3f;
+    [Tooltip("回血间隔")]
+    public float autoHealInterval = 1f;
     //跳跃时间
     public float smoothTime = 0.5f;
+    [Tooltip("玩家是否会死亡")]
+    public bool playerWillDead;
+
 
     [Header("私有变量")]
 
@@ -31,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDir;
     private Transform playerChildTF;
     private Transform playerFakeChild;
+    private PlayerChildController childController;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     private bool isJump;
@@ -61,6 +72,12 @@ public class PlayerController : MonoBehaviour
     private float hurtedTimer;
     //人物材质
     private Material material;
+    private Vector3 hurtedDir;
+    private float originScale;
+
+    //是否能够交互
+    private bool eAble;
+
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
@@ -71,6 +88,7 @@ public class PlayerController : MonoBehaviour
         playerFakeChild = this.transform.Find("PlayerChild");
         //playerFakeChild=this.transform.Find("PlayerFakeChild");
         sprite = playerChildTF.GetComponent<SpriteRenderer>();
+        childController = playerChildTF.GetComponent<PlayerChildController>();
         playerDetect = this.GetComponentInChildren<PlayerCircleDetect>();
         collider = this.GetComponent<BoxCollider2D>();
         source = this.GetComponent<AudioSource>();
@@ -86,46 +104,59 @@ public class PlayerController : MonoBehaviour
         m_hp = MaxHP;
         isJump = false;
         //        canNotMove = false;
-        reactAble = walkAble = true;
+        eAble = reactAble = walkAble = true;
         hurtedTimer = 0;
         targetPos = Vector3.back;
         material = sprite.material;
+        originScale = Mathf.Abs(sprite.transform.localScale.x);
     }
     private void Update()
     {
+        if (CheckDead())
+        {
+            return;
+        }
+        //如果时间暂停了
         if (Time.timeScale == 0) return;
+        //如果不可交互
+        if (!reactAble) return;
         //获取键盘输入
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
-        //如果跳跃 且当前不是跳跃状态
-        /* if (Input.GetKeyDown(KeyCode.Space) && !isJump)
-        {
-            isJump = true;
-            ReadyToJump();
-        } */
-        if (!reactAble) return;
+
         //交互键判断
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && eAble)
         {
             GameObject target = playerDetect.GetFirst();
             //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标
 
-            if (target != null&&target.GetComponent<ItemTrigger>().isActive&&PressETarget==null)
+            if (target != null && target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
             {
                 CheckETarget(target);
             }
         }
-        //检测跳跃状态
-        //CheckJump();
+        //检测强制移动状态
         CheckMoveToTarget();
         //受伤检测
         HurtedCheck();
-        //测试
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            TakenDamage(1);
-        }
     }
+
+    private bool CheckDead()
+    {
+        if (!playerWillDead) return false;
+        return m_hp <= 0;
+    }
+
+    private void FixedUpdate()
+    {
+        //移动
+        Move();
+        //跳跃
+        //Jump();
+        //角色图片翻转
+        PlayerClip();
+    }
+
     private void HurtedCheck()
     {
         if (hurtedTimer > 0)
@@ -136,6 +167,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             material.SetFloat("_FlashAmount", 0);
+        }
+        if (hurtedTimer > -autoHealTime)
+        {
+            hurtedTimer -= Time.deltaTime;
+        }
+        else
+        {
+            hurtedTimer += autoHealInterval;
+            m_hp = Mathf.Min(m_hp + 1, MaxHP);
+            SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
+            Vector4 setColor = renderer.color;
+            //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
+            //FIXME:目前是一个血量一个状态
+            setColor.w = 1 - (float)m_hp / MaxHP;
+            renderer.color = setColor;
         }
     }
     public void SetReactable(bool flag)
@@ -198,24 +244,17 @@ public class PlayerController : MonoBehaviour
             //targetPos = Vector3.back;
             walkAble = true;
             collider.isTrigger = false;
-            PressETarget=null;
+            PressETarget = null;
         }
     }
-    private void FixedUpdate()
+    public void TakenDamage(int damage, Vector3 dir)
     {
-        //移动
-        Move();
-        //跳跃
-        //Jump();
-        //角色图片翻转
-        PlayerClip();
-    }
-    public void TakenDamage(int damage)
-    {
+        if (hurtedTimer > 0) return;
         SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
         Vector4 setColor = renderer.color;
         m_hp = Mathf.Max(0, m_hp - damage);
         hurtedTimer = ConstantList.HurtedTime;
+        hurtedDir = dir;
         //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
         //FIXME:目前是一个血量一个状态
         setColor.w = 1 - (float)m_hp / MaxHP;
@@ -250,6 +289,11 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         //        if (walkAble && reactAble&&!canNotMove)
+        if (hurtedTimer > 0)
+        {
+            rb.velocity = hurtedDir * Time.fixedDeltaTime * ConstantList.speedPer;
+            return;
+        }
         if (walkAble && reactAble)
         {
             //speedPer是一个缩进值：让m_speed不用那么大
@@ -271,9 +315,20 @@ public class PlayerController : MonoBehaviour
         //如果正在跳跃
         if (isJump)
         {
-            transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime), Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime), transform.position.z);
+            /*  float x = Mathf.Max(1f, Vector3.Distance(transform.position + distance - targetPos, Vector3.zero) * smoothTime);
+             if (x >= Vector3.Distance(distance, Vector3.zero) / 2)
+             {
+                 x = Vector3.Distance(distance, Vector3.zero)*smoothTime - x;
+             }
+             Debug.Log("x:" + x);
+             transform.position += distance.normalized * x * x * Time.deltaTime; */
+            //smoothTime = smoothTime / distance.magnitude;
+            //transform.position = Vector3.Lerp(transform.position, targetPos, smoothTime);
+            rb.velocity = distance.normalized * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
+            //transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime), Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime), transform.position.z);
         }
     }
+    Vector3 distance;
     /// 角色跳跃
     /*     private void Jump()
         {
@@ -292,25 +347,29 @@ public class PlayerController : MonoBehaviour
     /// 角色图片翻转
     public void PlayerClip()
     {
+        if (childController.isAttack) return;
         if (PressETarget != null)
         {
-
             if (PressETarget.transform.position.x > this.transform.position.x)
-                sprite.flipX = false;
+                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
+            //sprite.flipX = false;
             else
-                sprite.flipX = true;
+                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
+            //sprite.flipX = true;
         }
         else
         {
             if (moveDir.x >= 0.05f)
             {
+                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
                 //sprite.transform.localScale = new Vector3(-1, 1, 1);
-                sprite.flipX = false;
+                //sprite.flipX = false;
             }
             else if (moveDir.x <= -0.05f)
             {
+                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
                 //sprite.transform.localScale = new Vector3(1, 1, 1);
-                sprite.flipX = true;
+                //sprite.flipX = true;
             }
         }
     }
@@ -330,13 +389,17 @@ public class PlayerController : MonoBehaviour
             //暂且关掉碰撞
             collider.isTrigger = true;
             //玩家朝向
-            moveDir = target - transform.position;
+            distance = target - transform.position;
             //ReadyToJump();
             MoveToTarget(target);
-
+            //            smoothTime = Vector3.Distance(target, transform.position);
             //跳跃动画
             playerAnimator.SetTrigger("Jump");
         }
+    }
+    public void JumpAction()
+    {
+        isJump = true;
     }
     public void MoveToTarget(Vector3 target)
     {
@@ -359,11 +422,15 @@ public class PlayerController : MonoBehaviour
         reactAble = true;
         //        canNotMove = false;
     }
-    /*     private void MoveToTarget (Vector3 target) {
-            //TODO:获得路径，走向目标 应该不需要
-            List<PathNode> pathList = GridManager.Instance.FindPath (this.transform.position, target);
-            if (pathList.Count <= 1) return;
-        }
-     */
-
+    public bool GeteAble()
+    {
+        return eAble;
+    }
+    public void SetEAble(bool flag){
+        eAble=flag;
+    }
+/*     public void CloseEAble(){
+        eAble=false;
+    }
+ */
 }
