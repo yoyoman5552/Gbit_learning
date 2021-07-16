@@ -1,1 +1,1 @@
-子弹=子弹赣
+PurpleBullet=PurpleBullet赣RedBullet=RedBullet赣

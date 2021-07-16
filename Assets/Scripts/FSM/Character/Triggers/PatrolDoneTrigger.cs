@@ -5,7 +5,7 @@ public class PatrolDoneTrigger : FSMTrigger {
         triggerID = FSMTriggerID.PatrolDone;
     }
     public override bool HandleTrigger (FSMBase fsm) {
-        return Vector3.Distance (fsm.patrolPos, fsm.transform.position) <= 0.05f;
+        return Vector3.Distance (fsm.patrolPos, fsm.transform.position) <= 0.08f;
     }
 
 }

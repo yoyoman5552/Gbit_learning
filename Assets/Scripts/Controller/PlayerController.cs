@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDir;
     private Transform playerChildTF;
     private Transform playerFakeChild;
+    private PlayerChildController childController;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     private bool isJump;
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         playerFakeChild = this.transform.Find("PlayerChild");
         //playerFakeChild=this.transform.Find("PlayerFakeChild");
         sprite = playerChildTF.GetComponent<SpriteRenderer>();
+        childController = playerChildTF.GetComponent<PlayerChildController>();
         playerDetect = this.GetComponentInChildren<PlayerCircleDetect>();
         collider = this.GetComponent<BoxCollider2D>();
         source = this.GetComponent<AudioSource>();
@@ -110,7 +112,7 @@ public class PlayerController : MonoBehaviour
             GameObject target = playerDetect.GetFirst();
             //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标
 
-            if (target != null&&target.GetComponent<ItemTrigger>().isActive&&PressETarget==null)
+            if (target != null && target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
             {
                 CheckETarget(target);
             }
@@ -198,7 +200,7 @@ public class PlayerController : MonoBehaviour
             //targetPos = Vector3.back;
             walkAble = true;
             collider.isTrigger = false;
-            PressETarget=null;
+            PressETarget = null;
         }
     }
     private void FixedUpdate()
@@ -292,9 +294,9 @@ public class PlayerController : MonoBehaviour
     /// 角色图片翻转
     public void PlayerClip()
     {
+        if (childController.isAttack) return;
         if (PressETarget != null)
         {
-
             if (PressETarget.transform.position.x > this.transform.position.x)
                 sprite.flipX = false;
             else

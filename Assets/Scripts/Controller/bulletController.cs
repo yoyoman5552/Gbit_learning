@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using EveryFunc;
 public class bulletController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float bulletSpeed;
     private float setBulletFalseTimer;
     public float initSetBulletFalseTimer;
     private bool isShoot = false;
@@ -34,12 +33,12 @@ public class bulletController : MonoBehaviour
             }
         }
     }
-    public void bulletFire(Vector3 playerPosition)
+    public void bulletFire(Vector3 playerPosition,float bulletSpeed)
     {
         isShoot = true;
         playerPosition = playerPosition.normalized;
         //this.transform.position = Vector3.Lerp(transform.position, playerPosition, bulletSpeed * Time.deltaTime);
-        if(rb!=null) rb.AddForce(playerPosition*bulletSpeed);
+        if(rb!=null) rb.AddForce(playerPosition*bulletSpeed*ConstantList.speedPer);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -6,6 +6,8 @@ public class BossAttackState : FSMState
 {
     private BossAttackCurve[] attackList;
     private int curveIndex;
+    private float waitTime;
+    private GameObject[] batteryArray;
     public override void Init()
     {
         stateID = FSMStateID.BossAttack;
@@ -14,13 +16,36 @@ public class BossAttackState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
-        curveIndex = 0;
+        waitTime = curveIndex = 0;
+        batteryArray = fsm.GetComponent<BossFSM>().batteryArray;
     }
     public override void ActionState(FSMBase fsm)
     {
+        if (waitTime > 0)
+        {
+            waitTime -= Time.deltaTime;
+            return;
+        }
+        Debug.Log("当前状态：" + attackList[curveIndex].stateList[0] + "," +
+        attackList[curveIndex].stateList[1] + "," +
+        attackList[curveIndex].stateList[2] + "," +
+        attackList[curveIndex].stateList[3] + "," + "持续时间：" + attackList[curveIndex].durationTime);
+        //切换炮台状态
+        waitTime = attackList[curveIndex].durationTime;
+        for (int i = 0; i < ConstantList.batteryCount; i++)
+        {
+            batteryArray[i].GetComponent<BatteryFSM>().ChangeState(attackList[curveIndex].stateList[i]);
+        }
+        //进入下一个状态
+        curveIndex = (curveIndex + 1) % attackList.Length;
     }
     public override void ExitState(FSMBase fsm)
     {
+        //强制切换状态
+        for (int i = 0; i < ConstantList.batteryCount; i++)
+        {
+            batteryArray[i].GetComponent<BatteryFSM>().ChangeActiveState(FSMStateID.BatteryIdle);
+        }
     }
     private void InitAttackList()
     {

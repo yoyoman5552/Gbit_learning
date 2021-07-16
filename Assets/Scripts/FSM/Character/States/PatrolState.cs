@@ -24,6 +24,7 @@ public class PatrolState : FSMState
         targetPos = GridManager.Instance.GetWorldCenterPosition(pathList[index].x, pathList[index].y);
         //巡逻终点
         fsm.patrolPos = GridManager.Instance.GetWorldCenterPosition(pathList[pathList.Count - 1].x, pathList[pathList.Count - 1].y);
+        Debug.Log("目标点：" + pathList[pathList.Count - 1]+",世界坐标："+fsm.patrolPos);
         // isArrivePoint = true;
         //        fsm.MovePosition (pathList[index].);
     }
@@ -42,6 +43,7 @@ public class PatrolState : FSMState
             index++;
             if (index >= pathList.Count) return;
             targetPos = GridManager.Instance.GetWorldCenterPosition(pathList[index].x, pathList[index].y);
+            Debug.Log("巡逻点：" + pathList[index]);
         }
         fsm.MovePosition(targetPos);
         //if (Vector3.Distance (targetPos, fsm.transform.position) < 0.05f) isArrivePoint = true;

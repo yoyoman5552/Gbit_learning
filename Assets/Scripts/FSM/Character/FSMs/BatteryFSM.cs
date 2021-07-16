@@ -4,18 +4,30 @@ using UnityEngine;
 using EveryFunc;
 public class BatteryFSM : FSMBase
 {
-    public BatteryAttackType[] attackList=new BatteryAttackType[2];
+    public IAttack[] attackList = new IAttack[3];
+    [HideInInspector]
+    public int attackIndex;
     public override void ConfigFSM()
     {
-        FSMState batteryIdle = new BatteryIdleState();
-        FSMState batteryAttackOne = new BatteryAttackOneState();
-        FSMState batteryAttackTwo = new BatteryAttackTwoState();
-        FSMState batteryAttackThree = new BatteryAttackThreeState();
+        if (statesList != null) return;
+        statesList = new List<FSMState>();
 
+        FSMState batteryIdle = new BatteryIdleState();
+        FSMState batteryAttack = new BatteryAttackState();
 
         statesList.Add(batteryIdle);
-        statesList.Add(batteryAttackOne);
-        statesList.Add(batteryAttackTwo);
-        statesList.Add(batteryAttackThree);
+        statesList.Add(batteryAttack);
+    }
+    public void ChangeState(int count)
+    {
+        if (count == 0) ChangeActiveState(FSMStateID.BatteryIdle);
+        else
+        {
+            if (currentState.stateID == FSMStateID.BatteryIdle)
+            {
+                attackIndex = count - 1;
+                ChangeActiveState(FSMStateID.BatteryAttack);
+            }
+        }
     }
 }
