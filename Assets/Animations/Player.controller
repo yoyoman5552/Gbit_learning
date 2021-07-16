@@ -90,6 +90,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboStep
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressE
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4942164988066021266}
   m_Solo: 0
@@ -168,6 +171,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboStep
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressE
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8997616000704657813}
   m_Solo: 0
@@ -218,6 +224,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboStep
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressE
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1636047260341215761}
   m_Solo: 0
@@ -732,6 +741,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboStep
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressE
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2636265994957053007}
   m_Solo: 0
@@ -837,6 +849,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboStep
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressE
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3856446950204628683}
   m_Solo: 0

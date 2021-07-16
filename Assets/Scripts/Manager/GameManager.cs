@@ -4,8 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using EveryFunc;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
+using EveryFunc.FSM;
 public class GameManager : MonoBehaviour
 {
+    //景深
+    private DepthOfField depthOfField;
+    //色差
+    private ChromaticAberration chromaticAberration;
+
     //单例模式
     public static GameManager Instance;
     //玩家
@@ -71,6 +79,20 @@ public class GameManager : MonoBehaviour
         //FIXME:选择初始房间
         GameObject firstRoom = roomList.Find(s => s.name == "Room1");
         ChangeRoom(firstRoom, this.transform.Find("StartPos").position);
+
+        Volume[] volumes = VolumeManager.instance.GetVolumes(LayerMask.NameToLayer("All"));
+        foreach (var volume in volumes)
+        {
+            var profile = volume.sharedProfile;
+            foreach (var component in profile.components)
+            {
+                if (component.GetType() == typeof(ChromaticAberration))
+                    chromaticAberration = (ChromaticAberration)component;
+                else if (component.GetType() == typeof(DepthOfField))
+                    depthOfField = (DepthOfField)component;
+            }
+        }
+
     }
     /// <summary>
     /// 切换房间
@@ -92,12 +114,12 @@ public class GameManager : MonoBehaviour
         if (dir == 1)
         {
             UIPosX = UIRightPos;
-            BlackImage.transform.position = new Vector3(UILeftPos, 0, 0);
+            BlackImage.transform.position = new Vector3(UILeftPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
         }
         else
         {
             UIPosX = UILeftPos;
-            BlackImage.transform.position = new Vector3(UIRightPos, 0, 0);
+            BlackImage.transform.position = new Vector3(UIRightPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
         }
         BlackImage.GetComponent<SpriteRenderer>().flipX = dir == 1 ? false : true;
         while (Mathf.Abs(BlackImage.transform.position.x - UIPosX) > 2f)
@@ -127,7 +149,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = playerPos;
         //房间初始化
         RoomInit();
-        
+
     }
     private void RoomInit()
     {
@@ -137,6 +159,23 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.LeftDownTF = roomDetail.Find("GridLimit").Find("LeftDownPos");
         GridManager.Instance.RightUpTF = roomDetail.Find("GridLimit").Find("RightUpPos");
         GridManager.Instance.Init();
+
+        //查找场景中是否存在敌人
+        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<NormalEnemyFSM>();
+        if (enemy.Length > 0)
+        {
+            //如果有敌人，关掉人物的交互
+            playerController.SetEAble(false);
+        }
         //BulletPool.bulletPoolInstance.DestroyBulletsInPool();
+    }
+    public void CheckEnemy()
+    {
+        //确认场景中是否有敌人
+        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<FSMBase>();
+        if (enemy.Length == 0)
+        {
+            playerController.SetEAble(true);
+        }
     }
 }

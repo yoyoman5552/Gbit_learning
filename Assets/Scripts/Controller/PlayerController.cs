@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using EveryFunc;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+//using UnityEngine.Rendering.Volume;
 //[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public float smoothTime = 0.5f;
     [Tooltip("玩家是否会死亡")]
     public bool playerWillDead;
+
 
     [Header("私有变量")]
 
@@ -70,6 +74,10 @@ public class PlayerController : MonoBehaviour
     private Material material;
     private Vector3 hurtedDir;
     private float originScale;
+
+    //是否能够交互
+    private bool eAble;
+
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
@@ -96,7 +104,7 @@ public class PlayerController : MonoBehaviour
         m_hp = MaxHP;
         isJump = false;
         //        canNotMove = false;
-        reactAble = walkAble = true;
+        eAble = reactAble = walkAble = true;
         hurtedTimer = 0;
         targetPos = Vector3.back;
         material = sprite.material;
@@ -110,14 +118,14 @@ public class PlayerController : MonoBehaviour
         }
         //如果时间暂停了
         if (Time.timeScale == 0) return;
+        //如果不可交互
+        if (!reactAble) return;
         //获取键盘输入
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
 
-        //如果不可交互
-        if (!reactAble) return;
         //交互键判断
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && eAble)
         {
             GameObject target = playerDetect.GetFirst();
             //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标
@@ -307,9 +315,20 @@ public class PlayerController : MonoBehaviour
         //如果正在跳跃
         if (isJump)
         {
-            transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime), Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime), transform.position.z);
+            /*  float x = Mathf.Max(1f, Vector3.Distance(transform.position + distance - targetPos, Vector3.zero) * smoothTime);
+             if (x >= Vector3.Distance(distance, Vector3.zero) / 2)
+             {
+                 x = Vector3.Distance(distance, Vector3.zero)*smoothTime - x;
+             }
+             Debug.Log("x:" + x);
+             transform.position += distance.normalized * x * x * Time.deltaTime; */
+            //smoothTime = smoothTime / distance.magnitude;
+            //transform.position = Vector3.Lerp(transform.position, targetPos, smoothTime);
+            rb.velocity = distance.normalized * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
+            //transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime), Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime), transform.position.z);
         }
     }
+    Vector3 distance;
     /// 角色跳跃
     /*     private void Jump()
         {
@@ -370,13 +389,17 @@ public class PlayerController : MonoBehaviour
             //暂且关掉碰撞
             collider.isTrigger = true;
             //玩家朝向
-            moveDir = target - transform.position;
+            distance = target - transform.position;
             //ReadyToJump();
             MoveToTarget(target);
-
+            //            smoothTime = Vector3.Distance(target, transform.position);
             //跳跃动画
             playerAnimator.SetTrigger("Jump");
         }
+    }
+    public void JumpAction()
+    {
+        isJump = true;
     }
     public void MoveToTarget(Vector3 target)
     {
@@ -399,11 +422,15 @@ public class PlayerController : MonoBehaviour
         reactAble = true;
         //        canNotMove = false;
     }
-    /*     private void MoveToTarget (Vector3 target) {
-            //TODO:获得路径，走向目标 应该不需要
-            List<PathNode> pathList = GridManager.Instance.FindPath (this.transform.position, target);
-            if (pathList.Count <= 1) return;
-        }
-     */
-
+    public bool GeteAble()
+    {
+        return eAble;
+    }
+    public void SetEAble(bool flag){
+        eAble=flag;
+    }
+/*     public void CloseEAble(){
+        eAble=false;
+    }
+ */
 }
