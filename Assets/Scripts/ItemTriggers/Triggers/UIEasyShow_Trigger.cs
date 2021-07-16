@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class UIEasyShow_Trigger : ITrigger
 {
     public string detail;
-    public Sprite characterImag;
     public override void Action()
     {
         //TODO:切换房间
-        UIManager.Instance.CallTalkUI(detail,characterImag);
+        UIManager.Instance.CallTalkUI(detail);
         //Debug.Log("UIEasyShow:" + detail);
     }
 }
