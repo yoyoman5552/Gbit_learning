@@ -259,6 +259,8 @@ MonoBehaviour:
   hpLevels: 3
   m_speed: 3
   m_hp: 5
+  autoHealTime: 6
+  autoHealInterval: 1
   smoothTime: 0.5
   source: {fileID: 0}
   PressETarget: {fileID: 0}

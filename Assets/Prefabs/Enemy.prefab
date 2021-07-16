@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1621763343395770641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1621763344400070475}
   m_RootOrder: 0
@@ -224,12 +224,15 @@ MonoBehaviour:
   attackRadius: 3
   idleTime: 1
   hurtedTime: 0.2
+  HurtedSpeed: 1
+  attackInterval: 2
+  damage: 1
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
   attackWay: {fileID: 0}
   meleeAttackStyle: 0
-  AttackStyle: 0
+  AttackStyle: 1
   material: {fileID: 0}
   rb: {fileID: 0}
   targetTF: {fileID: 0}
@@ -237,3 +240,4 @@ MonoBehaviour:
   m_speed: 0
   isHurted: 0
   test_stateID: 0
+  hurtedVelocity: {x: 0, y: 0, z: 0}
