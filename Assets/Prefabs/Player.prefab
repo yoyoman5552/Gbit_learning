@@ -258,7 +258,9 @@ MonoBehaviour:
   jumpHeight: 1
   hpLevels: 3
   m_speed: 3
-  m_hp: 0
+  m_hp: 5
+  autoHealTime: 6
+  autoHealInterval: 1
   smoothTime: 0.5
   source: {fileID: 0}
   PressETarget: {fileID: 0}
@@ -384,9 +386,8 @@ MonoBehaviour:
   lightStrength: 0.015
   heavyPause: 12
   heavyStrength: 0.065
-  attackInterval: 0.7
-  comboStep: 0
-  timer: 0
+  attackInterval: 1
+  isAttack: 0
 --- !u!61 &1176573137242192439
 BoxCollider2D:
   m_ObjectHideFlags: 0

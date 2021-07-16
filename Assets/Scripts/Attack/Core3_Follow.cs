@@ -1,4 +1,4 @@
-using UnityEngine;
+/* using UnityEngine;
 using System;
 using System.Collections;
 using EveryFunc;
@@ -68,4 +68,4 @@ public class Core3_Follow : IAttack
     {
         return bullets[0];
     }
-}
+} */

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1621763343395770641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1621763344400070475}
   m_RootOrder: 0
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -162,8 +162,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
-  m_EdgeRadius: 0.07
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0.04
 --- !u!50 &1621763344400070477
 Rigidbody2D:
   serializedVersion: 4
@@ -216,20 +216,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e784536c199b64ab3a531898e36834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  chaseSpeed: 3
+  walkSpeed: 1
+  chaseSpeed: 1
   HP: 5
   DefaultStateID: 1
-  minRadius: 2
-  attackRadius: 1
+  minRadius: 7
+  attackRadius: 3
   idleTime: 1
   hurtedTime: 0.2
+  HurtedSpeed: 1
+  attackInterval: 2
+  damage: 1
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
   attackWay: {fileID: 0}
   meleeAttackStyle: 0
-  AttackStyle: 0
+  AttackStyle: 1
   material: {fileID: 0}
   rb: {fileID: 0}
   targetTF: {fileID: 0}
@@ -237,3 +240,4 @@ MonoBehaviour:
   m_speed: 0
   isHurted: 0
   test_stateID: 0
+  hurtedVelocity: {x: 0, y: 0, z: 0}
