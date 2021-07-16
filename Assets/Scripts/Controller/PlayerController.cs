@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public float m_speed;
     //当前血量
     public int m_hp;
+    [Tooltip("多久时间自动回血")]
+    public float autoHealTime = 3f;
+    [Tooltip("回血间隔")]
+    public float autoHealInterval = 1f;
     //跳跃时间
     public float smoothTime = 0.5f;
 
@@ -62,6 +66,8 @@ public class PlayerController : MonoBehaviour
     private float hurtedTimer;
     //人物材质
     private Material material;
+    private Vector3 hurtedDir;
+    private float originScale;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
@@ -92,19 +98,17 @@ public class PlayerController : MonoBehaviour
         hurtedTimer = 0;
         targetPos = Vector3.back;
         material = sprite.material;
+        originScale = Mathf.Abs(sprite.transform.localScale.x);
     }
     private void Update()
     {
+        //如果时间暂停了
         if (Time.timeScale == 0) return;
         //获取键盘输入
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
-        //如果跳跃 且当前不是跳跃状态
-        /* if (Input.GetKeyDown(KeyCode.Space) && !isJump)
-        {
-            isJump = true;
-            ReadyToJump();
-        } */
+
+        //如果不可交互
         if (!reactAble) return;
         //交互键判断
         if (Input.GetKeyDown(KeyCode.E))
@@ -117,17 +121,21 @@ public class PlayerController : MonoBehaviour
                 CheckETarget(target);
             }
         }
-        //检测跳跃状态
-        //CheckJump();
+        //检测强制移动状态
         CheckMoveToTarget();
         //受伤检测
         HurtedCheck();
-        //测试
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            TakenDamage(1);
-        }
     }
+    private void FixedUpdate()
+    {
+        //移动
+        Move();
+        //跳跃
+        //Jump();
+        //角色图片翻转
+        PlayerClip();
+    }
+
     private void HurtedCheck()
     {
         if (hurtedTimer > 0)
@@ -138,6 +146,21 @@ public class PlayerController : MonoBehaviour
         else
         {
             material.SetFloat("_FlashAmount", 0);
+        }
+        if (hurtedTimer > -autoHealTime)
+        {
+            hurtedTimer -= Time.deltaTime;
+        }
+        else
+        {
+            hurtedTimer += autoHealInterval;
+            m_hp = Mathf.Min(m_hp + 1, MaxHP);
+            SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
+            Vector4 setColor = renderer.color;
+            //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
+            //FIXME:目前是一个血量一个状态
+            setColor.w = 1 - (float)m_hp / MaxHP;
+            renderer.color = setColor;
         }
     }
     public void SetReactable(bool flag)
@@ -203,21 +226,14 @@ public class PlayerController : MonoBehaviour
             PressETarget = null;
         }
     }
-    private void FixedUpdate()
+    public void TakenDamage(int damage, Vector3 dir)
     {
-        //移动
-        Move();
-        //跳跃
-        //Jump();
-        //角色图片翻转
-        PlayerClip();
-    }
-    public void TakenDamage(int damage)
-    {
+        if (hurtedTimer > 0) return;
         SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
         Vector4 setColor = renderer.color;
         m_hp = Mathf.Max(0, m_hp - damage);
         hurtedTimer = ConstantList.HurtedTime;
+        hurtedDir = dir;
         //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
         //FIXME:目前是一个血量一个状态
         setColor.w = 1 - (float)m_hp / MaxHP;
@@ -252,6 +268,11 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         //        if (walkAble && reactAble&&!canNotMove)
+        if (hurtedTimer > 0)
+        {
+            rb.velocity = hurtedDir * Time.fixedDeltaTime * ConstantList.speedPer;
+            return;
+        }
         if (walkAble && reactAble)
         {
             //speedPer是一个缩进值：让m_speed不用那么大
@@ -298,21 +319,25 @@ public class PlayerController : MonoBehaviour
         if (PressETarget != null)
         {
             if (PressETarget.transform.position.x > this.transform.position.x)
-                sprite.flipX = false;
+                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
+            //sprite.flipX = false;
             else
-                sprite.flipX = true;
+                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
+            //sprite.flipX = true;
         }
         else
         {
             if (moveDir.x >= 0.05f)
             {
+                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
                 //sprite.transform.localScale = new Vector3(-1, 1, 1);
-                sprite.flipX = false;
+                //sprite.flipX = false;
             }
             else if (moveDir.x <= -0.05f)
             {
+                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
                 //sprite.transform.localScale = new Vector3(1, 1, 1);
-                sprite.flipX = true;
+                //sprite.flipX = true;
             }
         }
     }

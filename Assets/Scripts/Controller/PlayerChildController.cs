@@ -57,7 +57,6 @@ public class PlayerChildController : MonoBehaviour
 
             isAttack = true;
             attackType = BreakLevel.easy;
-            print(comboStep + 1);
             playerAnimator.SetTrigger("LightAttack");
             playerAnimator.SetInteger("ComboStep", comboStep + 1);
             comboStep = (comboStep + 1) % 4;
@@ -106,8 +105,8 @@ public class PlayerChildController : MonoBehaviour
 
             if (other.CompareTag("Enemy"))
             {
-                Debug.Log("触碰到Enemy");
-                other.GetComponent<FSMBase>().TakenDamage((int)attackType + 1);
+                other.GetComponent<FSMBase>().TakenDamage((int)attackType + 1, other.transform.position - this.transform.position);
+
                 /*                 if (mySprit.transform.localScale.x > 0)
                                     other.GetComponent<Enemy>().GetHit(Vector2.left);
                                 else if (mySprit.transform.localScale.x <= 0)
@@ -116,12 +115,10 @@ public class PlayerChildController : MonoBehaviour
             }
             if (other.CompareTag("Breakable"))
             {
-                Debug.Log("触碰到Interactive");
                 if (other.GetComponent<Breakable_Trigger>() != null)
                 {
                     BreakLevel level = other.GetComponent<Breakable_Trigger>().level;
                     //如果攻击比他强
-                    Debug.Log("attackType:" + (int)attackType + "," + (attackType >= level));
                     if ((int)attackType >= (int)level)
                         other.GetComponent<Breakable_Trigger>().Action();
                 }

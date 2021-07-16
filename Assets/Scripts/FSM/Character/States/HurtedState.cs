@@ -8,6 +8,7 @@ public class HurtedState : FSMState
 {
     //idle时间
     private float hurtedTimer;
+    private float originSpeed;
     //一定要初始化stateID,而且要初始化对
     public override void Init()
     {
@@ -16,6 +17,9 @@ public class HurtedState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         base.EnterState(fsm);
+        originSpeed = fsm.m_speed;
+        fsm.m_speed = fsm.HurtedSpeed;
+        fsm.moveVelocity = fsm.hurtedVelocity;
         hurtedTimer = fsm.hurtedTime;
         //fsm.material.SetFloat("FlushAmount",1f);
         //播放待机动画
@@ -34,6 +38,7 @@ public class HurtedState : FSMState
 
     public override void ExitState(FSMBase fsm)
     {
+        fsm.StopPosition();
         //fsm.material.SetFloat("FlushAmount",0f);
         //删除映射
         ClearAll();

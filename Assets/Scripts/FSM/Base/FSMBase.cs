@@ -30,7 +30,12 @@ public abstract class FSMBase : MonoBehaviour
     public float idleTime;
     [Tooltip("受伤混沌时长")]
     public float hurtedTime;
-
+    [Tooltip("受伤速度")]
+    public float HurtedSpeed = 1f;
+    [Tooltip("攻击间隔")]
+    public float attackInterval = 2f;
+    [Tooltip("攻击力")]
+    public int damage;
     [Header("私有变量")]
     //巡逻目的地
     [HideInInspector]
@@ -82,7 +87,11 @@ public abstract class FSMBase : MonoBehaviour
     //是否受伤
     [HideInInspector]
     public bool isHurted;
+
     public FSMStateID test_stateID;
+    [HideInInspector]
+    public Vector3 hurtedVelocity;
+
     private void Awake()
     {
         Init();
@@ -136,7 +145,7 @@ public abstract class FSMBase : MonoBehaviour
     //每帧处理的逻辑
     public virtual void Update()
     {
-        test_stateID=currentState.stateID;
+        test_stateID = currentState.stateID;
         //检测是否被攻击了，被攻击就放大搜索圈
         //HurtedSearch ();
         //TODO:侦测周围是否有敌人
@@ -162,7 +171,10 @@ public abstract class FSMBase : MonoBehaviour
             } */
         }
     }
-
+    public void DeadDelay()
+    {
+        Destroy(this.gameObject);
+    }
     //切换状态
     public void ChangeActiveState(FSMStateID stateID)
     {
@@ -196,13 +208,32 @@ public abstract class FSMBase : MonoBehaviour
     /// </summary>
     private void textureClip()
     {
-        if (rb.velocity.x > 0.05f)
+        if (isHurted)
+        {
+            return;
+        }
+        if (moveVelocity.x > 0.05f)
+        {
+            sprite.flipX = true;
+        }
+        else if (moveVelocity.x < -0.05f)
         {
             sprite.flipX = false;
         }
-        else if (rb.velocity.x < -0.05f)
+    }
+    public void textureClip(float dir)
+    {
+        if (isHurted)
+        {
+            return;
+        }
+        if (dir > 0.05f)
         {
             sprite.flipX = true;
+        }
+        else if (dir < -0.05f)
+        {
+            sprite.flipX = false;
         }
     }
     /// <summary>
@@ -219,13 +250,18 @@ public abstract class FSMBase : MonoBehaviour
         moveVelocity = Vector3.zero;
     }
 
-    public void TakenDamage(int damage)
+    public void TakenDamage(int damage, Vector3 dir)
     {
         if (!isHurted)
         {
             HP = Mathf.Max(HP - damage, 0);
             isHurted = true;
             material.SetFloat("_FlashAmount", 1);
+            hurtedVelocity = dir;
+            if (dir.x > 0)
+                sprite.flipX = false;
+            else
+                sprite.flipX = true;
             StartCoroutine(hurtedContinus(hurtedTime));
         }
     }

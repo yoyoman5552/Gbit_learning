@@ -6,7 +6,7 @@ using UnityEngine;
 public class Grid<TGridObject>
 {
     //是否要画线
-    public bool isDrawLine = true;
+    public bool isDrawLine = false;
     private int width;
     private int height;
     private float cellsize;
