@@ -55,20 +55,6 @@ AnimationClip:
       value: {fileID: 21300000, guid: c1523edc5b950bf43960ee04413259f8, type: 3}
     - time: 0.7083333
       value: {fileID: 21300000, guid: f432f36562ed175448ce1bd447321dec, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 013453d9ef14f9347b54d799f17e15f5, type: 3}
-    - time: 0.7916667
-      value: {fileID: 21300000, guid: d0c614f7a411fe0418a89107eb035d87, type: 3}
-    - time: 0.8333333
-      value: {fileID: 21300000, guid: 9f516ea32d7869a4c9b956a13017950c, type: 3}
-    - time: 0.875
-      value: {fileID: 21300000, guid: ec8e1baeaf5ada6478c7e28e583d9c99, type: 3}
-    - time: 0.9166667
-      value: {fileID: 21300000, guid: a717d63ba414e7240b9301af4797fd6d, type: 3}
-    - time: 0.9583333
-      value: {fileID: 21300000, guid: fd616a7c03e52d845ba90b6725b1220f, type: 3}
-    - time: 1
-      value: {fileID: 21300000, guid: bb495691db191c7439e2ccf93cab2761, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -106,19 +92,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 1e00231dc936c164ba1b1f7fcfb1e627, type: 3}
     - {fileID: 21300000, guid: c1523edc5b950bf43960ee04413259f8, type: 3}
     - {fileID: 21300000, guid: f432f36562ed175448ce1bd447321dec, type: 3}
-    - {fileID: 21300000, guid: 013453d9ef14f9347b54d799f17e15f5, type: 3}
-    - {fileID: 21300000, guid: d0c614f7a411fe0418a89107eb035d87, type: 3}
-    - {fileID: 21300000, guid: 9f516ea32d7869a4c9b956a13017950c, type: 3}
-    - {fileID: 21300000, guid: ec8e1baeaf5ada6478c7e28e583d9c99, type: 3}
-    - {fileID: 21300000, guid: a717d63ba414e7240b9301af4797fd6d, type: 3}
-    - {fileID: 21300000, guid: fd616a7c03e52d845ba90b6725b1220f, type: 3}
-    - {fileID: 21300000, guid: bb495691db191c7439e2ccf93cab2761, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0416666
+    m_StopTime: 0.75
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -138,14 +117,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.9583333
+  - time: 0.6666667
     functionName: PressEAction
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1
+  - time: 0.7083333
     functionName: SetBoolDown
     data: IsPressE
     objectReferenceParameter: {fileID: 0}
