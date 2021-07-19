@@ -34,7 +34,7 @@ public class AttackState : FSMState
 
     //冲刺加载时间
     private float loadSprintTimer;
-    private float initLoadSprintTimer = 1.5f;
+    private float initLoadSprintTimer = 1.0f;
  
 
     //冲刺后的近战普通攻击的加载时间
@@ -85,6 +85,7 @@ public class AttackState : FSMState
             MeleeAttack(fsm);
             //Debug.Log(loadSprintTimer);
         }
+
     }
     public override void ExitState(FSMBase fsm)
     {
@@ -140,7 +141,7 @@ public class AttackState : FSMState
         }
         else
         {
-            if (rayDetect(fsm))
+            if (rayDetect(fsm)&&!fsm.isHurted)
             {
 
                 //冲刺加载
