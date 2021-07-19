@@ -11,6 +11,7 @@ public class BossDeadState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         Debug.Log("Dead");
+        fsm.enabled = false;
     }
     public override void ActionState(FSMBase fsm)
     {

@@ -7,11 +7,11 @@ public class ChangeRoom_Trigger : ITrigger
     public GameObject targetRoom;
     [Tooltip("玩家切换到目标门前")]
     public GameObject targetDoor;
-    private Vector3 targetPlayerPos;
+    private Transform targetPlayerPos;
     private void Start()
     {
         if (targetDoor.transform.Find("PlayerPos") != null)
-            targetPlayerPos = targetDoor.transform.Find("PlayerPos").position;
+            targetPlayerPos = targetDoor.transform.Find("PlayerPos");
         else
         {
             Debug.LogError("门尚未设置玩家出生位置");
@@ -23,7 +23,7 @@ public class ChangeRoom_Trigger : ITrigger
         if (targetRoom != null)
         {
             Debug.Log("切换房间：" + targetRoom.name);
-            GameManager.Instance.ChangeRoom(targetRoom, targetPlayerPos);
+            GameManager.Instance.ChangeRoom(targetRoom, targetDoor.transform);
         }
         else
         {
