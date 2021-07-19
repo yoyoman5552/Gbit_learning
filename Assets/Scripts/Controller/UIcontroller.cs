@@ -6,6 +6,7 @@ public class UIcontroller : MonoBehaviour
 {
     public Sprite mysprite;
     private int getNumForManager = 0;
+    private ItemTrigger activeTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +27,10 @@ public class UIcontroller : MonoBehaviour
             {
                 UIManager.Instance.CallDetailUI("", "", mysprite);
             }
-
-
             else
                 UIManager.Instance.resetTimeScale();
             this.gameObject.SetActive(false);
+            UIManager.Instance.CheckContinueTrigger();
         }
 
     }

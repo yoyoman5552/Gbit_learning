@@ -31,6 +31,6 @@ public class Bag_Trigger : ITrigger
         }
         itemInfo.name = name;
         itemInfo.useNum = targets.Length;
-        BagManager.Instance.AddItem(itemInfo);
+        BagManager.Instance.AddItemList(itemInfo);
     }
 }
