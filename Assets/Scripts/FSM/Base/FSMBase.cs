@@ -36,8 +36,8 @@ public abstract class FSMBase : MonoBehaviour
     public float attackInterval = 2f;
     [Tooltip("攻击力")]
     public int damage;
-    [Tooltip("冲刺技能冷却时间")]
-    public float initSkillCD;
+    [Tooltip("击退速度")]
+    public float GetHurtSpeed;
     [Header("私有变量")]
     //巡逻目的地
     [HideInInspector]
@@ -264,7 +264,9 @@ public abstract class FSMBase : MonoBehaviour
                 sprite.flipX = false;
             else
                 sprite.flipX = true;
+            rb.velocity = dir * GetHurtSpeed;
             StartCoroutine(hurtedContinus(hurtedTime));
+
         }
     }
     IEnumerator hurtedContinus(float timer)

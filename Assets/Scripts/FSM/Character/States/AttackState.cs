@@ -129,13 +129,14 @@ public class AttackState : FSMState
                 sprintSkillCD -= Time.deltaTime;
                 if (sprintSkillCD <= 0)
                 {
+
                     sprintSkillCD = initSprintCDTimer;
                     loadSprintTimer = initLoadSprintTimer;
                     AttackEndTimer = initAttackEndTimer;
                     finishAttack = false;
                     //重新检测玩家位置
                     firstDetectPlayer = true;
-                    //Debug.Log("resetCD_finish");
+                    Debug.Log("resetCD_finish");
                 }
             }
         }
@@ -157,6 +158,7 @@ public class AttackState : FSMState
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
+                    Debug.Log("ready_to_attack");
                     Sprint_Achieve(fsm);
                 }
 
