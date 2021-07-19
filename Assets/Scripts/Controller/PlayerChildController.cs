@@ -53,15 +53,14 @@ public class PlayerChildController : MonoBehaviour
         {
 
 
+            //缺少将hitonece = false玩家第二段攻击失效
 
-            //攻击时玩家不能移动
-            //攻击时提供位移补偿
-            controller.dontWalkAPI();
             isAttack = true;
             attackType = BreakLevel.easy;
             playerAnimator.SetTrigger("LightAttack");
             playerAnimator.SetInteger("ComboStep", comboStep + 1);
             comboStep = (comboStep + 1) % 4;
+            controller.SetSpeed(controller.moveSpeed * controller.attackMoveSpeedPer);
         }
         /*         if (Input.GetKeyDown(KeyCode.K) && !isAttack)
                 {
@@ -87,7 +86,7 @@ public class PlayerChildController : MonoBehaviour
     {
         timer = attackInterval;
         isAttack = false;
-        controller.resetWalkAble();
+        controller.ResetSpeed();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
