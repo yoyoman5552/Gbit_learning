@@ -83,7 +83,7 @@ public class AttackState : FSMState
         else
         {
             MeleeAttack(fsm);
-            Debug.Log(loadSprintTimer);
+            //Debug.Log(loadSprintTimer);
         }
     }
     public override void ExitState(FSMBase fsm)

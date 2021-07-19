@@ -53,8 +53,10 @@ public class PlayerChildController : MonoBehaviour
         {
 
 
-            //缺少将hitonece = false玩家第二段攻击失效
 
+            //攻击时玩家不能移动
+            //攻击时提供位移补偿
+            controller.dontWalkAPI();
             isAttack = true;
             attackType = BreakLevel.easy;
             playerAnimator.SetTrigger("LightAttack");
@@ -85,6 +87,7 @@ public class PlayerChildController : MonoBehaviour
     {
         timer = attackInterval;
         isAttack = false;
+        controller.resetWalkAble();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

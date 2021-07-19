@@ -419,7 +419,7 @@ public class PlayerController : MonoBehaviour
         //        canNotMove = true;
         Invoke("resetWalkAble", 1.0f);
     }
-    private void resetWalkAble()
+    public void resetWalkAble()
     {
         reactAble = true;
         //        canNotMove = false;
