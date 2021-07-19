@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -174,7 +174,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -199,6 +199,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 691150805}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1080496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -434,6 +437,7 @@ MonoBehaviour:
   - {fileID: 29254127}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &29254129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -830,6 +834,7 @@ MonoBehaviour:
   - {fileID: 60371247}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &60371249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1200,6 +1205,7 @@ MonoBehaviour:
   - {fileID: 89481477}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &89481480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1357,6 +1363,7 @@ MonoBehaviour:
   - {fileID: 90494968}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!212 &90494965
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1645,6 +1652,7 @@ MonoBehaviour:
   - {fileID: 102677047}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &102677050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1674,6 +1682,7 @@ MonoBehaviour:
   - {fileID: 102677050}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &102677052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1689,6 +1698,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 102677051}
   - {fileID: 102677049}
@@ -2666,6 +2676,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 273025365}
   - {fileID: 273025365}
@@ -2692,6 +2703,7 @@ MonoBehaviour:
   - {fileID: 273025360}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &273025360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2778,6 +2790,7 @@ MonoBehaviour:
   - {fileID: 273025366}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &273025366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3063,6 +3076,7 @@ MonoBehaviour:
   - {fileID: 298453732}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &298453734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3210,6 +3224,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 304319477}
   - {fileID: 304319473}
@@ -3232,6 +3247,7 @@ MonoBehaviour:
   - {fileID: 304319474}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &304319474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,6 +3304,7 @@ MonoBehaviour:
   - {fileID: 304319478}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &304319478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3785,6 +3802,7 @@ MonoBehaviour:
   - {fileID: 367120033}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &367120035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4041,6 +4059,7 @@ MonoBehaviour:
   - {fileID: 376495344}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &376495347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4219,6 +4238,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 382361985}
   - {fileID: 382361981}
@@ -4241,6 +4261,7 @@ MonoBehaviour:
   - {fileID: 382361982}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &382361982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4297,6 +4318,7 @@ MonoBehaviour:
   - {fileID: 382361986}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &382361986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,6 +4605,7 @@ MonoBehaviour:
   - {fileID: 387552533}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &387552535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4837,6 +4860,7 @@ MonoBehaviour:
   - {fileID: 402761645}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &403655722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,6 +5409,7 @@ MonoBehaviour:
   - {fileID: 437561512}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &437634715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5946,6 +5971,7 @@ MonoBehaviour:
   - {fileID: 498436386}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!212 &498436383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6102,6 +6128,7 @@ MonoBehaviour:
   - {fileID: 500085750}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!95 &500085752
 Animator:
   serializedVersion: 3
@@ -6342,6 +6369,7 @@ MonoBehaviour:
   - {fileID: 513623024}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &513623026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7017,6 +7045,7 @@ MonoBehaviour:
   - {fileID: 633193645}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &633193647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7520,7 +7549,7 @@ Transform:
   - {fileID: 89481474}
   - {fileID: 501729879}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700201690
 GameObject:
@@ -7656,7 +7685,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7681,6 +7710,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 2142687753}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &715372225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8102,6 +8134,7 @@ MonoBehaviour:
   - {fileID: 751573684}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &751573686
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8651,6 +8684,7 @@ MonoBehaviour:
   - {fileID: 807183688}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &807183691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8920,6 +8954,7 @@ MonoBehaviour:
   - {fileID: 823451035}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!95 &823451037
 Animator:
   serializedVersion: 3
@@ -10066,6 +10101,7 @@ MonoBehaviour:
   - {fileID: 997900116}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &997900120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10095,6 +10131,7 @@ MonoBehaviour:
   - {fileID: 997900120}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &997900122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10110,6 +10147,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 997900121}
   - {fileID: 997900119}
@@ -10605,7 +10643,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10630,6 +10668,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 306560036}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1042342374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10763,6 +10804,7 @@ MonoBehaviour:
   - {fileID: 1062307363}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1062307366
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10908,6 +10950,7 @@ MonoBehaviour:
   - {fileID: 1063103846}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1063103848
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11064,6 +11107,7 @@ MonoBehaviour:
   - {fileID: 1074335933}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!95 &1074335935
 Animator:
   serializedVersion: 3
@@ -11563,6 +11607,7 @@ MonoBehaviour:
   - {fileID: 1126011794}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!212 &1126011791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11864,7 +11909,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11889,6 +11934,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 1111982365}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1132182304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12052,6 +12100,7 @@ MonoBehaviour:
   - {fileID: 1147041974}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1147041977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12166,7 +12215,7 @@ Transform:
   - {fileID: 1309324788}
   - {fileID: 2055323477}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1162181948
 GameObject:
@@ -12235,6 +12284,7 @@ MonoBehaviour:
   - {fileID: 1162181950}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1162181952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12352,7 +12402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12474,6 +12524,7 @@ MonoBehaviour:
   - {fileID: 1186814210}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1186814212
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12767,6 +12818,7 @@ MonoBehaviour:
   - {fileID: 1202797409}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &1214766273
 GameObject:
   m_ObjectHideFlags: 0
@@ -12811,7 +12863,7 @@ Transform:
   - {fileID: 2138447352}
   - {fileID: 1524603495}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1229231791
 GameObject:
@@ -12865,6 +12917,7 @@ MonoBehaviour:
   - {fileID: 1229231792}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!95 &1229231794
 Animator:
   serializedVersion: 3
@@ -13068,6 +13121,7 @@ MonoBehaviour:
   - {fileID: 1252742871}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1252742873
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13595,6 +13649,7 @@ MonoBehaviour:
   - {fileID: 1309324789}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1309324791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13933,6 +13988,7 @@ MonoBehaviour:
   - {fileID: 1324022520}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1324022524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13962,6 +14018,7 @@ MonoBehaviour:
   - {fileID: 1324022524}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1324022526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13977,6 +14034,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1324022525}
   - {fileID: 1324022523}
@@ -14122,6 +14180,7 @@ MonoBehaviour:
   - {fileID: 1324022532}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1324022532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14166,6 +14225,7 @@ MonoBehaviour:
   - {fileID: 1324022533}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &1337799939
 GameObject:
   m_ObjectHideFlags: 0
@@ -14390,7 +14450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621763344400070475, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1621763344400070475, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14527,6 +14587,7 @@ MonoBehaviour:
   - {fileID: 1371310266}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1371310268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14709,6 +14770,7 @@ MonoBehaviour:
   - {fileID: 1383127652}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1383127654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14877,6 +14939,7 @@ MonoBehaviour:
   - {fileID: 1390556719}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1390556721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15150,6 +15213,7 @@ MonoBehaviour:
   - {fileID: 1406506152}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1406506155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15948,6 +16012,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1553511258}
   - {fileID: 1553511255}
@@ -15969,6 +16034,7 @@ MonoBehaviour:
   - {fileID: 1553511256}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1553511256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16014,6 +16080,7 @@ MonoBehaviour:
   - {fileID: 1553511259}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1553511259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16285,6 +16352,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1570909268}
   - {fileID: 1570909264}
@@ -16307,6 +16375,7 @@ MonoBehaviour:
   - {fileID: 1570909265}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1570909265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16363,6 +16432,7 @@ MonoBehaviour:
   - {fileID: 1570909269}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1570909269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16647,6 +16717,7 @@ MonoBehaviour:
   - {fileID: 1576725370}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1576725373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16676,6 +16747,7 @@ MonoBehaviour:
   - {fileID: 1576725373}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1576725375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16691,6 +16763,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1576725374}
   - {fileID: 1576725372}
@@ -16861,6 +16934,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1582916632}
   - {fileID: 1582916628}
@@ -16883,6 +16957,7 @@ MonoBehaviour:
   - {fileID: 1582916629}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1582916629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16939,6 +17014,7 @@ MonoBehaviour:
   - {fileID: 1582916633}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1582916633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17134,6 +17210,135 @@ Transform:
   m_Father: {fileID: 24988055}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1598382593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2118304479122084086, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118304479122084086, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118304479122084086, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118304479122084086, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118304479122084086, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861964405733820260, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557301380470140, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: Fog_color
+      value: 
+      objectReference: {fileID: 1817543154}
+    - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: BlueOrYellow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: initTimeStabDisappear
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048285, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_Name
+      value: "\u5730\u523A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337557302236048354, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
 --- !u!1 &1618558531
 GameObject:
   m_ObjectHideFlags: 0
@@ -17511,6 +17716,7 @@ MonoBehaviour:
   - {fileID: 1704936351}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1704936353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17743,6 +17949,7 @@ MonoBehaviour:
   - {fileID: 1719812066}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1719812068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18285,6 +18492,7 @@ MonoBehaviour:
   - {fileID: 1770702047}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1770702049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18605,6 +18813,7 @@ MonoBehaviour:
   - {fileID: 1773065742}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &1781278178
 GameObject:
   m_ObjectHideFlags: 0
@@ -18700,6 +18909,7 @@ MonoBehaviour:
   - {fileID: 1781431803}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1781431805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18842,6 +19052,7 @@ MonoBehaviour:
   - {fileID: 1807159283}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1807159285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19047,6 +19258,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1817543154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2118304479122084083, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
+  m_PrefabInstance: {fileID: 1598382593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833551622
 GameObject:
   m_ObjectHideFlags: 0
@@ -19175,6 +19391,7 @@ MonoBehaviour:
   - {fileID: 1835007716}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1835007719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19204,6 +19421,7 @@ MonoBehaviour:
   - {fileID: 1835007719}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &1835007721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19219,6 +19437,7 @@ MonoBehaviour:
   TriggerList: []
   isActive: 1
   itemList: 
+  currentIndex: 0
   triggers:
   - {fileID: 1835007720}
   - {fileID: 1835007718}
@@ -20004,7 +20223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 486773310831807479, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 486773310831807479, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20196,6 +20415,7 @@ MonoBehaviour:
   - {fileID: 1934885365}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1934885367
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20395,6 +20615,7 @@ MonoBehaviour:
   - {fileID: 1943793140}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1943793142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20732,6 +20953,7 @@ MonoBehaviour:
   - {fileID: 1969043786}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &1969043788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21026,6 +21248,7 @@ MonoBehaviour:
   - {fileID: 2028480723}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &2028480729
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21169,7 +21392,7 @@ Transform:
   - {fileID: 1927509451}
   - {fileID: 172465822}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2045252480
 GameObject:
@@ -21335,6 +21558,7 @@ MonoBehaviour:
   - {fileID: 2051124129}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &2051124131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21709,6 +21933,7 @@ MonoBehaviour:
   - {fileID: 2057426340}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!1 &2091612802
 GameObject:
   m_ObjectHideFlags: 0
@@ -22336,6 +22561,7 @@ MonoBehaviour:
   - {fileID: 2141801889}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!61 &2141801891
 BoxCollider2D:
   m_ObjectHideFlags: 0

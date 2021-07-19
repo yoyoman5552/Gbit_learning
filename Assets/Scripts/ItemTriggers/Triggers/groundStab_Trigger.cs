@@ -13,6 +13,13 @@ public class groundStab_Trigger : ITrigger
     public float attackRatio = 0.3f;
     [Tooltip("地刺物体")]
     public GameObject target;
+    [Tooltip("蓝/黄毒气")]
+    public GameObject Fog_Blue;
+    public GameObject Fog_Yellow;
+    [Tooltip("蓝/黄毒气选择,true为黄，false为蓝")]
+    public bool YellowOrBlue;
+
+    private GameObject Fog_Select;
     private float timeStabDisAppear;
     private float timeStabAppear;
     private bool getHurt = true;
@@ -42,6 +49,12 @@ public class groundStab_Trigger : ITrigger
     {
         timeStabAppear = initTimeStabAppear;
         timeStabDisAppear = initTimeStabDisappear;
+        if (YellowOrBlue)
+            Fog_Select = Fog_Blue;
+        else
+            Fog_Select = Fog_Yellow;
+        Fog_Yellow.SetActive(false);
+        Fog_Blue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,12 +64,14 @@ public class groundStab_Trigger : ITrigger
         if (timeStabAppear < 0)
         {
             target.SetActive(false);
+            Fog_Select.SetActive(false);
             collider.enabled = false;
             getHurt = false;
             timeStabDisAppear -= Time.deltaTime;
             if (timeStabDisAppear < 0)
             {
                 target.SetActive(true);
+                Fog_Select.SetActive(true);
                 getHurt = true;
                 collider.enabled = true;
                 timeStabDisAppear = initTimeStabDisappear;

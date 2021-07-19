@@ -60,6 +60,7 @@ public class PlayerChildController : MonoBehaviour
             playerAnimator.SetTrigger("LightAttack");
             playerAnimator.SetInteger("ComboStep", comboStep + 1);
             comboStep = (comboStep + 1) % 4;
+            controller.SetSpeed(controller.moveSpeed * controller.attackMoveSpeedPer);
         }
         /*         if (Input.GetKeyDown(KeyCode.K) && !isAttack)
                 {
@@ -85,6 +86,7 @@ public class PlayerChildController : MonoBehaviour
     {
         timer = attackInterval;
         isAttack = false;
+        controller.ResetSpeed();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -34,7 +34,7 @@ public class AttackState : FSMState
 
     //冲刺加载时间
     private float loadSprintTimer;
-    private float initLoadSprintTimer = 0.5f;
+    private float initLoadSprintTimer = 1.0f;
  
 
     //冲刺后的近战普通攻击的加载时间
@@ -83,8 +83,9 @@ public class AttackState : FSMState
         else
         {
             MeleeAttack(fsm);
-            Debug.Log(loadSprintTimer);
+            //Debug.Log(loadSprintTimer);
         }
+
     }
     public override void ExitState(FSMBase fsm)
     {
@@ -117,8 +118,10 @@ public class AttackState : FSMState
         //近战攻击方法：冲刺撞击玩家后对玩家进行近身攻击
 
         //冲刺
+        //现有问题：冲刺冷却时间在玩家离开攻击范围后不会继续倒计时：目前通过设置当玩家进入攻击范围时，冲刺技能自动冷却。
         if (finishAttack)
         {
+            //Debug.Log("finish_Attack:resetCD: "+sprintSkillCD);
             if (fsm.meleeAttackStyle)
             {
                 //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
@@ -132,12 +135,13 @@ public class AttackState : FSMState
                     finishAttack = false;
                     //重新检测玩家位置
                     firstDetectPlayer = true;
+                    //Debug.Log("resetCD_finish");
                 }
             }
         }
         else
         {
-            if (rayDetect(fsm))
+            if (rayDetect(fsm)&&!fsm.isHurted)
             {
 
                 //冲刺加载
@@ -149,6 +153,7 @@ public class AttackState : FSMState
                     firstDetectPlayer = false;
                 }
                 //TODO:冲刺前提示玩家
+                //Debug.Log("Ready_to_Attack:Loading attack:load scale:"+loadSprintTimer);
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
@@ -268,6 +273,7 @@ public class AttackState : FSMState
         {
             //fsm.attackRadius = 1.0f;
             //fsm.meleeAttackStyle = false;
+            //未命中玩家，到达指定位置，攻击结束
             finishAttack = true;
             Debug.Log("Sprint_attack_finish");
         }
@@ -278,6 +284,9 @@ public class AttackState : FSMState
         {
             if (target.CompareTag("Player"))
             {
+                //命中玩家攻击结束
+                finishAttack = true;
+                Debug.Log("Sprint_attack_finish_attack_sucess");
                 target.GetComponent<PlayerController>().TakenDamage(fsm.damage, 4 * (target.transform.position - fsm.transform.position));
                 break;
             }

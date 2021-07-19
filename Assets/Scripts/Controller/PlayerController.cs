@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     [Tooltip("按下E的时候的速度")]
     public float PressESpeed;
+    [Tooltip("攻击时的移动速度")]
+    public float attackMoveSpeedPer = 0.7f;
     [Tooltip("跳跃高度")]
     public float jumpHeight;
     [Tooltip("血量分段")]
@@ -68,13 +70,19 @@ public class PlayerController : MonoBehaviour
     public GameObject PressETarget;
     //动画器
     private Animator playerAnimator;
+
+    internal void SetSpeed(object p)
+    {
+        throw new NotImplementedException();
+    }
+
     //受击时间
     private float hurtedTimer;
     //人物材质
     private Material material;
     private Vector3 hurtedDir;
+    private float m_scale;
     private float originScale;
-
     //是否能够交互
     private bool eAble;
 
@@ -111,6 +119,7 @@ public class PlayerController : MonoBehaviour
         targetPos = Vector3.back;
         material = sprite.material;
         originScale = Mathf.Abs(sprite.transform.localScale.x);
+        m_scale = originScale;
     }
     private void Update()
     {
@@ -121,7 +130,11 @@ public class PlayerController : MonoBehaviour
         //如果时间暂停了
         if (Time.timeScale == 0) return;
         //如果不可交互
-        if (!reactAble) return;
+        if (!reactAble || !walkAble)
+        {
+            moveDir.x = moveDir.y = 0;
+            return;
+        }
         //获取键盘输入
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
@@ -331,6 +344,8 @@ public class PlayerController : MonoBehaviour
         }
     }
     Vector3 distance;
+
+
     /// 角色跳跃
     /*     private void Jump()
         {
@@ -353,27 +368,34 @@ public class PlayerController : MonoBehaviour
         if (PressETarget != null)
         {
             if (PressETarget.transform.position.x - this.transform.position.x > 0.05f)
-                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
+                sprite.transform.localScale = new Vector3(-m_scale, m_scale, m_scale);
             //sprite.flipX = false;
             else if (PressETarget.transform.position.x - this.transform.position.x < -0.05f)
-                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
+                sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
             //sprite.flipX = true;
         }
         else
         {
             if (moveDir.x >= 0.05f)
             {
-                sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
+                sprite.transform.localScale = new Vector3(-m_scale, m_scale, m_scale);
                 //sprite.transform.localScale = new Vector3(-1, 1, 1);
                 //sprite.flipX = false;
             }
             else if (moveDir.x <= -0.05f)
             {
-                sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
+                sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
                 //sprite.transform.localScale = new Vector3(1, 1, 1);
                 //sprite.flipX = true;
             }
         }
+    }
+    public void Flip(float dir)
+    {
+        if (dir == 1)
+            sprite.transform.localScale = new Vector3(-m_scale, m_scale, m_scale);
+        else if (dir == -1)
+            sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
     }
     /// 角色跳跃
     /*     private void ReadyToJump()
@@ -414,12 +436,12 @@ public class PlayerController : MonoBehaviour
         //print("cannotmove");
         //playerAnimator.SetFloat("Vertical", 0);
         //playerAnimator.SetFloat("Horizontal", 0);
-//        playerAnimator.SetFloat("Speed", 0);
+        //        playerAnimator.SetFloat("Speed", 0);
         reactAble = false;
         //        canNotMove = true;
         Invoke("resetWalkAble", 1.0f);
     }
-    private void resetWalkAble()
+    public void resetWalkAble()
     {
         reactAble = true;
         //        canNotMove = false;
@@ -437,5 +459,18 @@ public class PlayerController : MonoBehaviour
         isArmor = flag;
         playerAnimator.SetBool("IsArmor", flag);
         playerChildTF.GetComponent<PlayerChildController>().SetBreakLevel(flag);
+    }
+    public void SetSpeed(float speed)
+    {
+        m_speed = speed;
+    }
+    public void ResetSpeed()
+    {
+        SetSpeed(moveSpeed);
+    }
+    public void SetScale(float ratio)
+    {
+        m_scale = originScale * ratio;
+        sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
     }
 }

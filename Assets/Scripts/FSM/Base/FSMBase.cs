@@ -36,6 +36,8 @@ public abstract class FSMBase : MonoBehaviour
     public float attackInterval = 2f;
     [Tooltip("攻击力")]
     public int damage;
+    [Tooltip("冲刺技能冷却时间")]
+    public float initSkillCD;
     [Header("私有变量")]
     //巡逻目的地
     [HideInInspector]
