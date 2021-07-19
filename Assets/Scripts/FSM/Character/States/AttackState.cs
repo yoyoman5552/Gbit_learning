@@ -99,6 +99,7 @@ public class AttackState : FSMState
         }
     }
     //近战攻击接口
+
     private void MeleeAttack(FSMBase fsm)
     {
         //近战攻击方法：冲刺撞击玩家后对玩家进行近身攻击
@@ -133,7 +134,7 @@ public class AttackState : FSMState
                 AttackEndTimer = initAttackEndTimer;
             }
         }
-
+        /*
         //冲刺后的近身攻击
         if (!fsm.meleeAttackStyle)
         {
@@ -144,6 +145,7 @@ public class AttackState : FSMState
             }
             meleeTimer -= Time.deltaTime;
         }
+        */
     }
     //远程攻击实现
     private void remoteAttack_Achieve(FSMBase fsm)
@@ -239,7 +241,7 @@ public class AttackState : FSMState
         if (Vector3.Distance(EnemyTransform.position, firstDetectPosition) < 0.5f)
         {
             fsm.attackRadius = 1.0f;
-            fsm.meleeAttackStyle = false;
+            //fsm.meleeAttackStyle = false;
             finishAttack = true;
             Debug.Log("Sprint_attack_finish");
         }
