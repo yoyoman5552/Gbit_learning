@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     //private Image characterImage;
     private Image BackGround;
     private Text objectName;
+    private ItemTrigger targetTrigger;
 
     private void Awake()
     {
@@ -147,6 +148,7 @@ public class UIManager : MonoBehaviour
         PopUpWindow.SetActive(false);
 
         jigsawUI.SetActive(false);
+        SetTargetUI("");
     }
     public void resetTimeScale()
     {
@@ -179,6 +181,26 @@ public class UIManager : MonoBehaviour
     {
         popWindow = num;
     }
-
+    public void CheckContinueTrigger()
+    {
+        Debug.Log("targetTrigger:" + targetTrigger);
+        if (targetTrigger != null)
+        {
+            targetTrigger.ContinueTrigger();
+        }
+    }
+    public void SaveActiveTrigger(ItemTrigger targetTrigger)
+    {
+        this.targetTrigger = targetTrigger;
+    }
+    public void RemoveActiveTrigger()
+    {
+        this.targetTrigger = null;
+    }
+    public void SetTargetUI(string content)
+    {
+        targetUI.GetComponentInChildren<Text>().text = content;
+        targetUI.SetActive(true);
+    }
 }
 

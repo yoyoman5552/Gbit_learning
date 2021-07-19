@@ -64,41 +64,26 @@ public class ChaseState : FSMState
         //近战攻击的改进：冲刺路径上有障碍物时，缩小攻击检测距离使敌人重新寻找新路径，当路径上没有障碍物时，恢复初始攻击距离
         //射线检测
         //近战攻击状态为冲刺状态时检测
-        if (fsm.meleeAttackStyle)
+
+        if (rayDetect(fsm))
         {
-            if (rayDetect(fsm))
-            {
-                fsm.attackRadius = defaultAttackArea;
-            }
-            else
-            {
-                fsm.attackRadius = 0;
-            }
+            fsm.attackRadius = defaultAttackArea;
         }
+        else
+        {
+            fsm.attackRadius = 0;
+        }
+    
 
 
-        //距离检测
-        if (!fsm.meleeAttackStyle)
-        {
-            Distance = detectDistance(fsm);
-            if (Distance >= defaultAttackArea - 0.5f)
-            {
-                //Debug.Log(defaultAttackArea);
-                fsm.attackRadius = defaultAttackArea;
-                fsm.meleeAttackStyle = true;
-            }
-            else
-            {
-                fsm.attackRadius = 1.0f;
-            }
-        }
+ 
     }
 
     public override void ExitState(FSMBase fsm)
     {
         //fsm.isDoneChase = false;
         fsm.StopPosition();
-        fsm.attackRadius = defaultAttackArea;
+        //fsm.attackRadius = defaultAttackArea;
 
     }
 

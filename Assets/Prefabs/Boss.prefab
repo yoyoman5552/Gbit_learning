@@ -245,6 +245,9 @@ MonoBehaviour:
   attackRadius: 0
   idleTime: 0
   hurtedTime: 4
+  HurtedSpeed: 1
+  attackInterval: 2
+  damage: 0
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
@@ -258,6 +261,7 @@ MonoBehaviour:
   m_speed: 0
   isHurted: 0
   test_stateID: 0
+  hurtedVelocity: {x: 0, y: 0, z: 0}
   hurtedThreshold: 40
   m_hurtedCount: 0
   batteryArray:
@@ -416,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915278090747009650, guid: ed0a3dfc496e7d94a86450d172768cc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 7915278090747009650, guid: ed0a3dfc496e7d94a86450d172768cc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -483,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915278090747009650, guid: ed0a3dfc496e7d94a86450d172768cc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: -1.31
       objectReference: {fileID: 0}
     - target: {fileID: 7915278090747009650, guid: ed0a3dfc496e7d94a86450d172768cc2, type: 3}
       propertyPath: m_LocalPosition.z

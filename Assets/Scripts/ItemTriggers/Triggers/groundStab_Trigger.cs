@@ -23,7 +23,7 @@ public class groundStab_Trigger : ITrigger
     //是否是刚接触地刺
     private bool firstEnter;
     //玩家
-    private Transform PlayerTransform;
+    //private Transform  GameManager.Instance.player.transform;
     //地刺x y
     private float stabX;
     private float stabY;
@@ -32,7 +32,7 @@ public class groundStab_Trigger : ITrigger
     private void Awake()
     {
         //col = GetComponent<Collider2D>();
-        PlayerTransform = GameManager.Instance.player.transform;
+
         collider = this.GetComponent<Collider2D>();
         stabX = collider.bounds.size.x;
         stabY = collider.bounds.size.y;
@@ -61,7 +61,7 @@ public class groundStab_Trigger : ITrigger
                 collider.enabled = true;
                 timeStabDisAppear = initTimeStabDisappear;
                 timeStabAppear = initTimeStabAppear;
-                
+
             }
         }
 
@@ -73,11 +73,11 @@ public class groundStab_Trigger : ITrigger
     private void detectDistance()
     {
         //right,left,up,down
-        if (Mathf.Abs(PlayerTransform.position.x - transform.position.x) <= stabX/ 2.0f+0.5f && Mathf.Abs(PlayerTransform.position.y - transform.position.y) <= stabY / 2.0f+0.5f)
+        if (Mathf.Abs(GameManager.Instance.player.transform.position.x - transform.position.x) <= stabX / 2.0f + 0.5f && Mathf.Abs(GameManager.Instance.player.transform.position.y - transform.position.y) <= stabY / 2.0f + 0.5f)
         {
             if (firstEnter)
             {
-                enterPosition = PlayerTransform.position;
+                enterPosition = GameManager.Instance.player.transform.position;
                 firstEnter = false;
                 //Debug.Log("InInIn");
             }
@@ -101,7 +101,8 @@ public class groundStab_Trigger : ITrigger
             if (!attacked)
             {
                 //TODO:玩家受伤
-                Debug.Log("玩家受伤");
+                //Debug.Log("玩家受伤");
+                GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
                 attacked = true;
                 collider.enabled = false;
                 StartCoroutine(AttackDelay(attackRatio));
@@ -114,7 +115,7 @@ public class groundStab_Trigger : ITrigger
                 Invoke("resetPlayerPosition", 0.2f);
 
                 //2.直接返回进入点，延迟时间
-                //PlayerTransform.position = enterPosition;
+                // GameManager.Instance.player.transform.position = enterPosition;
                 //TODO:人物受伤？短暂不能移动，体现被移出地刺范围
                 /*Time.timeScale = 0.1f;
                  Invoke("resetTimeScale", 0.05f);*/
@@ -145,12 +146,12 @@ public class groundStab_Trigger : ITrigger
     private void resetTimeScale()
     {
         Time.timeScale = 1;
-        PlayerTransform.position = enterPosition;
+        GameManager.Instance.player.transform.position = enterPosition;
     }
     private void resetPlayerPosition()
     {
-        PlayerTransform.position = enterPosition;
-        PlayerTransform.gameObject.GetComponent<PlayerController>().dontWalkAPI();
-    }    
+        GameManager.Instance.player.transform.position = enterPosition;
+        GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI();
+    }
 
 }
