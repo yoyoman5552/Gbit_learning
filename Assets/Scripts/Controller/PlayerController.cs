@@ -352,10 +352,10 @@ public class PlayerController : MonoBehaviour
         if (childController.isAttack) return;
         if (PressETarget != null)
         {
-            if (PressETarget.transform.position.x > this.transform.position.x)
+            if (PressETarget.transform.position.x - this.transform.position.x > 0.05f)
                 sprite.transform.localScale = new Vector3(-originScale, originScale, originScale);
             //sprite.flipX = false;
-            else
+            else if (PressETarget.transform.position.x - this.transform.position.x < -0.05f)
                 sprite.transform.localScale = new Vector3(originScale, originScale, originScale);
             //sprite.flipX = true;
         }
