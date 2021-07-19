@@ -19,6 +19,7 @@ public class DeadState : FSMState
         fsm.gameObject.SetActive(false);
         fsm.GetComponent<Collider2D>().enabled = false;
         fsm.Invoke("DeadDelay", 2f);
+        GameManager.Instance.CheckEnemy();
         //死亡之后状态机禁用
         fsm.enabled = false;
     }

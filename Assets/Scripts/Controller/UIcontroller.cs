@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
 {
+    public Sprite mysprite;
+    private int getNumForManager = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,16 @@ public class UIcontroller : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
+            getNumForManager = UIManager.Instance.getAllWindow();
+            if (getNumForManager == 1)
+            {
+                UIManager.Instance.CallDetailUI("", "", mysprite);
+            }
+
+            
+            else
+                UIManager.Instance.resetTimeScale();
             this.gameObject.SetActive(false);
-            UIManager.Instance.resetTimeScale();
         }
 
     }
