@@ -35,7 +35,7 @@ public class BagManager
 
     }
     //增加物品
-    public void AddItem(ItemInfo item)
+    public void AddItemList(ItemInfo item)
     {
         //如果已经有该物品了
         if (itemList.ContainsKey(item.id))

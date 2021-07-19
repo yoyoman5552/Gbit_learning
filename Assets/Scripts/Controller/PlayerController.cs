@@ -414,7 +414,7 @@ public class PlayerController : MonoBehaviour
         //print("cannotmove");
         //playerAnimator.SetFloat("Vertical", 0);
         //playerAnimator.SetFloat("Horizontal", 0);
-        playerAnimator.SetFloat("Speed", 0);
+//        playerAnimator.SetFloat("Speed", 0);
         reactAble = false;
         //        canNotMove = true;
         Invoke("resetWalkAble", 1.0f);

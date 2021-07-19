@@ -2262,13 +2262,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1845577827}
   - component: {fileID: 1845577828}
+  - component: {fileID: 1639323726}
   m_Layer: 5
   m_Name: talkUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1845577827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2305,6 +2306,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mysprite: {fileID: 0}
+--- !u!95 &1639323726
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845577826}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a37f7f79835d36149a796b89b58edc4c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1897523712
 GameObject:
   m_ObjectHideFlags: 0

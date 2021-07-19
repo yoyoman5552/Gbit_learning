@@ -13,10 +13,17 @@ public class ItemTrigger : MonoBehaviour
     //物品id列表
     [HideInInspector]
     public List<int> itemList;
+
+    [HideInInspector]
+    public int currentIndex;
     /// <summary>
     /// 激活方式
     /// </summary>
     public virtual void StartTrigger()
+    {
+
+    }
+    public virtual void ContinueTrigger()
     {
 
     }

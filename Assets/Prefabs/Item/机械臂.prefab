@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 9099512233933689585}
   isActive: 1
   itemList: 
+  currentIndex: 0
 --- !u!114 &3601081767773411118
 MonoBehaviour:
   m_ObjectHideFlags: 0

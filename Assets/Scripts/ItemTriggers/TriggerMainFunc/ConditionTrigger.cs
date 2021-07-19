@@ -17,4 +17,8 @@ public class ConditionTrigger : ItemTrigger
         }
         triggers[flag - 1].StartTrigger();
     }
+    public override void ContinueTrigger()
+    {
+        triggers[flag - 1].ContinueTrigger();
+    }
 }

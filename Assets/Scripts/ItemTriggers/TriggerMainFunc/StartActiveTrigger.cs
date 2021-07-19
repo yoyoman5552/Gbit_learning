@@ -3,7 +3,7 @@ using UnityEngine;
 //在开始时就会调用的Trigger
 public class StartActiveTrigger : ItemTrigger {
 
-    private void Start () {
+    private void OnEnable () {
         StartTrigger ();
     }
     private void Update () {
