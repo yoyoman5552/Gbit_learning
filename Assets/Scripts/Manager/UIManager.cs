@@ -57,12 +57,12 @@ public class UIManager : MonoBehaviour
     }
 
     //拼图信息UI
-    public void CallJigsawUI(string name,string detail)
+    public void CallJigsawUI(string name, string detail)
     {
         jigsawUI.SetActive(true);
-        for(int i =0;i<JigsawAmount;i++)
+        for (int i = 0; i < JigsawAmount; i++)
         {
-            if(JigsawControlList[i])
+            if (JigsawControlList[i])
             {
                 jigsawImges[i].SetActive(true);
             }
@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
         objectName = jigsawUI.transform.GetChild(3).GetComponent<Text>();
         objectName.text = name;
         detailText.text = detail;
-
+        Time.timeScale = 0;
     }
 
     public void CallTalkUI(string detail)
@@ -164,7 +164,7 @@ public class UIManager : MonoBehaviour
     }
     public int getAllWindow()
     {
-        if(popWindow==0)
+        if (popWindow == 0)
         {
             return 0;
         }
