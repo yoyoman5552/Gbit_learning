@@ -8184,7 +8184,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8209,6 +8209,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 2144685118}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &749478914
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13566,11 +13569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.62
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.85
+      value: -4.17
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14346,6 +14349,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 2019602270}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1164022208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14430,7 +14436,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15478,7 +15484,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15503,6 +15509,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 1734970308}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1270459294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18000,7 +18009,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18025,6 +18034,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 1488603582}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1553120021
 SpriteRenderer:
   m_ObjectHideFlags: 0
