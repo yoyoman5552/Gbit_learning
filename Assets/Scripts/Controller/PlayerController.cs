@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
     //是否能够交互
     private bool eAble;
 
+    //是否装备武器
+    private bool isArmor;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
@@ -426,11 +428,14 @@ public class PlayerController : MonoBehaviour
     {
         return eAble;
     }
-    public void SetEAble(bool flag){
-        eAble=flag;
+    public void SetEAble(bool flag)
+    {
+        eAble = flag;
     }
-/*     public void CloseEAble(){
-        eAble=false;
+    public void SetArmor(bool flag)
+    {
+        isArmor = flag;
+        playerAnimator.SetBool("IsArmor", flag);
+        playerChildTF.GetComponent<PlayerChildController>().SetBreakLevel(flag);
     }
- */
 }

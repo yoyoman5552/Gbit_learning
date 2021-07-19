@@ -148,5 +148,12 @@ public class PlayerChildController : MonoBehaviour
         }
         controller.PressETarget = null;
     }
+    public void SetBreakLevel(bool isArmor)
+    {
+        if (isArmor)
+            attackType = BreakLevel.hard;
+        else
+            attackType = BreakLevel.easy;
+    }
 }
 
