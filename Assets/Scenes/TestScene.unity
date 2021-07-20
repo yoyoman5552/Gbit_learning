@@ -19102,6 +19102,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailName
+      value: Detail Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawName
+      value: Jigsaw Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailIndex
+      value: Detail Index
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawIndex
+      value: Jigsaw Index
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailName
+      value: PopCallName
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawName
+      value: PopCallJigsaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailIndex
+      value: PopCallIndex
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawIndex
+      value: PopCallJigsaw2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailName
+      value: TalkCallName
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawName
+      value: TalkCallJigsaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailIndex
+      value: TalkCallIndex
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawIndex
+      value: TalkCallJigsaw2
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
