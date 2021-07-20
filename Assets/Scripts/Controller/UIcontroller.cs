@@ -29,11 +29,11 @@ public class UIcontroller : MonoBehaviour
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)
             {
-                UIManager.Instance.CallDetailUI("", "", detailSprite);
+                UIManager.Instance.CallDetailUI(detailName, detailIndex, detailSprite);
             }
             else if(getNumForManager == 1)
             {
-                UIManager.Instance.CallJigsawUI("","");
+                UIManager.Instance.CallJigsawUI(jigsawName,jigsawIndex);
             }
             else
                 UIManager.Instance.resetTimeScale();
