@@ -24,7 +24,7 @@ public class UIcontroller : MonoBehaviour
     }
     private void SetUIfalse()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)

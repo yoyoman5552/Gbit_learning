@@ -24,9 +24,16 @@ public class PassiveTrigger : ItemTrigger
     }
     public override void StartTrigger()
     {
-        foreach (var trigger in TriggerList)
+        for (currentIndex = 0; currentIndex < TriggerList.Count; currentIndex++)
         {
-            trigger.Action();
+            TriggerList[currentIndex].Action();
+            //如果是跟自言自语有关的，就退出，暂停
+            if (TriggerList[currentIndex].GetType() == typeof(UIEasyShow_Trigger))
+            {
+                Debug.Log("easyShow,index:" + currentIndex);
+                UIManager.Instance.SaveActiveTrigger(this);
+                break;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,7 +42,24 @@ public class PassiveTrigger : ItemTrigger
         //如果上头有人而且还没轮到自己
         if (condition != null)
             if (condition.flag != conditionFlag) return;
-        if (other.CompareTag("PlayerDetect") && other.GetComponent<PlayerController>().GeteAble())
+        if (other.CompareTag("PlayerDetect") && other.GetComponentInParent<PlayerController>().GeteAble())
+        {
             StartTrigger();
+        }
+    }
+    public override void ContinueTrigger()
+    {
+        UIManager.Instance.RemoveActiveTrigger();
+        for (currentIndex = currentIndex + 1; currentIndex < TriggerList.Count; currentIndex++)
+        {
+            TriggerList[currentIndex].Action();
+            //如果是跟自言自语有关的，就退出，暂停
+            if (TriggerList[currentIndex].GetType() == typeof(UIEasyShow_Trigger))
+            {
+                Debug.Log("easyShow,index:" + currentIndex);
+                UIManager.Instance.SaveActiveTrigger(this);
+                break;
+            }
+        }
     }
 }
