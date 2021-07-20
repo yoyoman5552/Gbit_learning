@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 299.61, y: -19.6344}
-  m_SizeDelta: {x: 2573.4014, y: 1534.6271}
+  m_AnchoredPosition: {x: 299.61, y: -28}
+  m_SizeDelta: {x: 2573.4014, y: 1024.4246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8711246
 CanvasRenderer:
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
   m_Color: {r: 0.75294125, g: 0.5529412, b: 0.41960788, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -67,10 +67,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
-    m_FontSize: 150
+    m_FontSize: 130
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -476,11 +476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf4ac364ad4344f9a11e143dfc2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detailSprite: {fileID: 0}
-  detailName: 
-  detailIndex: 
-  jigsawName: 
-  jigsawIndex: 
+  detailSprite: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
+  detailName: a
+  detailIndex: b
+  jigsawName: c
+  jigsawIndex: d
 --- !u!95 &997263392
 Animator:
   serializedVersion: 3
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
   m_Color: {r: 0.75294125, g: 0.5529412, b: 0.41960788, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -566,7 +566,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 71345f43b24231c4a9747d8f7996687b, type: 3}
+    m_Font: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
     m_FontSize: 210
     m_FontStyle: 1
     m_BestFit: 0
@@ -688,7 +688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -456.89, y: -164.02}
+  m_AnchoredPosition: {x: -466, y: -111.2}
   m_SizeDelta: {x: 1548.67, y: 617.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &685121862
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
   m_Color: {r: 0.75294125, g: 0.5529412, b: 0.41960788, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1303,7 +1303,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
+    m_Font: {fileID: 12800000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
     m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1955,7 +1955,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
+    m_Font: {fileID: 12800000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
     m_FontSize: 200
     m_FontStyle: 1
     m_BestFit: 0
@@ -2210,7 +2210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1785929633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2364,7 +2364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1845577827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2403,7 +2403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detailSprite: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
   detailName: "\u7535\u6C60"
-  detailIndex: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+  detailIndex: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
+    \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
   jigsawName: 
   jigsawIndex: 
 --- !u!95 &1639323726
@@ -2859,6 +2860,7 @@ MonoBehaviour:
   saveData:
     roomName: 
     lastDoor: {fileID: 0}
+  targetVolume: {fileID: 877823734}
 --- !u!114 &2033593939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,7 +3316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 680, y: -266}
+  m_AnchoredPosition: {x: 697, y: -266}
   m_SizeDelta: {x: 829.6158, y: 196.3785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8856808681905320658
@@ -3337,7 +3339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 54976bf563252084999023588b6e4a6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
