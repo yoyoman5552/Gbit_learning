@@ -13,7 +13,7 @@ public class GetAllJigsaw_trigger : ITrigger
         //对话UI结束：detailUI
         //TODO:detailUI
         //detail结束：jigsawUI
-        UIManager.Instance.getPopWindowNum(2);
+        UIManager.Instance.getPopWindowNum(3);
         target.flag = 3;
         //Debug.Log("UIEasyShow:" + detail);
     }

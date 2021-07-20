@@ -166,7 +166,7 @@ public class groundStab_Trigger : ITrigger
     private void resetPlayerPosition()
     {
         GameManager.Instance.player.transform.position = enterPosition;
-        GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI();
+        GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(1.0f);
     }
 
 }

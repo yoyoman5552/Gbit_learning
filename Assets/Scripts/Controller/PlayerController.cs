@@ -430,7 +430,7 @@ public class PlayerController : MonoBehaviour
 
         targetPos = target;
     }
-    public void dontWalkAPI()
+    public void dontWalkAPI(float resetTime)
     {
         //walkAble = false;
         //print("cannotmove");
@@ -439,7 +439,7 @@ public class PlayerController : MonoBehaviour
         //        playerAnimator.SetFloat("Speed", 0);
         reactAble = false;
         //        canNotMove = true;
-        Invoke("resetWalkAble", 1.0f);
+        Invoke("resetWalkAble", resetTime);
     }
     public void resetWalkAble()
     {
