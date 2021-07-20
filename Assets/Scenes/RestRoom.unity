@@ -890,6 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &59102941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &59102946
 Animator:
   serializedVersion: 3
@@ -1343,6 +1345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 8877183876783812028}
   targetDoor: {fileID: 8877183875237006521}
+  changeRoomType: 0
 --- !u!114 &61853918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,9 +1398,9 @@ BoxCollider2D:
   m_Offset: {x: -0.789609, y: 1.3096869}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.15625, y: 1.5625}
-    newSize: {x: 1.15625, y: 1.5625}
+    pivot: {x: 0.525, y: 0.26}
+    oldSize: {x: 0.98125, y: 1.44}
+    newSize: {x: 0.98125, y: 1.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1425,7 +1428,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
+  - {fileID: 2100000, guid: 2ca225dbe11673845bdc2686d0068d7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1446,15 +1449,15 @@ SpriteRenderer:
   m_SortingLayerID: 1832105461
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 130df9aea4a795748b3e3f655239aed4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 1.5625}
+  m_Size: {x: 0.98125, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &71113878
@@ -2981,6 +2984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &163447529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3051,6 +3055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &163447534
 Animator:
   serializedVersion: 3
@@ -3240,6 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 372253777}
   targetDoor: {fileID: 1343447414499767312}
+  changeRoomType: 0
 --- !u!114 &164856930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3431,6 +3437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 292316850}
   targetDoor: {fileID: 2156848174142956953}
+  changeRoomType: 0
 --- !u!4 &179716345
 Transform:
   m_ObjectHideFlags: 0
@@ -3526,9 +3533,9 @@ BoxCollider2D:
   m_Offset: {x: -0.18199022, y: 0.28395957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.15625, y: 1.5625}
-    newSize: {x: 1.15625, y: 1.5625}
+    pivot: {x: 0.525, y: 0.26}
+    oldSize: {x: 0.98125, y: 1.44}
+    newSize: {x: 0.98125, y: 1.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3556,7 +3563,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
+  - {fileID: 2100000, guid: 2ca225dbe11673845bdc2686d0068d7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3577,15 +3584,15 @@ SpriteRenderer:
   m_SortingLayerID: 1832105461
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 130df9aea4a795748b3e3f655239aed4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 1.5625}
+  m_Size: {x: 0.98125, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &184852985
@@ -5785,6 +5792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &344077384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5855,6 +5863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &344077389
 Animator:
   serializedVersion: 3
@@ -6828,6 +6837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1800055356}
   targetDoor: {fileID: 1225283848}
+  changeRoomType: 0
 --- !u!114 &426103262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11497,6 +11507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &702660440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11567,6 +11578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &702660445
 Animator:
   serializedVersion: 3
@@ -13010,6 +13022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 292316850}
   targetDoor: {fileID: 2156848174142956953}
+  changeRoomType: 0
 --- !u!114 &752221651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13713,6 +13726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 292316850}
   targetDoor: {fileID: 2156848174142956953}
+  changeRoomType: 0
 --- !u!114 &760465831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18748,26 +18762,6 @@ PrefabInstance:
       propertyPath: JigsawAmount
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawName
-      value: "\u62FC\u56FE"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawIndex
-      value: "\u62FC\u56FE\u5B8C\u6210"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailName
-      value: "\u7535\u6C60"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailIndex
-      value: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -19250,6 +19244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 292316850}
   targetDoor: {fileID: 2156848174142956953}
+  changeRoomType: 0
 --- !u!114 &1030110835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20007,22 +20002,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 667967500, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343814585, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343814588, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297774458511360283, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387098, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20069,10 +20048,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366504708953387102, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: attackMoveSpeedPer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22220,6 +22195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1069956036}
   targetDoor: {fileID: 426103259}
+  changeRoomType: 0
 --- !u!114 &1225283851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27270,6 +27246,7 @@ GameObject:
   - component: {fileID: 1609407949}
   - component: {fileID: 1609407946}
   - component: {fileID: 1609407945}
+  - component: {fileID: 1609407948}
   - component: {fileID: 1609407944}
   - component: {fileID: 1609407943}
   - component: {fileID: 1609407942}
@@ -27409,11 +27386,11 @@ MonoBehaviour:
   currentIndex: 0
   triggers:
   - {fileID: 1609407944}
-  - {fileID: 1609407944}
+  - {fileID: 1609407948}
   - {fileID: 1609407944}
   - {fileID: 1609407944}
   - {fileID: 1609407942}
-  flag: 1
+  flag: 2
 --- !u!95 &1609407946
 Animator:
   serializedVersion: 3
@@ -27449,16 +27426,36 @@ BoxCollider2D:
   m_Offset: {x: -0.20174143, y: -0.11866552}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.525, y: 0.26}
+    oldSize: {x: 0.98125, y: 1.44}
+    newSize: {x: 0.98125, y: 1.44}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.49370337, y: 0.37986594}
   m_EdgeRadius: 0
+--- !u!114 &1609407948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609407937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a005450f0516e046bbdd68373bda027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerList:
+  - {fileID: 1609407943}
+  - {fileID: 1609407940}
+  isActive: 1
+  itemList: 
+  currentIndex: 0
+  conditionFlag: 0
+  condition: {fileID: 0}
 --- !u!212 &1609407949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27479,7 +27476,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
+  - {fileID: 2100000, guid: 2ca225dbe11673845bdc2686d0068d7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27500,15 +27497,15 @@ SpriteRenderer:
   m_SortingLayerID: 1832105461
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 130df9aea4a795748b3e3f655239aed4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 1.5625}
+  m_Size: {x: 0.98125, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &1609407950
@@ -29300,6 +29297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1864534374}
   targetDoor: {fileID: 164856927}
+  changeRoomType: 0
 --- !u!95 &1776464376
 Animator:
   serializedVersion: 3
@@ -29864,6 +29862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 372253777}
   targetDoor: {fileID: 1343447414499767312}
+  changeRoomType: 0
 --- !u!114 &1797429837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36563,9 +36562,9 @@ BoxCollider2D:
   m_Offset: {x: 0.07986301, y: -0.43884143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.15625, y: 1.5625}
-    newSize: {x: 1.15625, y: 1.5625}
+    pivot: {x: 0.525, y: 0.26}
+    oldSize: {x: 0.98125, y: 1.44}
+    newSize: {x: 0.98125, y: 1.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -36657,7 +36656,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
+  - {fileID: 2100000, guid: 2ca225dbe11673845bdc2686d0068d7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36678,15 +36677,15 @@ SpriteRenderer:
   m_SortingLayerID: 1832105461
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 130df9aea4a795748b3e3f655239aed4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 1.5625}
+  m_Size: {x: 0.98125, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!4 &1343447414499767318
@@ -37075,6 +37074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!4 &3321549049920039550
 Transform:
   m_ObjectHideFlags: 0
@@ -38233,6 +38233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &7147767473129877950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38675,6 +38676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 372253777}
   targetDoor: {fileID: 179716341}
+  changeRoomType: 0
 --- !u!95 &8431367071197571310
 Animator:
   serializedVersion: 3
@@ -38708,6 +38710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1800055356}
   targetDoor: {fileID: 1797429834}
+  changeRoomType: 0
 --- !u!95 &8811415938864347495
 Animator:
   serializedVersion: 3
@@ -38939,6 +38942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 372253777}
   targetDoor: {fileID: 61853915}
+  changeRoomType: 0
 --- !u!4 &8877183875237006520
 Transform:
   m_ObjectHideFlags: 0

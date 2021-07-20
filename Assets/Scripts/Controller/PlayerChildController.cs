@@ -15,7 +15,7 @@ public class PlayerChildController : MonoBehaviour
     private BreakLevel attackType;
     [HideInInspector]
     public bool isAttack;
-    private int heavyAttack = 1;
+    //private int heavyAttack = 1;
     //private string attackType;
     private int comboStep = 0;
     private float timer;

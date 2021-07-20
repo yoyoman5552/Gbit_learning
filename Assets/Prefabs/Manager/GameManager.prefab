@@ -476,7 +476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf4ac364ad4344f9a11e143dfc2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysprite: {fileID: 0}
+  detailSprite: {fileID: 0}
+  detailName: 
+  detailIndex: 
+  jigsawName: 
+  jigsawIndex: 
 --- !u!95 &997263392
 Animator:
   serializedVersion: 3
@@ -2196,7 +2200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf4ac364ad4344f9a11e143dfc2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysprite: {fileID: 0}
+  detailSprite: {fileID: 0}
+  detailName: 
+  detailIndex: 
+  jigsawName: "\u62FC\u56FE"
+  jigsawIndex: "\u62FC\u56FE\u5B8C\u6210"
 --- !u!95 &104086133289158467
 Animator:
   serializedVersion: 3
@@ -2345,7 +2353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cf4ac364ad4344f9a11e143dfc2c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mysprite: {fileID: 0}
+  detailSprite: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
+  detailName: "\u7535\u6C60"
+  detailIndex: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+  jigsawName: 
+  jigsawIndex: 
 --- !u!95 &1639323726
 Animator:
   serializedVersion: 3
@@ -2779,6 +2791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerController: {fileID: 0}
+  playerChildController: {fileID: 0}
   currentRoom: {fileID: 0}
   BlackImage: {fileID: 729506557}
   bloodPicture:
