@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
     public Transform totalJigsaw;
     [Tooltip("连弹3窗口")]
     private int popWindow = 0;
-    [Tooltip("已有电池")]
-    public bool getBattery;
     //背包UI列表
     [HideInInspector]
     public Image[] bagUIList;
@@ -57,7 +55,6 @@ public class UIManager : MonoBehaviour
         InitComponent();
         //this.gameObject.SetActive(false);
         initUIObject();
-        getBattery = false;
     }
 
     //拼图信息UI
@@ -163,7 +160,7 @@ public class UIManager : MonoBehaviour
     }
     public bool remainJigsaw()
     {
-        if (JigsawAmount == CurrentJigsawAmount&&getBattery)
+        if (JigsawAmount == CurrentJigsawAmount)
             return true;
         else return false;
     }
