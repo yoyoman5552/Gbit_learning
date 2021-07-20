@@ -53,3 +53,7 @@
 	- 设置目标uiTrigger：SetTargetUI_;会将当前目标显示在目标ui上
 	- 设置背包UITrigger：Bag_   ;会将记录的物品放入背包中；其目前的实现为会获取自身物体上的所有**SetConditionFlag**的目标，将目标标记为自身的使用者；有多少个目标，其就能使用多少次；**需要存储物品名字、图片（信息应该不用管）**
 	- 拼图：拼图的详细实现见Assets/Scenes下的TestScene
+
+
+## 新增事项
+1.	场景中交互物品material调整为itemMaterial
