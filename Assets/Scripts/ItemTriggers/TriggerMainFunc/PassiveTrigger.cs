@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PassiveTrigger : ItemTrigger
 {
+    [HideInInspector]
     public int conditionFlag;
+    [HideInInspector]
     public ConditionTrigger condition;
     private void Start()
     {
