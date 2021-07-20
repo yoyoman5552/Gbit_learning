@@ -12444,6 +12444,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8366504708953387102, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
+      propertyPath: attackMoveSpeedPer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
 --- !u!1 &1186814207
@@ -14421,6 +14425,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
+      propertyPath: HP
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: minRadius
       value: 5
       objectReference: {fileID: 0}
@@ -14430,7 +14438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: attackRadius
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: meleeAttackStyle
