@@ -23,9 +23,13 @@ public class UIcontroller : MonoBehaviour
         if (Input.anyKeyDown)
         {
             getNumForManager = UIManager.Instance.getAllWindow();
-            if (getNumForManager == 1)
+            if (getNumForManager == 2)
             {
                 UIManager.Instance.CallDetailUI("", "", mysprite);
+            }
+            else if(getNumForManager == 1)
+            {
+                UIManager.Instance.CallJigsawUI("","");
             }
             else
                 UIManager.Instance.resetTimeScale();

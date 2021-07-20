@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     //玩家属性
     [HideInInspector]
     public PlayerController playerController;
+    public PlayerChildController playerChildController;
     [Tooltip("当前房间")]
     [HideInInspector]
     public GameObject currentRoom;
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
         globalLight = this.GetComponentInChildren<Light2D>();
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
+        playerChildController = player.GetComponentInChildren<PlayerChildController>();
         roomList = new List<GameObject>(GameObject.FindGameObjectsWithTag("Room"));
         Debug.Log("roomList length:" + roomList.Count);
         foreach (var room in roomList)
