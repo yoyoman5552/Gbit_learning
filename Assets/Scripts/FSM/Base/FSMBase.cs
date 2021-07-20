@@ -94,6 +94,10 @@ public abstract class FSMBase : MonoBehaviour
     [HideInInspector]
     public Vector3 hurtedVelocity;
 
+
+    //动画
+    public Animator enemyAnimator;
+
     private void Awake()
     {
         Init();
@@ -107,6 +111,8 @@ public abstract class FSMBase : MonoBehaviour
         ConfigFSM();
         //查找默认状态：默认状态初始化
         InitDefaultState();
+
+       
     }
 
     /*     private void Reset()
@@ -116,6 +122,7 @@ public abstract class FSMBase : MonoBehaviour
      */
     public virtual void InitComponent()
     {
+        enemyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         childTF = this.transform.Find("CharacterChild");
         sprite = childTF.GetComponent<SpriteRenderer>();

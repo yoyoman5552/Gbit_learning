@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private DepthOfField depthOfField;
     //色差
     private ChromaticAberration chromaticAberration;
+    private float chromaticRatio;
 
     //单例模式
     public static GameManager Instance;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     //玩家属性
     [HideInInspector]
     public PlayerController playerController;
+    [HideInInspector]
     public PlayerChildController playerChildController;
     [Tooltip("当前房间")]
     [HideInInspector]
@@ -60,16 +62,21 @@ public class GameManager : MonoBehaviour
         Instance = this;
         InitComponent();
     }
+    private void OnDestroy()
+    {
+        chromaticAberration.intensity.value = 0;
+    }
     private void Update()
     {
         if (bloodRenderer.color.a > 0)
         {
             bloodRenderer.color = bloodRenderer.color - new Color(0, 0, 0, Time.deltaTime / 5);
         }
+        chromaticAberration.intensity.value = Mathf.Clamp(bloodRenderer.color.a, 0, 0.2f);
     }
     private void InitComponent()
     {
-        bloodIndex = 0;
+        chromaticRatio = bloodIndex = 0;
         saveData = new SaveData();
         bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
         globalLight = this.GetComponentInChildren<Light2D>();
@@ -77,10 +84,10 @@ public class GameManager : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         playerChildController = player.GetComponentInChildren<PlayerChildController>();
         roomList = new List<GameObject>(GameObject.FindGameObjectsWithTag("Room"));
-        Debug.Log("roomList length:" + roomList.Count);
+        //Debug.Log("roomList length:" + roomList.Count);
         foreach (var room in roomList)
         {
-            Debug.Log("roomList+:" + room.name);
+            //Debug.Log("roomList+:" + room.name);
             room.transform.position = Vector3.zero;
             room.SetActive(false);
         }
@@ -225,20 +232,20 @@ public class GameManager : MonoBehaviour
         }
     }
     //更新受击特效
-    public void UpdateHurtedEffect(float MaxHP, float m_hp)
+    public void UpdateHurtedEffect(int damage)
     {
         if (bloodRenderer.color.a <= 0) bloodIndex = 0;
         bloodRenderer.sprite = bloodPicture[bloodIndex];
         Vector4 x = bloodRenderer.color;
         x.w = 1;
         bloodRenderer.color = x;
-        if (bloodIndex + 1 >= bloodPicture.Length)
+        if (bloodIndex + damage >= bloodPicture.Length)
         {//如果人物死亡
             StartCoroutine(RestartGameDelay());
             Time.timeScale = 0;
             //            PlayerDead();
         }
-        bloodIndex = (bloodIndex + 1) % bloodPicture.Length;
+        bloodIndex = (bloodIndex + damage) % bloodPicture.Length;
     }
     IEnumerator RestartGameDelay()
     {

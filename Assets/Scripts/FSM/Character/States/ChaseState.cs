@@ -20,6 +20,8 @@ public class ChaseState : FSMState
     private float Distance;
     public override void EnterState(FSMBase fsm)
     {
+        fsm.enemyAnimator.SetBool("inChase", true);
+        fsm.enemyAnimator.SetTrigger("inChase");
         if (firstGetAttackArea)
         {
             defaultAttackArea = fsm.attackRadius;
@@ -84,6 +86,7 @@ public class ChaseState : FSMState
         //fsm.isDoneChase = false;
         fsm.StopPosition();
         //fsm.attackRadius = defaultAttackArea;
+        fsm.enemyAnimator.SetBool("inChase", false);
 
     }
 
