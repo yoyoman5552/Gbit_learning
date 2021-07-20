@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1343814588}
   m_Layer: 0
   m_Name: PlayerCircleDetect
-  m_TagString: Untagged
+  m_TagString: PlayerDetect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,9 +446,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704111e6b6b8ec443bff32e61727dce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 5
+  MaxHP: 6
   moveSpeed: 2
   PressESpeed: 0
+  attackMoveSpeedPer: 0
   jumpHeight: 1
   hpLevels: 3
   m_speed: 3
@@ -456,7 +457,7 @@ MonoBehaviour:
   autoHealTime: 6
   autoHealInterval: 1
   smoothTime: 2
-  playerWillDead: 0
+  playerWillDead: 1
   source: {fileID: 0}
   PressETarget: {fileID: 0}
 --- !u!1 &8366504710972789260
@@ -513,7 +514,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 6f07b2e62ee7fad4f9536c51a59259e9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

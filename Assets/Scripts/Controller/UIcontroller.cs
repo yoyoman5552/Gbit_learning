@@ -37,8 +37,11 @@ public class UIcontroller : MonoBehaviour
             }
             else
                 UIManager.Instance.resetTimeScale();
-            this.gameObject.SetActive(false);
-            UIManager.Instance.CheckContinueTrigger();
+            if (!UIManager.Instance.CheckContinueTrigger())
+            {
+                this.gameObject.SetActive(false);
+            }
+            //否则此对话框不关闭
         }
 
     }

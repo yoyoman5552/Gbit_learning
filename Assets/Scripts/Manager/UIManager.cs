@@ -61,6 +61,8 @@ public class UIManager : MonoBehaviour
     public void CallJigsawUI(string name, string detail)
     {
         jigsawUI.SetActive(true);
+        talkWindow.SetActive(false);
+        PopUpWindow.SetActive(false);
         for (int i = 0; i < JigsawAmount; i++)
         {
             if (JigsawControlList[i])
@@ -72,8 +74,8 @@ public class UIManager : MonoBehaviour
                 jigsawImges[i].SetActive(false);
             }
         }
-        detailText = jigsawUI.transform.GetChild(2).GetComponent<Text>();
-        objectName = jigsawUI.transform.GetChild(3).GetComponent<Text>();
+        detailText = jigsawUI.transform.Find("detail").GetComponent<Text>();
+        objectName = jigsawUI.transform.Find("name").GetComponent<Text>();
         objectName.text = name;
         detailText.text = detail;
         Time.timeScale = 0;
@@ -89,20 +91,24 @@ public class UIManager : MonoBehaviour
 
         detailText.text = detail;
         talkWindow.SetActive(true);
+        PopUpWindow.SetActive(false);
+        jigsawUI.SetActive(false);
         Time.timeScale = 0;
     }
     public void CallDetailUI(string name, string detail, Sprite showObject)
     {
         //显示物品信息UI
         //BackGround = PopUpWindow.transform.GetChild(0).GetComponent<Image>();
-        detailText = PopUpWindow.transform.GetChild(2).GetComponent<Text>();
-        Image characterImage = PopUpWindow.transform.GetChild(3).GetComponent<Image>();
-        objectName = PopUpWindow.transform.GetChild(4).GetComponent<Text>();
+        detailText = PopUpWindow.transform.Find("detail").GetComponent<Text>();
+        Image characterImage = PopUpWindow.transform.Find("objImage").GetComponent<Image>();
+        objectName = PopUpWindow.transform.Find("name").GetComponent<Text>();
 
         characterImage.sprite = showObject;
         objectName.text = name;
         detailText.text = detail;
         PopUpWindow.SetActive(true);
+        talkWindow.SetActive(false);
+        jigsawUI.SetActive(false);
         Time.timeScale = 0;
     }
     private void InitComponent()
@@ -181,13 +187,14 @@ public class UIManager : MonoBehaviour
     {
         popWindow = num;
     }
-    public void CheckContinueTrigger()
+    public bool CheckContinueTrigger()
     {
         Debug.Log("targetTrigger:" + targetTrigger);
         if (targetTrigger != null)
         {
             targetTrigger.ContinueTrigger();
         }
+        return targetTrigger != null;
     }
     public void SaveActiveTrigger(ItemTrigger targetTrigger)
     {

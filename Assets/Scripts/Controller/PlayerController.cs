@@ -155,13 +155,28 @@ public class PlayerController : MonoBehaviour
         //受伤检测
         HurtedCheck();
     }
-
+    public void PlayerInit()
+    {
+        m_hp = MaxHP;
+        eAble = reactAble = walkAble = true;
+        //GameManager.Instance.InitHurtedEffect();
+    }
     private bool CheckDead()
     {
         if (!playerWillDead) return false;
+
+        if (m_hp <= 0)
+        {
+            //人物死亡，数据回归
+            //TODO:UI显示，数据回归
+            //ameManager.Instance.PlayerDead();
+        }
         return m_hp <= 0;
     }
+    private void DeadFunc()
+    {
 
+    }
     private void FixedUpdate()
     {
         //移动
@@ -183,7 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             material.SetFloat("_FlashAmount", 0);
         }
-        if (hurtedTimer > -autoHealTime)
+        /* if (hurtedTimer > -autoHealTime)
         {
             hurtedTimer -= Time.deltaTime;
         }
@@ -191,13 +206,9 @@ public class PlayerController : MonoBehaviour
         {
             hurtedTimer += autoHealInterval;
             m_hp = Mathf.Min(m_hp + 1, MaxHP);
-            SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
-            Vector4 setColor = renderer.color;
-            //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
-            //FIXME:目前是一个血量一个状态
-            setColor.w = 1 - (float)m_hp / MaxHP;
-            renderer.color = setColor;
-        }
+            GameManager.Instance.UpdateHurtedEffect(MaxHP, m_hp);
+
+        } */
     }
     public void SetReactable(bool flag)
     {
@@ -265,24 +276,11 @@ public class PlayerController : MonoBehaviour
     public void TakenDamage(int damage, Vector3 dir)
     {
         if (hurtedTimer > 0) return;
-        SpriteRenderer renderer = GameManager.Instance.bloodEffect.GetComponent<SpriteRenderer>();
-        Vector4 setColor = renderer.color;
         m_hp = Mathf.Max(0, m_hp - damage);
         hurtedTimer = ConstantList.HurtedTime;
         hurtedDir = dir;
-        //        setColor.w = (((float)MaxHP - m_hp) / MaxHP) * 255;
         //FIXME:目前是一个血量一个状态
-        setColor.w = 1 - (float)m_hp / MaxHP;
-        /*  for (int i = 1; i <= hpLevels; i++)
-         {
-             if (m_hp <= MaxHP / hpLevels * i)
-             {
-                 Debug.Log("level:" + MaxHP / hpLevels * i + "alpha:" + (hpLevels - i + 1) / hpLevels);
-                 setColor.w = (hpLevels - i + 1) / hpLevels;
-                 break;
-             }
-         } */
-        renderer.color = setColor;
+        GameManager.Instance.UpdateHurtedEffect(MaxHP, m_hp);
         /*         if (m_hp <= MaxHP / hpLevels)
                 {
                     setColor.w = 255;

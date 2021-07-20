@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PassiveTrigger : ItemTrigger
 {
+    [HideInInspector]
+    public int conditionFlag;
+    [HideInInspector]
+    public ConditionTrigger condition;
     private void Start()
     {
         /* //初始化Trigger列表
@@ -28,7 +32,10 @@ public class PassiveTrigger : ItemTrigger
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!isActive) return;
-        if (other.CompareTag("Player") && other.GetComponent<PlayerController>().GeteAble())
+        //如果上头有人而且还没轮到自己
+        if (condition != null)
+            if (condition.flag != conditionFlag) return;
+        if (other.CompareTag("PlayerDetect") && other.GetComponent<PlayerController>().GeteAble())
             StartTrigger();
     }
 }

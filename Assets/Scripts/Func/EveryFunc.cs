@@ -47,6 +47,10 @@ namespace EveryFunc
         Core_UnFollow_Sector,
         Core_Follow_One
     }
+    public enum ChangeRoomType{
+        normal,
+        SBTimeTrip
+    }
     public enum FSMTriggerID
     {
         IdleDone,

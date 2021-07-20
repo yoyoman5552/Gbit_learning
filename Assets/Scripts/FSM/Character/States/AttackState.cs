@@ -5,7 +5,7 @@ public class AttackState : FSMState
 
     //攻击间隔：远程攻击变量
     //子弹发射攻速
-    private float initShootTimeGap = 0.4f;
+    //private float initShootTimeGap = 0.4f;
     private float shootTimeGap;
     //判断当前是否已经发射子弹
     private bool hadShoot = false;
@@ -39,7 +39,7 @@ public class AttackState : FSMState
 
     //冲刺后的近战普通攻击的加载时间
     private float meleeTimer;
-    private float initMeleeTimer = 0.5f;
+    //private float initMeleeTimer = 0.5f;
     //private bool hadMelee = false;
     private float originRadius;
 
