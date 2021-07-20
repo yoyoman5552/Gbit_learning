@@ -1758,8 +1758,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: flag
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
+      propertyPath: triggers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
+      propertyPath: triggers.Array.data[4]
+      value: 
+      objectReference: {fileID: 1780081598}
     - target: {fileID: 2105280210612477613, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: TriggerList.Array.size
       value: 3
@@ -7109,6 +7117,7 @@ MonoBehaviour:
   - {fileID: 434282706}
   - {fileID: 434282713}
   - {fileID: 434282705}
+  - {fileID: 434282717}
   isActive: 1
   itemList: 
   currentIndex: 0
@@ -7358,7 +7367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1780081607}
-  changeToFlag: 3
+  changeToFlag: 2
 --- !u!1 &451071889
 GameObject:
   m_ObjectHideFlags: 0
@@ -18737,6 +18746,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1985003379, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -19834,7 +19847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27cc30afc87bd5e45b6c9ec8969935f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCondition: {fileID: 0}
+  targetCondition: {fileID: 1780081607}
   changeToFlag: 2
 --- !u!114 &1054417225
 MonoBehaviour:
@@ -19861,7 +19874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
-  objectImage: {fileID: 21300000, guid: 481faf3d5df8f7d459d4b2c4682c1e6f, type: 3}
+  objectImage: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
   detail: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
 --- !u!114 &1054417227
 MonoBehaviour:
@@ -29719,6 +29732,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+--- !u!114 &1780081597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780081595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b2ff397106e2849ac5d117359777b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\u62FC\u56FE\u88C5\u7F6E"
+  detail: "\u62FC\u56FE\u5B8C\u6210"
+--- !u!114 &1780081598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780081595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbe4daa64334694ea3a70500b60fc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerList:
+  - {fileID: 1780081597}
+  isActive: 1
+  itemList: 
+  currentIndex: 0
 --- !u!114 &1780081607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}

@@ -3,17 +3,27 @@ public class SetConditionFlag_Trigger : ITrigger
 {
     public ConditionTrigger targetCondition;
     public int changeToFlag = 2;
+    
     public override void Action()
     {
 
-        targetCondition.flag = changeToFlag;
+        
         if (targetCondition.name == "Æ´Í¼×°ÖÃ")
         {
+            
             if (UIManager.Instance.remainJigsaw())
             {
-                targetCondition.flag = 4;
+                if (targetCondition.flag != 4)
+                {
+                    targetCondition.flag = 4;
+                    return;
+                }
             }
-            
+            if (targetCondition.flag > changeToFlag)
+            {
+                return;
+            }
         }
+        targetCondition.flag = changeToFlag;
     }
 }

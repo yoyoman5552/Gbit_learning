@@ -58,6 +58,8 @@ public class AttackState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
+        fsm.enemyAnimator.SetBool("inAttack",true);
+
         //翻转贴图方向
         float dir = fsm.targetTF.position.x - fsm.transform.position.x;
         fsm.textureClip(dir);
@@ -90,6 +92,7 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         //        Debug.Log("attack state out");
+        fsm.enemyAnimator.SetBool("inAttack", false);
 
     }
 
@@ -121,34 +124,34 @@ public class AttackState : FSMState
         //现有问题：冲刺冷却时间在玩家离开攻击范围后不会继续倒计时：目前通过设置当玩家进入攻击范围时，冲刺技能自动冷却。
         if (finishAttack)
         {
-            //Debug.Log("finish_Attack:resetCD: "+sprintSkillCD);
-            if (fsm.meleeAttackStyle)
-            {
-                //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
-                //TODO:加标志
-                sprintSkillCD -= Time.deltaTime;
-                if (sprintSkillCD <= 0)
-                {
+            fsm.enemyAnimator.SetBool("inSprint", false);
+            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
 
-                    sprintSkillCD = initSprintCDTimer;
-                    loadSprintTimer = initLoadSprintTimer;
-                    AttackEndTimer = initAttackEndTimer;
-                    finishAttack = false;
-                    //重新检测玩家位置
-                    firstDetectPlayer = true;
-                    Debug.Log("resetCD_finish");
-                }
+            //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
+            //TODO:加标志
+            sprintSkillCD -= Time.deltaTime;
+            if (sprintSkillCD <= 0)
+            {
+
+                sprintSkillCD = initSprintCDTimer;
+                loadSprintTimer = initLoadSprintTimer;
+                AttackEndTimer = initAttackEndTimer;
+                finishAttack = false;
+                //重新检测玩家位置
+                firstDetectPlayer = true;
+                Debug.Log("resetCD_finish");
             }
+
         }
         else
         {
-            if (rayDetect(fsm)&&!fsm.isHurted)
+            if (rayDetect(fsm))
             {
-
+                fsm.enemyAnimator.SetBool("inLoadSprint", true);
                 //冲刺加载
 
                 //获取当前玩家位置
-                if (firstDetectPlayer)
+                if (firstDetectPlayer&&loadSprintTimer<=0.5f)
                 {
                     firstDetectPosition = GameManager.Instance.player.transform.position;
                     firstDetectPlayer = false;
@@ -158,7 +161,9 @@ public class AttackState : FSMState
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
-                    Debug.Log("ready_to_attack");
+                    fsm.enemyAnimator.SetBool("inLoadSprint", false);
+                    fsm.enemyAnimator.SetBool("inSprint", true);
+                    //Debug.Log("ready_to_attack");
                     Sprint_Achieve(fsm);
                 }
 
@@ -172,7 +177,7 @@ public class AttackState : FSMState
                 loadSprintTimer = initLoadSprintTimer;
                 AttackEndTimer = initAttackEndTimer;
             }
-            
+
         }
         /*
         //冲刺后的近身攻击
