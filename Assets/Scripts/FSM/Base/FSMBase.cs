@@ -12,7 +12,7 @@ public abstract class FSMBase : MonoBehaviour
     [Tooltip("追击速度")]
     public float chaseSpeed;
     [Tooltip("血量")]
-    public float HP;
+    public int HP;
     [Tooltip("默认状态编号")]
     public FSMStateID DefaultStateID;
     //只要一个圆形半径就好了 

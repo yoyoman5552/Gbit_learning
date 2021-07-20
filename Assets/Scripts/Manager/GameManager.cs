@@ -7,6 +7,7 @@ using EveryFunc;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using EveryFunc.FSM;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //景深
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("黑色UI图片")]
     public GameObject BlackImage;
     [Tooltip("玩家受伤效果")]
+    public Sprite[] bloodPicture;
     public GameObject bloodEffect;
     [Tooltip("UI移动速度")]
     public float UIMoveSpeed;
@@ -42,8 +44,10 @@ public class GameManager : MonoBehaviour
     //Global Light
     public Light2D globalLight;
 
-    //保存用：只保存位置
-    private Vector3 savePlayerPos;
+    //保存数据
+    public SaveData saveData;
+    private int bloodIndex;
+    private SpriteRenderer bloodRenderer;
     private void Awake()
     {
         if (Instance != null)
@@ -55,17 +59,18 @@ public class GameManager : MonoBehaviour
         Instance = this;
         InitComponent();
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
+        if (bloodRenderer.color.a > 0)
+        {
+            bloodRenderer.color = bloodRenderer.color - new Color(0, 0, 0, Time.deltaTime / 5);
+        }
     }
     private void InitComponent()
     {
+        bloodIndex = 0;
+        saveData = new SaveData();
+        bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
         globalLight = this.GetComponentInChildren<Light2D>();
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
@@ -79,7 +84,7 @@ public class GameManager : MonoBehaviour
         }
         //FIXME:选择初始房间
         GameObject firstRoom = roomList.Find(s => s.name == "Room1");
-        ChangeRoom(firstRoom, this.transform.Find("StartPos"));
+        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null);
 
         Volume[] volumes = VolumeManager.instance.GetVolumes(LayerMask.NameToLayer("All"));
         foreach (var volume in volumes)
@@ -93,16 +98,23 @@ public class GameManager : MonoBehaviour
                     depthOfField = (DepthOfField)component;
             }
         }
-
     }
     /// <summary>
     /// 切换房间
     /// </summary>
     /// <param name="targetRoom">目标房间</param>
-    public void ChangeRoom(GameObject targetRoom, Transform targetDoor)
+    public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
+    {
+        SaveData(targetRoom, lastDoor);
+        playerController.SetReactable(false);
+        if (changeRoomType == ChangeRoomType.normal)
+        {
+            normalChangeRoom(targetRoom, targetDoor);
+        }
+    }
+    private void normalChangeRoom(GameObject targetRoom, Transform targetDoor)
     {
         BlackImage.SetActive(true);
-        playerController.SetReactable(false);
         if (player.transform.position.x >= 0)
             StartCoroutine(ChangeRoomDelay(1, targetRoom, targetDoor));
         else
@@ -191,8 +203,55 @@ public class GameManager : MonoBehaviour
             playerController.SetEAble(true);
         }
     }
-    public void SaveData_PlayerPos(GameObject Room, Vector3 playerPos)
+    public void SaveData(GameObject Room, Transform playerPos)
     {
+        Debug.Log("room:" + Room);
+        //保存房间和人物位置
+        saveData.roomName = Room.name;
+        saveData.lastDoor = playerPos;
 
+        //保存物品列表
+        saveData.itemList = new Dictionary<int, ItemInfo>(BagManager.Instance.itemList);
+
+        //保存敌人数据
+        saveData.enemys.Clear();
+        foreach (var enemy in Room.transform.GetComponentsInChildren<FSMBase>(true))
+        {
+            FSMBase fsm = enemy.GetComponent<FSMBase>();
+            EnemyData enemyData = new EnemyData(fsm.AttackStyle, fsm.HP, fsm.transform.localPosition);
+            saveData.enemys.Add(enemyData);
+        }
+    }
+    //更新受击特效
+    public void UpdateHurtedEffect(float MaxHP, float m_hp)
+    {
+        if (bloodRenderer.color.a <= 0) bloodIndex = 0;
+        bloodRenderer.sprite = bloodPicture[bloodIndex];
+        Vector4 x = bloodRenderer.color;
+        x.w = 1;
+        bloodRenderer.color = x;
+        if (bloodIndex + 1 >= bloodPicture.Length)
+        {//如果人物死亡
+            StartCoroutine(RestartGameDelay());
+            Time.timeScale = 0;
+            //            PlayerDead();
+        }
+        bloodIndex = (bloodIndex + 1) % bloodPicture.Length;
+    }
+    IEnumerator RestartGameDelay()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1;
+        PlayerDead();
+    }
+    public void PlayerDead()
+    {
+        Debug.Log("角色死亡");
+        //TODO:死亡UI显示blahblah
+        BagManager.Instance.itemList = saveData.itemList;
+        playerController.PlayerInit();
+        ChangeRoom(roomList.Find(s => s.name == saveData.lastDoor.parent.name), saveData.lastDoor, null);
+
+        //初始化敌人
     }
 }

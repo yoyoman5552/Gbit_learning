@@ -48,6 +48,13 @@ public class ActiveTrigger : ItemTrigger
         for (currentIndex = currentIndex + 1; currentIndex < TriggerList.Count; currentIndex++)
         {
             TriggerList[currentIndex].Action();
+            //如果是跟自言自语有关的，就退出，暂停
+            if (TriggerList[currentIndex].GetType() == typeof(UIEasyShow_Trigger))
+            {
+                Debug.Log("easyShow,index:" + currentIndex);
+                UIManager.Instance.SaveActiveTrigger(this);
+                break;
+            }
         }
     }
 }
