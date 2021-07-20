@@ -9,8 +9,8 @@ using UnityEngine.Rendering.Universal;
 public class PlayerController : MonoBehaviour
 {
     [Header("共有变量")]
-    [Tooltip("最大血量")]
-    public int MaxHP = 5;
+    /*     [Tooltip("最大血量")]
+        public int MaxHP = 5; */
     [Tooltip("默认移动速度")]
     public float moveSpeed;
     [Tooltip("按下E的时候的速度")]
@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour
     public float attackMoveSpeedPer = 0.7f;
     [Tooltip("跳跃高度")]
     public float jumpHeight;
-    [Tooltip("血量分段")]
-    public float hpLevels = 3;
+    /*     [Tooltip("血量分段")]
+        public float hpLevels = 3; */
     //当前移动速度
     public float m_speed;
     //当前血量
-    public int m_hp;
+    //public int m_hp;
     [Tooltip("多久时间自动回血")]
     public float autoHealTime = 3f;
     [Tooltip("回血间隔")]
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         //MouseManager.Instance.OnMouseClicked += MoveToTarget;
         m_speed = moveSpeed;
-        m_hp = MaxHP;
+        //m_hp = MaxHP;
         isJump = false;
         //        canNotMove = false;
         eAble = reactAble = walkAble = true;
@@ -123,12 +123,14 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (CheckDead())
+        /* if (CheckDead())
         {
             return;
-        }
+        } */
         //如果时间暂停了
         if (Time.timeScale == 0) return;
+        //受伤检测
+        HurtedCheck();
         //如果不可交互
         if (!reactAble || !walkAble)
         {
@@ -152,16 +154,14 @@ public class PlayerController : MonoBehaviour
         }
         //检测强制移动状态
         CheckMoveToTarget();
-        //受伤检测
-        HurtedCheck();
     }
     public void PlayerInit()
     {
-        m_hp = MaxHP;
+        //m_hp = MaxHP;
         eAble = reactAble = walkAble = true;
         //GameManager.Instance.InitHurtedEffect();
     }
-    private bool CheckDead()
+    /* private bool CheckDead()
     {
         if (!playerWillDead) return false;
 
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
             //ameManager.Instance.PlayerDead();
         }
         return m_hp <= 0;
-    }
+    } */
     private void DeadFunc()
     {
 
@@ -276,11 +276,11 @@ public class PlayerController : MonoBehaviour
     public void TakenDamage(int damage, Vector3 dir)
     {
         if (hurtedTimer > 0) return;
-        m_hp = Mathf.Max(0, m_hp - damage);
+        //m_hp = Mathf.Max(0, m_hp - damage);
         hurtedTimer = ConstantList.HurtedTime;
         hurtedDir = dir;
         //FIXME:目前是一个血量一个状态
-        GameManager.Instance.UpdateHurtedEffect(MaxHP, m_hp);
+        GameManager.Instance.UpdateHurtedEffect(damage);
         /*         if (m_hp <= MaxHP / hpLevels)
                 {
                     setColor.w = 255;
