@@ -22,6 +22,8 @@ public class PlayerChildController : MonoBehaviour
     private Animator playerAnimator;
     private SpriteRenderer mySprit;
     private PlayerController controller;
+    //是否可以进行攻击操作
+    private bool fightLimit;
     //    private Vector3 childCorrectScale = new Vector3(1, 1, 1);
     private void Awake()
     {
@@ -33,12 +35,14 @@ public class PlayerChildController : MonoBehaviour
     void Start()
     {
         timer = attackInterval;
+        fightLimit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Attack();
+        if(!fightLimit)
+            Attack();
 
     }
     private void FixedUpdate()
@@ -156,6 +160,15 @@ public class PlayerChildController : MonoBehaviour
             attackType = BreakLevel.hard;
         else
             attackType = BreakLevel.easy;
+    }
+    public void fightController(float time)
+    {
+        fightLimit = true;
+        Invoke("resetFightLimit", time);
+    }
+    private void resetFightLimit()
+    {
+        fightLimit = false;
     }
 }
 

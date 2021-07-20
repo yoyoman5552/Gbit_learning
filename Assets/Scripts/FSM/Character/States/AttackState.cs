@@ -34,7 +34,7 @@ public class AttackState : FSMState
 
     //冲刺加载时间
     private float loadSprintTimer;
-    private float initLoadSprintTimer = 1.5f;
+    private float initLoadSprintTimer = 1.0f;
  
 
     //冲刺后的近战普通攻击的加载时间
@@ -85,6 +85,7 @@ public class AttackState : FSMState
             MeleeAttack(fsm);
             //Debug.Log(loadSprintTimer);
         }
+
     }
     public override void ExitState(FSMBase fsm)
     {
@@ -128,19 +129,20 @@ public class AttackState : FSMState
                 sprintSkillCD -= Time.deltaTime;
                 if (sprintSkillCD <= 0)
                 {
+
                     sprintSkillCD = initSprintCDTimer;
                     loadSprintTimer = initLoadSprintTimer;
                     AttackEndTimer = initAttackEndTimer;
                     finishAttack = false;
                     //重新检测玩家位置
                     firstDetectPlayer = true;
-                    //Debug.Log("resetCD_finish");
+                    Debug.Log("resetCD_finish");
                 }
             }
         }
         else
         {
-            if (rayDetect(fsm))
+            if (rayDetect(fsm)&&!fsm.isHurted)
             {
 
                 //冲刺加载
@@ -156,6 +158,7 @@ public class AttackState : FSMState
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
+                    Debug.Log("ready_to_attack");
                     Sprint_Achieve(fsm);
                 }
 
