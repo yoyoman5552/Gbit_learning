@@ -13,7 +13,8 @@ public class Getjigsaw_trigger : ITrigger
         
         if(UIManager.Instance.remainJigsaw())
         {
-            target.flag = 4;            
+            if(target.flag==3)
+                target.flag = 4;            
         }
     }
 }

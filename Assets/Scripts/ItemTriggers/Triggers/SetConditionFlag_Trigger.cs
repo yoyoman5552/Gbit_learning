@@ -7,5 +7,13 @@ public class SetConditionFlag_Trigger : ITrigger
     {
 
         targetCondition.flag = changeToFlag;
+        if (targetCondition.name == "Æ´Í¼×°ÖÃ")
+        {
+            if (UIManager.Instance.remainJigsaw())
+            {
+                targetCondition.flag = 4;
+            }
+            
+        }
     }
 }
