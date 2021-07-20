@@ -18733,10 +18733,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 458378835, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_Text
+      value: "\u5F88\u75DB\u82E6\uFF0C\u4E2D\u6587\u5F88\u75DB\u82E6"
+      objectReference: {fileID: 0}
+    - target: {fileID: 458378835, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
+    - target: {fileID: 738937267, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1171503919, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1314786530, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929632, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845577826, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
