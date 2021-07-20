@@ -227,12 +227,13 @@ MonoBehaviour:
   HurtedSpeed: 1
   attackInterval: 2
   damage: 1
+  initSkillCD: 0
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
   attackWay: {fileID: 0}
   meleeAttackStyle: 0
-  AttackStyle: 1
+  AttackStyle: 0
   material: {fileID: 0}
   rb: {fileID: 0}
   targetTF: {fileID: 0}
