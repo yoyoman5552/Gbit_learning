@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/hjy_SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/RestRoom.unity
-    guid: 395b53f4981be21489e9c4f32c06b843
+    guid: 682956ece145b694985dad805a586272
   m_configObjects: {}
