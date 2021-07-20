@@ -35,7 +35,7 @@ public class PassiveTrigger : ItemTrigger
         //如果上头有人而且还没轮到自己
         if (condition != null)
             if (condition.flag != conditionFlag) return;
-        if (other.CompareTag("PlayerDetect") && other.GetComponent<PlayerController>().GeteAble())
+        if (other.CompareTag("PlayerDetect") && other.GetComponentInParent<PlayerController>().GeteAble())
             StartTrigger();
     }
 }
