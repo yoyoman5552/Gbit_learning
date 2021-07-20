@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class UIcontroller : MonoBehaviour
 {
-    public Sprite mysprite;
+    public Sprite detailSprite;
     private int getNumForManager = 0;
     private ItemTrigger activeTrigger;
+    public string detailName;
+    public string detailIndex;
+    public string jigsawName;
+    public string jigsawIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +29,7 @@ public class UIcontroller : MonoBehaviour
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)
             {
-                UIManager.Instance.CallDetailUI("", "", mysprite);
+                UIManager.Instance.CallDetailUI("", "", detailSprite);
             }
             else if(getNumForManager == 1)
             {
