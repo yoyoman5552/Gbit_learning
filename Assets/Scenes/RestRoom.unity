@@ -18712,6 +18712,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailName
+      value: "\u7535\u6C60"
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawName
+      value: "\u62FC\u56FE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailIndex
+      value: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: jigsawIndex
+      value: "\u62FC\u56FE\u5B8C\u6210"
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: detailSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
     - target: {fileID: 738937267, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Intensity
       value: 1
