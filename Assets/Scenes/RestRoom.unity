@@ -7581,7 +7581,7 @@ MonoBehaviour:
   - {fileID: 434282707}
   - {fileID: 434282724}
   - {fileID: 434282704}
-  flag: 3
+  flag: 1
 --- !u!95 &434282711
 Animator:
   serializedVersion: 3
@@ -29487,7 +29487,7 @@ MonoBehaviour:
   triggers:
   - {fileID: 1776464373}
   - {fileID: 1776464370}
-  flag: 2
+  flag: 1
 --- !u!114 &1776464370
 MonoBehaviour:
   m_ObjectHideFlags: 0
