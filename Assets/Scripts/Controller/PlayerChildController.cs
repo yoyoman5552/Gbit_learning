@@ -12,7 +12,7 @@ public class PlayerChildController : MonoBehaviour
     public float heavyStrength;
     [Tooltip("伤害间隔")]
     public float attackInterval = 0.4f;
-    private BreakLevel attackType;
+    public BreakLevel attackType;
     [HideInInspector]
     public bool isAttack;
     //private int heavyAttack = 1;
@@ -41,7 +41,7 @@ public class PlayerChildController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!fightLimit)
+        if (!fightLimit)
             Attack();
 
     }
@@ -60,8 +60,10 @@ public class PlayerChildController : MonoBehaviour
             //缺少将hitonece = false玩家第二段攻击失效
 
             isAttack = true;
-            attackType = BreakLevel.easy;
             playerAnimator.SetTrigger("LightAttack");
+            /*             attackType = BreakLevel.easy;
+                        playerAnimator.SetTrigger("LightAttack");
+             */
             playerAnimator.SetInteger("ComboStep", comboStep + 1);
             comboStep = (comboStep + 1) % 4;
             controller.SetSpeed(controller.moveSpeed * controller.attackMoveSpeedPer);
@@ -160,6 +162,7 @@ public class PlayerChildController : MonoBehaviour
             attackType = BreakLevel.hard;
         else
             attackType = BreakLevel.easy;
+        Debug.Log("attackType:" + attackType.ToString());
     }
     public void fightController(float time)
     {
