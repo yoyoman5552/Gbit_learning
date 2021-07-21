@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
     } */
     private void DeadFunc()
     {
-
+        
     }
     private void FixedUpdate()
     {

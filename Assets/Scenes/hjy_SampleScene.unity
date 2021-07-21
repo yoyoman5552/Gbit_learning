@@ -976,7 +976,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1001,6 +1001,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 1091980973}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &96515812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2707,7 +2710,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2732,6 +2735,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 675117156}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &325606478
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4747,10 +4753,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1171503919, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1390335424}
+    - target: {fileID: 729506559, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738937267, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_Intensity
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -14684,7 +14694,7 @@ SpriteRenderer:
   m_Size: {x: 1.03, y: 1.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &1531999712
@@ -15297,7 +15307,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
+    oldSize: {x: 0.8, y: 1.6}
     newSize: {x: 0.16, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -15322,6 +15332,9 @@ MonoBehaviour:
   initTimeStabAppear: 1.5
   attackRatio: 2
   target: {fileID: 1229366197}
+  Fog_Blue: {fileID: 0}
+  Fog_Yellow: {fileID: 0}
+  YellowOrBlue: 0
 --- !u!212 &1554105078
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -446,14 +446,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704111e6b6b8ec443bff32e61727dce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 6
   moveSpeed: 2
   PressESpeed: 0
   attackMoveSpeedPer: 0
   jumpHeight: 1
-  hpLevels: 3
   m_speed: 3
-  m_hp: 5
   autoHealTime: 6
   autoHealInterval: 1
   smoothTime: 2
