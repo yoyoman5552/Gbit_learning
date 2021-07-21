@@ -18,7 +18,8 @@ public class groundStab_Trigger : ITrigger
     public GameObject Fog_Yellow;
     [Tooltip("蓝/黄毒气选择,true为黄，false为蓝")]
     public bool YellowOrBlue;
-
+    [Tooltip("僵直时间")]
+    public float standTimer;
     //队列记录位置
     //Queue<Vector3> pathPositon = new Queue<Vector3>();
     //private float timeInterval = 0.2f;
@@ -192,7 +193,7 @@ public class groundStab_Trigger : ITrigger
     {
         
         GameManager.Instance.player.transform.position = enterPosition;
-        GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(1.0f);
+        GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(standTimer);
     }
 
 }

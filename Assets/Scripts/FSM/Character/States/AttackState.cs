@@ -23,7 +23,7 @@ public class AttackState : FSMState
 
     //冲刺技能加载时间//可加感叹号供玩家反应
     private float sprintSkillCD;
-    private float initSprintCDTimer = 8.0f;
+    //private float initSprintCDTimer = 8.0f;
 
 
 
@@ -59,7 +59,7 @@ public class AttackState : FSMState
 
     public override void EnterState(FSMBase fsm)
     {
-        
+        Debug.Log("inAttack");
 
         //翻转贴图方向
         float dir = fsm.targetTF.position.x - fsm.transform.position.x;
@@ -93,8 +93,8 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         //        Debug.Log("attack state out");
-        
 
+        Debug.Log("outAttack");
     }
 
     //远程攻击接口
@@ -129,7 +129,7 @@ public class AttackState : FSMState
         if (finishAttack)
         {
             
-//            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
+            //Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
 
             //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
             //TODO:加标志
@@ -137,13 +137,13 @@ public class AttackState : FSMState
             if (sprintSkillCD <= 0)
             {
 
-                sprintSkillCD = initSprintCDTimer;
+                sprintSkillCD = fsm.attackInterval;
                 loadSprintTimer = initLoadSprintTimer;
                 AttackEndTimer = initAttackEndTimer;
                 finishAttack = false;
                 //重新检测玩家位置
                 firstDetectPlayer = true;
-                Debug.Log("resetCD_finish");
+                //Debug.Log("resetCD_finish");
             }
 
         }
@@ -176,7 +176,7 @@ public class AttackState : FSMState
             if (AttackEndTimer <= 0)
             {
                 finishAttack = true;
-                sprintSkillCD = initSprintCDTimer;
+                sprintSkillCD = fsm.attackInterval;
                 loadSprintTimer = initLoadSprintTimer;
                 AttackEndTimer = initAttackEndTimer;
             }
