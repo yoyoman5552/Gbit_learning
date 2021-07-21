@@ -15,6 +15,8 @@ public abstract class FSMBase : MonoBehaviour
     public int HP;
     [Tooltip("默认状态编号")]
     public FSMStateID DefaultStateID;
+    [Tooltip("巡逻半径")]
+    public float patrolRadius = 3f;
     //只要一个圆形半径就好了 
     [Tooltip("发现玩家的圆形最短半径")]
     public float minRadius;
@@ -112,7 +114,7 @@ public abstract class FSMBase : MonoBehaviour
         //查找默认状态：默认状态初始化
         InitDefaultState();
 
-       
+
     }
 
     /*     private void Reset()

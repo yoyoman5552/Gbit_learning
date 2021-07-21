@@ -12,7 +12,7 @@ public class PathNode
     public PathNode cameFromNode;
     private bool isThroughable;
     // private Grid<PathNode> grid;
-    public PathNode(Grid<PathNode> grid, int x, int y, bool isThroughable = true)
+    public PathNode(MyGrid<PathNode> grid, int x, int y, bool isThroughable = true)
     {
         //        this.grid = grid;
         this.x = x;

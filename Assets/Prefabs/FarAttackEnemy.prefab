@@ -148,7 +148,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -195,7 +195,7 @@ Animator:
   m_GameObject: {fileID: 1621763344400070478}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f69b20a3bf8589147a89a5ad7d4c0a23, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -220,13 +220,14 @@ MonoBehaviour:
   chaseSpeed: 3
   HP: 5
   DefaultStateID: 1
-  minRadius: 5
-  attackRadius: 3
+  minRadius: 0
+  attackRadius: 0
   idleTime: 1
   hurtedTime: 0.2
   HurtedSpeed: 1
   attackInterval: 1.5
   damage: 1
+  GetHurtSpeed: 0
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
@@ -241,3 +242,4 @@ MonoBehaviour:
   isHurted: 0
   test_stateID: 0
   hurtedVelocity: {x: 0, y: 0, z: 0}
+  enemyAnimator: {fileID: 0}

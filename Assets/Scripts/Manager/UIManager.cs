@@ -123,10 +123,15 @@ public class UIManager : MonoBehaviour
     public void UpdateBagUI(Dictionary<int, ItemInfo> itemList)
     {
         int i = 0;
+        List<Sprite> nameList = new List<Sprite>();
         foreach (var key in itemList.Keys)
         {
-            bagUIList[i].sprite = itemList[key].image;
-            bagUIList[i].gameObject.SetActive(true);
+            if (!nameList.Contains(bagUIList[i].sprite))
+            {
+                nameList.Add(bagUIList[i].sprite);
+                bagUIList[i].sprite = itemList[key].image;
+                bagUIList[i].gameObject.SetActive(true);
+            }
             i++;
             //如果超出上限，就不再显示
             if (i >= bagUIList.Length) break;
