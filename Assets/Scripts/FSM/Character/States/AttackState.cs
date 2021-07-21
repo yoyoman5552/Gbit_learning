@@ -23,7 +23,7 @@ public class AttackState : FSMState
 
     //冲刺技能加载时间//可加感叹号供玩家反应
     private float sprintSkillCD;
-    private float initSprintCDTimer = 2.0f;
+    private float initSprintCDTimer = 8.0f;
 
 
 
@@ -56,9 +56,10 @@ public class AttackState : FSMState
                 AttackEndTimer = initAttackEndTimer;
          */        //        meleeTimer = initMeleeTimer;
     }
+
     public override void EnterState(FSMBase fsm)
     {
-        fsm.enemyAnimator.SetBool("inAttack",true);
+        
 
         //翻转贴图方向
         float dir = fsm.targetTF.position.x - fsm.transform.position.x;
@@ -68,8 +69,8 @@ public class AttackState : FSMState
         loadSprintTimer = initLoadSprintTimer;
         meleeTimer = fsm.attackInterval;
         shootTimeGap = fsm.attackInterval;
-        sprintSkillCD = initSprintCDTimer;
-        initAttackEndTimer = initSprintCDTimer + initLoadSprintTimer;
+        sprintSkillCD = fsm.attackInterval;
+        initAttackEndTimer = fsm.attackInterval + initLoadSprintTimer;
         AttackEndTimer = initAttackEndTimer;
         finishAttack = false;
         firstDetectPlayer = true;
@@ -92,7 +93,7 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         //        Debug.Log("attack state out");
-        fsm.enemyAnimator.SetBool("inAttack", false);
+        
 
     }
 
@@ -101,8 +102,11 @@ public class AttackState : FSMState
     {
         if (!hadShoot)
         {
-            hadShoot = true;
-            remoteAttack_Achieve(fsm);
+            if (rayDetect(fsm))
+            {
+                hadShoot = true;
+                remoteAttack_Achieve(fsm);
+            }
         }
         else
         {
@@ -124,8 +128,8 @@ public class AttackState : FSMState
         //现有问题：冲刺冷却时间在玩家离开攻击范围后不会继续倒计时：目前通过设置当玩家进入攻击范围时，冲刺技能自动冷却。
         if (finishAttack)
         {
-            fsm.enemyAnimator.SetBool("inSprint", false);
-//            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
+            
+            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
 
             //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
             //TODO:加标志
@@ -147,7 +151,7 @@ public class AttackState : FSMState
         {
             if (rayDetect(fsm))
             {
-                fsm.enemyAnimator.SetBool("inLoadSprint", true);
+                
                 //冲刺加载
 
                 //获取当前玩家位置
@@ -161,8 +165,7 @@ public class AttackState : FSMState
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
-                    fsm.enemyAnimator.SetBool("inLoadSprint", false);
-                    fsm.enemyAnimator.SetBool("inSprint", true);
+                    
                     //Debug.Log("ready_to_attack");
                     Sprint_Achieve(fsm);
                 }
@@ -262,9 +265,7 @@ public class AttackState : FSMState
     {
         //RaycastHit2D ray = Physics2D.
         Transform EnemyTransform = fsm.transform;
-     
-
-
+  
         //近战攻击：冲刺
 
         //射线检测突进路径上的物体
@@ -312,7 +313,7 @@ public class AttackState : FSMState
     private bool rayDetect(FSMBase fsm)
     {
         Vector3 rayDirection = fsm.targetTF.position - fsm.transform.position;
-        Vector3 detectRayPosition = fsm.transform.position + rayDirection.normalized;
+        Vector3 detectRayPosition = fsm.transform.position + 0.5f*rayDirection.normalized;
         RaycastHit2D hit = Physics2D.Raycast(detectRayPosition, rayDirection, detectDistance(fsm), LayerMask.GetMask("Default"));
         if (hit.collider != null && hit.collider.name == "PlayerCircleDetect")
         {
