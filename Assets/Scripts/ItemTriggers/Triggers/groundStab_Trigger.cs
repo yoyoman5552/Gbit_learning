@@ -19,6 +19,10 @@ public class groundStab_Trigger : ITrigger
     [Tooltip("蓝/黄毒气选择,true为黄，false为蓝")]
     public bool YellowOrBlue;
 
+    //队列记录位置
+    //Queue<Vector3> pathPositon = new Queue<Vector3>();
+    //private float timeInterval = 0.2f;
+    private venomFather fatherState;
     private GameObject Fog_Select;
     private float timeStabDisAppear;
     private float timeStabAppear;
@@ -39,7 +43,7 @@ public class groundStab_Trigger : ITrigger
     private void Awake()
     {
         //col = GetComponent<Collider2D>();
-
+        fatherState = this.GetComponentInParent<venomFather>();
         collider = this.GetComponent<Collider2D>();
         stabX = collider.bounds.size.x;
         stabY = collider.bounds.size.y;
@@ -79,14 +83,26 @@ public class groundStab_Trigger : ITrigger
 
             }
         }
+        if(this.name!="毒液地刺")
+            detectDistance();
 
-        detectDistance();
     }
-
-
+    /*
+    private void QueueWorking()
+    {
+        
+        pathPositon.Enqueue(GameManager.Instance.player.transform.position);
+        if (pathPositon.Count>5)
+        {
+            pathPositon.Dequeue();
+        }
+        
+    }
+    */
     //距离检测
     private void detectDistance()
     {
+        
         //right,left,up,down
         if (Mathf.Abs(GameManager.Instance.player.transform.position.x - transform.position.x) <= stabX / 2.0f + 0.5f && Mathf.Abs(GameManager.Instance.player.transform.position.y - transform.position.y) <= stabY / 2.0f + 0.5f)
         {
@@ -94,7 +110,7 @@ public class groundStab_Trigger : ITrigger
             {
                 enterPosition = GameManager.Instance.player.transform.position;
                 firstEnter = false;
-                //Debug.Log("InInIn");
+                Debug.Log("InInIn");
             }
 
         }
@@ -115,6 +131,8 @@ public class groundStab_Trigger : ITrigger
         {
             if (!attacked)
             {
+
+
                 //TODO:玩家受伤
                 //Debug.Log("玩家受伤");
                 GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
@@ -127,6 +145,12 @@ public class groundStab_Trigger : ITrigger
                 //直接返回进入点效果一般
                 //所试方法：
                 //1.延迟0.5秒返回进入点
+                if (this.name == "毒液地刺" )
+                { 
+                    enterPosition = GameManager.Instance.player.transform.position + 0.4f * (GameManager.Instance.player.transform.position - transform.position).normalized;
+                }
+
+
                 Invoke("resetPlayerPosition", 0.2f);
 
                 //2.直接返回进入点，延迟时间
@@ -137,6 +161,7 @@ public class groundStab_Trigger : ITrigger
             }
         }
     }
+
     IEnumerator AttackDelay(float timer)
     {
         while (timer > 0)
@@ -165,6 +190,7 @@ public class groundStab_Trigger : ITrigger
     }
     private void resetPlayerPosition()
     {
+        
         GameManager.Instance.player.transform.position = enterPosition;
         GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(1.0f);
     }

@@ -148,7 +148,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -227,6 +227,7 @@ MonoBehaviour:
   HurtedSpeed: 1
   attackInterval: 1.5
   damage: 1
+  GetHurtSpeed: 0
   patrolPos: {x: 0, y: 0, z: 0}
   isDoneChase: 0
   moveVelocity: {x: 0, y: 0, z: 0}
@@ -241,3 +242,4 @@ MonoBehaviour:
   isHurted: 0
   test_stateID: 0
   hurtedVelocity: {x: 0, y: 0, z: 0}
+  enemyAnimator: {fileID: 0}
