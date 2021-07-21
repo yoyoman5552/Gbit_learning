@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
         saveData.lastDoor = playerPos;
 
         //保存物品列表
-        saveData.itemList = new Dictionary<int, ItemInfo>(BagManager.Instance.itemList);
+        saveData.itemList = new Dictionary<string, ItemInfo>(BagManager.Instance.itemList);
 
         //保存敌人数据
         saveData.enemys.Clear();

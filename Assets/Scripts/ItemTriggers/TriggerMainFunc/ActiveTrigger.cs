@@ -26,10 +26,10 @@ public class ActiveTrigger : ItemTrigger
         //如果trigger并没有激活
         if (!isActive) return;
         //消耗物品（如果有
-        foreach (var item in itemList)
+        /* foreach (var item in itemList)
         {
             BagManager.Instance.RemoveItemList(item);
-        }
+        } */
         for (currentIndex = 0; currentIndex < TriggerList.Count; currentIndex++)
         {
             TriggerList[currentIndex].Action();

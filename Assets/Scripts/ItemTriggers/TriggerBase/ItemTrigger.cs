@@ -12,7 +12,7 @@ public class ItemTrigger : MonoBehaviour
     public bool isActive = true;
     //物品id列表
     [HideInInspector]
-    public List<int> itemList;
+    public List<string> itemList;
 
     [HideInInspector]
     public int currentIndex;
