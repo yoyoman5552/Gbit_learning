@@ -14,7 +14,7 @@ public class GetAllJigsaw_trigger : ITrigger
         //TODO:detailUI
         //detail½áÊø£ºjigsawUI
         UIManager.Instance.getPopWindowNum(3);
-        target.flag = 5;
+        target.flag = 3;
         //Debug.Log("UIEasyShow:" + detail);
     }
 }
