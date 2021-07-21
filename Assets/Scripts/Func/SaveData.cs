@@ -7,7 +7,7 @@ public class SaveData
 {
     public SaveData()
     {
-        itemList = new Dictionary<int, ItemInfo>();
+        itemList = new Dictionary<string, ItemInfo>();
         enemys = new List<EnemyData>();
     }
     //房间号
@@ -15,7 +15,7 @@ public class SaveData
     //人物名
     public Transform lastDoor;
     //物品列表
-    public Dictionary<int, ItemInfo> itemList;
+    public Dictionary<string, ItemInfo> itemList;
     //敌人数据
     public List<EnemyData> enemys;
     //TODO:房间里的物品数据

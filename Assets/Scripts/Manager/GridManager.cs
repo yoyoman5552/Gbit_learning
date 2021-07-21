@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using EveryFunc;
 public class GridManager : MonoBehaviour
-{ 
+{
     [Header("公共变量")]
     [Tooltip("网格大小")]
     public float cellsize = 1;
@@ -16,7 +17,7 @@ public class GridManager : MonoBehaviour
     //A*算法
     private PathFinding path;
     //网格
-    private Grid<PathNode> grid;
+    private MyGrid<PathNode> grid;
     //网格宽高
     private int width, height;
 
@@ -39,11 +40,12 @@ public class GridManager : MonoBehaviour
         //初始化 宽、高、网格、A*算法
         width = Mathf.RoundToInt((RightUpTF.position.x - LeftDownTF.position.x) / cellsize);
         height = Mathf.RoundToInt((RightUpTF.position.y - LeftDownTF.position.y) / cellsize);
-        Grid<PathNode> pathGrid = new Grid<PathNode>(width, height, cellsize, LeftDownTF.position, (Grid<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        MyGrid<PathNode> pathGrid = new MyGrid<PathNode>(width, height, cellsize, LeftDownTF.position, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
         InitGrid(pathGrid);
         SetObstacles();
+        DrawLine();
     }
-    public void InitGrid(Grid<PathNode> pathGrid)
+    public void InitGrid(MyGrid<PathNode> pathGrid)
     {
         grid = pathGrid;
         path = new PathFinding(grid);
@@ -62,6 +64,46 @@ public class GridManager : MonoBehaviour
                 else grid.GetTGridObject(x, y).SetIsThroughable(true);
             }
         }
+
+    }
+    public void DrawLine()
+    {
+        if (MyGrid<PathNode>.debugTextArray != null)
+        {
+            Debug.Log("destroy debugTextArray");
+            for (int x = 0; x < MyGrid<PathNode>.debugTextArray.GetLength(0); x++)
+            {
+                for (int y = 0; y < MyGrid<PathNode>.debugTextArray.GetLength(1); y++)
+                {
+                    Destroy(MyGrid<PathNode>.debugTextArray[x, y]);
+                }
+            }
+        }
+        GameObject parent = new GameObject(GameManager.Instance.currentRoom.name + "DebugGrid");
+        parent = Instantiate(parent, Vector2.zero, Quaternion.identity);
+        MyGrid<PathNode>.debugTextArray = new TextMesh[grid.GetWidth(), grid.GetHeight()];
+        int fontsize = 10;
+        for (int x = 0; x < grid.gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < grid.gridArray.GetLength(1); y++)
+            {
+                if (grid.GetTGridObject(x, y).GetIsThroughable())
+                {
+
+                    MyGrid<PathNode>.debugTextArray[x, y] = EveryFunction.CreateWorldText(grid.gridArray[x, y].ToString(), null, grid.GetWorldPosition(x, y) + new Vector3(cellsize, cellsize) * 0.5f, fontsize, Color.green, TextAnchor.MiddleCenter, TextAlignment.Center);
+                }
+                else
+                {
+                    MyGrid<PathNode>.debugTextArray[x, y] = EveryFunction.CreateWorldText(grid.gridArray[x, y].ToString(), null, grid.GetWorldPosition(x, y) + new Vector3(cellsize, cellsize) * 0.5f, fontsize, Color.red, TextAnchor.MiddleCenter, TextAlignment.Center);
+
+                }
+                MyGrid<PathNode>.debugTextArray[x, y].transform.SetParent(parent.transform);
+                Debug.DrawLine(grid.GetWorldPosition(x, y), grid.GetWorldPosition(x, y + 1), Color.gray, 100f);
+                Debug.DrawLine(grid.GetWorldPosition(x, y), grid.GetWorldPosition(x + 1, y), Color.gray, 100f);
+            }
+        }
+        Debug.DrawLine(grid.GetWorldPosition(width, 0), grid.GetWorldPosition(width, height), Color.gray, 100f);
+        Debug.DrawLine(grid.GetWorldPosition(0, height), grid.GetWorldPosition(width, height), Color.gray, 100f);
     }
     public List<PathNode> FindPath(Vector3 oriPos, Vector3 targetPos)
     {
@@ -73,8 +115,14 @@ public class GridManager : MonoBehaviour
     }
     public bool IsAWall(int x, int y)
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(grid.GetWorldCenterPosition(x, y), Vector3.forward, grid.GetCellsize());
-        if (hitInfo.collider != null && (hitInfo.collider.CompareTag("Wall") || hitInfo.collider.CompareTag("Interactive"))) return true;
+        var hitColliders = Physics2D.OverlapCircleAll(grid.GetWorldCenterPosition(x, y), grid.GetCellsize() / 2f);
+        foreach (var collider in hitColliders)
+        {
+            if (collider.CompareTag("Wall") || collider.CompareTag("Breakable"))
+            {
+                return true;
+            }
+        }
         return false;
     }
     public Vector3 GetXY(Vector3 pos)
@@ -91,7 +139,7 @@ public class GridManager : MonoBehaviour
     {
         return grid.GetWorldCenterPosition(x, y);
     }
-    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos)
+    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos, float radius = 100f)
     {
         Vector3 tarPos;
         List<PathNode> pathList;
@@ -99,7 +147,7 @@ public class GridManager : MonoBehaviour
         {
             tarPos = GetRandomPos();
             pathList = FindPath(selfPos, tarPos);
-        } while (Vector3.Distance(tarPos, selfPos) < 1f || pathList == null);
+        } while (Vector3.Distance(tarPos, selfPos) < grid.GetCellsize() || Vector3.Distance(tarPos, selfPos) > radius || pathList == null || pathList.Count > radius + 4);
         return pathList;
     }
     public Vector3 GetRandomPos()

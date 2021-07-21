@@ -8,7 +8,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     //景深
     private DepthOfField depthOfField;
     //色差
@@ -25,19 +26,19 @@ public class GameManager : MonoBehaviour {
     public PlayerController playerController;
     [HideInInspector]
     public PlayerChildController playerChildController;
-    [Tooltip ("当前房间")]
+    [Tooltip("当前房间")]
     [HideInInspector]
     public GameObject currentRoom;
-    [Tooltip ("黑色UI图片")]
+    [Tooltip("黑色UI图片")]
     public GameObject BlackImage;
-    [Tooltip ("玩家受伤效果")]
+    [Tooltip("玩家受伤效果")]
     public Sprite[] bloodPicture;
     public GameObject bloodEffect;
-    [Tooltip ("UI移动速度")]
+    [Tooltip("UI移动速度")]
     public float UIMoveSpeed;
-    [Tooltip ("UI的位置界限右")]
+    [Tooltip("UI的位置界限右")]
     public float UIRightPos;
-    [Tooltip ("UI的位置界限左")]
+    [Tooltip("UI的位置界限左")]
     public float UILeftPos;
     //房间列表
     [HideInInspector]
@@ -50,184 +51,220 @@ public class GameManager : MonoBehaviour {
     public SaveData saveData;
     private int bloodIndex;
     private SpriteRenderer bloodRenderer;
-    private void Awake () {
-        if (Instance != null) {
-            Debug.LogError ("GameManager多重实例");
-            Destroy (this.gameObject);
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("GameManager多重实例");
+            Destroy(this.gameObject);
             return;
         }
         Instance = this;
-        InitComponent ();
+        InitComponent();
     }
-    private void OnDestroy () {
+    private void OnDestroy()
+    {
         chromaticAberration.intensity.value = 0;
     }
-    private void Update () {
-        if (bloodRenderer.color.a > 0) {
-            bloodRenderer.color = bloodRenderer.color - new Color (0, 0, 0, Time.deltaTime / 5);
+    private void Update()
+    {
+        if (bloodRenderer.color.a > 0)
+        {
+            bloodRenderer.color = bloodRenderer.color - new Color(0, 0, 0, Time.deltaTime / 5);
         }
-        chromaticAberration.intensity.value = Mathf.Clamp (bloodRenderer.color.a, 0, 0.2f);
+        chromaticAberration.intensity.value = Mathf.Clamp(bloodRenderer.color.a, 0, 0.2f);
     }
     public Volume targetVolume;
-    private void InitComponent () {
+    private void InitComponent()
+    {
         chromaticRatio = bloodIndex = 0;
-        saveData = new SaveData ();
-        bloodRenderer = bloodEffect.GetComponent<SpriteRenderer> ();
-        globalLight = this.GetComponentInChildren<Light2D> ();
-        player = GameObject.FindWithTag ("Player");
-        playerController = player.GetComponent<PlayerController> ();
-        playerChildController = player.GetComponentInChildren<PlayerChildController> ();
-        roomList = new List<GameObject> (GameObject.FindGameObjectsWithTag ("Room"));
+        saveData = new SaveData();
+        bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
+        globalLight = this.GetComponentInChildren<Light2D>();
+        player = GameObject.FindWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        playerChildController = player.GetComponentInChildren<PlayerChildController>();
+        roomList = new List<GameObject>(GameObject.FindGameObjectsWithTag("Room"));
         //Debug.Log("roomList length:" + roomList.Count);
-        foreach (var room in roomList) {
+        foreach (var room in roomList)
+        {
             //Debug.Log("roomList+:" + room.name);
             room.transform.position = Vector3.zero;
-            room.SetActive (false);
+            room.SetActive(false);
         }
         //FIXME:选择初始房间
-        GameObject firstRoom = roomList.Find (s => s.name == "Room1");
-        ChangeRoom (firstRoom, this.transform.Find ("StartPos"), null);
+        GameObject firstRoom = roomList.Find(s => s.name == "Room1");
+        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null);
 
-        Debug.Log ("volume:" + targetVolume.name);
+       // Debug.Log("volume:" + targetVolume.name);
         var profile = targetVolume.sharedProfile;
-        foreach (var component in profile.components) {
-            Debug.Log ("component:" + component.GetType ());
-            if (component.GetType () == typeof (ChromaticAberration)) {
-                chromaticAberration = (ChromaticAberration) component;
-            } else if (component.GetType () == typeof (DepthOfField))
-                depthOfField = (DepthOfField) component;
+        foreach (var component in profile.components)
+        {
+         //   Debug.Log("component:" + component.GetType());
+            if (component.GetType() == typeof(ChromaticAberration))
+            {
+                chromaticAberration = (ChromaticAberration)component;
+            }
+            else if (component.GetType() == typeof(DepthOfField))
+                depthOfField = (DepthOfField)component;
         }
     }
     /// <summary>
     /// 切换房间
     /// </summary>
     /// <param name="targetRoom">目标房间</param>
-    public void ChangeRoom (GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal) {
-        SaveData (targetRoom, lastDoor);
-        playerController.SetReactable (false);
-        if (changeRoomType == ChangeRoomType.normal) {
-            normalChangeRoom (targetRoom, targetDoor);
+    public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
+    {
+        SaveData(targetRoom, lastDoor);
+        playerController.SetReactable(false);
+        if (changeRoomType == ChangeRoomType.normal)
+        {
+            normalChangeRoom(targetRoom, targetDoor);
         }
     }
-    private void normalChangeRoom (GameObject targetRoom, Transform targetDoor) {
-        BlackImage.SetActive (true);
+    private void normalChangeRoom(GameObject targetRoom, Transform targetDoor)
+    {
+        BlackImage.SetActive(true);
         if (player.transform.position.x >= 0)
-            StartCoroutine (ChangeRoomDelay (1, targetRoom, targetDoor));
+            StartCoroutine(ChangeRoomDelay(1, targetRoom, targetDoor));
         else
-            StartCoroutine (ChangeRoomDelay (-1, targetRoom, targetDoor));
+            StartCoroutine(ChangeRoomDelay(-1, targetRoom, targetDoor));
     }
-    private IEnumerator ChangeRoomDelay (float dir, GameObject targetRoom, Transform targetDoor) {
+    private IEnumerator ChangeRoomDelay(float dir, GameObject targetRoom, Transform targetDoor)
+    {
         bool hasChanged = false;
         float UIPosX, moveSpeed = UIMoveSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
-        if (dir == 1) {
+        if (dir == 1)
+        {
             UIPosX = UIRightPos;
-            BlackImage.transform.position = new Vector3 (UILeftPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
-        } else {
-            UIPosX = UILeftPos;
-            BlackImage.transform.position = new Vector3 (UIRightPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
+            BlackImage.transform.position = new Vector3(UILeftPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
         }
-        BlackImage.GetComponent<SpriteRenderer> ().flipX = dir == 1 ? false : true;
-        while (Mathf.Abs (BlackImage.transform.position.x - UIPosX) > 2f) {
-            BlackImage.transform.position += new Vector3 (moveSpeed * dir, 0, 0);
-            yield return new WaitForSeconds (Time.fixedDeltaTime);
+        else
+        {
+            UIPosX = UILeftPos;
+            BlackImage.transform.position = new Vector3(UIRightPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
+        }
+        BlackImage.GetComponent<SpriteRenderer>().flipX = dir == 1 ? false : true;
+        while (Mathf.Abs(BlackImage.transform.position.x - UIPosX) > 2f)
+        {
+            BlackImage.transform.position += new Vector3(moveSpeed * dir, 0, 0);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
             //切换房间  
-            if (Mathf.Abs (BlackImage.transform.position.x) < 2f && !hasChanged) {
-                Debug.Log ("换房间: to " + targetRoom.name);
+            if (Mathf.Abs(BlackImage.transform.position.x) < 2f && !hasChanged)
+            {
+               // Debug.Log("换房间: to " + targetRoom.name);
                 hasChanged = true;
-                SwitchRoom (targetRoom, targetDoor, dir);
+                SwitchRoom(targetRoom, targetDoor, dir);
             }
         }
-        BlackImage.SetActive (false);
-        playerController.SetReactable (true);
+        BlackImage.SetActive(false);
+        playerController.SetReactable(true);
     }
-    private void SwitchRoom (GameObject targetRoom, Transform targetDoor, float dir) {
+    private void SwitchRoom(GameObject targetRoom, Transform targetDoor, float dir)
+    {
         //切换房间
         if (currentRoom != null)
-            currentRoom.SetActive (false);
+            currentRoom.SetActive(false);
 
-        targetRoom.SetActive (true);
+        targetRoom.SetActive(true);
         currentRoom = targetRoom;
         //人物位置设置
-        Transform playerPos = targetDoor.Find ("PlayerPos");
-        if (playerPos != null) {
+        Transform playerPos = targetDoor.Find("PlayerPos");
+        if (playerPos != null)
+        {
             player.transform.position = playerPos.position;
             if (playerPos.position.x - targetDoor.position.x > 0.05f)
-                playerController.Flip (1);
+                playerController.Flip(1);
             else if (playerPos.position.x - targetDoor.position.x < -0.05f)
-                playerController.Flip (-1);
+                playerController.Flip(-1);
         }
         //否则为初始房间
-        else {
+        else
+        {
             player.transform.position = targetDoor.position;
         }
         //房间初始化
-        RoomInit ();
+        RoomInit();
     }
-    private void RoomInit () {
-        Debug.Log ("房间初始化");
-        Transform roomDetail = currentRoom.transform.Find ("RoomDetail");
-        if (roomDetail == null) Debug.LogError (currentRoom.name + " 房间没有RoomDetail");
-        GridManager.Instance.LeftDownTF = roomDetail.Find ("GridLimit").Find ("LeftDownPos");
-        GridManager.Instance.RightUpTF = roomDetail.Find ("GridLimit").Find ("RightUpPos");
-        GridManager.Instance.Init ();
+    private void RoomInit()
+    {
+        //Debug.Log("房间初始化");
+        Transform roomDetail = currentRoom.transform.Find("RoomDetail");
+        if (roomDetail == null) Debug.LogError(currentRoom.name + " 房间没有RoomDetail");
+        GridManager.Instance.LeftDownTF = roomDetail.Find("GridLimit").Find("LeftDownPos");
+        GridManager.Instance.RightUpTF = roomDetail.Find("GridLimit").Find("RightUpPos");
+        GridManager.Instance.Init();
 
         //查找场景中是否存在敌人
-        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<NormalEnemyFSM> ();
-        if (enemy.Length > 0) {
+        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<NormalEnemyFSM>();
+        if (enemy.Length > 0)
+        {
             //如果有敌人，关掉人物的交互
-            playerController.SetEAble (false);
+            playerController.SetEAble(false);
         }
         //BulletPool.bulletPoolInstance.DestroyBulletsInPool();
     }
-    public void CheckEnemy () {
+    public void CheckEnemy()
+    {
         //确认场景中是否有敌人
-        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<FSMBase> ();
-        if (enemy.Length == 0) {
-            playerController.SetEAble (true);
+        FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<FSMBase>();
+        if (enemy.Length == 0)
+        {
+            playerController.SetEAble(true);
         }
     }
-    public void SaveData (GameObject Room, Transform playerPos) {
-        Debug.Log ("room:" + Room);
+    public void SaveData(GameObject Room, Transform playerPos)
+    {
         //保存房间和人物位置
         saveData.roomName = Room.name;
         saveData.lastDoor = playerPos;
 
         //保存物品列表
-        saveData.itemList = new Dictionary<int, ItemInfo> (BagManager.Instance.itemList);
+        saveData.itemList = new Dictionary<string, ItemInfo>(BagManager.Instance.itemList);
 
         //保存敌人数据
-        saveData.enemys.Clear ();
-        foreach (var enemy in Room.transform.GetComponentsInChildren<FSMBase> (true)) {
-            FSMBase fsm = enemy.GetComponent<FSMBase> ();
-            EnemyData enemyData = new EnemyData (fsm.AttackStyle, fsm.HP, fsm.transform.localPosition);
-            saveData.enemys.Add (enemyData);
+        saveData.enemys.Clear();
+        foreach (var enemy in Room.transform.GetComponentsInChildren<FSMBase>(true))
+        {
+            FSMBase fsm = enemy.GetComponent<FSMBase>();
+            EnemyData enemyData = new EnemyData(fsm.AttackStyle, fsm.HP, fsm.transform.localPosition);
+            saveData.enemys.Add(enemyData);
         }
     }
     //更新受击特效
-    public void UpdateHurtedEffect (int damage) {
+    public void UpdateHurtedEffect(int damage)
+    {
         if (bloodRenderer.color.a <= 0) bloodIndex = 0;
         bloodRenderer.sprite = bloodPicture[bloodIndex];
         Vector4 x = bloodRenderer.color;
         x.w = 1;
         bloodRenderer.color = x;
-        if (bloodIndex + damage >= bloodPicture.Length) { //如果人物死亡
-            StartCoroutine (RestartGameDelay ());
+        if (bloodIndex + damage >= bloodPicture.Length)
+        { //如果人物死亡
+            StartCoroutine(RestartGameDelay());
             Time.timeScale = 0;
             //            PlayerDead();
         }
         bloodIndex = (bloodIndex + damage) % bloodPicture.Length;
     }
-    IEnumerator RestartGameDelay () {
-        yield return new WaitForSecondsRealtime (1f);
+    IEnumerator RestartGameDelay()
+    {
+        yield return new WaitForSecondsRealtime(1f);
         Time.timeScale = 1;
-        PlayerDead ();
+        PlayerDead();
     }
-    public void PlayerDead () {
-        Debug.Log ("角色死亡");
+    public void PlayerDead()
+    {
+        Debug.Log("角色死亡");
         //TODO:死亡UI显示blahblah
         BagManager.Instance.itemList = saveData.itemList;
-        playerController.PlayerInit ();
-        ChangeRoom (roomList.Find (s => s.name == saveData.lastDoor.parent.name), saveData.lastDoor, null);
+        playerController.PlayerInit();
+        Transform parent = saveData.lastDoor.parent;
+        while (parent.parent != null && !parent.CompareTag("Room"))
+        {
+            parent = parent.parent;
+        }
+        ChangeRoom(roomList.Find(s => s.name == parent.name), saveData.lastDoor, null);
 
         //初始化敌人
     }

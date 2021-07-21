@@ -3,18 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using EveryFunc;
 using UnityEngine;
-public class Grid<TGridObject>
+public class MyGrid<TGridObject>
 {
     //是否要画线
     public bool isDrawLine = false;
     private int width;
     private int height;
     private float cellsize;
-    private TGridObject[,] gridArray;
-    private TextMesh[,] debugTextArray;
+    
+    public TGridObject[,] gridArray;
+    public static TextMesh[,] debugTextArray;
     private Vector3 oriPosition;
-    public Grid(int width, int height, float cellsize, Vector3 oriPosition, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject)
+    public MyGrid(int width, int height, float cellsize, Vector3 oriPosition, Func<MyGrid<TGridObject>, int, int, TGridObject> createGridObject)
     {
+        //Debug.Log("debugtextArray:"+debugTextArray);
+        /* if (debugTextArray != null)
+        {
+            //Debug.Log("destroy debugText");
+            for (int x = 0; x < debugTextArray.GetLength(0); x++)
+            {
+                for (int y = 0; y < debugTextArray.GetLength(1); y++)
+                {
+                    GameObject.Destroy(debugTextArray[x, y]);
+                }
+            }
+        } */
         this.width = width;
         this.height = height;
         this.cellsize = cellsize;
