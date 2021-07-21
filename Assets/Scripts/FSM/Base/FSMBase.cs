@@ -15,6 +15,8 @@ public abstract class FSMBase : MonoBehaviour
     public int HP;
     [Tooltip("默认状态编号")]
     public FSMStateID DefaultStateID;
+    [Tooltip("巡逻半径")]
+    public float patrolRadius = 3f;
     //只要一个圆形半径就好了 
     [Tooltip("发现玩家的圆形最短半径")]
     public float minRadius;
@@ -37,7 +39,7 @@ public abstract class FSMBase : MonoBehaviour
     [Tooltip("攻击力")]
     public int damage;
     [Tooltip("击退速度")]
-    public float GetHurtSpeed;
+    public float GetHurtSpeed = 0.2f;
     [Header("私有变量")]
     //巡逻目的地
     [HideInInspector]
@@ -94,7 +96,8 @@ public abstract class FSMBase : MonoBehaviour
     [HideInInspector]
     public Vector3 hurtedVelocity;
 
-
+    [HideInInspector]
+    public float m_cd;
     //动画
     public Animator enemyAnimator;
 
@@ -112,7 +115,7 @@ public abstract class FSMBase : MonoBehaviour
         //查找默认状态：默认状态初始化
         InitDefaultState();
 
-       
+
     }
 
     /*     private void Reset()
@@ -166,6 +169,11 @@ public abstract class FSMBase : MonoBehaviour
         currentState.ActionState(this);
         //贴图翻转
         textureClip();
+        CheckCD();
+    }
+    private void CheckCD()
+    {
+        if (m_cd > 0) m_cd -= Time.deltaTime;
     }
     public virtual void FixedUpdate()
     {

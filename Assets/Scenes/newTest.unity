@@ -31158,6 +31158,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1502532396}
     m_Modifications:
+    - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
+      propertyPath: minRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 492569562, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
+      propertyPath: attackRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1621763344400070475, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: m_RootOrder
       value: 0

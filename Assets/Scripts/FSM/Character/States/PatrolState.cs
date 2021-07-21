@@ -18,13 +18,14 @@ public class PatrolState : FSMState
         //是否完成巡逻
         // fsm.isDonePatrol = false;
         //随机位置的路径获取
-        pathList = GridManager.Instance.GetRandomPosOutSelf(fsm.transform.position);
+        pathList = GridManager.Instance.GetRandomPosOutSelf(fsm.transform.position,fsm.patrolRadius);
+        //Debug.Log("find pos:" + pathList[pathList.Count - 1]);
         //初始化
         index = 0;
         targetPos = GridManager.Instance.GetWorldCenterPosition(pathList[index].x, pathList[index].y);
         //巡逻终点
         fsm.patrolPos = GridManager.Instance.GetWorldCenterPosition(pathList[pathList.Count - 1].x, pathList[pathList.Count - 1].y);
-//        Debug.Log("目标点：" + pathList[pathList.Count - 1]+",世界坐标："+fsm.patrolPos);
+        Debug.Log("目标点：" + pathList[pathList.Count - 1] + ",世界坐标：" + fsm.patrolPos);
         // isArrivePoint = true;
         //        fsm.MovePosition (pathList[index].);
     }
@@ -33,6 +34,8 @@ public class PatrolState : FSMState
         if (index >= pathList.Count)
         {
             //fsm.isDonePatrol = true;
+            //如果到达位置，或者到不搭位置
+            fsm.patrolPos = fsm.transform.position;
             return;
         }
         //如果到达下个点了

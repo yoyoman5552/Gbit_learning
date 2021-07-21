@@ -22,10 +22,10 @@ public class ConditionTrigger : ItemTrigger
         //如果trigger并没有激活
         if (!isActive) return;
         //消耗物品（如果有
-        foreach (var item in itemList)
+       /*  foreach (var item in itemList)
         {
             BagManager.Instance.RemoveItemList(item);
-        }
+        } */
         //如果不是被动触发
         if (triggers[flag - 1].GetType() != typeof(PassiveTrigger))
             triggers[flag - 1].StartTrigger();

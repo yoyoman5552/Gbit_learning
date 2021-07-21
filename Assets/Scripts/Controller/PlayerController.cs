@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("按下E的时候的速度")]
     public float PressESpeed;
     [Tooltip("攻击时的移动速度")]
-    public float attackMoveSpeedPer = 0.7f;
+    public float lightAttackMoveSpeedPer = 0.7f;
+    [Tooltip("攻击时的移动速度")]
+    public float heavyAttackMoveSpeedPer = 0.4f;
     [Tooltip("跳跃高度")]
     public float jumpHeight;
     /*     [Tooltip("血量分段")]
@@ -142,7 +144,7 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
 
         //交互键判断
-        if (Input.GetKeyDown(KeyCode.E) && eAble)
+        if (Input.GetKeyDown(KeyCode.E) && eAble&&childController.attackType==BreakLevel.easy)
         {
             GameObject target = playerDetect.GetFirst();
             //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标

@@ -9,7 +9,7 @@ public class PathFinding
 {
     private const int MOVE_STRAIGHT_COST = 10;
     private const int MOVE_DIAGONAL_COST = 14;
-    private Grid<PathNode> grid;
+    private MyGrid<PathNode> grid;
     private List<PathNode> oppenList;
     private List<PathNode> closeList;
     private int maxX, maxY;
@@ -17,7 +17,7 @@ public class PathFinding
             grid = new Grid<PathNode> (width, height, 1f,
                 oriPosition, (Grid<PathNode> g, int x, int y) => new PathNode (g, x, y));
         } */
-    public PathFinding(Grid<PathNode> grid)
+    public PathFinding(MyGrid<PathNode> grid)
     {
         this.grid = grid;
         InitData();
@@ -194,11 +194,11 @@ public class PathFinding
     {
         return grid.GetTGridObject(x, y);
     }
-    public Grid<PathNode> GetGrid()
+    public MyGrid<PathNode> GetGrid()
     {
         return grid;
     }
-    public void SetGrid(Grid<PathNode> grid)
+    public void SetGrid(MyGrid<PathNode> grid)
     {
         this.grid = grid;
     }

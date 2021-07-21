@@ -8,9 +8,9 @@ public class ItemInfo
     public int id;
     public string name;
     public Sprite image;
-    public string detail;
-    [HideInInspector]
-    public int useNum;
+    //public string detail;
+    //使用次数
+    public int useNum=1;
     public ItemInfo(){
 
     }
