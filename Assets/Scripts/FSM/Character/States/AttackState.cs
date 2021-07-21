@@ -129,7 +129,7 @@ public class AttackState : FSMState
         if (finishAttack)
         {
             
-            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
+//            Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
 
             //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
             //TODO:加标志

@@ -110,7 +110,7 @@ public class groundStab_Trigger : ITrigger
             {
                 enterPosition = GameManager.Instance.player.transform.position;
                 firstEnter = false;
-                Debug.Log("InInIn");
+//                Debug.Log("InInIn");
             }
 
         }
