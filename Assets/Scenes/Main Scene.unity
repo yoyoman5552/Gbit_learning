@@ -419,7 +419,7 @@ MonoBehaviour:
   - {fileID: 21762782}
   - {fileID: 21762783}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &21762785
 BoxCollider2D:
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 59102943}
@@ -791,7 +791,7 @@ MonoBehaviour:
   - {fileID: 59102941}
   - {fileID: 59102940}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &59102940
 MonoBehaviour:
@@ -849,7 +849,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 59102944}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &59102944
 MonoBehaviour:
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 61853917}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &61853919
 Animator:
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   - {fileID: 61853921}
   - {fileID: 61853925}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 61853923}
@@ -1505,7 +1505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329018393059277615, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: detail
-      value: "\u5F00\u59CB\u626B\u63CF\u2026\u2026\u969C\u788D\u7269 \u53EF\u7834\u574F\uFF0C\u5141\u8BB8\u6267\u884C\u653B\u51FB\u6307\u4EE4"
+      value: "\u5F00\u59CB\u626B\u63CF\u2026\u2026\u969C\u788D\u7269 \u53EF\u7834\u574F\uFF0C\u5141\u8BB8\u6267\u884C\u653B\u51FB\u6307\u4EE4\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 4329018393059277617, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: m_Size.x
@@ -1772,7 +1772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2105280210612477600, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477600, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1828,11 +1828,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477610, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: detail
-      value: "\u65E0\u6CD5\u5F00\u542F\uFF0C\u7F3A\u5C11\u542F\u52A8\u80FD\u6E90"
+      value: "\u65E0\u6CD5\u5F00\u542F\uFF0C\u7F3A\u5C11\u542F\u52A8\u80FD\u6E90\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477613, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: TriggerList.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105280210612477615, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
+      propertyPath: detail
+      value: "\u5B8C\u6210\u62FC\u56FE\u83B7\u5F97\u7535\u6C60\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477615, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: objectImage
@@ -1848,11 +1852,11 @@ PrefabInstance:
       objectReference: {fileID: 1780081596}
     - target: {fileID: 2105280210612477778, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: detail
-      value: "\u9700\u8981\u641C\u7D22\u66F4\u591A\u7684\u62FC\u56FE"
+      value: "\u9700\u8981\u641C\u7D22\u66F4\u591A\u7684\u62FC\u56FE\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477779, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: detail_easy1
-      value: "\u62FC\u56FE\u788E\u7247\u6570\u91CF\u8FBE\u6807\uFF0C\u5C1D\u8BD5\u641C\u7D22\u9690\u85CF\u4FE1\u606F"
+      value: "\u62FC\u56FE\u788E\u7247\u6570\u91CF\u8FBE\u6807\uFF0C\u5C1D\u8BD5\u641C\u7D22\u9690\u85CF\u4FE1\u606F\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477780, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2262,7 +2266,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 120112168}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &120112170
 BoxCollider2D:
@@ -2475,7 +2479,7 @@ MonoBehaviour:
   - {fileID: 135378125}
   - {fileID: 135378126}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &135378128
 BoxCollider2D:
@@ -3364,7 +3368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 163447531}
@@ -3387,7 +3391,7 @@ MonoBehaviour:
   - {fileID: 163447529}
   - {fileID: 163447528}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &163447528
 MonoBehaviour:
@@ -3445,7 +3449,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 163447532}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &163447532
 MonoBehaviour:
@@ -3680,7 +3684,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 164856929}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &164856931
 Animator:
@@ -3819,7 +3823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 179716347}
@@ -3842,7 +3846,7 @@ MonoBehaviour:
   - {fileID: 179716346}
   - {fileID: 179716344}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &179716344
 MonoBehaviour:
@@ -3904,7 +3908,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 179716348}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &179716348
 MonoBehaviour:
@@ -4261,7 +4265,6 @@ MonoBehaviour:
     id: 0
     name: "\u62FC\u56FE"
     image: {fileID: 21300000, guid: 066e175ce43699a41a4d4a41a3a24a3d, type: 3}
-    detail: 
     useNum: 0
 --- !u!1 &190398863
 GameObject:
@@ -4473,6 +4476,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0
 --- !u!212 &191751730
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5231,7 +5235,7 @@ MonoBehaviour:
   - {fileID: 259066905}
   - {fileID: 259066904}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &259066907
 BoxCollider2D:
@@ -5488,7 +5492,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 274938002}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &274938004
 BoxCollider2D:
@@ -5659,7 +5663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034132, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: detail
-      value: "\u635F\u574F\u7684\u9501\uFF0C\u597D\u50CF\u662F\u64AC\u68CD\u64AC\u65AD\u7684"
+      value: "\u635F\u574F\u7684\u9501\uFF0C\u597D\u50CF\u662F\u64AC\u68CD\u64AC\u65AD\u7684."
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_RootOrder
@@ -6082,7 +6086,7 @@ MonoBehaviour:
   - {fileID: 320307636}
   - {fileID: 320307637}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &320307632
 BoxCollider2D:
@@ -6433,7 +6437,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 323104362}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &323104364
 BoxCollider2D:
@@ -6750,7 +6754,7 @@ Transform:
   - {fileID: 1915061588}
   - {fileID: 1013186618}
   m_Father: {fileID: 372253778}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344077380
 GameObject:
@@ -6794,7 +6798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 344077386}
@@ -6817,7 +6821,7 @@ MonoBehaviour:
   - {fileID: 344077384}
   - {fileID: 344077383}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &344077383
 MonoBehaviour:
@@ -6875,7 +6879,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 344077387}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &344077387
 MonoBehaviour:
@@ -7332,6 +7336,7 @@ Transform:
   - {fileID: 1611139538}
   - {fileID: 857255830}
   - {fileID: 649706558}
+  - {fileID: 434282703}
   - {fileID: 1423953635}
   - {fileID: 335472615}
   m_Father: {fileID: 0}
@@ -7602,9 +7607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348e1c4b3fce56941b0e0045de6a3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u6563\u843D\u7684\u65E5\u8BB0\u2462"
+  name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/2/5</color></size> \u8003\u8651\u8BB8\u4E45\u5E26\u56DE\u4E86Ham\uFF0C\u7ED9\u5B83\u63D0\u4F9B\u4E0D\u540C\u4E8E\u6D41\u6D6A\u8857\u5934\u90A3\u822C\u7684\u751F\u6D3B\uFF0C\u5E0C\u671B\u5B83\u80FD\u559C\u6B22"
+  detail: "<size=200><color=white>Date\uFF1A1867/2/5</color></size> \u8003\u8651\u8BB8\u4E45\u5E26\u56DE\u4E86Ham\uFF0C\u7ED9\u5B83\u63D0\u4F9B\u4E0D\u540C\u4E8E\u6D41\u6D6A\u8857\u5934\u90A3\u822C\u7684\u751F\u6D3B\uFF0C\u5E0C\u671B\u5B83\u80FD\u559C\u6B22\u3002"
 --- !u!114 &392592658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,7 +7625,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 392592657}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &392592659
 BoxCollider2D:
@@ -7868,9 +7873,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423953635}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_LocalScale.x
@@ -8018,7 +8027,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 426103261}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &426103263
 Animator:
@@ -8220,6 +8229,7 @@ GameObject:
   - component: {fileID: 434282709}
   - component: {fileID: 434282708}
   - component: {fileID: 434282707}
+  - component: {fileID: 434282726}
   - component: {fileID: 434282716}
   - component: {fileID: 434282719}
   - component: {fileID: 434282718}
@@ -8254,8 +8264,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 794634670}
-  m_Father: {fileID: 1423953635}
-  m_RootOrder: 2
+  m_Father: {fileID: 372253778}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 64.357}
 --- !u!114 &434282704
 MonoBehaviour:
@@ -8276,7 +8286,7 @@ MonoBehaviour:
   - {fileID: 434282713}
   - {fileID: 434282725}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282705
 MonoBehaviour:
@@ -8317,13 +8327,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerList:
+  - {fileID: 434282726}
   - {fileID: 434282719}
   - {fileID: 434282718}
   - {fileID: 434282716}
   - {fileID: 434282705}
   - {fileID: 434282720}
+  - {fileID: 434282720}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282708
 MonoBehaviour:
@@ -8353,7 +8365,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 434282708}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282710
 MonoBehaviour:
@@ -8369,7 +8381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 434282709}
@@ -8624,7 +8636,7 @@ MonoBehaviour:
   - {fileID: 434282722}
   - {fileID: 434282723}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282725
 MonoBehaviour:
@@ -8644,8 +8656,24 @@ MonoBehaviour:
     id: 0
     name: "\u7535\u6C60"
     image: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-    detail: 
     useNum: 0
+--- !u!114 &434282726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434282702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efc35a5a3c036f4da04684fa5da158a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemArray:
+  - id: 0
+    name: "\u64AC\u68CD"
+    image: {fileID: 21300000, guid: 8bd3bacb95c143844a71d93a0824c830, type: 3}
+    useNum: 1
 --- !u!1001 &437498798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8971,7 +8999,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 455786316}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &455786318
 BoxCollider2D:
@@ -9180,7 +9208,6 @@ MonoBehaviour:
     id: 0
     name: "\u62FC\u56FE"
     image: {fileID: 21300000, guid: 066e175ce43699a41a4d4a41a3a24a3d, type: 3}
-    detail: 
     useNum: 0
 --- !u!1 &472051224
 GameObject:
@@ -10199,7 +10226,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 563760760}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &563760762
 BoxCollider2D:
@@ -10795,10 +10822,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348e1c4b3fce56941b0e0045de6a3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u6563\u843D\u7684\u65E5\u8BB0\u2463"
+  name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
   detail: "<size=200><color=white>\u79D1\u5C14\u6C83\u5148\u751F\u7684\u968F\u7B14</color></size>
-    \u65E5\u8BB0\u8BB0\u5F55\u4E86\u79D1\u5C14\u6C83\u5148\u751F\u7684\u4E00\u4E9B\u65E5\u5E38\u7410\u788E\uFF0C\u4F46\u56E0\u4E3A\u4FDD\u5B58\u4E0D\u5F53\uFF0C\u540E\u534A\u90E8\u5206\u5DF2\u7ECF\u6563\u843D"
+    \u65E5\u8BB0\u8BB0\u5F55\u4E86\u79D1\u5C14\u6C83\u5148\u751F\u7684\u4E00\u4E9B\u65E5\u5E38\u7410\u788E\uFF0C\u4F46\u56E0\u4E3A\u4FDD\u5B58\u4E0D\u5F53\uFF0C\u5185\u5BB9\u5DF2\u7ECF\u65E0\u6CD5\u9605\u8BFB\u4E86\u3002"
 --- !u!114 &593246172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10814,7 +10841,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 593246171}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &593246173
 BoxCollider2D:
@@ -11014,9 +11041,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423953635}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_LocalScale.x
@@ -11449,7 +11480,7 @@ MonoBehaviour:
   - {fileID: 639491231}
   - {fileID: 639491232}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &639491234
 BoxCollider2D:
@@ -11602,9 +11633,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348e1c4b3fce56941b0e0045de6a3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u6563\u843D\u7684\u65E5\u8BB0\u2461"
+  name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/5/13</color></size> Ham\u600E\u4E48\u8FD9\u4E48\u8D2A\u5403\uFF0C\u957F\u7684\u4E5F\u592A\u5FEB\u4E86\uFF0C\u518D\u8FD9\u6837\u4E0B\u53BB\u5C4B\u5B50\u5FEB\u5BB9\u7EB3\u4E0D\u4E0B\u5B83\u4E86"
+  detail: "<size=200><color=white>Date\uFF1A1867/5/13</color></size> Ham\u600E\u4E48\u8FD9\u4E48\u8D2A\u5403\uFF0C\u957F\u5F97\u4E5F\u592A\u5FEB\u4E86\uFF0C\u518D\u8FD9\u6837\u4E0B\u53BB\u5C4B\u5B50\u5FEB\u5BB9\u7EB3\u4E0D\u4E0B\u5B83\u4E86\u3002\u5514\uFF0C\u5916\u9762\u52A8\u9759\u6709\u4E9B\u5927\uFF0Cham\u53C8\u649E\u574F\u4EC0\u4E48\u4E1C\u897F\u4E86\u5417\uFF1F\u5F97\u627E\u4E2A\u673A\u4F1A\u597D\u597D\u6536\u62FE\u4ED6\u3002"
 --- !u!114 &640238107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11620,7 +11651,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 640238106}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &640238108
 BoxCollider2D:
@@ -13136,7 +13167,7 @@ MonoBehaviour:
   - {fileID: 702093863}
   - {fileID: 702093864}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &702093866
 BoxCollider2D:
@@ -13284,7 +13315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 702660442}
@@ -13307,7 +13338,7 @@ MonoBehaviour:
   - {fileID: 702660440}
   - {fileID: 702660439}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &702660439
 MonoBehaviour:
@@ -13365,7 +13396,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 702660443}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &702660443
 MonoBehaviour:
@@ -14654,6 +14685,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0
 --- !u!212 &749478914
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14793,7 +14825,7 @@ MonoBehaviour:
   - {fileID: 752221651}
   - {fileID: 752221650}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &752221653
 MonoBehaviour:
@@ -14823,7 +14855,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 752221653}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &752221655
 MonoBehaviour:
@@ -14839,7 +14871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 752221654}
@@ -15289,7 +15321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u78C1\u5E26"
   objectImage: {fileID: 21300000, guid: fe94aab20dd4fc542ac5bb77e8377e07, type: 3}
-  detail: "<size=200><color=white>\u795E\u79D8\u7684\u78C1\u5E26</color></size> \u79D1\u5C14\u6C83\u5148\u751F\u95F2\u65F6\u5F55\u5236\u7684\u58F0\u97F3\uFF0C\u6CA1\u6709\u7279\u522B\u7684\u542B\u4E49\uFF0C\u4F46\u56E0\u4E3A\u4FDD\u5B58\u4E0D\u5F53\uFF0C\u540E\u534A\u90E8\u5206\u5DF2\u7ECF\u6563\u843D"
+  detail: "<size=200><color=white>\u795E\u79D8\u7684\u78C1\u5E26</color></size> \u79D1\u5C14\u6C83\u5148\u751F\u95F2\u65F6\u5F55\u5236\u7684\u58F0\u97F3\uFF0C\u6CA1\u6709\u7279\u522B\u7684\u542B\u4E49\u3002"
 --- !u!114 &759116005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15309,7 +15341,7 @@ MonoBehaviour:
   - {fileID: 759116009}
   - {fileID: 759116011}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &759116006
 BoxCollider2D:
@@ -15445,7 +15477,6 @@ MonoBehaviour:
     id: 0
     name: "\u78C1\u5E26"
     image: {fileID: 21300000, guid: 295e81e5953c157448ad0758f50d4d23, type: 3}
-    detail: 
     useNum: 0
 --- !u!1 &760465828
 GameObject:
@@ -15534,7 +15565,7 @@ MonoBehaviour:
   - {fileID: 760465831}
   - {fileID: 760465830}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &760465833
 MonoBehaviour:
@@ -15564,7 +15595,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 760465833}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &760465835
 MonoBehaviour:
@@ -15580,7 +15611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 760465834}
@@ -17646,7 +17677,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 870502535}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &870502537
 BoxCollider2D:
@@ -17975,7 +18006,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 898372570}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &898372572
 BoxCollider2D:
@@ -18400,7 +18431,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 924800107}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &924800109
 BoxCollider2D:
@@ -18927,11 +18958,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5593016, y: 1.0436525}
   m_EdgeRadius: 0
---- !u!224 &948426038 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1433938807, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-  m_PrefabInstance: {fileID: 997263390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &959341960
 GameObject:
   m_ObjectHideFlags: 0
@@ -19810,165 +19836,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8711244, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1440.3284
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711244, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -24
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 8711245, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
+      propertyPath: m_Text
+      value: "<size=200><color=white>\u53E4\u8001\u7684\u97F3\u9891\u4FE1\u606F\u5F55\u5236\u548C\u64AD\u653E\u673A\u5668</color></size>\r\n\u53EF\u4EE5\u66F4\u6362\u4E0D\u540C\u4FE1\u606F\u5B58\u50A8\u4ECB\u8D28\u64AD\u653E\u4E0D\u540C\u4FE1\u606F\u5185\u5BB9\uFF0C\u9700\u8981\u80FD\u6E90\u624D\u80FD\u542F\u52A8\u3002"
       objectReference: {fileID: 0}
-    - target: {fileID: 8711245, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 130
+    - target: {fileID: 1025176124, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 129
       objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailName
-      value: a
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawName
-      value: c
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailIndex
-      value: b
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawIndex
-      value: d
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailSprite
+    - target: {fileID: 1025176125, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_Text
       value: 
-      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-    - target: {fileID: 499616071, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 203.753
-      objectReference: {fileID: 0}
-    - target: {fileID: 499616071, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 192.075
-      objectReference: {fileID: 0}
-    - target: {fileID: 499616071, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 499616071, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -376
-      objectReference: {fileID: 0}
-    - target: {fileID: 685121860, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -471
-      objectReference: {fileID: 0}
-    - target: {fileID: 685121860, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -177
-      objectReference: {fileID: 0}
-    - target: {fileID: 723582748, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 201.902
-      objectReference: {fileID: 0}
-    - target: {fileID: 723582748, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 190.331
-      objectReference: {fileID: 0}
-    - target: {fileID: 723582748, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 723582748, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -176
-      objectReference: {fileID: 0}
-    - target: {fileID: 738937267, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 885971914, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -54.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370794094, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 205.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370794094, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 193.317
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370794094, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370794094, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 224
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawUI
-      value: 
-      objectReference: {fileID: 997263392}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: totalJigsaw
-      value: 
-      objectReference: {fileID: 948426038}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: JigsawAmount
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1785929632, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawName
-      value: "\u62FC\u56FE"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawIndex
-      value: "\u62FC\u56FE\u5B8C\u6210"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailName
-      value: "\u7535\u6C60"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailIndex
-      value: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
-        \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-    - target: {fileID: 1915389689, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 202.917
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915389689, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 191.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915389689, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915389689, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 486773310831807479, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_RootOrder
@@ -20014,21 +19903,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 974642664188981430, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 697
-      objectReference: {fileID: 0}
-    - target: {fileID: 974642664188981430, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -266
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
---- !u!1 &997263392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 241208582, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-  m_PrefabInstance: {fileID: 997263390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002774504
 GameObject:
   m_ObjectHideFlags: 0
@@ -20568,7 +20444,7 @@ MonoBehaviour:
   - {fileID: 1030110835}
   - {fileID: 1030110834}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1030110837
 MonoBehaviour:
@@ -20598,7 +20474,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1030110837}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1030110839
 MonoBehaviour:
@@ -20614,7 +20490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1030110838}
@@ -21018,7 +20894,7 @@ MonoBehaviour:
   - {fileID: 1044625467}
   - {fileID: 1044625466}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1044625469
 BoxCollider2D:
@@ -21549,7 +21425,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1087229510}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1087229512
 BoxCollider2D:
@@ -21910,7 +21786,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1101721925}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1112732985 stripped
 GameObject:
@@ -21935,7 +21811,6 @@ MonoBehaviour:
     id: 0
     name: "\u62FC\u56FE"
     image: {fileID: 21300000, guid: 066e175ce43699a41a4d4a41a3a24a3d, type: 3}
-    detail: 
     useNum: 0
 --- !u!1001 &1117178056
 PrefabInstance:
@@ -21944,6 +21819,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773069058}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22110,6 +21989,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0
 --- !u!212 &1164022208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23010,7 +22890,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1197279168}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1001 &1201173556
 PrefabInstance:
@@ -23019,6 +22899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1569585977}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -23089,11 +22973,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
     - target: {fileID: 5961926753570226528, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.59
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226528, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.15
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226529, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: target
@@ -23203,7 +23087,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1203097474}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1203097476
 BoxCollider2D:
@@ -23527,7 +23411,7 @@ MonoBehaviour:
   - {fileID: 1225283859}
   - {fileID: 1225283851}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1225283853
 MonoBehaviour:
@@ -23557,7 +23441,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1225283853}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1225283855
 MonoBehaviour:
@@ -23573,7 +23457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1225283854}
@@ -23766,7 +23650,7 @@ PrefabInstance:
       objectReference: {fileID: 1226576511}
     - target: {fileID: 4329018393059277615, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: detail
-      value: "\u662F\u5730\u523A\u88C5\u7F6E\uFF0C\u770B\u51C6\u65F6\u673A\u518D\u901A\u8FC7"
+      value: "\u662F\u5730\u523A\u88C5\u7F6E\uFF0C\u770B\u51C6\u65F6\u673A\u518D\u901A\u8FC7\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 4329018393059277617, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: m_Size.x
@@ -24136,7 +24020,7 @@ Transform:
   m_Children:
   - {fileID: 1487650809}
   m_Father: {fileID: 1423953635}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1239737388
 MonoBehaviour:
@@ -24163,7 +24047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u7834\u65E7\u7684\u5C4B\u5B50\u3002\u5F00\u59CB\u6267\u884C\u60C5\u62A5\u9A8C\u8BC1\uFF0C\u641C\u7D22\u672A\u77E5\u82AF\u7247"
+  detail: "\u7834\u65E7\u7684\u5C4B\u5B50\u3002\u5F00\u59CB\u6267\u884C\u60C5\u62A5\u9A8C\u8BC1\uFF0C\u641C\u7D22\u672A\u77E5\u82AF\u7247\u3002"
 --- !u!114 &1239737390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24181,7 +24065,7 @@ MonoBehaviour:
   - {fileID: 1239737388}
   - {fileID: 1239737392}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -24638,6 +24522,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0
 --- !u!212 &1270459294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24836,7 +24721,8 @@ EdgeCollider2D:
   - {x: -0.094720826, y: 2.9034226}
   - {x: 0.005425624, y: 3.3714132}
   - {x: 0.5831489, y: 3.3879895}
-  - {x: 0.8727222, y: 3.7652965}
+  - {x: 0.88270885, y: 3.772231}
+  - {x: 0.7092282, y: 3.7764437}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -25476,7 +25362,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1360972935}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1360972937
 BoxCollider2D:
@@ -25781,7 +25667,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1383364128}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1383364130
 BoxCollider2D:
@@ -26025,7 +25911,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1388247521}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1388247523
 BoxCollider2D:
@@ -26612,7 +26498,7 @@ MonoBehaviour:
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
   detail: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
-    \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
+    \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90\u3002"
 --- !u!114 &1415267882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26637,7 +26523,7 @@ MonoBehaviour:
   - {fileID: 1415267891}
   - {fileID: 1415267893}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1415267883
 BoxCollider2D:
@@ -26844,7 +26730,6 @@ MonoBehaviour:
     id: 0
     name: "\u7535\u6C60"
     image: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-    detail: 
     useNum: 0
 --- !u!1 &1415434897
 GameObject:
@@ -27120,7 +27005,6 @@ Transform:
   m_Children:
   - {fileID: 1609407938}
   - {fileID: 1426905342}
-  - {fileID: 434282703}
   - {fileID: 1239737387}
   - {fileID: 1585730126}
   - {fileID: 1674383417}
@@ -27130,7 +27014,7 @@ Transform:
   - {fileID: 1765503017}
   - {fileID: 1469315392}
   m_Father: {fileID: 372253778}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1424663337
 PrefabInstance:
@@ -27197,7 +27081,7 @@ PrefabInstance:
       objectReference: {fileID: 1424663340}
     - target: {fileID: 4329018393059277615, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: detail
-      value: "\u662F\u5730\u523A\u88C5\u7F6E\uFF0C\u770B\u51C6\u65F6\u673A\u518D\u901A\u8FC7"
+      value: "\u662F\u5730\u523A\u88C5\u7F6E\uFF0C\u770B\u51C6\u65F6\u673A\u518D\u901A\u8FC7\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 4329018393059277617, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: m_Size.x
@@ -27292,7 +27176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u68C0\u6D4B\u5230\u4FE1\u606F\u6B8B\u7559\uFF0C\u53EF\u4EE5\u67E5\u770B"
+  detail: "\u68C0\u6D4B\u5230\u4FE1\u606F\u6B8B\u7559\uFF0C\u53EF\u4EE5\u67E5\u770B\u3002"
 --- !u!114 &1426905344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27309,7 +27193,7 @@ MonoBehaviour:
   - {fileID: 1426905343}
   - {fileID: 1426905348}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -27351,9 +27235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348e1c4b3fce56941b0e0045de6a3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\u6563\u843D\u7684\u65E5\u8BB0\u2460"
+  name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/12/21</color></size> Ham\u7684\u7834\u574F\u529B\u8D8A\u6765\u8D8A\u5F3A\uFF0C\u5C4B\u5B50\u5FEB\u6298\u817E\u6CA1\u4E86\u3002\u5BB6\u91CC\u7684\u5DE5\u5177\u591F\u5E94\u4ED8\uFF0C\u662F\u65F6\u5019\u52A8\u624B\u4E86\u3002Ham\u597D\u50CF\u5F88\u5BB3\u6015\uFF0C\u4F46\u8FD9\u4E5F\u662F\u65E0\u5948\u4E4B\u4E3E"
+  detail: "<size=200><color=white>Date\uFF1A1867/12/21</color></size> Ham\u7684\u7834\u574F\u529B\u8D8A\u6765\u8D8A\u5F3A\uFF0C\u5C4B\u5B50\u90FD\u5FEB\u6298\u817E\u6CA1\u4E86\u3002\u8D81\u624B\u7684\u5DE5\u5177\u5927\u591A\u5728\u5DE5\u4F5C\u5BA4\u91CC\uFF0C\u4E0D\u8FC7\u5BB6\u91CC\u5907\u7528\u7684\u4E5F\u5E94\u8BE5\u591F\u7528\uFF0C\u662F\u65F6\u5019\u52A8\u624B\u4E86\u3002Ham\u597D\u50CF\u5F88\u5BB3\u6015\uFF0C\u4F46\u8FD9\u4E5F\u662F\u65E0\u5948\u4E4B\u4E3E\uFF0C\u72AF\u9519\u4E86\u603B\u8981\u4ED8\u51FA\u4EE3\u4EF7\u7684\u3002"
 --- !u!114 &1426905347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27369,7 +27253,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1426905346}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1426905348
 MonoBehaviour:
@@ -27399,7 +27283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1426905344}
@@ -27863,9 +27747,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423953635}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_LocalScale.x
@@ -28786,6 +28674,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0
 --- !u!212 &1553120021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28915,7 +28804,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1560829869}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1560829871
 BoxCollider2D:
@@ -29049,7 +28938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563629408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.587, y: -0.583, z: 0}
+  m_LocalPosition: {x: 4.74, y: -0.472, z: 0}
   m_LocalScale: {x: 0.40725, y: 0.40725, z: 0.40725}
   m_Children:
   - {fileID: 199683306}
@@ -29070,7 +28959,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u98DF\u7269\u8BA1\u5212\u8868"
   objectImage: {fileID: 21300000, guid: d3722879728992e46a94d75b4ed516b3, type: 3}
-  detail: 
+  detail: "<size=200><color=white>\u4E09\u9910\u8BA1\u5212\u8868</color></size>                                                               
+    \u5468\u4E00  \u4EA8\u5FB7\u724C\u72D7\u7CAE  \u7EF4\u76CA\u8425\u517B\u818F 
+    \u5B8F\u8C61\u78E8\u7259\u997C\u5E72 "
 --- !u!114 &1563629411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29086,7 +28977,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1563629410}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1563629412
 BoxCollider2D:
@@ -29304,6 +29195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1773069058}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -29836,7 +29731,7 @@ MonoBehaviour:
   - {fileID: 1600078278}
   - {fileID: 1600078280}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1600078283
 BoxCollider2D:
@@ -29989,6 +29884,9 @@ GameObject:
   - component: {fileID: 1609407943}
   - component: {fileID: 1609407948}
   - component: {fileID: 1609407951}
+  - component: {fileID: 1609407954}
+  - component: {fileID: 1609407955}
+  - component: {fileID: 1609407956}
   - component: {fileID: 1609407942}
   - component: {fileID: 1609407941}
   - component: {fileID: 1609407939}
@@ -29996,6 +29894,7 @@ GameObject:
   - component: {fileID: 1609407947}
   - component: {fileID: 1609407952}
   - component: {fileID: 1609407940}
+  - component: {fileID: 1609407953}
   m_Layer: 0
   m_Name: "\u5F55\u97F3\u673A"
   m_TagString: Interactive
@@ -30042,7 +29941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u5382\u623F\u7684\u95E8\u6253\u5F00\u4E86"
+  detail: "\u5382\u623F\u7684\u95E8\u6253\u5F00\u4E86\u3002"
 --- !u!114 &1609407941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30070,13 +29969,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerList:
+  - {fileID: 1609407953}
   - {fileID: 1609407952}
   - {fileID: 1609407941}
   - {fileID: 1609407950}
   - {fileID: 1609407940}
   - {fileID: 1609407939}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1609407943
 MonoBehaviour:
@@ -30090,7 +29990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u8FD9\u53F0\u5F55\u97F3\u673A\u5E94\u8BE5\u8FD8\u80FD\u7528"
+  detail: "\u8FD9\u53F0\u5F55\u97F3\u673A\u5E94\u8BE5\u8FD8\u80FD\u7528\u3002"
 --- !u!114 &1609407944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30107,8 +30007,9 @@ MonoBehaviour:
   - {fileID: 1609407943}
   - {fileID: 1609407951}
   - {fileID: 1609407948}
+  - {fileID: 1609407954}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1609407945
 MonoBehaviour:
@@ -30124,13 +30025,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1609407944}
-  - {fileID: 1609407944}
-  - {fileID: 1609407944}
-  - {fileID: 1609407944}
+  - {fileID: 1609407955}
+  - {fileID: 1609407955}
+  - {fileID: 1609407955}
+  - {fileID: 1609407955}
   - {fileID: 1609407942}
   flag: 1
 --- !u!95 &1609407946
@@ -30192,8 +30094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u5F55\u97F3\u673A"
   objectImage: {fileID: 21300000, guid: 05b4ba9a0dc276a4bb4b08d709baa6e7, type: 3}
-  detail: "<size=200><color=white>\u53E4\u8001\u7684\u97F3\u9891\u4FE1\u606F\u5F55\u5236\u548C\u64AD\u653E\u673A\u5668</color></size>
-    \u53EF\u4EE5\u66F4\u6362\u4E0D\u540C\u4FE1\u606F\u5B58\u50A8\u4ECB\u8D28\u64AD\u653E\u4E0D\u540C\u4FE1\u606F\u5185\u5BB9\uFF0C\u9700\u8981\u80FD\u6E90\u624D\u80FD\u542F\u52A8"
+  detail: "<size=200><color=white>\u53E4\u8001\u7684\u97F3\u9891\u8F93\u51FA\u8BBE\u5907</color></size>
+    \u53EF\u4EE5\u66F4\u6362\u4E0D\u540C\u4FE1\u606F\u5B58\u50A8\u4ECB\u8D28\u64AD\u653E\u4E0D\u540C\u4FE1\u606F\u5185\u5BB9\uFF0C\u9700\u8981\u80FD\u6E90\u624D\u80FD\u542F\u52A8\u3002"
 --- !u!212 &1609407949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30272,7 +30174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u7F3A\u5C11\u542F\u52A8\u80FD\u6E90\uFF0C\u5468\u56F4\u5E94\u8BE5\u80FD\u627E\u5230\u80FD\u91CF\u50A8\u5B58\u88C5\u7F6E"
+  detail: "\u7F3A\u5C11\u542F\u52A8\u80FD\u6E90\uFF0C\u5468\u56F4\u5E94\u8BE5\u80FD\u627E\u5230\u80FD\u91CF\u50A8\u5B58\u88C5\u7F6E\u3002"
 --- !u!114 &1609407952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30285,7 +30187,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u5C1D\u8BD5\u542F\u52A8\u6B64\u673A\u5668"
+  detail: "\u5C1D\u8BD5\u542F\u52A8\u6B64\u673A\u5668\u3002"
+--- !u!114 &1609407953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609407937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efc35a5a3c036f4da04684fa5da158a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemArray:
+  - id: 0
+    name: "\u7535\u6C60"
+    image: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
+    useNum: 0
+  - id: 0
+    name: "\u78C1\u5E26"
+    image: {fileID: 21300000, guid: fe94aab20dd4fc542ac5bb77e8377e07, type: 3}
+    useNum: 0
+--- !u!114 &1609407954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609407937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9cf730f7ec2d546beb1830a0cbb5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCondition: {fileID: 1609407945}
+--- !u!114 &1609407955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609407937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbe4daa64334694ea3a70500b60fc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerList:
+  - {fileID: 1609407956}
+  isActive: 1
+  itemList: []
+  currentIndex: 0
+--- !u!114 &1609407956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609407937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detail: "\u6839\u636E\u5F55\u97F3\u673A\u7684\u6784\u9020\u5224\u65AD\uFF0C\u9700\u8981\u653E\u5165\u78C1\u5E26\u548C\u4E09\u4E2A\u7535\u6C60\u3002"
 --- !u!1 &1611139537
 GameObject:
   m_ObjectHideFlags: 0
@@ -30694,7 +30660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329018393059277615, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
       propertyPath: detail
-      value: "\u62C6\u4E0B\u95F8\u673A\u7684\u7535\u6C60\u4F3C\u4E4E\u5BFC\u81F4\u4E86\u6BD2\u6DB2\u7684\u6E17\u51FA\uFF0C\u5C3D\u91CF\u9009\u62E9\u7ED5\u884C\u5427"
+      value: "\u62C6\u4E0B\u95F8\u673A\u7684\u7535\u6C60\u4F3C\u4E4E\u5BFC\u81F4\u4E86\u6BD2\u6DB2\u7684\u6E17\u51FA\uFF0C\u5C3D\u91CF\u9009\u62E9\u7ED5\u884C\u3002"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: add65094772cc6d4cbca23988cc4bec5, type: 3}
@@ -31101,11 +31067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034132, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: detail
-      value: "\u72D7\u76C6\uFF0C\u5206\u6790\u63A8\u6D4B\uFF1A\u5C4B\u5B50\u91CC\u66FE\u7ECF\u517B\u8FC7\u72D7"
+      value: "\u72D7\u76C6\uFF0C\u5206\u6790\u63A8\u6D4B\uFF1A\u5C4B\u5B50\u91CC\u66FE\u7ECF\u517B\u8FC7\u72D7\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31165,6 +31131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 365080626}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5."
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -31499,7 +31469,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1714831592}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1720515383
 GameObject:
@@ -31562,7 +31532,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1720515385}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1722063825
 GameObject:
@@ -31753,6 +31723,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1569585977}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -32088,9 +32062,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423953635}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_LocalScale.x
@@ -32374,7 +32352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1776464373}
@@ -32396,7 +32374,7 @@ MonoBehaviour:
   - {fileID: 1776464372}
   - {fileID: 1776464375}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1776464372
 MonoBehaviour:
@@ -32427,7 +32405,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1776464374}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1776464374
 MonoBehaviour:
@@ -33041,7 +33019,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1797429836}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &1797429838
 Animator:
@@ -33164,7 +33142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800055356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.17, y: -0.68, z: 0}
+  m_LocalPosition: {x: -0.68, y: -0.39, z: 0}
   m_LocalScale: {x: 1.3231546, y: 1.3231546, z: 1.3231546}
   m_Children:
   - {fileID: 2011783663}
@@ -34143,6 +34121,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 779879065}
     m_Modifications:
+    - target: {fileID: 428059605, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: detail
+      value: "\u67D0\u4E2A\u62FC\u56FE\u7684\u788E\u7247\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226524, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -34211,6 +34193,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a9f84881abde25b48904c0ff67bca145, type: 2}
+    - target: {fileID: 5961926753570226528, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961926753570226528, guid: e1629f40cbd706a4da859dc190626371, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5961926753570226529, guid: e1629f40cbd706a4da859dc190626371, type: 3}
       propertyPath: target
       value: 
@@ -34422,7 +34412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034132, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: detail
-      value: "\u84B8\u6C7D\u706B\u8F66\u6A21\u578B\u3002\u6570\u636E\u5E93\u65E0\u578B\u53F7\u663E\u793A"
+      value: "\u84B8\u6C7D\u706B\u8F66\u6A21\u578B\u3002\u6570\u636E\u5E93\u65E0\u578B\u53F7\u663E\u793A."
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_RootOrder
@@ -34913,7 +34903,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1887651989}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1887651991
 BoxCollider2D:
@@ -35170,7 +35160,7 @@ MonoBehaviour:
   - {fileID: 1901847074}
   - {fileID: 1901847073}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1901847076
 BoxCollider2D:
@@ -35651,7 +35641,6 @@ MonoBehaviour:
     id: 0
     name: "\u62FC\u56FE"
     image: {fileID: 21300000, guid: 066e175ce43699a41a4d4a41a3a24a3d, type: 3}
-    detail: 
     useNum: 0
 --- !u!1 &1948129274
 GameObject:
@@ -35776,7 +35765,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1954178432}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1954178434
 BoxCollider2D:
@@ -37699,7 +37688,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2048312953}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2048312955
 BoxCollider2D:
@@ -38010,7 +37999,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2067105150}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2067105152
 BoxCollider2D:
@@ -39013,7 +39002,7 @@ MonoBehaviour:
   - {fileID: 2098664978}
   - {fileID: 2098664977}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2098664980
 BoxCollider2D:
@@ -39843,7 +39832,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8350374092873218379}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &102344014585134969
 BoxCollider2D:
@@ -39900,7 +39889,7 @@ MonoBehaviour:
   - {fileID: 492060115973016110}
   - {fileID: 834260944}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!4 &492060115973016108
 Transform:
@@ -40084,7 +40073,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8546406604740796926}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1261017995029101274
 MonoBehaviour:
@@ -40233,7 +40222,7 @@ MonoBehaviour:
   - {fileID: 1343447414499767315}
   - {fileID: 8546406604740796926}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1343447414499767317
 MonoBehaviour:
@@ -40249,7 +40238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1343447414499767316}
@@ -40561,9 +40550,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1423953635}
     m_Modifications:
+    - target: {fileID: 2317517439246034132, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
+      propertyPath: detail
+      value: "\u635F\u574F\u7684\u684C\u6905\uFF0C\u53EF\u80FD\u53D1\u751F\u8FC7\u6FC0\u70C8\u7684\u6253\u6597\u3002"
+      objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40640,7 +40633,7 @@ MonoBehaviour:
   - {fileID: 4191571740944721517}
   - {fileID: 2953298332326703442}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2661036116316211465
 BoxCollider2D:
@@ -40873,7 +40866,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 3912315917957122021}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &3912315917957122020
 GameObject:
@@ -41096,7 +41089,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 7147767473129877950}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &4064734602689057772
 MonoBehaviour:
@@ -41112,7 +41105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 4064734602689057771}
@@ -41539,7 +41532,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 4580781615521302560}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &4640544638055472912
 MonoBehaviour:
@@ -41644,7 +41637,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 5072880186193314161}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!212 &5072880186193314175
 SpriteRenderer:
@@ -41784,7 +41777,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 6009584276900137245}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &6009584276900137241
 MonoBehaviour:
@@ -42044,7 +42037,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 7455735148780713415}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &7455735148780713415
 MonoBehaviour:
@@ -42647,7 +42640,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8877183875237006519}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183875237006519
 MonoBehaviour:
@@ -43016,7 +43009,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8877183875992588752}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183875992588752
 MonoBehaviour:
@@ -43218,7 +43211,7 @@ MonoBehaviour:
   - {fileID: 8877183876144965611}
   - {fileID: 8877183876144965614}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183876144965607
 MonoBehaviour:
@@ -43314,7 +43307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detail: "\u575A\u786C\u7684\u5DE5\u5177\uFF0C\u4F5C\u7528\u672A\u77E5"
+  detail: "\u575A\u786C\u7684\u5DE5\u5177\uFF0C\u4F5C\u7528\u672A\u77E5\u3002"
 --- !u!114 &8877183876144965613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43347,7 +43340,6 @@ MonoBehaviour:
     id: 0
     name: "\u64AC\u68CD"
     image: {fileID: 21300000, guid: b40886149603ad249abb04736714dfcb, type: 3}
-    detail: '*1'
     useNum: 0
 --- !u!4 &8877183876222693901
 Transform:
