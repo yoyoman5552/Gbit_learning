@@ -216,12 +216,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e784536c199b64ab3a531898e36834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  chaseSpeed: 3
+  walkSpeed: 1.5
+  chaseSpeed: 2.5
   HP: 5
   DefaultStateID: 1
-  minRadius: 0
-  attackRadius: 0
+  patrolRadius: 3
+  minRadius: 5
+  attackRadius: 3
   idleTime: 1
   hurtedTime: 0.2
   HurtedSpeed: 1
