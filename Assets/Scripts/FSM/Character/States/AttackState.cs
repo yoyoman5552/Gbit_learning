@@ -35,7 +35,7 @@ public class AttackState : FSMState
     //冲刺加载时间
     private float loadSprintTimer;
     private float initLoadSprintTimer = 1.0f;
- 
+
 
     //冲刺后的近战普通攻击的加载时间
     private float meleeTimer;
@@ -74,11 +74,18 @@ public class AttackState : FSMState
         AttackEndTimer = initAttackEndTimer;
         finishAttack = false;
         firstDetectPlayer = true;
-
+        timer=fsm.idleTime;
+        dashDir = (fsm.targetTF.position - fsm.transform.position).normalized;
     }
+    Vector3 dashDir;
+    float timer;
     public override void ActionState(FSMBase fsm)
     {
-
+        if (fsm.m_cd <= 0)
+        {
+            fsm.m_cd = fsm.attackInterval;
+            fsm.rb.velocity = dashDir * fsm.chaseSpeed * ConstantList.speedPer * Time.deltaTime;
+        }
         if (fsm.AttackStyle)
         {
             RemoteAttack(fsm);
@@ -128,7 +135,7 @@ public class AttackState : FSMState
         //现有问题：冲刺冷却时间在玩家离开攻击范围后不会继续倒计时：目前通过设置当玩家进入攻击范围时，冲刺技能自动冷却。
         if (finishAttack)
         {
-            
+
             //Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
 
             //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
@@ -151,11 +158,11 @@ public class AttackState : FSMState
         {
             if (rayDetect(fsm))
             {
-                
+
                 //冲刺加载
 
                 //获取当前玩家位置
-                if (firstDetectPlayer&&loadSprintTimer<=0.5f)
+                if (firstDetectPlayer && loadSprintTimer <= 0.5f)
                 {
                     firstDetectPosition = GameManager.Instance.player.transform.position;
                     firstDetectPlayer = false;
@@ -165,7 +172,7 @@ public class AttackState : FSMState
                 loadSprintTimer -= Time.deltaTime;
                 if (loadSprintTimer <= 0)
                 {
-                    
+
                     //Debug.Log("ready_to_attack");
                     Sprint_Achieve(fsm);
                 }
@@ -265,7 +272,7 @@ public class AttackState : FSMState
     {
         //RaycastHit2D ray = Physics2D.
         Transform EnemyTransform = fsm.transform;
-  
+
         //近战攻击：冲刺
 
         //射线检测突进路径上的物体
@@ -313,7 +320,7 @@ public class AttackState : FSMState
     private bool rayDetect(FSMBase fsm)
     {
         Vector3 rayDirection = fsm.targetTF.position - fsm.transform.position;
-        Vector3 detectRayPosition = fsm.transform.position + 0.5f*rayDirection.normalized;
+        Vector3 detectRayPosition = fsm.transform.position + 0.5f * rayDirection.normalized;
         RaycastHit2D hit = Physics2D.Raycast(detectRayPosition, rayDirection, detectDistance(fsm), LayerMask.GetMask("Default"));
         if (hit.collider != null && hit.collider.name == "PlayerCircleDetect")
         {

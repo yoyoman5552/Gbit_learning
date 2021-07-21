@@ -19,7 +19,7 @@ public class groundStab_Trigger : ITrigger
     [Tooltip("蓝/黄毒气选择,true为黄，false为蓝")]
     public bool YellowOrBlue;
     [Tooltip("僵直时间")]
-    public float standTimer;
+    public float standTimer=0.2f;
     //队列记录位置
     //Queue<Vector3> pathPositon = new Queue<Vector3>();
     //private float timeInterval = 0.2f;
@@ -84,7 +84,7 @@ public class groundStab_Trigger : ITrigger
 
             }
         }
-        if(this.name!="毒液地刺")
+        if (this.name != "毒液地刺")
             detectDistance();
 
     }
@@ -103,7 +103,7 @@ public class groundStab_Trigger : ITrigger
     //距离检测
     private void detectDistance()
     {
-        
+
         //right,left,up,down
         if (Mathf.Abs(GameManager.Instance.player.transform.position.x - transform.position.x) <= stabX / 2.0f + 0.5f && Mathf.Abs(GameManager.Instance.player.transform.position.y - transform.position.y) <= stabY / 2.0f + 0.5f)
         {
@@ -111,7 +111,7 @@ public class groundStab_Trigger : ITrigger
             {
                 enterPosition = GameManager.Instance.player.transform.position;
                 firstEnter = false;
-//                Debug.Log("InInIn");
+                //                Debug.Log("InInIn");
             }
 
         }
@@ -146,14 +146,14 @@ public class groundStab_Trigger : ITrigger
                 //直接返回进入点效果一般
                 //所试方法：
                 //1.延迟0.5秒返回进入点
-                if (this.name == "毒液地刺" )
-                { 
-                    enterPosition = GameManager.Instance.player.transform.position + 0.4f * (GameManager.Instance.player.transform.position - transform.position).normalized;
+                if (this.name == "毒液地刺")
+                {
+                    enterPosition = collision.transform.position + 0.4f * (collision.transform.position - transform.position).normalized;
                 }
 
 
-                Invoke("resetPlayerPosition", 0.2f);
-
+                //                Invoke("resetPlayerPosition", 0.2f);
+                StartCoroutine(resetPlayerPositionDelay());
                 //2.直接返回进入点，延迟时间
                 // GameManager.Instance.player.transform.position = enterPosition;
                 //TODO:人物受伤？短暂不能移动，体现被移出地刺范围
@@ -191,9 +191,20 @@ public class groundStab_Trigger : ITrigger
     }
     private void resetPlayerPosition()
     {
-        
+
         GameManager.Instance.player.transform.position = enterPosition;
+
+    }
+    IEnumerator resetPlayerPositionDelay()
+    {
         GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(standTimer);
+        GameObject player = GameManager.Instance.player;
+        Vector3 dir = (Vector3)enterPosition - player.transform.position;
+        while (Vector3.Distance(player.transform.position, enterPosition) > 0.2f)
+        {
+            player.transform.position = Vector3.Lerp(player.transform.position, enterPosition, 0.2f);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 
 }
