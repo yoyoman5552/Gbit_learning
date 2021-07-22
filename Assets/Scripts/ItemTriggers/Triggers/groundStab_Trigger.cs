@@ -146,12 +146,9 @@ public class groundStab_Trigger : ITrigger
                 //Debug.Log("玩家受伤");
                 GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
                 attacked = true;
-                if(this.name=="毒液地刺")
-                {
 
-                }
-                if (venom) collider.isTrigger = false;
-                else collider.enabled = false;
+                //if (venom) collider.isTrigger = false;
+                collider.enabled = false;
                 StartCoroutine(AttackDelay(attackRatio));
                 
                 if (this.name == "毒液地刺")
@@ -191,7 +188,7 @@ public class groundStab_Trigger : ITrigger
         //如果是攻击状态
         if (getHurt)
         {
-            if (venom) collider.isTrigger = true;
+            //if (venom) collider.isTrigger = true;
             collider.enabled = true;
         }
     }
