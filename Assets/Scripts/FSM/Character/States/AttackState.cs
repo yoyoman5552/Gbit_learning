@@ -11,42 +11,15 @@ public class AttackState : FSMState
     private bool hadShoot = false;
 
 
-    //近战攻击变量
-    //近战攻击：冲刺后近身攻击，当玩家与怪物距离至某一段距离时，恢复冲刺判断
-    private bool firstDetectPlayer;
-
-    //冲刺终点
-    private Vector3 firstDetectPosition;
-
-    //冲刺是否结束
-    private bool finishAttack;
-
-    //冲刺技能加载时间//可加感叹号供玩家反应
-    private float sprintSkillCD;
-    //private float initSprintCDTimer = 8.0f;
-
-
-
-    //防止在冲刺状态中被卡住后无法再次冲刺
-    private float AttackEndTimer;
-    private float initAttackEndTimer;
-
-
-    //冲刺加载时间
+    //近战变量
     private float loadSprintTimer;
-    private float initLoadSprintTimer = 1.0f;
-
-
-    //冲刺后的近战普通攻击的加载时间
-    private float meleeTimer;
-    //private float initMeleeTimer = 0.5f;
-    //private bool hadMelee = false;
-    private float originRadius;
-
-
+    
+    private Vector3 dashDir;
+    private bool loading = true;
 
     public override void Init()
     {
+        
         stateID = FSMStateID.Attack;
         //        throw new System.NotImplementedException();
 
@@ -59,33 +32,29 @@ public class AttackState : FSMState
 
     public override void EnterState(FSMBase fsm)
     {
-        Debug.Log("inAttack");
-
+        // Debug.Log("inAttack");
+        loadSprintTimer = fsm.initLoadStimer;
         //翻转贴图方向
         float dir = fsm.targetTF.position.x - fsm.transform.position.x;
         fsm.textureClip(dir);
 
         //        Debug.Log("attack state in");
-        loadSprintTimer = initLoadSprintTimer;
-        meleeTimer = fsm.attackInterval;
+
+
         shootTimeGap = fsm.attackInterval;
-        sprintSkillCD = fsm.attackInterval;
-        initAttackEndTimer = fsm.attackInterval + initLoadSprintTimer;
-        AttackEndTimer = initAttackEndTimer;
-        finishAttack = false;
-        firstDetectPlayer = true;
-        timer=fsm.idleTime;
-        dashDir = (fsm.targetTF.position - fsm.transform.position).normalized;
+
+        
+        
     }
-    Vector3 dashDir;
-    float timer;
+
     public override void ActionState(FSMBase fsm)
     {
-        if (fsm.m_cd <= 0)
-        {
-            fsm.m_cd = fsm.attackInterval;
+        if (true)
+        { 
             fsm.rb.velocity = dashDir * fsm.chaseSpeed * ConstantList.speedPer * Time.deltaTime;
         }
+
+
         if (fsm.AttackStyle)
         {
             RemoteAttack(fsm);
@@ -94,6 +63,20 @@ public class AttackState : FSMState
         {
             MeleeAttack(fsm);
             //Debug.Log(loadSprintTimer);
+            if(fsm.Sprinting)
+            {
+                var targetArray = Physics2D.OverlapCircleAll(fsm.transform.position, 0.5f);
+                foreach (var target in targetArray)
+                {
+                    if (target.CompareTag("Player"))
+                    {
+                        //命中玩家攻击结束
+                        Debug.Log("Sprint_attack_finish_attack_sucess");
+                        target.GetComponent<PlayerController>().TakenDamage(fsm.damage, 4 * (target.transform.position - fsm.transform.position));
+                        break;
+                    }
+                }
+            }
         }
 
     }
@@ -101,7 +84,6 @@ public class AttackState : FSMState
     {
         //        Debug.Log("attack state out");
 
-        Debug.Log("outAttack");
     }
 
     //远程攻击接口
@@ -129,78 +111,35 @@ public class AttackState : FSMState
 
     private void MeleeAttack(FSMBase fsm)
     {
-        //近战攻击方法：冲刺撞击玩家后对玩家进行近身攻击
-
-        //冲刺
-        //现有问题：冲刺冷却时间在玩家离开攻击范围后不会继续倒计时：目前通过设置当玩家进入攻击范围时，冲刺技能自动冷却。
-        if (finishAttack)
+        if (!fsm.SprintUsed)
         {
 
-            //Debug.Log("finish_Attack:resetCD: " + sprintSkillCD);
-
-            //冲刺加载时间，可加 ！ 供玩家预知敌人即将发起冲刺
-            //TODO:加标志
-            sprintSkillCD -= Time.deltaTime;
-            if (sprintSkillCD <= 0)
-            {
-
-                sprintSkillCD = fsm.attackInterval;
-                loadSprintTimer = initLoadSprintTimer;
-                AttackEndTimer = initAttackEndTimer;
-                finishAttack = false;
-                //重新检测玩家位置
-                firstDetectPlayer = true;
-                //Debug.Log("resetCD_finish");
-            }
-
-        }
-        else
-        {
             if (rayDetect(fsm))
             {
 
+                if (loading)
+                {
+                    fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
+                    loading = false;
+                }
+
+
                 //冲刺加载
-
-                //获取当前玩家位置
-                if (firstDetectPlayer && loadSprintTimer <= 0.5f)
-                {
-                    firstDetectPosition = GameManager.Instance.player.transform.position;
-                    firstDetectPlayer = false;
-                }
-                //TODO:冲刺前提示玩家
-                //Debug.Log("Ready_to_Attack:Loading attack:load scale:"+loadSprintTimer);
                 loadSprintTimer -= Time.deltaTime;
-                if (loadSprintTimer <= 0)
-                {
-
-                    //Debug.Log("ready_to_attack");
-                    Sprint_Achieve(fsm);
-                }
+                //加载完成
+                if(loadSprintTimer<0)
+                    fsm.Sprinting = true;
 
             }
-            //防止冲刺失败后无法重置冲刺
-            AttackEndTimer -= Time.deltaTime;
-            if (AttackEndTimer <= 0)
-            {
-                finishAttack = true;
-                sprintSkillCD = fsm.attackInterval;
-                loadSprintTimer = initLoadSprintTimer;
-                AttackEndTimer = initAttackEndTimer;
-            }
-
         }
-        /*
-        //冲刺后的近身攻击
-        if (!fsm.meleeAttackStyle)
+        else
         {
-            if (meleeTimer <= 0)
-            {
-                melee();
-                meleeTimer = initMeleeTimer;
-            }
-            meleeTimer -= Time.deltaTime;
+            loading = true;
+            loadSprintTimer = fsm.initLoadStimer;
         }
-        */
+
+
+        
     }
     //远程攻击实现
     private void remoteAttack_Achieve(FSMBase fsm)
@@ -268,46 +207,6 @@ public class AttackState : FSMState
 
 
     //冲刺实现
-    private void Sprint_Achieve(FSMBase fsm)
-    {
-        //RaycastHit2D ray = Physics2D.
-        Transform EnemyTransform = fsm.transform;
-
-        //近战攻击：冲刺
-
-        //射线检测突进路径上的物体
-
-        //与玩家直线上没有其他障碍物则进行冲刺
-
-        //TODO：有障碍物时 缩小攻击范围，使其重新搜索玩家 或 进入待机状态
-
-        //实现方法：通过chaseState中增加射线检测碰撞实现
-
-        EnemyTransform.position = Vector3.Lerp(EnemyTransform.position, firstDetectPosition, 10 * Time.deltaTime);
-        if (Vector3.Distance(EnemyTransform.position, firstDetectPosition) < 0.5f)
-        {
-            //fsm.attackRadius = 1.0f;
-            //fsm.meleeAttackStyle = false;
-            //未命中玩家，到达指定位置，攻击结束
-            finishAttack = true;
-            Debug.Log("Sprint_attack_finish");
-        }
-
-        //攻击范围检测
-        var targetArray = Physics2D.OverlapCircleAll(fsm.transform.position, 1f);
-        foreach (var target in targetArray)
-        {
-            if (target.CompareTag("Player"))
-            {
-                //命中玩家攻击结束
-                finishAttack = true;
-                Debug.Log("Sprint_attack_finish_attack_sucess");
-                target.GetComponent<PlayerController>().TakenDamage(fsm.damage, 4 * (target.transform.position - fsm.transform.position));
-                break;
-            }
-        }
-
-    }
 
     private float detectDistance(FSMBase fsm)
     {

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1621763343395770641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1621763344400070475}
   m_RootOrder: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: -82126585
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7e168d0cf645f834b813dabdccbaaf77, type: 3}
-  m_Color: {r: 0.5135165, g: 0.8784314, b: 0.4509804, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 942fc14c1be30de40912d72bf58abc49, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1621763343395770641}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f69b20a3bf8589147a89a5ad7d4c0a23, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7376ec3ff331c9d44bdfeebe49aea027, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 1621763344400070475}
   - component: {fileID: 1621763344400070474}
   - component: {fileID: 1621763344400070477}
-  - component: {fileID: 1621763344400070476}
   - component: {fileID: 492569562}
   m_Layer: 0
   m_Name: FarAttackEnemy
@@ -185,25 +184,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &1621763344400070476
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621763344400070478}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f69b20a3bf8589147a89a5ad7d4c0a23, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &492569562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +203,9 @@ MonoBehaviour:
   patrolRadius: 3
   minRadius: 5
   attackRadius: 3
+  initSprintTimer: 0
+  SprintSpeed: 0
+  initLoadStimer: 0
   idleTime: 1
   hurtedTime: 0.2
   HurtedSpeed: 1
@@ -235,6 +218,9 @@ MonoBehaviour:
   attackWay: {fileID: 0}
   meleeAttackStyle: 0
   AttackStyle: 1
+  SprintUsed: 0
+  Sprinting: 0
+  SprintDir: {x: 0, y: 0, z: 0}
   material: {fileID: 0}
   rb: {fileID: 0}
   targetTF: {fileID: 0}
@@ -243,4 +229,4 @@ MonoBehaviour:
   isHurted: 0
   test_stateID: 0
   hurtedVelocity: {x: 0, y: 0, z: 0}
-  enemyAnimator: {fileID: 0}
+  animator: {fileID: 0}

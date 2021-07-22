@@ -23,6 +23,26 @@ public abstract class FSMBase : MonoBehaviour
     //TODO:应该要封装技能：技能数据放一起
     [Tooltip("攻击距离半径")]
     public float attackRadius;
+
+
+
+    //冲刺技能CD变量  通过修改attackInterval控制
+    private float SprintCD;
+    [Tooltip("冲刺技能持续时间")]
+    public float initSprintTimer;
+
+
+    private float SprintTimer;
+
+
+    [Tooltip("冲刺速度")]
+    public float SprintSpeed;
+
+    [Tooltip("冲刺的加载时间，预保存玩家位置")]
+    public float initLoadStimer;
+
+
+
     /*     [Tooltip("发现玩家的扇形半径")]
         public float sectorRadius;
         [Tooltip("发现玩家的扇形角度")]
@@ -63,6 +83,16 @@ public abstract class FSMBase : MonoBehaviour
 
     //材质
     [HideInInspector]
+    //冲刺技能CD状态
+    public bool SprintUsed = false;
+
+    //是否正在冲刺
+    public bool Sprinting = false;
+
+    //冲刺方向
+    public Vector3 SprintDir;
+
+
     public Material material;
     //TODO:是否需要给敌人设置一个巡逻范围：只会在巡逻范围内随机选择点来巡逻
     /*     [Tooltip("巡逻范围,以左下点和右上点为主")]
@@ -97,9 +127,9 @@ public abstract class FSMBase : MonoBehaviour
     public Vector3 hurtedVelocity;
 
     [HideInInspector]
-    public float m_cd;
+    
     //动画
-    public Animator enemyAnimator;
+    public Animator animator;
 
     private void Awake()
     {
@@ -125,7 +155,7 @@ public abstract class FSMBase : MonoBehaviour
      */
     public virtual void InitComponent()
     {
-        enemyAnimator = GetComponent<Animator>();
+        
         rb = GetComponent<Rigidbody2D>();
         childTF = this.transform.Find("CharacterChild");
         sprite = childTF.GetComponent<SpriteRenderer>();
@@ -133,8 +163,13 @@ public abstract class FSMBase : MonoBehaviour
         walkAble = true;
         isHurted = false;
         targetTF = null;
+        SprintTimer = initSprintTimer;
+        SprintCD = attackInterval;
+
+        animator = GetComponentInChildren<Animator>();
+        
         /*  //动画机
-        animator = GetComponentInChildren<Animator> ();
+        
         //角色数值
         characterStatus = GetComponent<CharacterStatus> ();
         //初始化位置
@@ -169,11 +204,22 @@ public abstract class FSMBase : MonoBehaviour
         currentState.ActionState(this);
         //贴图翻转
         textureClip();
-        CheckCD();
+        checkSprintCD();
+
+        
+        
     }
-    private void CheckCD()
+    private void checkSprintCD()
     {
-        if (m_cd > 0) m_cd -= Time.deltaTime;
+        if (SprintUsed)
+        {
+            SprintCD -= Time.deltaTime;
+            if (SprintCD <= 0)
+            {
+                SprintUsed = false;
+                SprintCD = attackInterval;
+            }
+        }
     }
     public virtual void FixedUpdate()
     {
@@ -187,7 +233,35 @@ public abstract class FSMBase : MonoBehaviour
                 rb.velocity = dir * m_speed;
             } */
         }
+
+        //冲刺时出了攻击范围，小怪会出现异常，所以直接放到fsmbase
+        SprintAttack();
     }
+    private void SprintAttack()
+    {
+        if (Sprinting)
+        {
+            SprintTimer -= Time.deltaTime;
+            if (SprintTimer >= 0)
+            {
+                walkAble = false;
+                if (animator != null) print(animator.name);
+                else print("null");
+                animator.SetBool("Sprint", true);
+                //rb.velocity = (targetTF.transform.position - transform.position).normalized * 0.5f;
+                rb.velocity = SprintDir * SprintSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
+            }
+            else
+            {
+                walkAble = true;
+                SprintUsed = true;
+                Sprinting = false;
+                SprintTimer = initSprintTimer;
+                animator.SetBool("Sprint", false);
+            }
+        }
+    }
+
     public void DeadDelay()
     {
         Destroy(this.gameObject);
