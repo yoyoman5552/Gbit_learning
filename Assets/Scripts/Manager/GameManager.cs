@@ -203,6 +203,9 @@ public class GameManager : MonoBehaviour
             playerController.SetEAble(false);
         }
         //BulletPool.bulletPoolInstance.DestroyBulletsInPool();
+        //对象池清空
+        GameObjectPool.Instance.ClearKey("PurpleBullet");
+        GameObjectPool.Instance.ClearKey("RedBullet");
     }
     public void CheckEnemy()
     {
