@@ -9,10 +9,15 @@ public class ChaseState : FSMState
     private Vector3 nextPos;
     private float defaultAttackArea;
     private bool firstGetAttackArea = true;
+
+    //随机偏移位置
+    float disX;
+    float disY;
     public override void Init()
     {
         stateID = FSMStateID.Chase;
         //        throw new System.NotImplementedException();
+       
     }
 
 
@@ -20,6 +25,11 @@ public class ChaseState : FSMState
     private float Distance;
     public override void EnterState(FSMBase fsm)
     {
+        //设置随机数防止敌人追击时合在一起
+        disX = UnityEngine.Random.Range(-1.0f, 1.0f);
+        disY = UnityEngine.Random.Range(-1.0f, 1.0f);
+
+
         fsm.enemyAnimator.SetBool("inChase", true);
         fsm.enemyAnimator.SetTrigger("inChase");
         if (firstGetAttackArea)
@@ -46,8 +56,14 @@ public class ChaseState : FSMState
     public override void ActionState(FSMBase fsm)
     {
 
+        
+        //偏移坐标
+        Vector3 targetPosition = fsm.targetTF.position;
+        targetPosition.x += disX;
+        targetPosition.y += disY;
+
         //如果到达位置
-        pathList = GridManager.Instance.FindPath(fsm.transform.position, fsm.targetTF.position);
+        pathList = GridManager.Instance.FindPath(fsm.transform.position, targetPosition);
         //没有方法抵达
         if (pathList == null)
         {
