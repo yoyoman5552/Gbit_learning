@@ -448,7 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   PressESpeed: 0
-  attackMoveSpeedPer: 0
+  lightAttackMoveSpeedPer: 0
+  heavyAttackMoveSpeedPer: 0.05
   jumpHeight: 1
   m_speed: 3
   autoHealTime: 6
@@ -580,6 +581,7 @@ MonoBehaviour:
   heavyPause: 12
   heavyStrength: 0.065
   attackInterval: 1
+  attackType: 0
   isAttack: 0
 --- !u!61 &1176573137242192439
 BoxCollider2D:

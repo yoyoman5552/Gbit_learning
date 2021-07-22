@@ -39,7 +39,7 @@ public abstract class FSMBase : MonoBehaviour
     [Tooltip("攻击力")]
     public int damage;
     [Tooltip("击退速度")]
-    public float GetHurtSpeed;
+    public float GetHurtSpeed = 0.2f;
     [Header("私有变量")]
     //巡逻目的地
     [HideInInspector]
@@ -96,7 +96,8 @@ public abstract class FSMBase : MonoBehaviour
     [HideInInspector]
     public Vector3 hurtedVelocity;
 
-
+    [HideInInspector]
+    public float m_cd;
     //动画
     public Animator enemyAnimator;
 
@@ -168,6 +169,11 @@ public abstract class FSMBase : MonoBehaviour
         currentState.ActionState(this);
         //贴图翻转
         textureClip();
+        CheckCD();
+    }
+    private void CheckCD()
+    {
+        if (m_cd > 0) m_cd -= Time.deltaTime;
     }
     public virtual void FixedUpdate()
     {
