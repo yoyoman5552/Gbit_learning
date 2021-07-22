@@ -6211,6 +6211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmorFlag: 1
+  useNum: 999
 --- !u!114 &320307638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8214,6 +8215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!212 &434282714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8295,6 +8297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 434282710}
+  addFlag: 1
 --- !u!114 &434282717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8387,6 +8390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 434282710}
+  addFlag: 1
 --- !u!114 &434282724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14792,6 +14796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!1 &760465828
 GameObject:
   m_ObjectHideFlags: 0
@@ -25831,6 +25836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1415267889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28865,6 +28871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1600078279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31855,6 +31862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1780081607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
