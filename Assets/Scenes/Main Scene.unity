@@ -402,7 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &21762784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2524,7 +2525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &135378127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6193,8 +6195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u673A\u68B0\u81C2"
   objectImage: {fileID: 21300000, guid: 778966e364a087445b6ef16bf8ef0ee9, type: 3}
-  detail: "<size=200><color=white>\u521D\u4EE3\u53EF\u62C6\u5378\u7684\u5916\u7F6E\u653B\u51FB\u6A21\u5757</color></size>
-    \u673A\u68B0\u81C2\u5185\u90E8\u7684\u6DB2\u538B\u9F7F\u8F6E\u51ED\u501F\u5927\u529B\u77E9\u80FD\u591F\u7206\u53D1\u5F3A\u5927\u7684\u80FD\u91CF\uFF0C\u8DB3\u4EE5\u5E94\u4ED8\u4EFB\u4F55\u653B\u51FB\u4EFB\u52A1"
+  detail_title: 
+  detail_index: 
 --- !u!114 &320307631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6490,6 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmorFlag: 1
+  useNum: 999
 --- !u!114 &320307638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7739,7 +7742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/2/5</color></size> \u8003\u8651\u8BB8\u4E45\u5E26\u56DE\u4E86Ham\uFF0C\u7ED9\u5B83\u63D0\u4F9B\u4E0D\u540C\u4E8E\u6D41\u6D6A\u8857\u5934\u90A3\u822C\u7684\u751F\u6D3B\uFF0C\u5E0C\u671B\u5B83\u80FD\u559C\u6B22\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &392592658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8577,6 +8581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!212 &434282714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8643,8 +8648,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-  detail: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
-    \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
+  detail_title: 
+  detail_index: 
 --- !u!114 &434282716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8658,6 +8663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 434282710}
+  addFlag: 1
 --- !u!114 &434282717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8750,6 +8756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 434282710}
+  addFlag: 1
 --- !u!114 &434282724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10954,8 +10961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>\u79D1\u5C14\u6C83\u5148\u751F\u7684\u968F\u7B14</color></size>
-    \u65E5\u8BB0\u8BB0\u5F55\u4E86\u79D1\u5C14\u6C83\u5148\u751F\u7684\u4E00\u4E9B\u65E5\u5E38\u7410\u788E\uFF0C\u4F46\u56E0\u4E3A\u4FDD\u5B58\u4E0D\u5F53\uFF0C\u5185\u5BB9\u5DF2\u7ECF\u65E0\u6CD5\u9605\u8BFB\u4E86\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &593246172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11593,7 +11600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 21300000, guid: efd8d73b002c577449995911bbc1aa5e, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u78C1\u5E26"
+  detail_title: 
+  detail_index: 
 --- !u!114 &639491233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11765,7 +11773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/5/13</color></size> Ham\u600E\u4E48\u8FD9\u4E48\u8D2A\u5403\uFF0C\u957F\u5F97\u4E5F\u592A\u5FEB\u4E86\uFF0C\u518D\u8FD9\u6837\u4E0B\u53BB\u5C4B\u5B50\u5FEB\u5BB9\u7EB3\u4E0D\u4E0B\u5B83\u4E86\u3002\u5514\uFF0C\u5916\u9762\u52A8\u9759\u6709\u4E9B\u5927\uFF0Cham\u53C8\u649E\u574F\u4EC0\u4E48\u4E1C\u897F\u4E86\u5417\uFF1F\u5F97\u627E\u4E2A\u673A\u4F1A\u597D\u597D\u6536\u62FE\u4ED6\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &640238107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13284,7 +13293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &702093865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15455,7 +15465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u78C1\u5E26"
   objectImage: {fileID: 21300000, guid: fe94aab20dd4fc542ac5bb77e8377e07, type: 3}
-  detail: "<size=200><color=white>\u795E\u79D8\u7684\u78C1\u5E26</color></size> \u79D1\u5C14\u6C83\u5148\u751F\u95F2\u65F6\u5F55\u5236\u7684\u58F0\u97F3\uFF0C\u6CA1\u6709\u7279\u522B\u7684\u542B\u4E49\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &759116005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15593,6 +15604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &759116011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21498,7 +21510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C1"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1087229511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25582,7 +25595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366231219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.17, y: -3.81, z: 0}
+  m_LocalPosition: {x: -1.77, y: -2.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1133431900}
@@ -26700,8 +26713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-  detail: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
-    \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &1415267882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26859,6 +26872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1415267889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27444,7 +27458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u6563\u843D\u7684\u65E5\u8BB0"
   objectImage: {fileID: 21300000, guid: 8f25bd0c3069173408f45f6454e229c6, type: 3}
-  detail: "<size=200><color=white>Date\uFF1A1867/12/21</color></size> Ham\u7684\u7834\u574F\u529B\u8D8A\u6765\u8D8A\u5F3A\uFF0C\u5C4B\u5B50\u90FD\u5FEB\u6298\u817E\u6CA1\u4E86\u3002\u8D81\u624B\u7684\u5DE5\u5177\u5927\u591A\u5728\u5DE5\u4F5C\u5BA4\u91CC\uFF0C\u4E0D\u8FC7\u5BB6\u91CC\u5907\u7528\u7684\u4E5F\u5E94\u8BE5\u591F\u7528\uFF0C\u662F\u65F6\u5019\u52A8\u624B\u4E86\u3002Ham\u597D\u50CF\u5F88\u5BB3\u6015\uFF0C\u4F46\u8FD9\u4E5F\u662F\u65E0\u5948\u4E4B\u4E3E\uFF0C\u72AF\u9519\u4E86\u603B\u8981\u4ED8\u51FA\u4EE3\u4EF7\u7684\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!114 &1426905347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29166,9 +29181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u98DF\u7269\u8BA1\u5212\u8868"
   objectImage: {fileID: 21300000, guid: d3722879728992e46a94d75b4ed516b3, type: 3}
-  detail: "<size=200><color=white>\u4E09\u9910\u8BA1\u5212\u8868</color></size>                                                               
-    \u5468\u4E00  \u4EA8\u5FB7\u724C\u72D7\u7CAE  \u7EF4\u76CA\u8425\u517B\u818F 
-    \u5B8F\u8C61\u78E8\u7259\u997C\u5E72 "
+  detail_title: 
+  detail_index: 
 --- !u!114 &1563629411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29879,6 +29893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1600078279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29919,7 +29934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: 481faf3d5df8f7d459d4b2c4682c1e6f, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+  detail_title: 
+  detail_index: 
 --- !u!114 &1600078282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30301,8 +30317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u5F55\u97F3\u673A"
   objectImage: {fileID: 21300000, guid: 05b4ba9a0dc276a4bb4b08d709baa6e7, type: 3}
-  detail: "<size=200><color=white>\u53E4\u8001\u7684\u97F3\u9891\u8F93\u51FA\u8BBE\u5907</color></size>
-    \u53EF\u4EE5\u66F4\u6362\u4E0D\u540C\u4FE1\u606F\u5B58\u50A8\u4ECB\u8D28\u64AD\u653E\u4E0D\u540C\u4FE1\u606F\u5185\u5BB9\uFF0C\u9700\u8981\u80FD\u6E90\u624D\u80FD\u542F\u52A8\u3002"
+  detail_title: 
+  detail_index: 
 --- !u!212 &1609407949
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30429,6 +30445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1609407955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32969,6 +32986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 1609407945}
+  addFlag: 1
 --- !u!114 &1780081607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2105280210612477608, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
@@ -33341,7 +33359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1800055357
 Transform:
   m_ObjectHideFlags: 0
@@ -36158,7 +36176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C2"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1954178433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39914,7 +39933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119268156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.64, y: 5.44, z: 0}
+  m_LocalPosition: {x: 8.49, y: 1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1133431900}
@@ -43583,8 +43602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u64AC\u68CD"
   objectImage: {fileID: 21300000, guid: b40886149603ad249abb04736714dfcb, type: 3}
-  detail: "<size=200><color=white>\u575A\u786C\u7684\u5DE5\u5177\uFF0C\u4F5C\u7528\u591A\u6837</color></size>
-    \u66FE\u7528\u4E8E\u8FD1\u6218\u7684\u5F3A\u52BF\u6B66\u5668\uFF0C\u867D\u7136\u5982\u4ECA\u5149\u8292\u4E0D\u518D\uFF0C\u4F46\u7834\u574F\u529B\u4F9D\u65E7\u9996\u5C48\u4E00\u6307\uFF0C\u867D\u7136\u5982\u4ECA\u5149\u8292\u4E0D\u518D\uFF0C\u4F46\u7834\u574F\u529B\u4F9D\u65E7\u9996\u5C48\u4E00\u6307"
+  detail_title: 
+  detail_index: 
 --- !u!114 &8877183876144965608
 MonoBehaviour:
   m_ObjectHideFlags: 0

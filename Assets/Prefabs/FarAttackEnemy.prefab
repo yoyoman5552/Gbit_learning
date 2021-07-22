@@ -221,7 +221,7 @@ MonoBehaviour:
   HP: 5
   DefaultStateID: 1
   patrolRadius: 3
-  minRadius: 5
+  minRadius: 4
   attackRadius: 3
   idleTime: 1
   hurtedTime: 0.2
@@ -243,4 +243,5 @@ MonoBehaviour:
   isHurted: 0
   test_stateID: 0
   hurtedVelocity: {x: 0, y: 0, z: 0}
+  m_cd: 0
   enemyAnimator: {fileID: 0}
