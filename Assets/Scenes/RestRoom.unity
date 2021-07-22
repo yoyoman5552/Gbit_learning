@@ -357,7 +357,7 @@ MonoBehaviour:
   - {fileID: 21762782}
   - {fileID: 21762783}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &21762785
 BoxCollider2D:
@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 59102943}
@@ -729,7 +729,7 @@ MonoBehaviour:
   - {fileID: 59102941}
   - {fileID: 59102940}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &59102940
 MonoBehaviour:
@@ -787,7 +787,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 59102944}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &59102944
 MonoBehaviour:
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 61853917}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &61853919
 Animator:
@@ -1348,7 +1348,7 @@ MonoBehaviour:
   - {fileID: 61853921}
   - {fileID: 61853925}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 61853923}
@@ -2200,7 +2200,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 120112168}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &120112170
 BoxCollider2D:
@@ -2413,7 +2413,7 @@ MonoBehaviour:
   - {fileID: 135378125}
   - {fileID: 135378126}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &135378128
 BoxCollider2D:
@@ -3245,7 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 163447531}
@@ -3268,7 +3268,7 @@ MonoBehaviour:
   - {fileID: 163447529}
   - {fileID: 163447528}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &163447528
 MonoBehaviour:
@@ -3326,7 +3326,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 163447532}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &163447532
 MonoBehaviour:
@@ -3561,7 +3561,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 164856929}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &164856931
 Animator:
@@ -3700,7 +3700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 179716347}
@@ -3723,7 +3723,7 @@ MonoBehaviour:
   - {fileID: 179716346}
   - {fileID: 179716344}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &179716344
 MonoBehaviour:
@@ -3785,7 +3785,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 179716348}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &179716348
 MonoBehaviour:
@@ -4329,6 +4329,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &191751730
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5087,7 +5088,7 @@ MonoBehaviour:
   - {fileID: 259066905}
   - {fileID: 259066904}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &259066907
 BoxCollider2D:
@@ -5344,7 +5345,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 274938002}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &274938004
 BoxCollider2D:
@@ -5774,7 +5775,7 @@ Transform:
   - {fileID: 1994390752}
   - {fileID: 365080626}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306064535
 GameObject:
@@ -5936,7 +5937,7 @@ MonoBehaviour:
   - {fileID: 320307636}
   - {fileID: 320307637}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &320307632
 BoxCollider2D:
@@ -6287,7 +6288,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 323104362}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &323104364
 BoxCollider2D:
@@ -6648,7 +6649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 344077386}
@@ -6671,7 +6672,7 @@ MonoBehaviour:
   - {fileID: 344077384}
   - {fileID: 344077383}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &344077383
 MonoBehaviour:
@@ -6729,7 +6730,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 344077387}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &344077387
 MonoBehaviour:
@@ -7189,7 +7190,7 @@ Transform:
   - {fileID: 1423953635}
   - {fileID: 335472615}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &377225875
 PrefabInstance:
@@ -7474,7 +7475,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 392592657}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &392592659
 BoxCollider2D:
@@ -7798,7 +7799,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 426103261}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &426103263
 Animator:
@@ -8054,7 +8055,7 @@ MonoBehaviour:
   - {fileID: 434282706}
   - {fileID: 434282713}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282705
 MonoBehaviour:
@@ -8101,7 +8102,7 @@ MonoBehaviour:
   - {fileID: 434282705}
   - {fileID: 434282720}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282708
 MonoBehaviour:
@@ -8131,7 +8132,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 434282708}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &434282710
 MonoBehaviour:
@@ -8147,7 +8148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 434282709}
@@ -8402,7 +8403,7 @@ MonoBehaviour:
   - {fileID: 434282722}
   - {fileID: 434282723}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &451071889
 GameObject:
@@ -8529,7 +8530,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 455786316}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &455786318
 BoxCollider2D:
@@ -9732,7 +9733,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 563760760}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &563760762
 BoxCollider2D:
@@ -10347,7 +10348,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 593246171}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &593246173
 BoxCollider2D:
@@ -10974,7 +10975,7 @@ MonoBehaviour:
   - {fileID: 639491231}
   - {fileID: 639491232}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &639491234
 BoxCollider2D:
@@ -11145,7 +11146,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 640238106}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &640238108
 BoxCollider2D:
@@ -12660,7 +12661,7 @@ MonoBehaviour:
   - {fileID: 702093863}
   - {fileID: 702093864}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &702093866
 BoxCollider2D:
@@ -12808,7 +12809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 702660442}
@@ -12831,7 +12832,7 @@ MonoBehaviour:
   - {fileID: 702660440}
   - {fileID: 702660439}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &702660439
 MonoBehaviour:
@@ -12889,7 +12890,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 702660443}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &702660443
 MonoBehaviour:
@@ -14019,6 +14020,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &749478914
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14158,7 +14160,7 @@ MonoBehaviour:
   - {fileID: 752221651}
   - {fileID: 752221650}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &752221653
 MonoBehaviour:
@@ -14188,7 +14190,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 752221653}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &752221655
 MonoBehaviour:
@@ -14204,7 +14206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 752221654}
@@ -14672,7 +14674,7 @@ MonoBehaviour:
   - {fileID: 759116010}
   - {fileID: 759116009}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &759116006
 BoxCollider2D:
@@ -14877,7 +14879,7 @@ MonoBehaviour:
   - {fileID: 760465831}
   - {fileID: 760465830}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &760465833
 MonoBehaviour:
@@ -14907,7 +14909,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 760465833}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &760465835
 MonoBehaviour:
@@ -14923,7 +14925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 760465834}
@@ -16989,7 +16991,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 870502535}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &870502537
 BoxCollider2D:
@@ -17318,7 +17320,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 898372570}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &898372572
 BoxCollider2D:
@@ -17743,7 +17745,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 924800107}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &924800109
 BoxCollider2D:
@@ -18270,11 +18272,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5593016, y: 1.0436525}
   m_EdgeRadius: 0
---- !u!224 &948426038 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1433938807, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-  m_PrefabInstance: {fileID: 997263390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &959341960
 GameObject:
   m_ObjectHideFlags: 0
@@ -19152,102 +19149,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8711244, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1440.3284
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711244, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -24
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711245, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711245, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailName
-      value: a
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawName
-      value: c
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailIndex
-      value: b
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawIndex
-      value: d
-      objectReference: {fileID: 0}
-    - target: {fileID: 241208584, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
-    - target: {fileID: 685121860, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -471
-      objectReference: {fileID: 0}
-    - target: {fileID: 685121860, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -177
-      objectReference: {fileID: 0}
-    - target: {fileID: 738937267, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_Intensity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawUI
-      value: 
-      objectReference: {fileID: 997263392}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: totalJigsaw
-      value: 
-      objectReference: {fileID: 948426038}
-    - target: {fileID: 1572893760, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: JigsawAmount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785929632, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawName
-      value: "\u62FC\u56FE"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1785929634, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: jigsawIndex
-      value: "\u62FC\u56FE\u5B8C\u6210"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailName
-      value: "\u7535\u6C60"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailIndex
-      value: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>
-        \u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845577828, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: detailSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807479, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 486773310831807479, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19289,21 +19197,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 974642664188981430, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 697
-      objectReference: {fileID: 0}
-    - target: {fileID: 974642664188981430, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -266
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
---- !u!1 &997263392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 241208582, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
-  m_PrefabInstance: {fileID: 997263390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002774504
 GameObject:
   m_ObjectHideFlags: 0
@@ -19843,7 +19738,7 @@ MonoBehaviour:
   - {fileID: 1030110835}
   - {fileID: 1030110834}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1030110837
 MonoBehaviour:
@@ -19873,7 +19768,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1030110837}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1030110839
 MonoBehaviour:
@@ -19889,7 +19784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1030110838}
@@ -20293,7 +20188,7 @@ MonoBehaviour:
   - {fileID: 1044625467}
   - {fileID: 1044625466}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1044625469
 BoxCollider2D:
@@ -20380,29 +20275,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 667967500, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343814585, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343814588, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297774458511360283, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387098, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20442,10 +20321,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366504708953387101, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8366504708953387102, guid: 69765dd12d68cc540873b5c03c4387de, type: 3}
-      propertyPath: attackMoveSpeedPer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20602,7 +20477,7 @@ Transform:
   - {fileID: 872897459}
   - {fileID: 1773069058}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076975352
 GameObject:
@@ -20824,7 +20699,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1087229510}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1087229512
 BoxCollider2D:
@@ -21185,7 +21060,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1101721925}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1001 &1117178056
 PrefabInstance:
@@ -21360,6 +21235,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1164022208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22196,7 +22072,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1197279168}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1001 &1201173556
 PrefabInstance:
@@ -22389,7 +22265,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1203097474}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1203097476
 BoxCollider2D:
@@ -22713,7 +22589,7 @@ MonoBehaviour:
   - {fileID: 1225283859}
   - {fileID: 1225283851}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1225283853
 MonoBehaviour:
@@ -22743,7 +22619,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1225283853}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1225283855
 MonoBehaviour:
@@ -22759,7 +22635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1225283854}
@@ -23367,7 +23243,7 @@ MonoBehaviour:
   - {fileID: 1239737388}
   - {fileID: 1239737392}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -23824,6 +23700,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1270459294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24662,7 +24539,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1360972935}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1360972937
 BoxCollider2D:
@@ -24967,7 +24844,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1383364128}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1383364130
 BoxCollider2D:
@@ -25211,7 +25088,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1388247521}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1388247523
 BoxCollider2D:
@@ -25821,7 +25698,7 @@ MonoBehaviour:
   - {fileID: 1415267892}
   - {fileID: 1415267891}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1415267883
 BoxCollider2D:
@@ -26473,7 +26350,7 @@ MonoBehaviour:
   - {fileID: 1426905343}
   - {fileID: 1426905348}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   conditionFlag: 0
   condition: {fileID: 0}
@@ -26533,7 +26410,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1426905346}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1426905348
 MonoBehaviour:
@@ -26563,7 +26440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1426905344}
@@ -27451,6 +27328,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25049716, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &1501087299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 492060116934899405, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_Name
+      value: "\u673A\u68B0\u81C2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492060116934899411, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17d009863e8d1ef459a7b5dbe89ac8b6, type: 3}
 --- !u!1 &1503904987
 GameObject:
   m_ObjectHideFlags: 0
@@ -27939,6 +27873,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1553120021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28068,7 +28003,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1560829869}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1560829871
 BoxCollider2D:
@@ -28239,7 +28174,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1563629410}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1563629412
 BoxCollider2D:
@@ -28989,7 +28924,7 @@ MonoBehaviour:
   - {fileID: 1600078278}
   - {fileID: 1600078280}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1600078283
 BoxCollider2D:
@@ -29229,7 +29164,7 @@ MonoBehaviour:
   - {fileID: 1609407940}
   - {fileID: 1609407939}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1609407943
 MonoBehaviour:
@@ -29261,7 +29196,7 @@ MonoBehaviour:
   - {fileID: 1609407951}
   - {fileID: 1609407948}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1609407945
 MonoBehaviour:
@@ -29277,7 +29212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1609407944}
@@ -30652,7 +30587,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1714831592}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1720515383
 GameObject:
@@ -30715,7 +30650,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1720515385}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1722063825
 GameObject:
@@ -31511,7 +31446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1776464373}
@@ -31533,7 +31468,7 @@ MonoBehaviour:
   - {fileID: 1776464372}
   - {fileID: 1776464375}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1776464372
 MonoBehaviour:
@@ -31564,7 +31499,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1776464374}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1776464374
 MonoBehaviour:
@@ -32178,7 +32113,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1797429836}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &1797429838
 Animator:
@@ -32315,7 +32250,7 @@ Transform:
   - {fileID: 1569585977}
   - {fileID: 516260473}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1805357666
 PrefabInstance:
@@ -33271,7 +33206,7 @@ Transform:
   - {fileID: 404662980}
   - {fileID: 1320894563}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1866073621
 PrefabInstance:
@@ -34050,7 +33985,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1887651989}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1887651991
 BoxCollider2D:
@@ -34307,7 +34242,7 @@ MonoBehaviour:
   - {fileID: 1901847074}
   - {fileID: 1901847073}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1901847076
 BoxCollider2D:
@@ -34888,7 +34823,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1954178432}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1954178434
 BoxCollider2D:
@@ -36746,7 +36681,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2048312953}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2048312955
 BoxCollider2D:
@@ -37057,7 +36992,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2067105150}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2067105152
 BoxCollider2D:
@@ -38101,7 +38036,7 @@ MonoBehaviour:
   - {fileID: 2098664978}
   - {fileID: 2098664977}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2098664980
 BoxCollider2D:
@@ -38931,7 +38866,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8350374092873218379}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &102344014585134969
 BoxCollider2D:
@@ -38988,7 +38923,7 @@ MonoBehaviour:
   - {fileID: 492060115973016110}
   - {fileID: 834260944}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!4 &492060115973016108
 Transform:
@@ -39172,7 +39107,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8546406604740796926}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1261017995029101274
 MonoBehaviour:
@@ -39321,7 +39256,7 @@ MonoBehaviour:
   - {fileID: 1343447414499767315}
   - {fileID: 8546406604740796926}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1343447414499767317
 MonoBehaviour:
@@ -39337,7 +39272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1343447414499767316}
@@ -39728,7 +39663,7 @@ MonoBehaviour:
   - {fileID: 4191571740944721517}
   - {fileID: 2953298332326703442}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2661036116316211465
 BoxCollider2D:
@@ -40018,7 +39953,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 3912315917957122021}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &3912315917957122020
 GameObject:
@@ -40241,7 +40176,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 7147767473129877950}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &4064734602689057772
 MonoBehaviour:
@@ -40257,7 +40192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 4064734602689057771}
@@ -40684,7 +40619,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 4580781615521302560}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &4640544638055472912
 MonoBehaviour:
@@ -40789,7 +40724,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 5072880186193314161}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!212 &5072880186193314175
 SpriteRenderer:
@@ -40934,7 +40869,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 6009584276900137245}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &6009584276900137241
 MonoBehaviour:
@@ -41194,7 +41129,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 7455735148780713415}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &7455735148780713415
 MonoBehaviour:
@@ -41797,7 +41732,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8877183875237006519}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183875237006519
 MonoBehaviour:
@@ -42166,7 +42101,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 8877183875992588752}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183875992588752
 MonoBehaviour:
@@ -42367,7 +42302,7 @@ MonoBehaviour:
   - {fileID: 8877183876144965613}
   - {fileID: 8877183876144965611}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &8877183876144965607
 MonoBehaviour:
@@ -42893,7 +42828,7 @@ Transform:
   - {fileID: 8877183875237006520}
   - {fileID: 779879065}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8877183876783812028
 GameObject:
