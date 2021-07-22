@@ -40,7 +40,8 @@ public class groundStab_Trigger : ITrigger
     private float stabX;
     private float stabY;
     //玩家收到攻击
-    private bool playerGetHurt;
+    private bool venom;
+
     private void Awake()
     {
         //col = GetComponent<Collider2D>();
@@ -60,6 +61,11 @@ public class groundStab_Trigger : ITrigger
             Fog_Select = Fog_Yellow;
         Fog_Yellow.SetActive(false);
         Fog_Blue.SetActive(false);
+        if (this.name == "毒液地刺")
+        {
+            venom = true;
+        }
+        else venom = false;
     }
 
     // Update is called once per frame
@@ -86,7 +92,7 @@ public class groundStab_Trigger : ITrigger
 
             }
         }
-        if (this.name != "毒液地刺")
+        if (!venom)
             detectDistance();
         
     }
@@ -140,7 +146,12 @@ public class groundStab_Trigger : ITrigger
                 //Debug.Log("玩家受伤");
                 GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
                 attacked = true;
-                collider.isTrigger = false;
+                if(this.name=="毒液地刺")
+                {
+
+                }
+                if (venom) collider.isTrigger = false;
+                else collider.enabled = false;
                 StartCoroutine(AttackDelay(attackRatio));
                 
                 if (this.name == "毒液地刺")
@@ -148,7 +159,7 @@ public class groundStab_Trigger : ITrigger
                     //print("InDUYEDICI");
                     enterPosition = collision.transform.position + 0.4f * (collision.transform.position - transform.position).normalized;
                     //受伤后暂时不能进入
-                    //collider.isTrigger = false;
+                   
                 }
 
 
@@ -180,7 +191,8 @@ public class groundStab_Trigger : ITrigger
         //如果是攻击状态
         if (getHurt)
         {
-            collider.isTrigger = true;
+            if (venom) collider.isTrigger = true;
+            collider.enabled = true;
         }
     }
 
