@@ -8,6 +8,7 @@ public class UIcontroller : MonoBehaviour
     private int getNumForManager = 0;
     private ItemTrigger activeTrigger;
     public string detailName;
+    public string detailTitle;
     public string detailIndex;
     public string jigsawName;
     public string jigsawIndex;
@@ -29,7 +30,7 @@ public class UIcontroller : MonoBehaviour
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)
             {
-                UIManager.Instance.CallDetailUI(detailName, detailIndex, detailSprite);
+                UIManager.Instance.CallDetailUI(detailName,detailTitle, detailIndex, detailSprite);
             }
             else if(getNumForManager == 1)
             {

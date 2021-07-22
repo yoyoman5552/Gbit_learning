@@ -36,9 +36,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("玩家是否会死亡")]
     public bool playerWillDead;
 
-
+    public bool isGetHurt;
     [Header("私有变量")]
 
+   
     //跳跃速度
     private float jumpSpeed;
     //移动方向
@@ -189,11 +190,13 @@ public class PlayerController : MonoBehaviour
     {
         if (hurtedTimer > 0)
         {
+            isGetHurt = false;
             hurtedTimer -= Time.deltaTime;
             material.SetFloat("_FlashAmount", 1);
         }
         else
         {
+            isGetHurt = true;
             material.SetFloat("_FlashAmount", 0);
         }
         /* if (hurtedTimer > -autoHealTime)

@@ -37,7 +37,8 @@ public class UIManager : MonoBehaviour
     //背包UI列表
     [HideInInspector]
     public Image[] bagUIList;
-    private Text detailText;
+    private Text detailTitle;
+    private Text detailIndex;
     //private Image characterImage;
     private Image BackGround;
     private Text objectName;
@@ -74,10 +75,10 @@ public class UIManager : MonoBehaviour
                 jigsawImges[i].SetActive(false);
             }
         }
-        detailText = jigsawUI.transform.Find("detail").GetComponent<Text>();
+        detailIndex = jigsawUI.transform.Find("detail").GetComponent<Text>();
         objectName = jigsawUI.transform.Find("name").GetComponent<Text>();
         objectName.text = name;
-        detailText.text = detail;
+        detailIndex.text = detail;
         Time.timeScale = 0;
     }
 
@@ -85,27 +86,29 @@ public class UIManager : MonoBehaviour
     {
         //显示简短UI
         // BackGround = talkWindow.transform.GetChild(0).GetComponent<Image>();
-        detailText = talkWindow.transform.GetComponentInChildren<Text>();
+        detailIndex = talkWindow.transform.GetComponentInChildren<Text>();
         //characterImage = talkWindow.transform.GetChild(2).GetComponent<Image>();
         //characterImage.sprite = showCharacter;
 
-        detailText.text = detail;
+        detailIndex.text = detail;
         talkWindow.SetActive(true);
         PopUpWindow.SetActive(false);
         jigsawUI.SetActive(false);
         Time.timeScale = 0;
     }
-    public void CallDetailUI(string name, string detail, Sprite showObject)
+    public void CallDetailUI(string name, string detail_title,string detail_index, Sprite showObject)
     {
         //显示物品信息UI
         //BackGround = PopUpWindow.transform.GetChild(0).GetComponent<Image>();
-        detailText = PopUpWindow.transform.Find("detail").GetComponent<Text>();
+        detailTitle = PopUpWindow.transform.Find("detail_title").GetComponent<Text>();
+        detailIndex = PopUpWindow.transform.Find("detail_index").GetComponent<Text>();
         Image characterImage = PopUpWindow.transform.Find("objImage").GetComponent<Image>();
         objectName = PopUpWindow.transform.Find("name").GetComponent<Text>();
 
         characterImage.sprite = showObject;
         objectName.text = name;
-        detailText.text = detail;
+        detailTitle.text = detail_title;
+        detailIndex.text = detail_index;
         PopUpWindow.SetActive(true);
         talkWindow.SetActive(false);
         jigsawUI.SetActive(false);
