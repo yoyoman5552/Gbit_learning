@@ -140,14 +140,15 @@ public class groundStab_Trigger : ITrigger
                 //Debug.Log("玩家受伤");
                 GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
                 attacked = true;
-                collider.enabled = false;
+                collider.isTrigger = false;
                 StartCoroutine(AttackDelay(attackRatio));
                 
                 if (this.name == "毒液地刺")
                 {
+                    //print("InDUYEDICI");
                     enterPosition = collision.transform.position + 0.4f * (collision.transform.position - transform.position).normalized;
                     //受伤后暂时不能进入
-                    collider.isTrigger = false;
+                    //collider.isTrigger = false;
                 }
 
 
@@ -179,7 +180,7 @@ public class groundStab_Trigger : ITrigger
         //如果是攻击状态
         if (getHurt)
         {
-            collider.enabled = true;
+            collider.isTrigger = true;
         }
     }
 
@@ -206,11 +207,7 @@ public class groundStab_Trigger : ITrigger
             player.transform.position = Vector3.Lerp(player.transform.position, enterPosition, 0.2f);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        if(!GameManager.Instance.playerController.isGetHurt)
-        {
-            
-            collider.isTrigger = true;
-        }
+        
     }
 
 }
