@@ -40,7 +40,8 @@ public class groundStab_Trigger : ITrigger
     private float stabX;
     private float stabY;
     //玩家收到攻击
-    private bool playerGetHurt;
+    private bool venom;
+
     private void Awake()
     {
         //col = GetComponent<Collider2D>();
@@ -60,6 +61,11 @@ public class groundStab_Trigger : ITrigger
             Fog_Select = Fog_Yellow;
         Fog_Yellow.SetActive(false);
         Fog_Blue.SetActive(false);
+        if (this.name == "毒液地刺")
+        {
+            venom = true;
+        }
+        else venom = false;
     }
 
     // Update is called once per frame
@@ -68,6 +74,7 @@ public class groundStab_Trigger : ITrigger
         timeStabAppear -= Time.deltaTime;
         if (timeStabAppear < 0)
         {
+            //collider.isTrigger = f;
             target.SetActive(false);
             Fog_Select.SetActive(false);
             collider.enabled = false;
@@ -82,11 +89,12 @@ public class groundStab_Trigger : ITrigger
                 timeStabDisAppear = initTimeStabDisappear;
                 timeStabAppear = initTimeStabAppear;
 
+
             }
         }
-        if (this.name != "毒液地刺")
+        if (!venom)
             detectDistance();
-
+        
     }
     /*
     private void QueueWorking()
@@ -138,27 +146,31 @@ public class groundStab_Trigger : ITrigger
                 //Debug.Log("玩家受伤");
                 GameManager.Instance.playerController.TakenDamage(1, Vector3.zero);
                 attacked = true;
-                collider.enabled = false;
-                StartCoroutine(AttackDelay(attackRatio));
-                //playerGetHurt = true;
+                if(this.name=="毒液地刺")
+                {
 
-                //TODO:返回进入点的方式：
-                //直接返回进入点效果一般
-                //所试方法：
-                //1.延迟0.5秒返回进入点
+                }
+                if (venom) collider.isTrigger = false;
+                else collider.enabled = false;
+                StartCoroutine(AttackDelay(attackRatio));
+                
                 if (this.name == "毒液地刺")
                 {
+                    //print("InDUYEDICI");
                     enterPosition = collision.transform.position + 0.4f * (collision.transform.position - transform.position).normalized;
+                    //受伤后暂时不能进入
+                   
                 }
 
 
                 //                Invoke("resetPlayerPosition", 0.2f);
+
                 StartCoroutine(resetPlayerPositionDelay());
-                //2.直接返回进入点，延迟时间
-                // GameManager.Instance.player.transform.position = enterPosition;
-                //TODO:人物受伤？短暂不能移动，体现被移出地刺范围
-                /*Time.timeScale = 0.1f;
-                 Invoke("resetTimeScale", 0.05f);*/
+
+
+                
+                
+                
             }
         }
     }
@@ -169,6 +181,7 @@ public class groundStab_Trigger : ITrigger
         {
             yield return new WaitForSeconds(0.1f);
             timer -= 0.1f;
+            //collider.isTrigger = true;
             if (!getHurt)
             {
                 break;
@@ -178,6 +191,7 @@ public class groundStab_Trigger : ITrigger
         //如果是攻击状态
         if (getHurt)
         {
+            if (venom) collider.isTrigger = true;
             collider.enabled = true;
         }
     }
@@ -205,6 +219,7 @@ public class groundStab_Trigger : ITrigger
             player.transform.position = Vector3.Lerp(player.transform.position, enterPosition, 0.2f);
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        
     }
 
 }
