@@ -190,6 +190,8 @@ public abstract class FSMBase : MonoBehaviour
     }
     public void DeadDelay()
     {
+        this.gameObject.SetActive(false);
+        GameManager.Instance.CheckEnemy();
         Destroy(this.gameObject);
     }
     //切换状态

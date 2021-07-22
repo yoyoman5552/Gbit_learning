@@ -63,27 +63,29 @@ public class PlayerCircleDetect : MonoBehaviour
     {
         if (curTarget != null)
         {
+            //如果没有激活，就取消
+            if (flag && curTarget.GetComponent<ItemTrigger>().isActive == false) return;
             curTarget.transform.Find("EButton").gameObject.SetActive(flag);
             //curTarget.GetComponentInChildren<SpriteRenderer>().material.SetFloat("IsActive", flag ? 1 : 0);
             if (flag)
             {
                 if (showCoroutine == null)
                 {
-                    showCoroutine = StartCoroutine(SmoothShow(1,curTarget));
+                    showCoroutine = StartCoroutine(SmoothShow(1, curTarget));
                 }
             }
             else
             {
                 if (showCoroutine != null)
                 {
-                    StartCoroutine(SmoothShow(0,curTarget));
+                    StartCoroutine(SmoothShow(0, curTarget));
                     showCoroutine = null;
                 }
             }
 
         }
     }
-    IEnumerator SmoothShow(int flag,GameObject target)
+    IEnumerator SmoothShow(int flag, GameObject target)
     {
         float x = 1 - flag;
         int dir = x > flag ? -1 : 1;
