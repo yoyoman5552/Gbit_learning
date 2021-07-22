@@ -11,7 +11,7 @@ public class IdleState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
-        fsm.enemyAnimator.SetTrigger("inIdle");
+        
         idleTimer = fsm.idleTime;
     }
     public override void ActionState(FSMBase fsm)

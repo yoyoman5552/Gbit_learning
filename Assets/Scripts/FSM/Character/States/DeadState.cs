@@ -15,10 +15,11 @@ public class DeadState : FSMState
     {
         base.EnterState(fsm);
         //TODO:新增死亡动画
+        fsm.animator.SetBool("die", true);
         Debug.Log("死亡");
-        fsm.gameObject.SetActive(false);
+        //fsm.gameObject.SetActive(false);
         fsm.GetComponent<Collider2D>().enabled = false;
-        fsm.Invoke("DeadDelay", 2f);
+        fsm.Invoke("DeadDelay", 0.5f);
         GameManager.Instance.CheckEnemy();
         //死亡之后状态机禁用
         fsm.enabled = false;
