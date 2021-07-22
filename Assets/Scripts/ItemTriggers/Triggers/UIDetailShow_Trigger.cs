@@ -9,14 +9,15 @@ public class UIDetailShow_Trigger : ITrigger
 
     public new string name;
     public Sprite objectImage;
-    public string detail;
+    public string detail_title;
+    public string detail_index;
     public override void Action()
     {
         //TODO:切换房间
         //Debug.Log("UIDetailShow:名称：" + name + ",详细：" + detail);
         //TODO:不同情况下调用不同弹窗
         //UIManager.Instance.CallTalkUI(detail);
-        UIManager.Instance.CallDetailUI(name, detail, objectImage);
+        UIManager.Instance.CallDetailUI(name, detail_title,detail_index, objectImage);
 
     }
 }

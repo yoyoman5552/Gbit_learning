@@ -68,6 +68,7 @@ public class groundStab_Trigger : ITrigger
         timeStabAppear -= Time.deltaTime;
         if (timeStabAppear < 0)
         {
+            //collider.isTrigger = f;
             target.SetActive(false);
             Fog_Select.SetActive(false);
             collider.enabled = false;
@@ -82,11 +83,12 @@ public class groundStab_Trigger : ITrigger
                 timeStabDisAppear = initTimeStabDisappear;
                 timeStabAppear = initTimeStabAppear;
 
+
             }
         }
         if (this.name != "毒液地刺")
             detectDistance();
-
+        
     }
     /*
     private void QueueWorking()
@@ -140,25 +142,23 @@ public class groundStab_Trigger : ITrigger
                 attacked = true;
                 collider.enabled = false;
                 StartCoroutine(AttackDelay(attackRatio));
-                //playerGetHurt = true;
-
-                //TODO:返回进入点的方式：
-                //直接返回进入点效果一般
-                //所试方法：
-                //1.延迟0.5秒返回进入点
+                
                 if (this.name == "毒液地刺")
                 {
                     enterPosition = collision.transform.position + 0.4f * (collision.transform.position - transform.position).normalized;
+                    //受伤后暂时不能进入
+                    collider.isTrigger = false;
                 }
 
 
                 //                Invoke("resetPlayerPosition", 0.2f);
+
                 StartCoroutine(resetPlayerPositionDelay());
-                //2.直接返回进入点，延迟时间
-                // GameManager.Instance.player.transform.position = enterPosition;
-                //TODO:人物受伤？短暂不能移动，体现被移出地刺范围
-                /*Time.timeScale = 0.1f;
-                 Invoke("resetTimeScale", 0.05f);*/
+
+
+                
+                
+                
             }
         }
     }
@@ -169,6 +169,7 @@ public class groundStab_Trigger : ITrigger
         {
             yield return new WaitForSeconds(0.1f);
             timer -= 0.1f;
+            //collider.isTrigger = true;
             if (!getHurt)
             {
                 break;
@@ -204,6 +205,11 @@ public class groundStab_Trigger : ITrigger
         {
             player.transform.position = Vector3.Lerp(player.transform.position, enterPosition, 0.2f);
             yield return new WaitForSeconds(Time.deltaTime);
+        }
+        if(!GameManager.Instance.playerController.isGetHurt)
+        {
+            
+            collider.isTrigger = true;
         }
     }
 
