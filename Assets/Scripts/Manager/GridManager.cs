@@ -6,6 +6,8 @@ public class GridManager : MonoBehaviour
     [Header("公共变量")]
     [Tooltip("网格大小")]
     public float cellsize = 1;
+    [Tooltip("是否debug画线")]
+    public bool isDrawLine;
 
     [Header("私有变量")]
     //网格的左下角
@@ -25,6 +27,7 @@ public class GridManager : MonoBehaviour
     /// 单例模式
     /// </summary>
     public static GridManager Instance;
+
     private void Awake()
     {
         if (Instance != null)
@@ -43,7 +46,10 @@ public class GridManager : MonoBehaviour
         MyGrid<PathNode> pathGrid = new MyGrid<PathNode>(width, height, cellsize, LeftDownTF.position, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
         InitGrid(pathGrid);
         SetObstacles();
-        DrawLine();
+        if (isDrawLine)
+        {
+            DrawLine();
+        }
     }
     public void InitGrid(MyGrid<PathNode> pathGrid)
     {

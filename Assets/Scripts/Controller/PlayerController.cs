@@ -89,8 +89,6 @@ public class PlayerController : MonoBehaviour
     //是否能够交互
     private bool eAble;
 
-    //是否装备武器
-    private bool isArmor;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
@@ -145,15 +143,9 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw("Vertical") * ConstantList.moveYPer;
 
         //交互键判断
-        if (Input.GetKeyDown(KeyCode.E) && eAble&&childController.attackType==BreakLevel.easy)
+        if (Input.GetKeyDown(KeyCode.E) && eAble && childController.attackType == BreakLevel.easy)
         {
-            GameObject target = playerDetect.GetFirst();
-            //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标
-
-            if (target != null && target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
-            {
-                CheckETarget(target);
-            }
+            PressEAction();
         }
         //检测强制移动状态
         CheckMoveToTarget();
@@ -178,7 +170,7 @@ public class PlayerController : MonoBehaviour
     } */
     private void DeadFunc()
     {
-        
+
     }
     private void FixedUpdate()
     {
@@ -263,6 +255,16 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("IsPressE", true);
         }
 
+    }
+    public void PressEAction()
+    {
+        GameObject target = playerDetect.GetFirst();
+        //检测范围内有目标，而且是激活的，而且当前没有正在交互的目标
+
+        if (target != null && target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
+        {
+            CheckETarget(target);
+        }
     }
     private void CheckMoveToTarget()
     {
@@ -457,11 +459,11 @@ public class PlayerController : MonoBehaviour
     {
         eAble = flag;
     }
-    public void SetArmor(bool flag)
+    public void SetArmor(bool flag, int useNum)
     {
-        isArmor = flag;
+        //装备武器；更改伤害和限定使用次数
         playerAnimator.SetBool("IsArmor", flag);
-        playerChildTF.GetComponent<PlayerChildController>().SetBreakLevel(flag);
+        childController.SetBreakLevel(flag, useNum);
     }
     public void SetSpeed(float speed)
     {
