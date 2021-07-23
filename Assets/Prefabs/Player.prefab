@@ -576,9 +576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakeTime: 0.1
-  lightPause: 6
+  lightPause: 3
   lightStrength: 0.015
-  heavyPause: 12
+  heavyPause: 4
   heavyStrength: 0.065
   attackInterval: 1
   attackType: 0

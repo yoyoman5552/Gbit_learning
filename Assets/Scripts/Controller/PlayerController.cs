@@ -132,6 +132,11 @@ public class PlayerController : MonoBehaviour
         if (Time.timeScale == 0) return;
         //受伤检测
         HurtedCheck();
+        //检测强制移动状态
+        CheckMoveToTarget();
+
+        
+        //按键检测
         //如果不可交互
         if (!reactAble || !walkAble)
         {
@@ -147,8 +152,7 @@ public class PlayerController : MonoBehaviour
         {
             PressEAction();
         }
-        //检测强制移动状态
-        CheckMoveToTarget();
+
     }
     public void PlayerInit()
     {
@@ -268,7 +272,13 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckMoveToTarget()
     {
-        if (isJump && Vector3.Distance(transform.position, targetPos) < 0.05f)
+/*         Debug.Log("isJump:" + isJump);
+        if (isJump)
+        {
+            Debug.Log("tr:" + transform.position + ",target:" + targetPos);
+            Debug.Log("distance:" + Vector3.Distance(transform.position, targetPos));
+        } */
+        if (isJump && Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
             //满足了就说明移动完成
             velocity_Y = 0;
@@ -285,25 +295,13 @@ public class PlayerController : MonoBehaviour
         if (hurtedTimer > 0) return;
         //m_hp = Mathf.Max(0, m_hp - damage);
         hurtedTimer = ConstantList.HurtedTime;
-        hurtedDir = dir;
+
+        //如果不是攻击状态下
+        if (!childController.isAttack)
+            hurtedDir = dir.normalized;
         //FIXME:目前是一个血量一个状态
         GameManager.Instance.UpdateHurtedEffect(damage);
-        /*         if (m_hp <= MaxHP / hpLevels)
-                {
-                    setColor.w = 255;
-                    GameManager.Instance.bloodEffect.color = setColor;
-                }
-                else if (m_hp <= MaxHP / (float)2)
-                {
-                    setColor.w = 2 * 255 / 3;
-                    GameManager.Instance.bloodEffect.color = setColor;
-                }
-                else
-                {
-                    setColor.w = 255 / 3;
-                    GameManager.Instance.bloodEffect.color = setColor;
-                }
-         */
+
     }
     /// 角色移动
     private void Move()
@@ -335,16 +333,7 @@ public class PlayerController : MonoBehaviour
         //如果正在跳跃
         if (isJump)
         {
-            /*  float x = Mathf.Max(1f, Vector3.Distance(transform.position + distance - targetPos, Vector3.zero) * smoothTime);
-             if (x >= Vector3.Distance(distance, Vector3.zero) / 2)
-             {
-                 x = Vector3.Distance(distance, Vector3.zero)*smoothTime - x;
-             }
-             Debug.Log("x:" + x);
-             transform.position += distance.normalized * x * x * Time.deltaTime; */
-            //smoothTime = smoothTime / distance.magnitude;
-            //transform.position = Vector3.Lerp(transform.position, targetPos, smoothTime);
-            rb.velocity = distance.normalized * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
+            rb.velocity = distance.normalized * distance.magnitude / 0.5f * Time.fixedDeltaTime * ConstantList.speedPer;
             //transform.position = new Vector3(Mathf.SmoothDamp(transform.position.x, targetPos.x, ref velocity.x, smoothTime), Mathf.SmoothDamp(transform.position.y, targetPos.y, ref velocity.y, smoothTime), transform.position.z);
         }
     }

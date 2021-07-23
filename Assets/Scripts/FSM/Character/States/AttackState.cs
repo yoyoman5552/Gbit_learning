@@ -34,8 +34,8 @@ public class AttackState : FSMState
         // Debug.Log("inAttack");
         loadSprintTimer = fsm.initLoadStimer;
         //翻转贴图方向
-        float dir = fsm.targetTF.position.x - fsm.transform.position.x;
-        fsm.textureClip(dir);
+        
+        //fsm.textureClip(dir);
 
         //        Debug.Log("attack state in");
 
@@ -90,6 +90,8 @@ public class AttackState : FSMState
         {
             if (rayDetect(fsm))
             {
+                float dir = fsm.targetTF.position.x - fsm.transform.position.x;
+                fsm.textureClip(dir);
                 hadShoot = true;
                 remoteAttack_Achieve(fsm);
             }
@@ -142,18 +144,19 @@ public class AttackState : FSMState
     private void remoteAttack_Achieve(FSMBase fsm)
     {
         //寻找主人  
-        Transform enemyTransform = fsm.transform;
+        //Transform enemyTransform = fsm.transform;
 
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
         //if (playerTransform == null) Debug.Log(1);
-        
-        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
+        Vector3 FixEnemyPosition = fsm.transform.position;
+        FixEnemyPosition.y += 0.5f;
+        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", FixEnemyPosition, Quaternion.identity);
         if (bullet != null)
         {
             bullet.SetActive(true);
-            bullet.transform.position = enemyTransform.position;
-            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - enemyTransform.position, 3f);
+            //bullet.transform.position = enemyTransform.position;
+            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - FixEnemyPosition, 3f);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
 
