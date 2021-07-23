@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - IsActive: 1
+    - IsActive: 0
     - LightRatio: 1.5
     - NoiseNum: 2
     - Speed: 1

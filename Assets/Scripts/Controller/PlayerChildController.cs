@@ -98,11 +98,7 @@ public class PlayerChildController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interactive"))
-        {
-            GetComponentInParent<PlayerController>().PressEAction();
-            return;
-        }
+
         if ((other.CompareTag("Breakable") || other.CompareTag("Enemy")))
         {
             if (attackType == BreakLevel.easy)
@@ -115,6 +111,21 @@ public class PlayerChildController : MonoBehaviour
             {
                 AttackSense.Instance.HitPause(heavyPause);
                 AttackSense.Instance.CameraShake(shakeTime, heavyStrength);
+                //FIXME:测试，不应该这么做
+                if (other.CompareTag("Interactive"))
+                {
+                    if (other.GetComponent<ChangeRoom_Trigger>() != null)
+                    {
+                        //切换房间
+                        if (other.GetComponent<ConditionTrigger>() != null)
+                        {
+                            other.GetComponent<ConditionTrigger>().StartTrigger();
+                            return;
+                        }
+                        other.GetComponent<ItemTrigger>().StartTrigger();
+                        return;
+                    }
+                }
 
                 //使用次数减1,检查武器的使用次数
                 armorTimes--;

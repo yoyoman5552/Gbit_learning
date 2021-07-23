@@ -4,7 +4,7 @@
 策划须知
 跳跃点这种按E键没有使用交互动画的：tag设置成QuickInteractive
 
-##当前代码该做的一览
+## 当前代码该做的一览
 1. 小怪的冲刺调整+小怪的动画；cd的调整设置——弄成fsmBase里面减cd
 2. 人物机械臂动画+人物在机械臂状态下相关（破墙开门+打boss的次数限制
 3. boss的结尾（boss死亡之后的掉落+boss开始前的拾取）
@@ -54,5 +54,10 @@
 1.	场景中交互物品material调整为itemMaterial
 2.	场景的位置需要调整（每个房间的最高父物体的位置都是0,0,0 需要在(0,0,0)的情况下与摄像机对准（有修改方法，不清楚可以问）
 3.	hjy这边开始打光，打光需要整合；MainCamera的post processing需要勾选
-
+4.	拼图的material要改成itemMaterial
+5.	毒气的sprite sort point要改成pivot,sortinglayer改成character
+6.	毒气数值调整：disappear为0.75s以上，appear为0.75（具体看动画时长
+7.	厨房的场景图材质从sprite-default改为sprite-lit-default
+8.	restroom的场景同上；交互物品的sortingLayer消失了;交互物品有个材质要改成itemMaterial
+9.	
 

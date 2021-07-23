@@ -211,12 +211,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initTimeStabDisappear: 1.5
-  initTimeStabAppear: 1.5
+  initTimeStabAppear: 0.75
   attackRatio: 2
   target: {fileID: 5337557301380470141}
   Fog_Blue: {fileID: 2118304479122084083}
   Fog_Yellow: {fileID: 6797308390964258474}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!1001 &1040015607112843347
 PrefabInstance:
   m_ObjectHideFlags: 0

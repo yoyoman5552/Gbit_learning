@@ -420,7 +420,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.72147244, y: -1.0710571}
   - {x: -0.9404971, y: -0.046871617}
@@ -482,7 +482,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.5222819, y: -0.029709287}
   - {x: -0.21022484, y: 1.0039475}
@@ -543,7 +543,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.46057394, y: 0.00657079}
   - {x: -0.28860074, y: 0.5855317}
@@ -660,7 +660,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.46417868, y: 0.015351921}
   - {x: -0.23245543, y: -1.2427635}
@@ -885,7 +885,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: 0.55624497, y: 0.05789574}
   - {x: 0.5328344, y: 0.16348985}
@@ -1129,7 +1129,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: 1.2156212, y: 2.2201238}
   - {x: 1.2127128, y: 2.33622}
@@ -1197,7 +1197,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.35718217, y: 0.08265842}
   - {x: -0.45990884, y: 0.08915201}
@@ -1251,7 +1251,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.4731842, y: -0.034477465}
   - {x: -0.32885385, y: 0.39058167}
@@ -1371,7 +1371,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.5, y: 0}
   - {x: -0.13709268, y: 0.028095867}
@@ -1664,7 +1664,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.4696631, y: 0.0060673417}
   - {x: -0.17103876, y: 0.86265725}
@@ -1947,7 +1947,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.15
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: -0.5, y: 0}
   - {x: -0.1946526, y: -0.059882104}
