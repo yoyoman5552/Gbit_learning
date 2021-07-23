@@ -17,7 +17,7 @@ public class AttackState : FSMState
     private float loadSprintTimer;
     //冲刺时间
     private float sprintTimer;
-    private bool loading = true;
+//   private bool loading = true;
     private bool isHurtPlayer;
 
     public override void Init()
