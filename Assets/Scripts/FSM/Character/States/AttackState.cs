@@ -14,7 +14,6 @@ public class AttackState : FSMState
     //近战变量
     private float loadSprintTimer;
     
-    private Vector3 dashDir;
     private bool loading = true;
 
     public override void Init()
@@ -35,24 +34,21 @@ public class AttackState : FSMState
         // Debug.Log("inAttack");
         loadSprintTimer = fsm.initLoadStimer;
         //翻转贴图方向
-        float dir = fsm.targetTF.position.x - fsm.transform.position.x;
-        fsm.textureClip(dir);
+        
+        //fsm.textureClip(dir);
 
         //        Debug.Log("attack state in");
 
 
         shootTimeGap = fsm.attackInterval;
 
-        
-        
+        if(fsm.AttackStyle) fsm.animator.SetBool("attack", true);
+
     }
 
     public override void ActionState(FSMBase fsm)
     {
-        if (true)
-        { 
-            fsm.rb.velocity = dashDir * fsm.chaseSpeed * ConstantList.speedPer * Time.deltaTime;
-        }
+        
 
 
         if (fsm.AttackStyle)
@@ -83,7 +79,8 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         //        Debug.Log("attack state out");
-
+        if(fsm.AttackStyle)
+            fsm.animator.SetBool("attack", false);
     }
 
     //远程攻击接口
@@ -93,12 +90,15 @@ public class AttackState : FSMState
         {
             if (rayDetect(fsm))
             {
+                float dir = fsm.targetTF.position.x - fsm.transform.position.x;
+                fsm.textureClip(dir);
                 hadShoot = true;
                 remoteAttack_Achieve(fsm);
             }
         }
         else
         {
+            //fsm.animator.SetBool("attack", false);
             shootTimeGap -= Time.deltaTime;
             if (shootTimeGap <= 0)
             {
@@ -111,26 +111,25 @@ public class AttackState : FSMState
 
     private void MeleeAttack(FSMBase fsm)
     {
-        if (!fsm.SprintUsed)
+        if (!fsm.SprintUsed && rayDetect(fsm))
         {
 
-            if (rayDetect(fsm))
+
+
+            if (loading)
             {
-
-                if (loading)
-                {
-                    fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
-                    loading = false;
-                }
-
-
-                //冲刺加载
-                loadSprintTimer -= Time.deltaTime;
-                //加载完成
-                if(loadSprintTimer<0)
-                    fsm.Sprinting = true;
-
+                fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
+                loading = false;
             }
+
+
+            //冲刺加载
+            loadSprintTimer -= Time.deltaTime;
+            //加载完成
+            if (loadSprintTimer < 0)
+                fsm.Sprinting = true;
+
+
         }
         else
         {
@@ -145,17 +144,19 @@ public class AttackState : FSMState
     private void remoteAttack_Achieve(FSMBase fsm)
     {
         //寻找主人  
-        Transform enemyTransform = fsm.transform;
+        //Transform enemyTransform = fsm.transform;
 
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
         //if (playerTransform == null) Debug.Log(1);
-        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
+        Vector3 FixEnemyPosition = fsm.transform.position;
+        FixEnemyPosition.y += 0.5f;
+        GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", FixEnemyPosition, Quaternion.identity);
         if (bullet != null)
         {
             bullet.SetActive(true);
-            bullet.transform.position = enemyTransform.position;
-            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - enemyTransform.position, 3f);
+            //bullet.transform.position = enemyTransform.position;
+            bullet.GetComponent<bulletController>().bulletFire(playerTransform.position - FixEnemyPosition, 3f);
             //bullet.transform.position = Vector3.Lerp(bullet.transform.position, playerTransform.position, 2f * Time.deltaTime);
         }
 

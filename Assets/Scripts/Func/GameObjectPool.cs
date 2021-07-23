@@ -39,6 +39,7 @@ public class GameObjectPool
         //Debug.Log ("Instantiate:" + prefabId);
         //从资源管理器获取目标预制体
         GameObject resources = ResourceManager.Instance.Load<GameObject>(prefabId);
+        
         //返回生成对象
         return CreateObject(prefabId, resources, position, rotation);
     }

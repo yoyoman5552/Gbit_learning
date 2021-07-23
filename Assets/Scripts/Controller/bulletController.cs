@@ -4,6 +4,7 @@ using UnityEngine;
 using EveryFunc;
 public class bulletController : MonoBehaviour
 {
+    public float seeV;
     private Rigidbody2D rb;
     private float setBulletFalseTimer;
     public float initSetBulletFalseTimer;
@@ -44,12 +45,15 @@ public class bulletController : MonoBehaviour
         playerPosition = playerPosition.normalized;
 
         //子弹转向
+        /*
         if (playerPosition.x > 0.05f)
             material.SetFloat("RotateDir", 1);
         else if (playerPosition.x < -0.05f)
             material.SetFloat("RotateDir", -1);
+        */
         //this.transform.position = Vector3.Lerp(transform.position, playerPosition, bulletSpeed * Time.deltaTime);
         if (rb != null) rb.AddForce(playerPosition * bulletSpeed * ConstantList.speedPer);
+        
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -70,6 +74,11 @@ public class bulletController : MonoBehaviour
     {
         isShoot = false;
         setBulletFalseTimer = initSetBulletFalseTimer;
+    }
+    public  void bulletInit()
+    {
+        Vector3 initV = new Vector3(0, 0, 0);
+        rb.velocity = initV;
     }
 
 }
