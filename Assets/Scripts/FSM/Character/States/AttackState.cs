@@ -14,7 +14,6 @@ public class AttackState : FSMState
     //近战变量
     private float loadSprintTimer;
     
-    private Vector3 dashDir;
     private bool loading = true;
 
     public override void Init()
@@ -43,16 +42,13 @@ public class AttackState : FSMState
 
         shootTimeGap = fsm.attackInterval;
 
-        
-        
+        if(fsm.AttackStyle) fsm.animator.SetBool("attack", true);
+
     }
 
     public override void ActionState(FSMBase fsm)
     {
-        if (true)
-        { 
-            fsm.rb.velocity = dashDir * fsm.chaseSpeed * ConstantList.speedPer * Time.deltaTime;
-        }
+        
 
 
         if (fsm.AttackStyle)
@@ -83,7 +79,8 @@ public class AttackState : FSMState
     public override void ExitState(FSMBase fsm)
     {
         //        Debug.Log("attack state out");
-
+        if(fsm.AttackStyle)
+            fsm.animator.SetBool("attack", false);
     }
 
     //远程攻击接口
@@ -99,6 +96,7 @@ public class AttackState : FSMState
         }
         else
         {
+            //fsm.animator.SetBool("attack", false);
             shootTimeGap -= Time.deltaTime;
             if (shootTimeGap <= 0)
             {
@@ -111,26 +109,25 @@ public class AttackState : FSMState
 
     private void MeleeAttack(FSMBase fsm)
     {
-        if (!fsm.SprintUsed)
+        if (!fsm.SprintUsed && rayDetect(fsm))
         {
 
-            if (rayDetect(fsm))
+
+
+            if (loading)
             {
-
-                if (loading)
-                {
-                    fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
-                    loading = false;
-                }
-
-
-                //冲刺加载
-                loadSprintTimer -= Time.deltaTime;
-                //加载完成
-                if(loadSprintTimer<0)
-                    fsm.Sprinting = true;
-
+                fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
+                loading = false;
             }
+
+
+            //冲刺加载
+            loadSprintTimer -= Time.deltaTime;
+            //加载完成
+            if (loadSprintTimer < 0)
+                fsm.Sprinting = true;
+
+
         }
         else
         {
@@ -150,6 +147,7 @@ public class AttackState : FSMState
         //寻找玩家
         Transform playerTransform = GameManager.Instance.player.transform;
         //if (playerTransform == null) Debug.Log(1);
+        
         GameObject bullet = GameObjectPool.Instance.Instantiate("RedBullet", fsm.transform.position, Quaternion.identity);
         if (bullet != null)
         {
