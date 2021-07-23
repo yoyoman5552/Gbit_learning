@@ -246,8 +246,6 @@ public abstract class FSMBase : MonoBehaviour
             if (SprintTimer >= 0)
             {
                 walkAble = false;
-                if (animator != null) print(animator.name);
-                else print("null");
                 animator.SetBool("Sprint", true);
                 //rb.velocity = (targetTF.transform.position - transform.position).normalized * 0.5f;
                 rb.velocity = SprintDir * SprintSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
@@ -265,8 +263,6 @@ public abstract class FSMBase : MonoBehaviour
 
     public void DeadDelay()
     {
-        this.gameObject.SetActive(false);
-        GameManager.Instance.CheckEnemy();
         Destroy(this.gameObject);
     }
     //切换状态
