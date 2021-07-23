@@ -18,6 +18,13 @@ public class Breakable_Trigger : ITrigger
         {
             itemTrigger.StartTrigger();
         }
+        if (level == BreakLevel.hard)
+        {
+            if (this.GetComponent<ChangeRoom_Trigger>() != null)
+            {
+                this.GetComponent<ChangeRoom_Trigger>().Action();
+            }
+        }
         /*  if (level == BreakLevel.easy) {
              this.gameObject.SetActive (false);
              Destroy (this.gameObject, 2f);

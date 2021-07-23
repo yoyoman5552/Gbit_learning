@@ -76,7 +76,6 @@ public class PlayerChildController : MonoBehaviour
                 Debug.Log("heavyAttack");
                 playerAnimator.SetTrigger("HeavyAttack");
                 controller.SetSpeed(controller.moveSpeed * controller.heavyAttackMoveSpeedPer);
-
             }
         }
 
@@ -112,7 +111,7 @@ public class PlayerChildController : MonoBehaviour
                 AttackSense.Instance.HitPause(heavyPause);
                 AttackSense.Instance.CameraShake(shakeTime, heavyStrength);
                 //FIXME:测试，不应该这么做
-                if (other.CompareTag("Interactive"))
+                /* if (other.CompareTag("Interactive"))
                 {
                     if (other.GetComponent<ChangeRoom_Trigger>() != null)
                     {
@@ -125,7 +124,7 @@ public class PlayerChildController : MonoBehaviour
                         other.GetComponent<ItemTrigger>().StartTrigger();
                         return;
                     }
-                }
+                } */
 
                 //使用次数减1,检查武器的使用次数
                 armorTimes--;
