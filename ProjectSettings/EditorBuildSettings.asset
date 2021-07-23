@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RestRoom.unity
     guid: 682956ece145b694985dad805a586272
-  - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
-    guid: c48774a454cada946ba190a0d14bfd09
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
