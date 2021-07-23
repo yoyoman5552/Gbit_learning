@@ -129,6 +129,7 @@ public class GridManager : MonoBehaviour
     public bool IsAWall(int x, int y)
     {
         var hitColliders = Physics2D.OverlapCircleAll(grid.GetWorldCenterPosition(x, y), grid.GetCellsize() / 2f);
+
         foreach (var collider in hitColliders)
         {
             if (collider.CompareTag("Wall") || collider.CompareTag("Breakable"))
@@ -156,12 +157,29 @@ public class GridManager : MonoBehaviour
     {
         Vector3 tarPos;
         List<PathNode> pathList;
+        int maxTimes = 50;//随机50次，还不成功，就默认回到原地
         do
         {
+            if (maxTimes < 0)
+            {
+                Debug.Log("随机50次结束");
+                return null;
+            }
+            maxTimes--;
             tarPos = GetRandomPos();
             pathList = FindPath(selfPos, tarPos);
-        } while (Vector3.Distance(tarPos, originPos) > radius || pathList == null || pathList.Count > radius + 4 || pathList.Count < 2);
+        } while (pathList == null || pathList.Count > radius + 4 || pathList.Count < 2);
+
         return pathList;
+    }
+    public Vector3 GetRandomPos(Vector3 originPos, float radius)
+    {
+        float randomX, randomY;
+        float limit = 1f;
+        randomX = Random.Range(-limit, limit);
+        randomY = Random.Range(-limit, limit);
+
+        return originPos + EveryFunction.GetRandomDir() * radius;
     }
     public Vector3 GetRandomPos()
     {

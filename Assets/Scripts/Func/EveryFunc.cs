@@ -47,7 +47,8 @@ namespace EveryFunc
         Core_UnFollow_Sector,
         Core_Follow_One
     }
-    public enum ChangeRoomType{
+    public enum ChangeRoomType
+    {
         normal,
         SBTimeTrip
     }
@@ -87,7 +88,7 @@ namespace EveryFunc
         [Tooltip("炮塔数量")]
         public static int batteryCount = 4;
         [Tooltip("时钟的插值")]
-        public static int ClockRatio=30;
+        public static int ClockRatio = 30;
     }
     /// <summary>
     /// 通用方法
@@ -130,5 +131,13 @@ namespace EveryFunc
             gameObject.tag = "Ground";
             return textMesh;
         }
+        public static Vector3 GetRandomDir()
+        {
+            float x, y;
+            x = Random.Range(-1, 1);
+            y = Random.Range(-1, 1);
+            return new Vector3(x, y,0).normalized;
+        }
     }
+
 }

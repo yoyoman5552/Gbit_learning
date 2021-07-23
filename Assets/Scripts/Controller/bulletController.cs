@@ -22,7 +22,7 @@ public class bulletController : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody2D>();
         //测试用
-        bulletFire(Vector3.left,3f);
+        //bulletFire(Vector3.left, 3f);
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class bulletController : MonoBehaviour
             material.SetFloat("RotateDir", 1);
         //this.transform.position = Vector3.Lerp(transform.position, playerPosition, bulletSpeed * Time.deltaTime);
         if (rb != null) rb.AddForce(playerPosition * bulletSpeed * ConstantList.speedPer);
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -73,7 +73,7 @@ public class bulletController : MonoBehaviour
         isShoot = false;
         setBulletFalseTimer = initSetBulletFalseTimer;
     }
-    public  void bulletInit()
+    public void bulletInit()
     {
         Vector3 initV = new Vector3(0, 0, 0);
         rb.velocity = initV;

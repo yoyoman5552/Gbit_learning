@@ -91,11 +91,8 @@ public abstract class FSMBase : MonoBehaviour
     //冲刺方向
     public Vector3 SprintDir;
 
-
+    [HideInInspector]
     public Material material;
-    //TODO:是否需要给敌人设置一个巡逻范围：只会在巡逻范围内随机选择点来巡逻
-    /*     [Tooltip("巡逻范围,以左下点和右上点为主")]
-        public Transform[] patrolTFs; */
 
     //状态列表
     protected List<FSMState> statesList;
@@ -117,7 +114,7 @@ public abstract class FSMBase : MonoBehaviour
     public Vector3 OriginPos;
     [HideInInspector]
     public bool walkAble;
-    [HideInInspector]
+    //  [HideInInspector]
     public float m_speed;
     //是否受伤
     [HideInInspector]
@@ -226,43 +223,53 @@ public abstract class FSMBase : MonoBehaviour
     {
         if (walkAble)
         {
-            //移动
-            rb.velocity = moveVelocity * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
-
-            /* if (Vector3.Distance (transform.position, movePos) > 0.05f) {
-                Vector3 dir = (movePos - this.transform.position).normalized;
-                rb.velocity = dir * m_speed;
-            } */
-        }
-
-        //冲刺时出了攻击范围，小怪会出现异常，所以直接放到fsmbase
-        SprintAttack();
-    }
-    private void SprintAttack()
-    {
-        if (Sprinting)
-        {
-            SprintTimer -= Time.deltaTime;
-            if (SprintTimer >= 0)
+            //如果是冲刺状态
+            if (Sprinting)
             {
-                walkAble = false;
-                animator.SetBool("Sprint", true);
-                //rb.velocity = (targetTF.transform.position - transform.position).normalized * 0.5f;
+                //冲刺
                 rb.velocity = SprintDir * SprintSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
             }
             else
             {
-                walkAble = true;
-                SprintUsed = true;
-                Sprinting = false;
-                SprintTimer = initSprintTimer;
-                animator.SetBool("Sprint", false);
+                //移动
+                rb.velocity = moveVelocity * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
             }
-        }
-    }
 
+        }
+
+        //冲刺时出了攻击范围，小怪会出现异常，所以直接放到fsmbase
+        //        SprintAttack();
+    }
+    // private void SprintAttack()
+    // {
+    //     if (Sprinting)
+    //     {
+    //         rb.velocity = SprintDir * SprintSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
+
+    //         /*             SprintTimer -= Time.deltaTime;
+    //                     if (SprintTimer > 0)
+    //                     {
+    //                         walkAble = false;
+    //                         animator.SetBool("Sprint", true);
+    //                         //rb.velocity = (targetTF.transform.position - transform.position).normalized * 0.5f;
+    //                         rb.velocity = SprintDir * SprintSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
+    //                     }
+    //                     else
+    //                     {
+    //                         walkAble = true;
+    //                         SprintUsed = true;
+    //                         Sprinting = false;
+    //                         SprintTimer = initSprintTimer;
+    //                         animator.SetBool("Sprint", false);
+    //                     }
+    //                 }
+    //          */
+    //     }
+    // }
     public void DeadDelay()
     {
+        this.gameObject.SetActive(false);
+        GameManager.Instance.CheckEnemy();
         Destroy(this.gameObject);
     }
     //切换状态

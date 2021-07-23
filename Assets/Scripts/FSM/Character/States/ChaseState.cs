@@ -17,7 +17,7 @@ public class ChaseState : FSMState
     {
         stateID = FSMStateID.Chase;
         //        throw new System.NotImplementedException();
-       
+
     }
 
 
@@ -30,8 +30,8 @@ public class ChaseState : FSMState
         disY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
 
-        
-        
+
+
         if (firstGetAttackArea)
         {
             defaultAttackArea = fsm.attackRadius;
@@ -56,7 +56,7 @@ public class ChaseState : FSMState
     public override void ActionState(FSMBase fsm)
     {
 
-        
+
         //偏移坐标
         Vector3 targetPosition = fsm.targetTF.position;
         targetPosition.x += disX;
@@ -64,7 +64,10 @@ public class ChaseState : FSMState
 
         //如果到达位置
         pathList = GridManager.Instance.FindPath(fsm.transform.position, targetPosition);
-        //没有方法抵达
+        //没有方法抵达:说明自己卡住了，或者玩家卡住了
+        //从该敌人最开始的地方判断能不能到达玩家
+        if (pathList == null)
+            pathList = GridManager.Instance.FindPath(fsm.OriginPos, targetPosition);
         if (pathList == null)
         {
             fsm.StopPosition();
@@ -82,7 +85,6 @@ public class ChaseState : FSMState
         //近战攻击的改进：冲刺路径上有障碍物时，缩小攻击检测距离使敌人重新寻找新路径，当路径上没有障碍物时，恢复初始攻击距离
         //射线检测
         //近战攻击状态为冲刺状态时检测
-
         if (rayDetect(fsm))
         {
             fsm.attackRadius = defaultAttackArea;
@@ -91,27 +93,24 @@ public class ChaseState : FSMState
         {
             fsm.attackRadius = 0;
         }
-    
 
 
- 
+
+
     }
 
     public override void ExitState(FSMBase fsm)
     {
         //fsm.isDoneChase = false;
         fsm.StopPosition();
-        //fsm.attackRadius = defaultAttackArea;
-        
+        fsm.attackRadius = defaultAttackArea;
+
 
     }
 
     private float detectDistance(FSMBase fsm)
     {
-        Transform Player = GameManager.Instance.player.transform;
-        Transform meleeEnemy = fsm.transform;
-        //Debug.Log(Mathf.Sqrt((Player.position - meleeEnemy.position).sqrMagnitude));
-        return (Vector3.Distance(Player.position, meleeEnemy.position));
+        return (Vector3.Distance(fsm.targetTF.position, fsm.transform.position));
     }
 
     private bool rayDetect(FSMBase fsm)

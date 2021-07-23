@@ -7,23 +7,25 @@ public class PatrolState : FSMState
     private int index;
     // private bool isArrivePoint;
     private Vector2 targetPos;
-    private Vector3 originPos;
     public override void Init()
     {
-        originPos = Vector3.forward;
         stateID = FSMStateID.Patrol;
         //        throw new System.NotImplementedException();
     }
     public override void EnterState(FSMBase fsm)
     {
         //如果是第一次开始巡逻，就记录当前的默认位置
-        if (originPos == Vector3.forward) originPos = fsm.transform.position;
         fsm.m_speed = fsm.walkSpeed;
         //是否完成巡逻
         // fsm.isDonePatrol = false;
         //随机位置的路径获取
-        pathList = GridManager.Instance.GetRandomPosOutSelf(fsm.transform.position, originPos, fsm.patrolRadius);
-        //Debug.Log("find pos:" + pathList[pathList.Count - 1]);
+        pathList = GridManager.Instance.GetRandomPosOutSelf(fsm.transform.position, fsm.OriginPos, fsm.patrolRadius);
+        //==null 说明现在处在一个无法行动的地方
+        if (pathList == null)
+        {
+            pathList = GridManager.Instance.GetRandomPosOutSelf(fsm.OriginPos, fsm.OriginPos, fsm.patrolRadius);
+        }
+        Debug.Log("find pos:" + pathList[pathList.Count - 1]);
         //初始化
         index = 1;
         targetPos = GridManager.Instance.GetWorldCenterPosition(pathList[index].x, pathList[index].y);

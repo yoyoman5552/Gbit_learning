@@ -152,8 +152,9 @@ public class GameManager : MonoBehaviour
         if (currentRoom != null)
             currentRoom.SetActive(false);
 
-        targetRoom.SetActive(true);
         currentRoom = targetRoom;
+        //显示房间
+        targetRoom.SetActive(true);
         //人物位置设置
         Transform playerPos = targetDoor.Find("PlayerPos");
         if (playerPos != null)
@@ -171,6 +172,7 @@ public class GameManager : MonoBehaviour
         }
         //房间初始化
         RoomInit();
+        
     }
     private void RoomInit()
     {
