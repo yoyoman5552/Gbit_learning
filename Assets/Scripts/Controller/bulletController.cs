@@ -45,9 +45,9 @@ public class bulletController : MonoBehaviour
 
         //子弹转向
         if (playerPosition.x > 0.05f)
-            material.SetFloat("RotateDir", 1);
-        else if (playerPosition.x < -0.05f)
             material.SetFloat("RotateDir", -1);
+        else if (playerPosition.x < -0.05f)
+            material.SetFloat("RotateDir", 1);
         //this.transform.position = Vector3.Lerp(transform.position, playerPosition, bulletSpeed * Time.deltaTime);
         if (rb != null) rb.AddForce(playerPosition * bulletSpeed * ConstantList.speedPer);
     }

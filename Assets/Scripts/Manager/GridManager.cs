@@ -46,7 +46,14 @@ public class GridManager : MonoBehaviour
         MyGrid<PathNode> pathGrid = new MyGrid<PathNode>(width, height, cellsize, LeftDownTF.position, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
         InitGrid(pathGrid);
         SetObstacles();
-        if (isDrawLine)
+        /* if (isDrawLine)
+        {
+            DrawLine();
+        } */
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M) && isDrawLine)
         {
             DrawLine();
         }
@@ -145,7 +152,7 @@ public class GridManager : MonoBehaviour
     {
         return grid.GetWorldCenterPosition(x, y);
     }
-    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos, float radius = 100f)
+    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos, Vector3 originPos, float radius = 100f)
     {
         Vector3 tarPos;
         List<PathNode> pathList;
@@ -153,7 +160,7 @@ public class GridManager : MonoBehaviour
         {
             tarPos = GetRandomPos();
             pathList = FindPath(selfPos, tarPos);
-        } while (Vector3.Distance(tarPos, selfPos) < grid.GetCellsize() || Vector3.Distance(tarPos, selfPos) > radius || pathList == null || pathList.Count > radius + 4);
+        } while (Vector3.Distance(tarPos, originPos) > radius || pathList == null || pathList.Count > radius + 4 || pathList.Count < 2);
         return pathList;
     }
     public Vector3 GetRandomPos()

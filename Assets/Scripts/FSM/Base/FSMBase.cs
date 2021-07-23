@@ -42,7 +42,6 @@ public abstract class FSMBase : MonoBehaviour
     public float initLoadStimer;
 
 
-
     /*     [Tooltip("发现玩家的扇形半径")]
         public float sectorRadius;
         [Tooltip("发现玩家的扇形角度")]
@@ -115,6 +114,8 @@ public abstract class FSMBase : MonoBehaviour
     [HideInInspector]
     public Transform targetTF;
     [HideInInspector]
+    public Vector3 OriginPos;
+    [HideInInspector]
     public bool walkAble;
     [HideInInspector]
     public float m_speed;
@@ -127,7 +128,7 @@ public abstract class FSMBase : MonoBehaviour
     public Vector3 hurtedVelocity;
 
     [HideInInspector]
-    
+
     //动画
     public Animator animator;
 
@@ -155,7 +156,7 @@ public abstract class FSMBase : MonoBehaviour
      */
     public virtual void InitComponent()
     {
-        
+
         rb = GetComponent<Rigidbody2D>();
         childTF = this.transform.Find("CharacterChild");
         sprite = childTF.GetComponent<SpriteRenderer>();
@@ -167,7 +168,7 @@ public abstract class FSMBase : MonoBehaviour
         SprintCD = attackInterval;
 
         animator = GetComponentInChildren<Animator>();
-        
+
         /*  //动画机
         
         //角色数值
@@ -206,8 +207,8 @@ public abstract class FSMBase : MonoBehaviour
         textureClip();
         checkSprintCD();
 
-        
-        
+
+
     }
     private void checkSprintCD()
     {

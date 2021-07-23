@@ -26,8 +26,8 @@ public class ChaseState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         //设置随机数防止敌人追击时合在一起
-        disX = UnityEngine.Random.Range(-1.0f, 1.0f);
-        disY = UnityEngine.Random.Range(-1.0f, 1.0f);
+        disX = UnityEngine.Random.Range(-0.5f, 0.5f);
+        disY = UnityEngine.Random.Range(-0.5f, 0.5f);
 
 
         

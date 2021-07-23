@@ -11,8 +11,9 @@ public class IdleState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
-        
+
         idleTimer = fsm.idleTime;
+        fsm.idleTime += UnityEngine.Random.Range(0, 1f);
     }
     public override void ActionState(FSMBase fsm)
     {
