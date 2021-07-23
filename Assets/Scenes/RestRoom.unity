@@ -2566,7 +2566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -2809,7 +2809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -9635,7 +9635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -19720,7 +19720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -23363,7 +23363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -26989,7 +26989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -28049,7 +28049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -32779,7 +32779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear
@@ -37825,7 +37825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2080006962
 Transform:
   m_ObjectHideFlags: 0
@@ -38414,7 +38414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabAppear
-      value: 0.9
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 5337557302236048284, guid: 77e409fe0b3afa541af8b5a1bb13b851, type: 3}
       propertyPath: initTimeStabDisappear

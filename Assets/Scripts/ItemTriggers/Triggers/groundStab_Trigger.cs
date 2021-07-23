@@ -212,6 +212,7 @@ public class groundStab_Trigger : ITrigger
     IEnumerator resetPlayerPositionDelay()
     {
         GameManager.Instance.player.transform.gameObject.GetComponent<PlayerController>().dontWalkAPI(standTimer);
+        Invoke("fixPosition",standTimer+0.05f);
         GameObject player = GameManager.Instance.player;
         Vector3 dir = (Vector3)enterPosition - player.transform.position;
         while (Vector3.Distance(player.transform.position, enterPosition) > 0.2f)
@@ -220,6 +221,10 @@ public class groundStab_Trigger : ITrigger
             yield return new WaitForSeconds(Time.deltaTime);
         }
         
+    }
+    private void fixPosition()
+    {
+        GameManager.Instance.player.transform.position = enterPosition;
     }
 
 }

@@ -2,7 +2,6 @@ using EveryFunc;
 using UnityEngine;
 public class Bag_Trigger : ITrigger
 {
-    //FIXME:所有的背包类物品是否都是用SetTargetCondition
     [HideInInspector]
     public GameObject[] targets = new GameObject[1];
     public ItemInfo itemInfo;

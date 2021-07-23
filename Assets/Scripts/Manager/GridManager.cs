@@ -46,7 +46,14 @@ public class GridManager : MonoBehaviour
         MyGrid<PathNode> pathGrid = new MyGrid<PathNode>(width, height, cellsize, LeftDownTF.position, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
         InitGrid(pathGrid);
         SetObstacles();
-        if (isDrawLine)
+        /* if (isDrawLine)
+        {
+            DrawLine();
+        } */
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M) && isDrawLine)
         {
             DrawLine();
         }
@@ -122,6 +129,7 @@ public class GridManager : MonoBehaviour
     public bool IsAWall(int x, int y)
     {
         var hitColliders = Physics2D.OverlapCircleAll(grid.GetWorldCenterPosition(x, y), grid.GetCellsize() / 2f);
+
         foreach (var collider in hitColliders)
         {
             if (collider.CompareTag("Wall") || collider.CompareTag("Breakable"))
@@ -145,16 +153,33 @@ public class GridManager : MonoBehaviour
     {
         return grid.GetWorldCenterPosition(x, y);
     }
-    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos, float radius = 100f)
+    public List<PathNode> GetRandomPosOutSelf(Vector3 selfPos, Vector3 originPos, float radius = 100f)
     {
         Vector3 tarPos;
         List<PathNode> pathList;
+        int maxTimes = 50;//随机50次，还不成功，就默认回到原地
         do
         {
+            if (maxTimes < 0)
+            {
+                Debug.Log("随机50次结束");
+                return null;
+            }
+            maxTimes--;
             tarPos = GetRandomPos();
             pathList = FindPath(selfPos, tarPos);
-        } while (Vector3.Distance(tarPos, selfPos) < grid.GetCellsize() || Vector3.Distance(tarPos, selfPos) > radius || pathList == null || pathList.Count > radius + 4);
+        } while (pathList == null || pathList.Count > radius + 4 || pathList.Count < 2);
+
         return pathList;
+    }
+    public Vector3 GetRandomPos(Vector3 originPos, float radius)
+    {
+        float randomX, randomY;
+        float limit = 1f;
+        randomX = Random.Range(-limit, limit);
+        randomY = Random.Range(-limit, limit);
+
+        return originPos + EveryFunction.GetRandomDir() * radius;
     }
     public Vector3 GetRandomPos()
     {
