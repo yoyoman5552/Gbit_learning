@@ -11,13 +11,19 @@ public class Breakable_Trigger : ITrigger
     }
     public override void Action()
     {
-        //TODO:破坏物品的动画，障碍物破坏判断
         Debug.Log("障碍物等级:" + level.ToString());
         this.gameObject.SetActive(false);
         //Destroy(this.gameObject, 2f);
         if (itemTrigger != null)
         {
             itemTrigger.StartTrigger();
+        }
+        if (level == BreakLevel.hard)
+        {
+            if (this.GetComponent<ChangeRoom_Trigger>() != null)
+            {
+                this.GetComponent<ChangeRoom_Trigger>().Action();
+            }
         }
         /*  if (level == BreakLevel.easy) {
              this.gameObject.SetActive (false);

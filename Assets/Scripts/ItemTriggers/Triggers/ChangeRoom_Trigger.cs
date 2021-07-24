@@ -21,7 +21,6 @@ public class ChangeRoom_Trigger : ITrigger
     }
     public override void Action()
     {
-        //TODO:切换房间
         if (targetRoom != null)
         {
             Debug.Log("切换房间：" + targetRoom.name);

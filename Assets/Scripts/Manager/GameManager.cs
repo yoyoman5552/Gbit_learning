@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
         Instance = this;
         InitComponent();
     }
+    private void Start()
+    {
+        //FIXME:选择初始房间
+        GameObject firstRoom = roomList.Find(s => s.name == "Room1");
+        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null);
+    }
     private void OnDestroy()
     {
         chromaticAberration.intensity.value = 0;
@@ -92,15 +98,12 @@ public class GameManager : MonoBehaviour
             room.transform.position = Vector3.zero;
             room.SetActive(false);
         }
-        //FIXME:选择初始房间
-        GameObject firstRoom = roomList.Find(s => s.name == "Room1");
-        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null);
 
-       // Debug.Log("volume:" + targetVolume.name);
+        // Debug.Log("volume:" + targetVolume.name);
         var profile = targetVolume.sharedProfile;
         foreach (var component in profile.components)
         {
-         //   Debug.Log("component:" + component.GetType());
+            //   Debug.Log("component:" + component.GetType());
             if (component.GetType() == typeof(ChromaticAberration))
             {
                 chromaticAberration = (ChromaticAberration)component;
@@ -115,8 +118,13 @@ public class GameManager : MonoBehaviour
     /// <param name="targetRoom">目标房间</param>
     public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
     {
+        //保存数据
         SaveData(targetRoom, lastDoor);
+
+        //不允许玩家移动，显示切换ui
         playerController.SetReactable(false);
+
+        //判断切换方式
         if (changeRoomType == ChangeRoomType.normal)
         {
             normalChangeRoom(targetRoom, targetDoor);
@@ -124,50 +132,29 @@ public class GameManager : MonoBehaviour
     }
     private void normalChangeRoom(GameObject targetRoom, Transform targetDoor)
     {
-        BlackImage.SetActive(true);
+        //播放切换房间动画
         if (player.transform.position.x >= 0)
-            StartCoroutine(ChangeRoomDelay(1, targetRoom, targetDoor));
+            BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("右切", targetRoom, targetDoor);
         else
-            StartCoroutine(ChangeRoomDelay(-1, targetRoom, targetDoor));
+            BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("左切", targetRoom, targetDoor);
     }
-    private IEnumerator ChangeRoomDelay(float dir, GameObject targetRoom, Transform targetDoor)
+
+    //开始房间
+    public void StartRoom()
     {
-        bool hasChanged = false;
-        float UIPosX, moveSpeed = UIMoveSpeed * Time.fixedDeltaTime * ConstantList.speedPer;
-        if (dir == 1)
-        {
-            UIPosX = UIRightPos;
-            BlackImage.transform.position = new Vector3(UILeftPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
-        }
-        else
-        {
-            UIPosX = UILeftPos;
-            BlackImage.transform.position = new Vector3(UIRightPos, BlackImage.transform.position.y, BlackImage.transform.position.z);
-        }
-        BlackImage.GetComponent<SpriteRenderer>().flipX = dir == 1 ? false : true;
-        while (Mathf.Abs(BlackImage.transform.position.x - UIPosX) > 2f)
-        {
-            BlackImage.transform.position += new Vector3(moveSpeed * dir, 0, 0);
-            yield return new WaitForSeconds(Time.fixedDeltaTime);
-            //切换房间  
-            if (Mathf.Abs(BlackImage.transform.position.x) < 2f && !hasChanged)
-            {
-               // Debug.Log("换房间: to " + targetRoom.name);
-                hasChanged = true;
-                SwitchRoom(targetRoom, targetDoor, dir);
-            }
-        }
-        BlackImage.SetActive(false);
         playerController.SetReactable(true);
     }
-    private void SwitchRoom(GameObject targetRoom, Transform targetDoor, float dir)
+
+    //房间的切换
+    public void SwitchRoom(GameObject targetRoom, Transform targetDoor)
     {
         //切换房间
         if (currentRoom != null)
             currentRoom.SetActive(false);
 
-        targetRoom.SetActive(true);
         currentRoom = targetRoom;
+        //显示房间
+        targetRoom.SetActive(true);
         //人物位置设置
         Transform playerPos = targetDoor.Find("PlayerPos");
         if (playerPos != null)
@@ -185,6 +172,7 @@ public class GameManager : MonoBehaviour
         }
         //房间初始化
         RoomInit();
+        
     }
     private void RoomInit()
     {
