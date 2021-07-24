@@ -15,6 +15,7 @@ public class AttackState : FSMState
     private float loadSprintTimer;
     
     private bool loading = true;
+    private bool firstAttack = true;
 
     public override void Init()
     {
@@ -59,7 +60,7 @@ public class AttackState : FSMState
         {
             MeleeAttack(fsm);
             //Debug.Log(loadSprintTimer);
-            if(fsm.Sprinting)
+            if(fsm.Sprinting&&firstAttack)
             {
                 var targetArray = Physics2D.OverlapCircleAll(fsm.transform.position, 0.5f);
                 foreach (var target in targetArray)
@@ -69,6 +70,7 @@ public class AttackState : FSMState
                         //命中玩家攻击结束
                         Debug.Log("Sprint_attack_finish_attack_sucess");
                         target.GetComponent<PlayerController>().TakenDamage(fsm.damage, 4 * (target.transform.position - fsm.transform.position));
+                        firstAttack = false;
                         break;
                     }
                 }
@@ -133,6 +135,7 @@ public class AttackState : FSMState
         }
         else
         {
+            firstAttack = true;
             loading = true;
             loadSprintTimer = fsm.initLoadStimer;
         }
