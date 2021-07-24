@@ -41,6 +41,7 @@ public class AttackState : FSMState
             fsm.initSprintTimer = -1;
             shootTimeGap = fsm.attackInterval;
             fsm.animator.SetBool("attack", true);
+            
         }
         else
         {
@@ -50,6 +51,8 @@ public class AttackState : FSMState
             sprintTimer = fsm.initSprintTimer;
             fsm.animator.SetBool("Sprint", true);
         }
+
+        
     }
 
     public override void ActionState(FSMBase fsm)
@@ -103,6 +106,7 @@ public class AttackState : FSMState
                 fsm.textureClip(dir);
                 hadShoot = true;
                 remoteAttack_Achieve(fsm);
+                fsm.enemyAudio.PlayOneShot(fsm.attackClip);
             }
         }
         else
@@ -121,6 +125,7 @@ public class AttackState : FSMState
     private void StartSprint(FSMBase fsm)
     {
         //开始冲刺
+        fsm.enemyAudio.PlayOneShot(fsm.attackClip);
         fsm.Sprinting = true;
         fsm.SprintDir = (fsm.targetTF.position - fsm.transform.position).normalized;
         fsm.initSprintTimer = sprintTimer;
@@ -206,7 +211,7 @@ public class AttackState : FSMState
             //开始冲刺
             else
             {
-                Debug.Log("开始冲刺");
+                //Debug.Log("开始冲刺");
                 StartSprint(fsm);
             }
         }
@@ -219,7 +224,7 @@ public class AttackState : FSMState
             fsm.initSprintTimer -= Time.deltaTime;
             if (fsm.initSprintTimer <= 0)
             {
-                Debug.Log("冲刺结束");
+                //Debug.Log("冲刺结束");
                 fsm.initLoadStimer = loadSprintTimer;
                 fsm.Sprinting = false;
             }

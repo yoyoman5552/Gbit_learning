@@ -65,6 +65,11 @@ public class SceneController : MonoBehaviour
     private bool exitScene2 = false;
     private bool enterScene3 = false;
 
+
+    public float initLoadSceneEnter;
+    private float loadSceneEnter;
+    public float initLoadSceneEnterLoad;
+    private float loadSceneEnterLoad;
     //关灯过程时间
     public float initLoadSceneTime;
     private float loadSceneTime;
@@ -81,7 +86,7 @@ public class SceneController : MonoBehaviour
     //载入界面加载完成
     private bool scene3Loaded;
 
-    //音频
+    //载入界面音频
     public GameObject loadAudio;
     private AudioSource loadAudioSource;
 
@@ -104,10 +109,17 @@ public class SceneController : MonoBehaviour
     //开始进入游戏场景
     private bool wordFinish = false;
 
+
+    //按钮音频
+    public AudioSource buttonAudio;
+    public AudioClip enterGameAudio;
+    public AudioClip enterGameAudio2;
     // Start is called before the first frame update
     void Start()
     {
         ComponentInit();
+        loadSceneEnterLoad = initLoadSceneEnterLoad;
+        loadSceneEnter = initLoadSceneEnter;
         textColor = subtitle.color;
         subtitleShowTime = initSubtitleShowTime;
         subtitleLoadTime = initSubtitleLoadTime;
@@ -188,11 +200,11 @@ public class SceneController : MonoBehaviour
         {
 
             canChangeScene = false;
-            loadSceneTime -= Time.deltaTime;
-            if (loadSceneTime > 0)
+            loadSceneEnter -= Time.deltaTime;
+            if (loadSceneEnter > 0)
             {
 
-                coverBlackSet.w += (Time.deltaTime * 255 / initLoadSceneTime) / 255;
+                coverBlackSet.w += (Time.deltaTime * 255 / initLoadSceneEnter) / 255;
                 coverBlack.color = coverBlackSet;
             }
 
@@ -201,33 +213,33 @@ public class SceneController : MonoBehaviour
                 exitScene1 = false;
                 enterScene2 = true;
                 currentScene = 2;
-                loadSceneTime = initLoadSceneTime;
+                loadSceneEnter = initLoadSceneEnter;
             }
         }
         else if (enterScene2)
         {
-            loadSceneTime -= Time.deltaTime;
-            if (loadSceneTime > 0)
+            loadSceneEnter -= Time.deltaTime;
+            if (loadSceneEnter > 0)
             {
-                coverBlackSet.w -= (Time.deltaTime * 255 / initLoadSceneTime) / 255;
+                coverBlackSet.w -= (Time.deltaTime * 255 / initLoadSceneEnter) / 255;
                 coverBlack.color = coverBlackSet;
             }
             else
             {
                 canChangeScene = true;
                 enterScene2 = false;
-                loadSceneTime = initLoadSceneTime;
+                loadSceneEnter = initLoadSceneEnter;
                 blackCover.SetActive(false);
             }
         }
         else if (exitScene2)
         {
             canChangeScene = false;
-            loadSceneTime -= Time.deltaTime;
-            if (loadSceneTime > 0)
+            loadSceneEnterLoad -= Time.deltaTime;
+            if (loadSceneEnterLoad > 0)
             {
 
-                coverBlackSet.w += (Time.deltaTime * 255 / initLoadSceneTime) / 255;
+                coverBlackSet.w += (Time.deltaTime * 255 / initLoadSceneEnterLoad) / 255;
                 coverBlack.color = coverBlackSet;
             }
 
@@ -239,18 +251,18 @@ public class SceneController : MonoBehaviour
                 title.SetActive(false);
                 loadAudio.SetActive(true);
                 currentScene = 3;
-                loadSceneTime = initLoadSceneTime;
+                loadSceneEnterLoad = initLoadSceneEnterLoad;
             }
 
         }
         else if (enterScene3)
         {
-            loadSceneTime -= Time.deltaTime;
-            if (loadSceneTime > 0)
+            loadSceneEnterLoad -= Time.deltaTime;
+            if (loadSceneEnterLoad > 0)
             {
-                loadAudioSource.volume += Time.deltaTime / initLoadSceneTime;
+                loadAudioSource.volume += Time.deltaTime / initLoadSceneEnterLoad;
                 if (loadAudioSource.volume > 1) loadAudioSource.volume = 1;
-                coverBlackSet.w -= (Time.deltaTime * 255 / initLoadSceneTime) / 255;
+                coverBlackSet.w -= (Time.deltaTime * 255 / initLoadSceneEnterLoad) / 255;
                 coverBlack.color = coverBlackSet;
             }
             else
@@ -258,7 +270,7 @@ public class SceneController : MonoBehaviour
                 canChangeScene = true;
                 enterScene3 = false;
                 scene3Loaded = true;
-                loadSceneTime = initLoadSceneTime;
+                loadSceneEnterLoad = initLoadSceneEnterLoad;
                 blackCover.SetActive(false);
             }
         }
@@ -286,6 +298,7 @@ public class SceneController : MonoBehaviour
         {
             if (currentScene == 1)
             {
+                buttonAudio.PlayOneShot(enterGameAudio);
                 if (Scene1Select == 1)
                 {
                     exitScene1 = true;
@@ -296,6 +309,7 @@ public class SceneController : MonoBehaviour
             }
             else if (currentScene == 2)
             {
+                buttonAudio.PlayOneShot(enterGameAudio2);
                 //当前只有第一关卡可选
                 exitScene2 = true;
 

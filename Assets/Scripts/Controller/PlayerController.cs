@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     private bool isJump;
+
     //是否能够移动  //控制跳跃不能移动
     private bool walkAble;
     //控制人物任何状况不能移动
@@ -78,7 +79,8 @@ public class PlayerController : MonoBehaviour
     {
         throw new NotImplementedException();
     }
-
+    //
+    
     //受击时间
     private float hurtedTimer;
     //人物材质
@@ -89,11 +91,15 @@ public class PlayerController : MonoBehaviour
     //是否能够交互
     private bool eAble;
 
+    //
+    public GameObject playerAudio;
+    //public AudioClip walkClip;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
     private void Awake()
     {
+        
         rb = this.GetComponent<Rigidbody2D>();
         playerChildTF = this.transform.Find("PlayerChild");
         playerFakeChild = this.transform.Find("PlayerChild");
@@ -110,6 +116,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        playerAudio.SetActive(false);
         //MouseManager.Instance.OnMouseClicked += MoveToTarget;
         m_speed = moveSpeed;
         //m_hp = MaxHP;
@@ -321,9 +328,19 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = moveDir.normalized * m_speed * Time.fixedDeltaTime * ConstantList.speedPer;
             //移动动画
             if (moveDir != Vector2.zero)
+            {
                 playerAnimator.SetBool("IsWalking", true);
+
+                playerAudio.SetActive(true);
+                
+            }
+
             else
+            {
                 playerAnimator.SetBool("IsWalking", false);
+                playerAudio.SetActive(false);
+            }
+
         }
         else
         {
@@ -467,4 +484,5 @@ public class PlayerController : MonoBehaviour
         m_scale = originScale * ratio;
         sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
     }
+  
 }
