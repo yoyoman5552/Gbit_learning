@@ -218,7 +218,7 @@ MonoBehaviour:
   SprintSpeed: 0
   initLoadStimer: 0
   idleTime: 0
-  hurtedTime: 4
+  hurtedTime: 0.2
   HurtedSpeed: 1
   attackInterval: 2
   damage: 0
