@@ -129,6 +129,10 @@ public abstract class FSMBase : MonoBehaviour
     //动画
     public Animator animator;
 
+    public AudioSource enemyAudio;
+    public AudioClip attackClip;
+    public AudioClip GetHurtClip;
+
     private void Awake()
     {
         Init();
@@ -136,6 +140,7 @@ public abstract class FSMBase : MonoBehaviour
     //初始化怪物数据
     private void Init()
     {
+        enemyAudio.Pause();
         //初始化Component的东西
         InitComponent();
         //配置状态机
@@ -360,6 +365,8 @@ public abstract class FSMBase : MonoBehaviour
             else
                 sprite.flipX = true;
             rb.velocity = dir * GetHurtSpeed;
+            enemyAudio.clip = GetHurtClip;
+            enemyAudio.Play();
             StartCoroutine(hurtedContinus(hurtedTime));
 
         }

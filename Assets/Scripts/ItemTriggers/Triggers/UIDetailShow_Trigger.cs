@@ -17,7 +17,7 @@ public class UIDetailShow_Trigger : ITrigger
         //Debug.Log("UIDetailShow:名称：" + name + ",详细：" + detail);
         //TODO:不同情况下调用不同弹窗
         //UIManager.Instance.CallTalkUI(detail);
-        UIManager.Instance.CallDetailUI(name, detail_title,detail_index, objectImage);
+        UIManager.Instance.CallDetailUI(name, detail_title,detail_index, objectImage,false);
 
     }
 }

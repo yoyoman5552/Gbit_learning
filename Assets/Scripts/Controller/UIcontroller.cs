@@ -12,10 +12,12 @@ public class UIcontroller : MonoBehaviour
     public string detailIndex;
     public string jigsawName;
     public string jigsawIndex;
+
     // Start is called before the first frame update
     void Start()
     {
 
+        
     }
 
     // Update is called once per frame
@@ -30,7 +32,8 @@ public class UIcontroller : MonoBehaviour
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)
             {
-                UIManager.Instance.CallDetailUI(detailName,detailTitle, detailIndex, detailSprite);
+                UIManager.Instance.CallDetailUI(detailName,detailTitle, detailIndex, detailSprite,true);
+
             }
             else if(getNumForManager == 1)
             {
