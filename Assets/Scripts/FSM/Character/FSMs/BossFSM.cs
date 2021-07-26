@@ -7,7 +7,7 @@ public class BossFSM : FSMBase {
     [Tooltip ("受伤阈值")]
     public float hurtedThreshold;
     //当前受伤值
-    [HideInInspector]
+    //    [HideInInspector]
     public float m_hurtedCount;
     [Tooltip ("炮台表，第一个为核心")]
     public GameObject[] batteryArray;
@@ -50,6 +50,19 @@ public class BossFSM : FSMBase {
         statesList.Add (dead);
 
         BossInit ();
+    }
+    public override void TakenDamage (int damage, Vector3 dir) {
+        if (!isHurted) {
+            HP = Mathf.Max (HP - damage, 0);
+            m_hurtedCount += damage;
+            isHurted = true;
+            material.SetFloat ("_FlashAmount", 1);
+            if (enemyAudio != null) {
+                enemyAudio.clip = GetHurtClip;
+                enemyAudio.Play ();
+            }
+            StartCoroutine (hurtedContinus (hurtedTime));
+        }
     }
     private void BossInit () {
         m_hurtedCount = 0;

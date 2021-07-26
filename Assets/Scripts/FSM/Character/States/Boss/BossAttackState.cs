@@ -17,7 +17,7 @@ public class BossAttackState : FSMState {
         waitTime = curveIndex = 0;
         batteryArray = bossFSM.batteryArray;
         fsm.animator.SetFloat ("AttackStateNum", bossFSM.attackStateNum);
-        fsm.animator.SetBool ("IsAttack", false);
+        fsm.animator.SetBool ("IsWeak", false);
     }
     public override void ActionState (FSMBase fsm) {
         if (waitTime > 0) {
