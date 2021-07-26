@@ -20,6 +20,7 @@ public class RecorderController : MonoBehaviour
     public string talkIndex2;
     public string talkIndex3;
     public string talkIndex4;
+    public string talkIndex5;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +70,7 @@ public class RecorderController : MonoBehaviour
                 if(Clip3timer<0)
                 {
                     UIManager.Instance.CallTalkUI(talkIndex4);
+                    Invoke("lastTalkUI", 0.1f);
                     clip3Play = false;
                     active = false;
                 }
@@ -86,6 +88,10 @@ public class RecorderController : MonoBehaviour
         GameManager.Instance.playerController.source.clip = clip3;
         GameManager.Instance.playerController.source.Play();
         clip3Play = true;
+    }
+    private void lastTalkUI()
+    {
+        UIManager.Instance.CallTalkUI(talkIndex5);
     }
 }
 
