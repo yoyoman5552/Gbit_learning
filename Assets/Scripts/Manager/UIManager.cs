@@ -8,7 +8,8 @@ using System.Collections.Generic;
 /// </summary>
 public class UIManager : MonoBehaviour
 {
-    public GameObject BatteryAudio;
+
+    public AudioClip colletBetterAudio;
 
     public static UIManager Instance;
     [Tooltip("背包UI")]
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        BatteryAudio.SetActive(false);
+        
         if (Instance != null)
         {
             Debug.LogError("UIManager多重实例");
@@ -117,7 +118,10 @@ public class UIManager : MonoBehaviour
         jigsawUI.SetActive(false);
         Time.timeScale = 0;
         if (hadSound)
-            BatteryAudio.SetActive(true);
+        {
+            GameManager.Instance.playerController.source.PlayOneShot(colletBetterAudio);
+            print("inthisFunction");
+        }
     }
     private void InitComponent()
     {
