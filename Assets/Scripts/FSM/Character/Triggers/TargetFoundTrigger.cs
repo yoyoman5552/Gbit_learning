@@ -5,8 +5,9 @@ public class TargetFoundTrigger : FSMTrigger {
         triggerID = FSMTriggerID.TargetFound;
     }
     public override bool HandleTrigger (FSMBase fsm) {
-        if (CheckTargetInLimit (fsm))
-            Debug.Log ("checktargetLimit:" + CheckTargetInLimit (fsm));
+        /*         if (CheckTargetInLimit (fsm))
+                    Debug.Log ("checktargetLimit:" + CheckTargetInLimit (fsm));
+         */
         return fsm.targetTF != null && CheckTargetInLimit (fsm);
     }
     public bool CheckTargetInLimit (FSMBase fsm) {
