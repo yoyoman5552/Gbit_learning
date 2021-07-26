@@ -10,6 +10,9 @@ public class BossDeadState : FSMState
     }
     public override void EnterState(FSMBase fsm)
     {
+        //boss死亡，切换成结束的bgm
+        BGMManager.Instance.ChangeBGM(BGMType.End);
+
         BossFSM bossFSM = fsm.GetComponent<BossFSM>();
         Debug.Log("Dead");
         fsm.animator.SetBool("IsDead", true);
@@ -28,7 +31,7 @@ public class BossDeadState : FSMState
         GameObject obj = GameObject.Instantiate(bossFSM.generateItem, bossFSM.generateItem.transform.position, Quaternion.identity);
         obj.SetActive(true);
         obj.transform.SetParent(bossFSM.transform);
-        
+
         //关掉自身的fsm
         fsm.enabled = false;
     }

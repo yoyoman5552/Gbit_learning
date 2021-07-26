@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public bool isGetHurt;
     [Header("私有变量")]
 
-   
+
     //跳跃速度
     private float jumpSpeed;
     //移动方向
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         throw new NotImplementedException();
     }
     //
-    
+
     //受击时间
     private float hurtedTimer;
     //人物材质
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        
+
         rb = this.GetComponent<Rigidbody2D>();
         playerChildTF = this.transform.Find("PlayerChild");
         playerFakeChild = this.transform.Find("PlayerChild");
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         //检测强制移动状态
         CheckMoveToTarget();
 
-        
+
         //按键检测
         //如果不可交互
         if (!reactAble || !walkAble)
@@ -257,11 +257,10 @@ public class PlayerController : MonoBehaviour
                     target.GetComponent<ActiveTrigger>().StartTrigger();
                 }
                 PressETarget = null;
-                break;
+                return;
         }
         if (target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
         {
-            Debug.Log("press E");
             PressETarget = target;
             playerAnimator.SetBool("IsPressE", true);
         }
@@ -279,12 +278,12 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckMoveToTarget()
     {
-/*         Debug.Log("isJump:" + isJump);
-        if (isJump)
-        {
-            Debug.Log("tr:" + transform.position + ",target:" + targetPos);
-            Debug.Log("distance:" + Vector3.Distance(transform.position, targetPos));
-        } */
+        /*         Debug.Log("isJump:" + isJump);
+                if (isJump)
+                {
+                    Debug.Log("tr:" + transform.position + ",target:" + targetPos);
+                    Debug.Log("distance:" + Vector3.Distance(transform.position, targetPos));
+                } */
         if (isJump && Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
             //满足了就说明移动完成
@@ -332,7 +331,7 @@ public class PlayerController : MonoBehaviour
                 playerAnimator.SetBool("IsWalking", true);
 
                 playerAudio.SetActive(true);
-                
+
             }
 
             else
@@ -484,5 +483,5 @@ public class PlayerController : MonoBehaviour
         m_scale = originScale * ratio;
         sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
     }
-  
+
 }

@@ -72,6 +72,15 @@ namespace EveryFunc
         easy,
         hard
     }
+    public enum BGMType
+    {
+        Search,
+        Attack,
+        BossBattle,
+        End,
+        Stop
+    }
+
     /// <summary>
     /// 常量列表
     /// </summary>
@@ -136,7 +145,7 @@ namespace EveryFunc
             float x, y;
             x = Random.Range(-1, 1);
             y = Random.Range(-1, 1);
-            return new Vector3(x, y,0).normalized;
+            return new Vector3(x, y, 0).normalized;
         }
     }
 

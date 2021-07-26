@@ -18,11 +18,11 @@ public class DeadState : FSMState
         fsm.animator.SetBool("die", true);
         Debug.Log("死亡");
         //fsm.gameObject.SetActive(false);
-        fsm.GetComponent<Collider2D>().enabled = false;
-        fsm.enemyAudio.mute = true;
-        fsm.Invoke("DeadDelay", 0.5f);
+        /* fsm.GetComponent<Collider2D>().enabled = false;
+        //fsm.enemyAudio.mute = true;
+        fsm.Invoke("DeadDelay", 2f);
         GameManager.Instance.CheckEnemy();
         //死亡之后状态机禁用
-        fsm.enabled = false;
+        fsm.enabled = false; */
     }
 }
