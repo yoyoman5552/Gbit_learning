@@ -14,7 +14,7 @@ public class BossAttackState : FSMState {
     }
     public override void EnterState (FSMBase fsm) {
         BossFSM bossFSM = fsm.GetComponent<BossFSM> ();
-        waitTime = curveIndex = 0;
+        waitTime = 0;
         batteryArray = bossFSM.batteryArray;
         fsm.animator.SetFloat ("AttackStateNum", bossFSM.attackStateNum);
         fsm.animator.SetBool ("IsWeak", false);
@@ -38,6 +38,7 @@ public class BossAttackState : FSMState {
     }
     public override void ExitState (FSMBase fsm) {
         //强制切换状态
+        curveIndex = (curveIndex + 1) % attackList.Length;
         for (int i = 0; i < ConstantList.batteryCount; i++) {
             batteryArray[i].GetComponent<BatteryFSM> ().ChangeActiveState (FSMStateID.BatteryIdle);
         }

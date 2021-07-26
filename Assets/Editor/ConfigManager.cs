@@ -51,6 +51,7 @@ public class ConfigMap : Editor
         FileInfo fileInfo = new FileInfo(path);
         StreamReader sd=fileInfo.OpenText();
         string[] strs = sd.ReadToEnd().Split('\n');
+        sd.Close();
         StreamWriter sw = new StreamWriter(Application.dataPath + "/StreamingAssets/AttackList.txt");
         //第一行是标签名，最后一行是空行
         for (int i = 1; i < strs.Length - 1; i++)
@@ -61,7 +62,7 @@ public class ConfigMap : Editor
             int j;
             for (j = 0; j < ConstantList.batteryCount; j++)
                 data.stateList[j] = Convert.ToInt32(row[j]);
-            data.durationTime = Convert.ToInt32(row[j]); ;
+            data.durationTime = Convert.ToSingle(row[j]); ;
             string JsonString = JsonUtility.ToJson(data);
             sw.Write(JsonString);
             //每个技能表之间加个@，作为分隔标记
@@ -69,7 +70,6 @@ public class ConfigMap : Editor
             
         }
         sw.Close();
-        sd.Close();
         /*         //打开excel表格 using表示只在{}内打开，{}后会释放资源
                 using (ExcelPackage package = new ExcelPackage(fileInfo))
                 {
