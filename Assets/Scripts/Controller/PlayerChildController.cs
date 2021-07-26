@@ -9,6 +9,8 @@ public class PlayerChildController : MonoBehaviour {
     public float lightStrength;
     public int heavyPause;
     public float heavyStrength;
+    [Tooltip("伤害数值")]
+    public int[] attackRatio=new int[]{1,5};
     [Tooltip ("伤害间隔")]
     public float attackInterval = 0.4f;
     //伤害类型
@@ -114,29 +116,16 @@ public class PlayerChildController : MonoBehaviour {
             } else if (attackType == BreakLevel.hard) {
                 AttackSense.Instance.HitPause (heavyPause);
                 AttackSense.Instance.CameraShake (shakeTime, heavyStrength);
-                //FIXME:测试，不应该这么做
-                /* if (other.CompareTag("Interactive"))
-                {
-                    if (other.GetComponent<ChangeRoom_Trigger>() != null)
-                    {
-                        //切换房间
-                        if (other.GetComponent<ConditionTrigger>() != null)
-                        {
-                            other.GetComponent<ConditionTrigger>().StartTrigger();
-                            return;
-                        }
-                        other.GetComponent<ItemTrigger>().StartTrigger();
-                        return;
-                    }
-                } */
-
                 //使用次数减1,检查武器的使用次数
                 armorTimes--;
                 CheckArmor ();
             }
 
             if (other.CompareTag ("Enemy")) {
-                other.GetComponent<FSMBase> ().TakenDamage ((int) attackType + 1, other.transform.position - this.transform.position);
+                if(attackType==BreakLevel.easy)
+                    other.GetComponent<FSMBase> ().TakenDamage (attackRatio[0], other.transform.position - this.transform.position);
+                if(attackType==BreakLevel.hard)
+                    other.GetComponent<FSMBase> ().TakenDamage (attackRatio[1], other.transform.position - this.transform.position);
 
                 /*                 if (mySprit.transform.localScale.x > 0)
                                     other.GetComponent<Enemy>().GetHit(Vector2.left);
