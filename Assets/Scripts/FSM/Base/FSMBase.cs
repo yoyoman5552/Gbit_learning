@@ -126,7 +126,7 @@ public abstract class FSMBase : MonoBehaviour {
     public AudioSource enemyAudio;
     public AudioClip attackClip;
     public AudioClip GetHurtClip;
-
+    public AudioClip deadClip;
     private void Awake () {
         Init ();
     }
@@ -249,7 +249,7 @@ public abstract class FSMBase : MonoBehaviour {
     //     }
     // }
     public void DeadDelay () {
-        
+
         this.gameObject.SetActive (false);
         GameManager.Instance.CheckEnemy ();
         Destroy (this.gameObject);
@@ -315,6 +315,17 @@ public abstract class FSMBase : MonoBehaviour {
 
     public virtual void TakenDamage (int damage, Vector3 dir) {
         if (!isHurted) {
+            if (HP - damage <=0)
+            {
+                enemyAudio.PlayOneShot(deadClip);
+            }
+            else
+            {
+                if (enemyAudio != null)
+                {
+                    enemyAudio.PlayOneShot(GetHurtClip);
+                }
+            }
             HP = Mathf.Max (HP - damage, 0);
             isHurted = true;
             material.SetFloat ("_FlashAmount", 1);
@@ -324,9 +335,7 @@ public abstract class FSMBase : MonoBehaviour {
             else
                 sprite.flipX = true;
             rb.velocity = dir * GetHurtSpeed;
-            if (enemyAudio != null) {
-                enemyAudio.PlayOneShot(GetHurtClip);
-            }
+            
             StartCoroutine (hurtedContinus (hurtedTime));
 
         }

@@ -34,6 +34,7 @@ public class PlayerChildController : MonoBehaviour {
     public AudioClip attackClip2;
     public AudioClip attackClip3;
     public AudioClip attackClip4;
+    public AudioClip HeavyAttackClip;
     //    private Vector3 childCorrectScale = new Vector3(1, 1, 1);
     private void Awake () {
         mySprit = GetComponent<SpriteRenderer> ();
@@ -87,6 +88,7 @@ public class PlayerChildController : MonoBehaviour {
             } else if (attackType == BreakLevel.hard) {
                 Debug.Log ("heavyAttack");
                 playerAnimator.SetTrigger ("HeavyAttack");
+                attackAudio.PlayOneShot(HeavyAttackClip);
                 controller.SetSpeed (controller.moveSpeed * controller.heavyAttackMoveSpeedPer);
             }
         }
