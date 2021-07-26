@@ -214,6 +214,7 @@ public class SceneController : MonoBehaviour
                 enterScene2 = true;
                 currentScene = 2;
                 loadSceneEnter = initLoadSceneEnter;
+                title.SetActive(false);
             }
         }
         else if (enterScene2)
@@ -248,7 +249,7 @@ public class SceneController : MonoBehaviour
                 background.sprite = backgroundSprite_toChange;
                 exitScene2 = false;
                 enterScene3 = true;
-                title.SetActive(false);
+               
                 loadAudio.SetActive(true);
                 currentScene = 3;
                 loadSceneEnterLoad = initLoadSceneEnterLoad;
