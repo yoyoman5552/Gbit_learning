@@ -5761,6 +5761,39 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!60 &184468641
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184468639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.24966894, y: 0.44697517}
+    oldSize: {x: 2.47, y: 2.54}
+    newSize: {x: 0.8125, y: 1.21875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.46500888, y: 1.3673543}
+      - {x: -0.4826202, y: 1.1942934}
+      - {x: -0.5470226, y: 0.5614391}
+      - {x: -0.07320389, y: -0.030838527}
+      - {x: 0.07686332, y: -0.96732545}
+      - {x: 1.79303, y: -0.9236928}
+      - {x: 1.6132165, y: 1.1930746}
+      - {x: -0.45983064, y: 1.3310704}
 --- !u!114 &184468644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32498,7 +32531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1069956037
 Transform:
   m_ObjectHideFlags: 0
@@ -48209,7 +48242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1624765159
 Transform:
   m_ObjectHideFlags: 0
