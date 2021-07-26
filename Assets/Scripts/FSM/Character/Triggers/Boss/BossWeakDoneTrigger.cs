@@ -8,7 +8,7 @@ public class BossWeakDoneTrigger : FSMTrigger
     }
     public override bool HandleTrigger(FSMBase fsm)
     {
-        return fsm.hurtedTime < 0;
+        return fsm.idleTime < 0;
     }
 
 }

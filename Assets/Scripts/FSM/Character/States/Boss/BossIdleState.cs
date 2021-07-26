@@ -11,7 +11,6 @@ public class BossIdleState : FSMState
     public override void EnterState(FSMBase fsm)
     {
         //借由外力将其关掉
-        fsm.idleTime = 1;
     }
     public override void ActionState(FSMBase fsm)
     {
