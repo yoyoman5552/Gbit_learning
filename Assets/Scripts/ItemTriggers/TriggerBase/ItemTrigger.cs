@@ -27,4 +27,9 @@ public class ItemTrigger : MonoBehaviour
     {
 
     }
+    //是否是展示UI
+    public bool IsShowUI(ITrigger targetTrigger)
+    {
+        return targetTrigger.GetType() == typeof(UIEasyShow_Trigger) || targetTrigger.GetType() == typeof(UIDetailShow_Trigger);
+    }
 }

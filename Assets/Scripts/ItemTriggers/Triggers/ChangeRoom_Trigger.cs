@@ -24,7 +24,7 @@ public class ChangeRoom_Trigger : ITrigger
         if (targetRoom != null)
         {
             Debug.Log("切换房间：" + targetRoom.name);
-            GameManager.Instance.ChangeRoom(targetRoom, targetDoor.transform, this.transform);
+            GameManager.Instance.ChangeRoom(targetRoom, targetDoor.transform, this.transform,changeRoomType);
         }
         else
         {

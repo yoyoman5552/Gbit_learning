@@ -4,6 +4,7 @@ using UnityEngine;
 public class StartActiveTrigger : ItemTrigger {
 
     private void OnEnable () {
+        Debug.Log("enable");
         StartTrigger ();
     }
     private void Update () {

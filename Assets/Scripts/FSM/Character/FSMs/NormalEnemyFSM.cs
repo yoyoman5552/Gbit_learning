@@ -4,6 +4,10 @@ namespace EveryFunc.FSM
 {
     public class NormalEnemyFSM : FSMBase
     {
+        private void OnEnable()
+        {
+            BGMManager.Instance.ChangeBGM(BGMType.Attack);
+        }
         public override void ConfigFSM()
         {
             if (statesList != null) return;
