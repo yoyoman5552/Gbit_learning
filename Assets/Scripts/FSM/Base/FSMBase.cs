@@ -127,7 +127,7 @@ public abstract class FSMBase : MonoBehaviour
     public AudioSource enemyAudio;
     public AudioClip attackClip;
     public AudioClip GetHurtClip;
-
+    public AudioClip deadClip;
     private void Awake()
     {
         Init();
@@ -349,9 +349,17 @@ public abstract class FSMBase : MonoBehaviour
         if (HP <= 0) return;
         if (!isHurted)
         {
-            if (enemyAudio != null)
+            if (HP - damage <= 0)
             {
-                enemyAudio.PlayOneShot(GetHurtClip);
+                if (enemyAudio != null)
+                    enemyAudio.PlayOneShot(deadClip);
+            }
+            else
+            {
+                if (enemyAudio != null)
+                {
+                    enemyAudio.PlayOneShot(GetHurtClip);
+                }
             }
             HP = Mathf.Max(HP - damage, 0);
             isHurted = true;

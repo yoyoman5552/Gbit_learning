@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8485331726889017935}
   - component: {fileID: 3770822875533872559}
   - component: {fileID: 4859723619094030036}
+  - component: {fileID: 4970271010129060138}
+  - component: {fileID: 2345232640929196003}
   m_Layer: 0
   m_Name: RedBullet
   m_TagString: Breakable
@@ -120,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c04db95ca261b14a88c10b8a5bb833c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeV: 0
   initSetBulletFalseTimer: 100
   damage: 1
 --- !u!58 &3770822875533872559
@@ -151,3 +154,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+--- !u!114 &4970271010129060138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940256493345003942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e756494171ab7a9439f655d8631dd8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 84282d4f1b7b49c4a994a9c9fd585f0a, type: 3}
+--- !u!114 &2345232640929196003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940256493345003942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbe4daa64334694ea3a70500b60fc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerList:
+  - {fileID: 4970271010129060138}
+  isActive: 1
+  itemList: []
+  currentIndex: 0

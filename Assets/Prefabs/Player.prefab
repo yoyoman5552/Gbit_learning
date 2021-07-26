@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1443200487527352933}
   - component: {fileID: 2038833794119949586}
   m_Layer: 0
-  m_Name: AttackAudio
+  m_Name: PlayerAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bd7b6c0b5ecaab1448a29555b10dd5ea, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -716,7 +716,9 @@ MonoBehaviour:
   isGetHurt: 0
   source: {fileID: 0}
   PressETarget: {fileID: 0}
-  playerAudio: {fileID: 3795324710739832080}
+  walkAudio: {fileID: 3795324710739832080}
+  PlayerAudio: {fileID: 2038833794119949586}
+  hurtClip: {fileID: 8300000, guid: 762d32c1a8b274b42b8b4780f5bd845b, type: 3}
 --- !u!61 &166354676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -870,10 +872,11 @@ MonoBehaviour:
   attackType: 0
   isAttack: 0
   attackAudio: {fileID: 2038833794119949586}
-  attackClip1: {fileID: 8300000, guid: bd7b6c0b5ecaab1448a29555b10dd5ea, type: 3}
-  attackClip2: {fileID: 8300000, guid: e5da11d8e8dec7749a8186e9fe66be20, type: 3}
-  attackClip3: {fileID: 8300000, guid: 003f61f01a1a6eb498b8db6c80f0f37a, type: 3}
-  attackClip4: {fileID: 8300000, guid: c4ad83cebdb7fa4459e201d353be59f7, type: 3}
+  attackClip1: {fileID: 8300000, guid: 2448db87fb8039649babdc6b1c9c51ff, type: 3}
+  attackClip2: {fileID: 8300000, guid: e49061fbba7d15d48b1c7281f3b84ce1, type: 3}
+  attackClip3: {fileID: 8300000, guid: da762137ec7375a47be3dfdf7fb1a807, type: 3}
+  attackClip4: {fileID: 8300000, guid: a118640d87eea4f419fc655f81e86012, type: 3}
+  HeavyAttackClip: {fileID: 8300000, guid: bf089b290557962409d4a5b2a44ff556, type: 3}
 --- !u!61 &1176573137242192439
 BoxCollider2D:
   m_ObjectHideFlags: 0

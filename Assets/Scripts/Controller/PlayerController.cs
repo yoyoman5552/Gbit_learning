@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public bool isGetHurt;
     [Header("私有变量")]
 
-
+   
     //跳跃速度
     private float jumpSpeed;
     //移动方向
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         throw new NotImplementedException();
     }
     //
-
+    
     //受击时间
     private float hurtedTimer;
     //人物材质
@@ -92,14 +92,17 @@ public class PlayerController : MonoBehaviour
     private bool eAble;
 
     //
-    public GameObject playerAudio;
+    public GameObject walkAudio;
+
+    public AudioSource PlayerAudio;
+    public AudioClip hurtClip;
     //public AudioClip walkClip;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
 
     private void Awake()
     {
-
+        
         rb = this.GetComponent<Rigidbody2D>();
         playerChildTF = this.transform.Find("PlayerChild");
         playerFakeChild = this.transform.Find("PlayerChild");
@@ -116,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        playerAudio.SetActive(false);
+        walkAudio.SetActive(false);
         //MouseManager.Instance.OnMouseClicked += MoveToTarget;
         m_speed = moveSpeed;
         //m_hp = MaxHP;
@@ -126,7 +129,6 @@ public class PlayerController : MonoBehaviour
         hurtedTimer = 0;
         targetPos = Vector3.back;
         material = sprite.material;
-//        Debug.Log("sprite:" + sprite.transform.localScale);
         originScale = Mathf.Abs(sprite.transform.localScale.x);
         m_scale = originScale;
     }
@@ -143,7 +145,7 @@ public class PlayerController : MonoBehaviour
         //检测强制移动状态
         CheckMoveToTarget();
 
-
+        
         //按键检测
         //如果不可交互
         if (!reactAble || !walkAble)
@@ -201,6 +203,7 @@ public class PlayerController : MonoBehaviour
             isGetHurt = false;
             hurtedTimer -= Time.deltaTime;
             material.SetFloat("_FlashAmount", 1);
+            
         }
         else
         {
@@ -258,10 +261,11 @@ public class PlayerController : MonoBehaviour
                     target.GetComponent<ActiveTrigger>().StartTrigger();
                 }
                 PressETarget = null;
-                return;
+                break;
         }
         if (target.GetComponent<ItemTrigger>().isActive && PressETarget == null)
         {
+            Debug.Log("press E");
             PressETarget = target;
             playerAnimator.SetBool("IsPressE", true);
         }
@@ -279,12 +283,12 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckMoveToTarget()
     {
-        /*         Debug.Log("isJump:" + isJump);
-                if (isJump)
-                {
-                    Debug.Log("tr:" + transform.position + ",target:" + targetPos);
-                    Debug.Log("distance:" + Vector3.Distance(transform.position, targetPos));
-                } */
+/*         Debug.Log("isJump:" + isJump);
+        if (isJump)
+        {
+            Debug.Log("tr:" + transform.position + ",target:" + targetPos);
+            Debug.Log("distance:" + Vector3.Distance(transform.position, targetPos));
+        } */
         if (isJump && Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
             //满足了就说明移动完成
@@ -308,7 +312,7 @@ public class PlayerController : MonoBehaviour
             hurtedDir = dir.normalized;
         //FIXME:目前是一个血量一个状态
         GameManager.Instance.UpdateHurtedEffect(damage);
-
+        PlayerAudio.PlayOneShot(hurtClip);
     }
     /// 角色移动
     private void Move()
@@ -331,14 +335,14 @@ public class PlayerController : MonoBehaviour
             {
                 playerAnimator.SetBool("IsWalking", true);
 
-                playerAudio.SetActive(true);
-
+                walkAudio.SetActive(true);
+                
             }
 
             else
             {
                 playerAnimator.SetBool("IsWalking", false);
-                playerAudio.SetActive(false);
+                walkAudio.SetActive(false);
             }
 
         }
@@ -403,7 +407,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Flip(float dir)
     {
-        Debug.Log("转向:" + dir);
         if (dir == 1)
             sprite.transform.localScale = new Vector3(-m_scale, m_scale, m_scale);
         else if (dir == -1)
@@ -482,9 +485,8 @@ public class PlayerController : MonoBehaviour
     }
     public void SetScale(float ratio)
     {
-        float dir = sprite.transform.localScale.x > 0 ? 1 : -1;
         m_scale = originScale * ratio;
-        sprite.transform.localScale = new Vector3(m_scale * dir, m_scale, m_scale);
+        sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
     }
-
+  
 }
