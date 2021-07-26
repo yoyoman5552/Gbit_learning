@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         chromaticRatio = bloodIndex = 0;
         saveData = new SaveData();
         bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
-        globalLight = this.GetComponentInChildren<Light2D>();
+       // globalLight = this.GetComponentInChildren<Light2D>();
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerChildController = player.GetComponentInChildren<PlayerChildController>();

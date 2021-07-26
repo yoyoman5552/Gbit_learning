@@ -59,5 +59,5 @@
 6.	毒气数值调整：disappear为0.75s以上，appear为0.75（具体看动画时长
 7.	厨房的场景图材质从sprite-default改为sprite-lit-default
 8.	restroom的场景同上；交互物品的sortingLayer消失了;交互物品有个材质要改成itemMaterial
-9.	
+9.	播放bgm用的trigger
 
