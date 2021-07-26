@@ -132,8 +132,6 @@ public abstract class FSMBase : MonoBehaviour {
     }
     //初始化怪物数据
     private void Init () {
-        if (enemyAudio != null)
-            enemyAudio.Pause ();
         //初始化Component的东西
         InitComponent ();
         //配置状态机
@@ -251,6 +249,7 @@ public abstract class FSMBase : MonoBehaviour {
     //     }
     // }
     public void DeadDelay () {
+        
         this.gameObject.SetActive (false);
         GameManager.Instance.CheckEnemy ();
         Destroy (this.gameObject);
@@ -326,8 +325,7 @@ public abstract class FSMBase : MonoBehaviour {
                 sprite.flipX = true;
             rb.velocity = dir * GetHurtSpeed;
             if (enemyAudio != null) {
-                enemyAudio.clip = GetHurtClip;
-                enemyAudio.Play ();
+                enemyAudio.PlayOneShot(GetHurtClip);
             }
             StartCoroutine (hurtedContinus (hurtedTime));
 

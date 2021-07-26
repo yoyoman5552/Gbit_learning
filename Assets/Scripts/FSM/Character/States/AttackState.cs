@@ -106,7 +106,9 @@ public class AttackState : FSMState
                 fsm.textureClip(dir);
                 hadShoot = true;
                 remoteAttack_Achieve(fsm);
-                fsm.enemyAudio.PlayOneShot(fsm.attackClip);
+
+                //该音效效果太差，暂时不用
+                //fsm.enemyAudio.PlayOneShot(fsm.attackClip);
             }
         }
         else
