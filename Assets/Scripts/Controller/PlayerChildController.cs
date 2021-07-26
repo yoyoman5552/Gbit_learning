@@ -28,7 +28,11 @@ public class PlayerChildController : MonoBehaviour
     private PlayerController controller;
     //是否可以进行攻击操作
     private bool fightLimit;
-
+    public AudioSource attackAudio;
+    public AudioClip attackClip1;
+    public AudioClip attackClip2;
+    public AudioClip attackClip3;
+    public AudioClip attackClip4;
     //    private Vector3 childCorrectScale = new Vector3(1, 1, 1);
     private void Awake()
     {
@@ -41,6 +45,7 @@ public class PlayerChildController : MonoBehaviour
     {
         timer = attackInterval;
         fightLimit = false;
+        attackAudio.Pause();
     }
 
     // Update is called once per frame
@@ -70,7 +75,26 @@ public class PlayerChildController : MonoBehaviour
                 playerAnimator.SetInteger("ComboStep", comboStep + 1);
                 comboStep = (comboStep + 1) % 4;
                 controller.SetSpeed(controller.moveSpeed * controller.lightAttackMoveSpeedPer);
+
+                switch(comboStep)
+                {
+                    case 0:
+                        attackAudio.clip = attackClip1;
+                        break;
+                    case 1:
+                        attackAudio.clip = attackClip2;
+                        break;
+                    case 2:
+                        attackAudio.clip = attackClip3;
+                        break;
+                    case 3:
+                        attackAudio.clip = attackClip4;
+                        break;
+                }
+                attackAudio.Play();
+                
             }
+            
             else if (attackType == BreakLevel.hard)
             {
                 Debug.Log("heavyAttack");
@@ -91,6 +115,8 @@ public class PlayerChildController : MonoBehaviour
     }
     public void AttackOver()
     {
+        //attackAudio.Pause();
+        
         timer = attackInterval;
         isAttack = false;
         controller.ResetSpeed();
@@ -201,4 +227,5 @@ public class PlayerChildController : MonoBehaviour
     {
         fightLimit = false;
     }
+
 }

@@ -8,6 +8,8 @@ using System.Collections.Generic;
 /// </summary>
 public class UIManager : MonoBehaviour
 {
+    public GameObject BatteryAudio;
+
     public static UIManager Instance;
     [Tooltip("背包UI")]
     public GameObject bagUIOBJ;
@@ -46,6 +48,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        BatteryAudio.SetActive(false);
         if (Instance != null)
         {
             Debug.LogError("UIManager多重实例");
@@ -96,7 +99,7 @@ public class UIManager : MonoBehaviour
         jigsawUI.SetActive(false);
         Time.timeScale = 0;
     }
-    public void CallDetailUI(string name, string detail_title,string detail_index, Sprite showObject)
+    public void CallDetailUI(string name, string detail_title,string detail_index, Sprite showObject,bool hadSound)
     {
         //显示物品信息UI
         //BackGround = PopUpWindow.transform.GetChild(0).GetComponent<Image>();
@@ -113,6 +116,8 @@ public class UIManager : MonoBehaviour
         talkWindow.SetActive(false);
         jigsawUI.SetActive(false);
         Time.timeScale = 0;
+        if (hadSound)
+            BatteryAudio.SetActive(true);
     }
     private void InitComponent()
     {
