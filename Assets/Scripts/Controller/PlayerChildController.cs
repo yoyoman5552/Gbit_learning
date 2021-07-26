@@ -44,7 +44,6 @@ public class PlayerChildController : MonoBehaviour {
     void Start () {
         timer = attackInterval;
         fightLimit = false;
-        attackAudio.Pause ();
     }
 
     // Update is called once per frame
@@ -67,26 +66,26 @@ public class PlayerChildController : MonoBehaviour {
 
                 switch (comboStep) {
                     case 0:
-                        attackAudio.clip = attackClip1;
+                        attackAudio.PlayOneShot(attackClip1);
                         break;
                     case 1:
-                        attackAudio.clip = attackClip2;
+                        attackAudio.PlayOneShot(attackClip2);
                         break;
                     case 2:
-                        attackAudio.clip = attackClip3;
+                        attackAudio.PlayOneShot(attackClip3);
                         break;
                     case 3:
-                        attackAudio.clip = attackClip4;
+                        attackAudio.PlayOneShot(attackClip4);
                         break;
                 }
-                attackAudio.Play ();
-//                Debug.Log ("easyAttack");
+                //attackAudio.Play ();
+                Debug.Log ("easyAttack");
                 playerAnimator.SetTrigger ("LightAttack");
                 playerAnimator.SetInteger ("ComboStep", comboStep + 1);
                 comboStep = (comboStep + 1) % 4;
                 controller.SetSpeed (controller.moveSpeed * controller.lightAttackMoveSpeedPer);
             } else if (attackType == BreakLevel.hard) {
-//                Debug.Log ("heavyAttack");
+                Debug.Log ("heavyAttack");
                 playerAnimator.SetTrigger ("HeavyAttack");
                 controller.SetSpeed (controller.moveSpeed * controller.heavyAttackMoveSpeedPer);
             }
