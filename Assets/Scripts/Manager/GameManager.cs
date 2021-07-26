@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
         {
             bloodRenderer.color = bloodRenderer.color - new Color(0, 0, 0, Time.deltaTime / 5);
         }
-        chromaticAberration.intensity.value = Mathf.Clamp(bloodRenderer.color.a, 0, 0.2f);
+        if (chromaticAberration.intensity.value > 0)
+            chromaticAberration.intensity.value = chromaticAberration.intensity.value - Time.deltaTime/5;
     }
     public Volume targetVolume;
     private void InitComponent()
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("roomList length:" + roomList.Count);
         foreach (var room in roomList)
         {
-            //Debug.Log("roomList+:" + room.name);
+            Debug.Log("roomList+:" + room.name);
             room.transform.position = Vector3.zero;
             room.SetActive(false);
         }
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
     /// <param name="targetRoom">目标房间</param>
     public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
     {
+        
         //保存数据
         SaveData(targetRoom, lastDoor);
 
@@ -135,16 +137,24 @@ public class GameManager : MonoBehaviour
         //判断切换方式
         if (changeRoomType == ChangeRoomType.normal)
         {
-            normalChangeRoom(targetRoom, targetDoor);
+            NormalChangeRoom(targetRoom, targetDoor);
+        }
+        else if (changeRoomType == ChangeRoomType.SBTimeTrip)
+        {
+            SpecialChangeRoom(targetRoom, targetDoor);
         }
     }
-    private void normalChangeRoom(GameObject targetRoom, Transform targetDoor)
+    private void NormalChangeRoom(GameObject targetRoom, Transform targetDoor)
     {
         //播放切换房间动画
         if (player.transform.position.x >= 0)
             BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("右切", targetRoom, targetDoor);
         else
             BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("左切", targetRoom, targetDoor);
+    }
+    private void SpecialChangeRoom(GameObject targetRoom, Transform targetDoor)
+    {
+        BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("中切", targetRoom, targetDoor);
     }
 
     //开始房间
@@ -258,6 +268,9 @@ public class GameManager : MonoBehaviour
             //            PlayerDead();
         }
         bloodIndex = (bloodIndex + damage) % bloodPicture.Length;
+
+        //设置色差效果
+        chromaticAberration.intensity.value = (float)bloodIndex / bloodPicture.Length;
     }
     IEnumerator RestartGameDelay()
     {

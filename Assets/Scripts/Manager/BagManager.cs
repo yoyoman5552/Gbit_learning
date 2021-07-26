@@ -50,6 +50,9 @@ public class BagManager
         itemList.Add(item.name, item);
         UIManager.Instance.UpdateBagUI(itemList);
     }
+    public void ShowCount(){
+        
+    }
     /*     public int FindItemID(string itemName){
         }
      */

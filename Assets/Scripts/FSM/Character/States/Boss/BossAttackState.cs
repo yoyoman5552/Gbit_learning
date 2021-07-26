@@ -20,7 +20,7 @@ public class BossAttackState : FSMState
         BGMManager.Instance.ChangeBGM(BGMType.BossBattle);
 
         BossFSM bossFSM = fsm.GetComponent<BossFSM>();
-        waitTime = curveIndex = 0;
+        waitTime = 0;
         batteryArray = bossFSM.batteryArray;
         fsm.animator.SetFloat("AttackStateNum", bossFSM.attackStateNum);
         fsm.animator.SetBool("IsWeak", false);
@@ -44,9 +44,13 @@ public class BossAttackState : FSMState
         }
         //进入下一个状态
         curveIndex = (curveIndex + 1) % attackList.Length;
+
     }
     public override void ExitState(FSMBase fsm)
     {
+        //被进入虚弱状态，将没有打完的波数进1
+        curveIndex = (curveIndex + 1) % attackList.Length;
+
         //强制切换状态
         for (int i = 0; i < ConstantList.batteryCount; i++)
         {
@@ -63,5 +67,7 @@ public class BossAttackState : FSMState
         {
             attackList[i] = JsonUtility.FromJson<BossAttackCurve>(strs[i]);
         }
+        
+        curveIndex=0;
     }
 }

@@ -126,6 +126,7 @@ public class PlayerController : MonoBehaviour
         hurtedTimer = 0;
         targetPos = Vector3.back;
         material = sprite.material;
+//        Debug.Log("sprite:" + sprite.transform.localScale);
         originScale = Mathf.Abs(sprite.transform.localScale.x);
         m_scale = originScale;
     }
@@ -402,6 +403,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Flip(float dir)
     {
+        Debug.Log("转向:" + dir);
         if (dir == 1)
             sprite.transform.localScale = new Vector3(-m_scale, m_scale, m_scale);
         else if (dir == -1)
@@ -480,8 +482,9 @@ public class PlayerController : MonoBehaviour
     }
     public void SetScale(float ratio)
     {
+        float dir = sprite.transform.localScale.x > 0 ? 1 : -1;
         m_scale = originScale * ratio;
-        sprite.transform.localScale = new Vector3(m_scale, m_scale, m_scale);
+        sprite.transform.localScale = new Vector3(m_scale * dir, m_scale, m_scale);
     }
 
 }

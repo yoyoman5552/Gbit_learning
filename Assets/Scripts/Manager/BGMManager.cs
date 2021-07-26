@@ -25,7 +25,7 @@ public class BGMManager : MonoBehaviour
         else
         {
             currentType = changeType;
-            Debug.Log("now type:"+currentType);
+//            Debug.Log("now type:"+currentType);
         }
         source.clip = clips[(int)currentType];
         source.Play();  
