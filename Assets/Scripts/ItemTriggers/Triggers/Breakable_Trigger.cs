@@ -11,7 +11,7 @@ public class Breakable_Trigger : ITrigger
     }
     public override void Action()
     {
-        Debug.Log("障碍物等级:" + level.ToString());
+//        Debug.Log("障碍物等级:" + level.ToString());
         this.gameObject.SetActive(false);
         //Destroy(this.gameObject, 2f);
         if (itemTrigger != null)
