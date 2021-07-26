@@ -92,7 +92,10 @@ public class PlayerController : MonoBehaviour
     private bool eAble;
 
     //
-    public GameObject playerAudio;
+    public GameObject walkAudio;
+
+    public AudioSource PlayerAudio;
+    public AudioClip hurtClip;
     //public AudioClip walkClip;
     //画面血渍
     //private SpriteRenderer GameManager.Instance.bloodEffect;
@@ -116,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        playerAudio.SetActive(false);
+        walkAudio.SetActive(false);
         //MouseManager.Instance.OnMouseClicked += MoveToTarget;
         m_speed = moveSpeed;
         //m_hp = MaxHP;
@@ -200,6 +203,7 @@ public class PlayerController : MonoBehaviour
             isGetHurt = false;
             hurtedTimer -= Time.deltaTime;
             material.SetFloat("_FlashAmount", 1);
+            
         }
         else
         {
@@ -308,7 +312,7 @@ public class PlayerController : MonoBehaviour
             hurtedDir = dir.normalized;
         //FIXME:目前是一个血量一个状态
         GameManager.Instance.UpdateHurtedEffect(damage);
-
+        PlayerAudio.PlayOneShot(hurtClip);
     }
     /// 角色移动
     private void Move()
@@ -331,14 +335,14 @@ public class PlayerController : MonoBehaviour
             {
                 playerAnimator.SetBool("IsWalking", true);
 
-                playerAudio.SetActive(true);
+                walkAudio.SetActive(true);
                 
             }
 
             else
             {
                 playerAnimator.SetBool("IsWalking", false);
-                playerAudio.SetActive(false);
+                walkAudio.SetActive(false);
             }
 
         }

@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddec990a1eea22b459e0e3fb84e9cd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryAudio: {fileID: 6995388171803913807, guid: 62ccd62d87ab9fa4597feccd35265a76, type: 3}
+  colletBetterAudio: {fileID: 8300000, guid: 9c6ab8367f9ba3a4ab9d29edfcd1f9e7, type: 3}
   bagUIOBJ: {fileID: 885971913}
   talkWindow: {fileID: 1845577826}
   PopUpWindow: {fileID: 1785929632}

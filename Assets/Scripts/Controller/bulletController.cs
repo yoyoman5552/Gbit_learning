@@ -59,7 +59,7 @@ public class bulletController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             initTimeFlag();
-
+            
         }
         else if (collider.CompareTag("Player"))
         {

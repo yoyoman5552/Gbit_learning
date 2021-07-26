@@ -202,6 +202,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1080496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -420,7 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C2"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &29254128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +438,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 29254127}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &29254129
 BoxCollider2D:
@@ -816,7 +818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 21300000, guid: efd8d73b002c577449995911bbc1aa5e, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u78C1\u5E26"
+  detail_title: 
+  detail_index: 
 --- !u!114 &60371248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,7 +836,7 @@ MonoBehaviour:
   - {fileID: 60371246}
   - {fileID: 60371247}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &60371249
 BoxCollider2D:
@@ -1145,6 +1148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 273025358}
+  addFlag: 1
 --- !u!114 &89481476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,7 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: 481faf3d5df8f7d459d4b2c4682c1e6f, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+  detail_title: 
+  detail_index: 
 --- !u!114 &89481479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,7 +1209,7 @@ MonoBehaviour:
   - {fileID: 89481475}
   - {fileID: 89481477}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &89481480
 BoxCollider2D:
@@ -1468,6 +1473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1152160906}
   targetDoor: {fileID: 500085749}
+  changeRoomType: 0
 --- !u!114 &102677048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,7 +1504,7 @@ MonoBehaviour:
   - {fileID: 102677048}
   - {fileID: 102677047}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &102677050
 MonoBehaviour:
@@ -1528,7 +1534,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 102677050}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &102677052
 MonoBehaviour:
@@ -1544,7 +1550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 102677051}
@@ -2522,7 +2528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 273025365}
@@ -2549,7 +2555,7 @@ MonoBehaviour:
   - {fileID: 273025361}
   - {fileID: 273025360}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &273025360
 MonoBehaviour:
@@ -2577,7 +2583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u5F55\u97F3\u673A"
   objectImage: {fileID: 21300000, guid: 3c35fd606b2171546ab54f493f4bdfdd, type: 3}
-  detail: "\u6253\u5F00\u5382\u623F\u5927\u95E8"
+  detail_title: 
+  detail_index: 
 --- !u!114 &273025362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,7 +2643,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 273025366}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &273025366
 MonoBehaviour:
@@ -2922,7 +2929,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 298453732}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &298453734
 BoxCollider2D:
@@ -3070,7 +3077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 304319477}
@@ -3093,7 +3100,7 @@ MonoBehaviour:
   - {fileID: 304319475}
   - {fileID: 304319474}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &304319474
 MonoBehaviour:
@@ -3109,6 +3116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &304319475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3150,7 +3158,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 304319478}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &304319478
 MonoBehaviour:
@@ -3179,6 +3187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &304319480
 Animator:
   serializedVersion: 3
@@ -3648,7 +3657,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 367120033}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &367120035
 BoxCollider2D:
@@ -3905,7 +3914,7 @@ MonoBehaviour:
   - {fileID: 376495345}
   - {fileID: 376495344}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &376495347
 BoxCollider2D:
@@ -4084,7 +4093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 382361985}
@@ -4107,7 +4116,7 @@ MonoBehaviour:
   - {fileID: 382361983}
   - {fileID: 382361982}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &382361982
 MonoBehaviour:
@@ -4123,6 +4132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &382361983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4164,7 +4174,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 382361986}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &382361986
 MonoBehaviour:
@@ -4193,6 +4203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &382361988
 Animator:
   serializedVersion: 3
@@ -4451,7 +4462,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 387552533}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &387552535
 BoxCollider2D:
@@ -4706,7 +4717,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 402761645}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &403655722
 GameObject:
@@ -5412,6 +5423,8 @@ GameObject:
   - component: {fileID: 478161561}
   - component: {fileID: 478161560}
   - component: {fileID: 478161557}
+  - component: {fileID: 478161562}
+  - component: {fileID: 478161563}
   m_Layer: 0
   m_Name: voiceTest
   m_TagString: Interactive
@@ -5483,7 +5496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3938975629a521248bda0b2c27f03d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: ae90481091306b94eb7dd5bde7ee39c9, type: 3}
+  recorderController: {fileID: 478161563}
 --- !u!4 &478161558
 Transform:
   m_ObjectHideFlags: 0
@@ -5550,11 +5563,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerList:
+  - {fileID: 478161562}
   - {fileID: 478161557}
-  - {fileID: 478161560}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
+--- !u!114 &478161562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478161555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead3ba6a5bdd294ea935cd7f4262f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detail: "\u8FD9\u662F\u7B2C\u4E00\u6B21\u78C1\u5E26\u58F0\u97F3"
+--- !u!114 &478161563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478161555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478414b2545fb5d4395ffe4c825092e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip1: {fileID: 8300000, guid: 1885c837f88ba6b4cb7343d21318f1f5, type: 3}
+  clip2: {fileID: 8300000, guid: e7c1a56027534564e871927a87c3cc1d, type: 3}
+  clip3: {fileID: 8300000, guid: 48fb305e6685df347a4ea21c8729af5a, type: 3}
+  active: 0
+  talkIndex2: "\u8FD9\u662F\u7B2C\u4E8C\u6B21\u78C1\u5E26\u58F0\u97F3"
+  talkIndex3: "\u8FD9\u662F\u7B2C\u4E09\u6B21\u78C1\u5E26\u58F0\u97F3"
+  talkIndex4: "\u8FD9\u662F\u7B2C\u56DB\u6B21\u78C1\u5E26\u58F0\u97F3"
 --- !u!1 &484489098
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,6 +5855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1214766273}
   targetDoor: {fileID: 102677045}
+  changeRoomType: 0
 --- !u!114 &500085751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5825,7 +5871,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 500085750}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &500085752
 Animator:
@@ -6066,7 +6112,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 513623024}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &513623026
 BoxCollider2D:
@@ -6742,7 +6788,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 633193645}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &633193647
 BoxCollider2D:
@@ -7411,6 +7457,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &715372225
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7734,7 +7781,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 751573684}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &751573686
 BoxCollider2D:
@@ -8266,7 +8313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u673A\u68B0\u81C2"
   objectImage: {fileID: 21300000, guid: 8ffd65ea468a620448ca9ec5209ffc09, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u673A\u68B0\u81C2"
+  detail_title: 
+  detail_index: 
 --- !u!114 &807183690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8284,7 +8332,7 @@ MonoBehaviour:
   - {fileID: 807183687}
   - {fileID: 807183688}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &807183691
 BoxCollider2D:
@@ -8539,6 +8587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 2032876512}
   targetDoor: {fileID: 1074335932}
+  changeRoomType: 0
 --- !u!114 &823451036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8554,7 +8603,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 823451035}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &823451037
 Animator:
@@ -9627,6 +9676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 273025358}
+  addFlag: 1
 --- !u!114 &997900115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9667,7 +9717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u7535\u6C60"
   objectImage: {fileID: 21300000, guid: 481faf3d5df8f7d459d4b2c4682c1e6f, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u7535\u6C60"
+  detail_title: 
+  detail_index: 
 --- !u!114 &997900118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9701,7 +9752,7 @@ MonoBehaviour:
   - {fileID: 997900117}
   - {fileID: 997900116}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &997900120
 MonoBehaviour:
@@ -9731,7 +9782,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 997900120}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &997900122
 MonoBehaviour:
@@ -9747,7 +9798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 997900121}
@@ -10272,6 +10323,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1042342374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10404,7 +10456,7 @@ MonoBehaviour:
   - {fileID: 1062307364}
   - {fileID: 1062307363}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1062307366
 BoxCollider2D:
@@ -10534,7 +10586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C1"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1063103847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,7 +10603,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1063103846}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1063103848
 BoxCollider2D:
@@ -10692,6 +10745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1214766273}
   targetDoor: {fileID: 823451033}
+  changeRoomType: 0
 --- !u!114 &1074335934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10707,7 +10761,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1074335933}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &1074335935
 Animator:
@@ -11236,7 +11290,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126720825}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1126720829
 Camera:
   m_ObjectHideFlags: 0
@@ -11385,6 +11439,7 @@ MonoBehaviour:
   Fog_Blue: {fileID: 0}
   Fog_Yellow: {fileID: 0}
   YellowOrBlue: 0
+  standTimer: 0.2
 --- !u!212 &1132182304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11547,7 +11602,7 @@ MonoBehaviour:
   - {fileID: 1147041975}
   - {fileID: 1147041974}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1147041977
 BoxCollider2D:
@@ -11715,7 +11770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C1"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1162181951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11731,7 +11787,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1162181950}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1162181952
 BoxCollider2D:
@@ -11975,7 +12031,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1186814210}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1186814212
 BoxCollider2D:
@@ -12269,7 +12325,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1202797409}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1214766273
 GameObject:
@@ -12353,6 +12409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1214766273}
   targetDoor: {fileID: 1835007715}
+  changeRoomType: 0
 --- !u!114 &1229231793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12368,7 +12425,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1229231792}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!95 &1229231794
 Animator:
@@ -12572,7 +12629,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1252742871}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1252742873
 BoxCollider2D:
@@ -13084,7 +13141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C2"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1309324790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13100,7 +13158,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1309324789}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1309324791
 BoxCollider2D:
@@ -13616,7 +13674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1621763344400070478, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 888b9597c3382a643bb1306107b953e8, type: 3}
@@ -13683,7 +13741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &1371310267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13700,7 +13759,7 @@ MonoBehaviour:
   - {fileID: 1371310265}
   - {fileID: 1371310266}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1371310268
 BoxCollider2D:
@@ -13883,7 +13942,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1383127652}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1383127654
 BoxCollider2D:
@@ -14052,7 +14111,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1390556719}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1390556721
 BoxCollider2D:
@@ -14326,7 +14385,7 @@ MonoBehaviour:
   - {fileID: 1406506153}
   - {fileID: 1406506152}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1406506155
 BoxCollider2D:
@@ -15033,7 +15092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1553511258}
@@ -15055,7 +15114,7 @@ MonoBehaviour:
   - {fileID: 1553511257}
   - {fileID: 1553511256}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1553511256
 MonoBehaviour:
@@ -15071,7 +15130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u5F00\u95E8"
   objectImage: {fileID: 0}
-  detail: "\u5382\u623F\u5927\u95E8\u5DF2\u5F00\u542F"
+  detail_title: 
+  detail_index: 
 --- !u!114 &1553511257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15101,7 +15161,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1553511259}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1553511259
 MonoBehaviour:
@@ -15130,6 +15190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 696367251}
   targetDoor: {fileID: 1229231791}
+  changeRoomType: 0
 --- !u!95 &1553511261
 Animator:
   serializedVersion: 3
@@ -15430,7 +15491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1570909268}
@@ -15453,7 +15514,7 @@ MonoBehaviour:
   - {fileID: 1570909266}
   - {fileID: 1570909265}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1570909265
 MonoBehaviour:
@@ -15469,6 +15530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &1570909266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15510,7 +15572,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1570909269}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1570909269
 MonoBehaviour:
@@ -15539,6 +15601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &1570909271
 Animator:
   serializedVersion: 3
@@ -15765,6 +15828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 1152160906}
   targetDoor: {fileID: 500085749}
+  changeRoomType: 0
 --- !u!114 &1576725371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15795,7 +15859,7 @@ MonoBehaviour:
   - {fileID: 1576725371}
   - {fileID: 1576725370}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1576725373
 MonoBehaviour:
@@ -15825,7 +15889,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1576725373}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1576725375
 MonoBehaviour:
@@ -15841,7 +15905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1576725374}
@@ -16012,7 +16076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1582916632}
@@ -16035,7 +16099,7 @@ MonoBehaviour:
   - {fileID: 1582916630}
   - {fileID: 1582916629}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1582916629
 MonoBehaviour:
@@ -16051,6 +16115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!114 &1582916630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16092,7 +16157,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1582916633}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1582916633
 MonoBehaviour:
@@ -16121,6 +16186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 0}
   targetDoor: {fileID: 0}
+  changeRoomType: 0
 --- !u!95 &1582916635
 Animator:
   serializedVersion: 3
@@ -16653,6 +16719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCondition: {fileID: 273025358}
+  addFlag: 1
 --- !u!114 &1704936350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16679,7 +16746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u78C1\u5E26"
   objectImage: {fileID: 21300000, guid: efd8d73b002c577449995911bbc1aa5e, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u78C1\u5E26"
+  detail_title: 
+  detail_index: 
 --- !u!114 &1704936352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16697,7 +16765,7 @@ MonoBehaviour:
   - {fileID: 1704936350}
   - {fileID: 1704936351}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1704936353
 BoxCollider2D:
@@ -16930,7 +16998,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1719812066}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1719812068
 MonoBehaviour:
@@ -17473,7 +17541,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1770702047}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1770702049
 BoxCollider2D:
@@ -17794,7 +17862,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1773065742}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &1781278178
 GameObject:
@@ -17890,7 +17958,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1781431803}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1781431805
 BoxCollider2D:
@@ -18033,7 +18101,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1807159283}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1807159285
 BoxCollider2D:
@@ -18342,6 +18410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRoom: {fileID: 696367251}
   targetDoor: {fileID: 1229231791}
+  changeRoomType: 0
 --- !u!114 &1835007717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18372,7 +18441,7 @@ MonoBehaviour:
   - {fileID: 1835007717}
   - {fileID: 1835007716}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1835007719
 MonoBehaviour:
@@ -18402,7 +18471,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1835007719}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!114 &1835007721
 MonoBehaviour:
@@ -18418,7 +18487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerList: []
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
   triggers:
   - {fileID: 1835007720}
@@ -19347,7 +19416,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1934885365}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1934885367
 BoxCollider2D:
@@ -19547,7 +19616,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1943793140}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1943793142
 BoxCollider2D:
@@ -19788,7 +19857,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 1969043786}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &1969043788
 BoxCollider2D:
@@ -20063,7 +20132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u83B7\u5F97\u64AC\u68D2"
   objectImage: {fileID: 21300000, guid: 8ce337a3e47c3f04b80bd3a84636a2ba, type: 3}
-  detail: "\u4F60\u83B7\u5F97\u4E86\u64AC\u68D2"
+  detail_title: 
+  detail_index: 
 --- !u!114 &2028480728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20083,7 +20153,7 @@ MonoBehaviour:
   - {fileID: 2028480724}
   - {fileID: 2028480723}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2028480729
 BoxCollider2D:
@@ -20377,7 +20447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u65E5\u8BB0\u672C"
   objectImage: {fileID: 0}
-  detail: 
+  detail_title: 
+  detail_index: 
 --- !u!114 &2051124130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20393,7 +20464,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2051124129}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2051124131
 BoxCollider2D:
@@ -20768,7 +20839,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2057426340}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!1 &2091612802
 GameObject:
@@ -21396,7 +21467,7 @@ MonoBehaviour:
   TriggerList:
   - {fileID: 2141801889}
   isActive: 1
-  itemList: 
+  itemList: []
   currentIndex: 0
 --- !u!61 &2141801891
 BoxCollider2D:

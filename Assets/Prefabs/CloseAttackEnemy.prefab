@@ -234,8 +234,9 @@ MonoBehaviour:
   hurtedVelocity: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   enemyAudio: {fileID: 2330288101392843720}
-  attackClip: {fileID: 8300000, guid: a0de8dc20c6620d479351e29ffb2dddb, type: 3}
-  GetHurtClip: {fileID: 8300000, guid: 9493fd6f673c4094b8d83c59c40f68fd, type: 3}
+  attackClip: {fileID: 8300000, guid: 47adcc261cad6214992d605f4113ba40, type: 3}
+  GetHurtClip: {fileID: 8300000, guid: 5b5ee584321c776469349b6137a2f048, type: 3}
+  deadClip: {fileID: 8300000, guid: 3deea12228c02074ca77f581dd1aedef, type: 3}
 --- !u!61 &3568992019202065494
 BoxCollider2D:
   m_ObjectHideFlags: 0
