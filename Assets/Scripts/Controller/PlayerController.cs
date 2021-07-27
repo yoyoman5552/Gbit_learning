@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour {
     private void CheckETarget (GameObject target) {
         switch (target.tag) {
             case "Interactive":
-                Debug.Log ("target:" + target.name + ",tag:" + target.tag);
+//                Debug.Log ("target:" + target.name + ",tag:" + target.tag);
                 PressETarget = target;
                 playerAnimator.SetBool ("IsPressE", true);
                 break;
