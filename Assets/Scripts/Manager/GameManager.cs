@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
         if (enemy.Length > 0)
         {
             //如果有敌人，关掉人物的交互
-            playerController.SetEAble(false);
+            //playerController.SetEAble(false);
 
             //切换成战斗音乐
             BGMManager.Instance.ChangeBGM(BGMType.Attack);
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
         FSMBase[] enemy = currentRoom.transform.GetComponentsInChildren<FSMBase>();
         if (enemy.Length == 0)
         {
-            playerController.SetEAble(true);
+            //playerController.SetEAble(true);
             BGMManager.Instance.ChangeBGM(BGMType.Search);
         }
     }
@@ -304,6 +304,7 @@ public class GameManager : MonoBehaviour
         {
             parent = parent.parent;
         }
+        Debug.Log("parent:" + parent.name);
         ChangeRoom(roomList.Find(s => s.name == parent.name), saveData.lastDoor, null);
 
         //初始化敌人

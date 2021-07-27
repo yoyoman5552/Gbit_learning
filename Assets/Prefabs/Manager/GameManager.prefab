@@ -1171,7 +1171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1314786531
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,19 +2793,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showChip: 0
-  changeSprite: {fileID: 0}
-  name: 
-  objectImage: {fileID: 0}
-  detail_title: 
-  detail_index: 
-  blackBackground: {fileID: 0}
+  changeSprite: {fileID: 21300000, guid: 31f0babf1495a7a4582b124e794290c8, type: 3}
+  name: "\u82AF\u7247"
+  objectImage: {fileID: 21300000, guid: eff88e714477d914fa7ce20d88c3f8c6, type: 3}
+  detail_title: "<size=200><color=white>\u5B58\u6709\u8BB0\u5FC6\u7684\u60C5\u611F\u82AF\u7247</color></size>"
+  detail_index: "\u51FB\u8D25\u673A\u68B0\u72D7Ham\u540E\u6389\u843D\u7684\u82AF\u7247\uFF0C\u7531\u79D1\u5C14\u6C83\u5148\u751F\u53D1\u660E\u5E76\u88C5\u8F7D\u5728Ham\u4F53\u5185\uFF0C\u5177\u6709\u8BA9\u88AB\u690D\u5165\u8005\u81EA\u4E3B\u5B66\u4E60\u60C5\u611F\u7684\u529F\u80FD\uFF0C\u91CC\u9762\u8BB0\u5F55\u7740\u79D1\u5C14\u6C83\u5148\u751F\u548C\u4ED6\u6700\u597D\u7684\u4F19\u4F34\u4E4B\u95F4\u7684\u6545\u4E8B\u3002"
+  blackBackground: {fileID: 3472900790975090612}
   background_true: {fileID: 0}
-  initLoadTime: 0
-  showText: []
-  MyshowText: {fileID: 0}
+  initLoadTime: 2
+  showText:
+  - {fileID: 6490613506503917654}
+  - {fileID: 7287423695788121216}
+  - {fileID: 295923678596919497}
+  MyshowText: {fileID: 3606939064057889433}
   currentRoom: {fileID: 0}
-  initSubtitleLoadTime: 0
-  initWordShowTime: 0
+  initSubtitleLoadTime: 3
+  initWordShowTime: 8
 --- !u!1 &2084176138913430048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,8 +2843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0050659, y: 80.15}
-  m_SizeDelta: {x: 867.49, y: 327.69}
+  m_AnchoredPosition: {x: -13, y: 0.05}
+  m_SizeDelta: {x: 1482.35, y: 634.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5324972869374197562
 CanvasRenderer:
@@ -2864,7 +2867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2873,18 +2876,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
-    m_FontSize: 35
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 55
+    m_MaxSize: 65
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E00\u6BB5\u6587\u5B57"
+  m_Text: 
 --- !u!1 &2261712126005359017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,7 +2943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2870866514291804589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2957,8 +2960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0050659, y: 80.15}
-  m_SizeDelta: {x: 867.49, y: 327.69}
+  m_AnchoredPosition: {x: 8, y: -106}
+  m_SizeDelta: {x: 1425.35, y: 620.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4966612567112165313
 CanvasRenderer:
@@ -2990,18 +2993,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
-    m_FontSize: 35
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 55
+    m_MaxSize: 102
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E00\u6BB5\u6587\u5B57"
+  m_Text: "Ham\u6765\u5230\u6211\u5BB6\u4E4B\u524D\uFF0C\u53EA\u662F\u4E00\u53EA\u6D41\u6D6A\u72D7\uFF0C\u72EC\u81EA\u751F\u6D3B\u5728\u8857\u5934\u7684\u5783\u573E\u6876\u65C1\u3002\u8BF4\u6765\u4E5F\u5947\u602A\uFF0C\u5F85\u4EBA\u51B7\u6F20\u3001\u4E0D\u82DF\u8A00\u7B11\u7684\u6211\u4F1A\u53BB\u5173\u5FC3Ham\u5728\u8857\u89D2\u7684\u72B6\u6001\u3002\u6211\u7684\u60C5\u7EEA\u4F1A\u56E0\u4E3A\u5B83\u800C\u53D8\u5316\uFF0C\u5B83\u6210\u4E3A\u6211\u7684\u4F19\u4F34\u597D\u50CF\u662F\u4E0A\u5929\u6CE8\u5B9A\u4E00\u6837\u3002\u6B63\u597D\u6211\u6700\u8FD1\u5728\u5C1D\u8BD5\u6784\u9020\u60C5\u611F\u82AF\u7247\uFF0C\u6211\u60F3Ham\u5E94\u8BE5\u4F1A\u662F\u4E00\u4E2A\u5F88\u597D\u7684\u5B9E\u9A8C\u8F7D\u4F53\u3002"
 --- !u!1 &2560852689368272345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,7 +3561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7487942285825958499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3575,8 +3578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0050659, y: 80.15}
-  m_SizeDelta: {x: 867.49, y: 327.69}
+  m_AnchoredPosition: {x: 4, y: -194}
+  m_SizeDelta: {x: 1496.07, y: 784.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7658164096690682884
 CanvasRenderer:
@@ -3608,18 +3611,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
-    m_FontSize: 35
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 55
+    m_MaxSize: 95
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E00\u6BB5\u6587\u5B57"
+  m_Text: "Ham\u4E0D\u8BA4\u751F\uFF0C\u6CA1\u51E0\u5929\u5C31\u9002\u5E94\u4E86\u65B0\u7684\u751F\u6D3B\u3002\u5B83\u7684\u996D\u91CF\u5F88\u5927\uFF0C\u6392\u597D\u7684\u98DF\u7269\u8BA1\u5212\u8868\u6E10\u6E10\u65E0\u6CD5\u6EE1\u8DB3\u5B83\u7684\u80C3\u53E3\u3002Ham\u5728\u9010\u6E10\u957F\u5927\uFF0C\u690D\u5165\u4F53\u5185\u7684\u60C5\u611F\u82AF\u7247\u4E5F\u5728\u987A\u5229\u5730\u8FDB\u884C\u81EA\u6211\u5B66\u4E60\u548C\u5B8C\u5584\uFF0C\u53EF\u662FHam\u7684\u4F53\u578B\u53D8\u5316\u592A\u5947\u602A\u4E86\uFF0C\u5C45\u7136\u957F\u5F97\u6BD4\u95E8\u8FD8\u9AD8\u3002\u770B\u6765\u5F97\u65E9\u505A\u6253\u7B97\u624D\u662F\u3002\u6211\u8BB0\u5F97\u9694\u58C1\u7684\u5382\u623F\u6B63\u5728\u51FA\u552E\uFF0C\u7A7A\u95F4\u5F88\u5927\uFF0C\u53EF\u4EE5\u627E\u65F6\u95F4\u53BB\u54A8\u8BE2\u4E00\u4E0B\u3002 "
 --- !u!1 &3600625971286779732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,7 +5207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8541059215525228558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5221,8 +5224,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0050659, y: 80.15}
-  m_SizeDelta: {x: 867.49, y: 327.69}
+  m_AnchoredPosition: {x: 15, y: -129}
+  m_SizeDelta: {x: 1434.86, y: 766.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2347369049988885396
 CanvasRenderer:
@@ -5254,15 +5257,15 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 547d5200df44f12498129fb7019bf14a, type: 3}
-    m_FontSize: 35
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 55
+    m_MaxSize: 65
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7B2C\u4E00\u6BB5\u6587\u5B57"
+  m_Text: "\u6628\u665A\u7684\u4E8B\u60C5\u4EE4\u4EBA\u607C\u706B\uFF0CHam\u5C45\u7136\u5C06\u95E8\u6846\u6491\u88C2\u4E86\uFF0C\u60CA\u614C\u4E71\u7A9C\u4E4B\u4E0B\u53C8\u5C06\u5C4B\u5B50\u91CC\u641E\u5F97\u4E71\u4E03\u516B\u7CDF\u7684\uFF0C\u5B8C\u5168\u6CA1\u6CD5\u4F4F\u4EBA\u4E86\u3002\u8BA1\u5212\u8FD8\u662F\u8D76\u4E0D\u4E0A\u53D8\u5316\uFF0C\u9694\u58C1\u5382\u623F\u8FD8\u6CA1\u6709\u88C5\u4FEE\u5B8C\uFF0C\u4F46\u9664\u4E86\u63D0\u524D\u642C\u8FDB\u53BB\u5916\u6CA1\u6709\u5176\u4ED6\u529E\u6CD5\u4E86\u3002\u5BB6\u91CC\u7684\u5DE5\u5177\u5012\u4E5F\u591F\u7528\uFF0C\u80FD\u5728\u5C4B\u5B50\u91CC\u5207\u5272\u51FA\u4E00\u4E2A\u5927\u95E8\u4E0E\u9694\u58C1\u5382\u623F\u8FDE\u901A\uFF0C\u65B9\u4FBFHam\u722C\u8FC7\u53BB\u3002\u5728\u5382\u623F\u91CC\u5B83\u5C31\u6709\u8DB3\u591F\u7684\u7A7A\u95F4\u73A9\u800D\u4E86\uFF0CHam\u5E94\u8BE5\u4F1A\u5F88\u9AD8\u5174\u5427\u3002"

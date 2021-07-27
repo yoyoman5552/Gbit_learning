@@ -8,18 +8,18 @@ public class SceneController : MonoBehaviour
 {
     //����
     public GameObject title;
-    //���ѡ��
+    //���ѡ��?
     public bool mouseClick = false;
-    //�������ж����λ��
+    //�������ж����λ��?
     public GameObject canvas;
-    //�������
+    //�������?
     public GameObject titleScene;
     //ѡ�ؽ���
     public GameObject chooseScene;
-    //�������
+    //�������?
     public GameObject loadScene;
 
-    //������水ť
+    //������水�?
     private Button buttonEnter;
     private Button buttonExit;
     //��ť�ı�_����һ
@@ -44,7 +44,7 @@ public class SceneController : MonoBehaviour
     public Color changeColor;
 
 
-    //����ѡ�񣨱�����棩
+    //����ѡ�񣨱������?
     private int Scene1Select;
     //����ѡ��ѡ�ؽ��棩
     private int Scene2Select;
@@ -74,19 +74,19 @@ public class SceneController : MonoBehaviour
     public float initLoadSceneTime;
     private float loadSceneTime;
 
-    //���Ʊ�����δ��ȫ�������ʱ��ֹ�س�����
+    //���Ʊ�����δ��ȫ�������ʱ��ֹ�س�����?
     private bool canChangeScene = true;
 
     //��Ļ͸��ͨ�����Ʊ���
     private Vector4 coverBlackSet;
 
 
-    //���볡����ر���
+    //���볡����ر���?
 
-    //�������������
+    //�������������?
     private bool scene3Loaded;
 
-    //���������Ƶ
+    //����������?
     public GameObject loadAudio;
     private AudioSource loadAudioSource;
 
@@ -98,7 +98,7 @@ public class SceneController : MonoBehaviour
     //ÿ����Ļ��ʾʱ��
     private float subtitleShowTime;
     public float initSubtitleShowTime;
-    //ÿ����Ļ�ɵ�����/����䵭��ʱ��
+    //ÿ����Ļ�ɵ�����/�����?��ʱ��
     private float subtitleLoadTime;
     private float subtitleDisTime;
     public float initSubtitleLoadTime;
@@ -117,6 +117,7 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         ComponentInit();
         loadSceneEnterLoad = initLoadSceneEnterLoad;
         loadSceneEnter = initLoadSceneEnter;
@@ -142,8 +143,8 @@ public class SceneController : MonoBehaviour
         inputEnter();
         SceneChange();
         loadLastScene();
-        //�����������
-        
+        //�����������?
+
 
     }
 
@@ -170,7 +171,7 @@ public class SceneController : MonoBehaviour
             }
             else
             {
-                //�����ǳ
+                //������?
                 subtitleLoadTime = initSubtitleLoadTime;
                 subtitleDisTime -= Time.deltaTime;
                 if (subtitleDisTime > 0)
@@ -249,7 +250,7 @@ public class SceneController : MonoBehaviour
                 background.sprite = backgroundSprite_toChange;
                 exitScene2 = false;
                 enterScene3 = true;
-               
+
                 loadAudio.SetActive(true);
                 currentScene = 3;
                 loadSceneEnterLoad = initLoadSceneEnterLoad;
@@ -275,11 +276,11 @@ public class SceneController : MonoBehaviour
                 blackCover.SetActive(false);
             }
         }
-        if(wordFinish)
+        if (wordFinish)
         {
             blackCover.SetActive(true);
             loadSceneTime -= Time.deltaTime;
-            if(loadSceneTime>0)
+            if (loadSceneTime > 0)
             {
                 loadAudioSource.volume -= Time.deltaTime / initLoadSceneTime;
                 coverBlackSet.w += (Time.deltaTime * 255 / initLoadSceneTime) / 255;
@@ -295,7 +296,7 @@ public class SceneController : MonoBehaviour
     }
     private void inputEnter()
     {
-        if ((Input.GetKeyDown(KeyCode.Return)||mouseClick) && canChangeScene)
+        if ((Input.GetKeyDown(KeyCode.Return) || mouseClick) && canChangeScene)
         {
             if (currentScene == 1)
             {
@@ -303,7 +304,7 @@ public class SceneController : MonoBehaviour
                 if (Scene1Select == 1)
                 {
                     exitScene1 = true;
-                   
+
                 }
                 else if (Scene1Select == 2)
                     Application.Quit();
@@ -348,7 +349,7 @@ public class SceneController : MonoBehaviour
 
     private void checkScene()
     {
-        switch(currentScene)
+        switch (currentScene)
         {
             case 1:
                 titleScene.SetActive(true);
@@ -375,13 +376,13 @@ public class SceneController : MonoBehaviour
             if (currentScene == 1)
             {
                 Scene1Select -= 1;
-                if (Scene1Select <1)
+                if (Scene1Select < 1)
                     Scene1Select = 2;
             }
-            else if(currentScene == 2)
+            else if (currentScene == 2)
             {
                 Scene2Select -= 1;
-                if (Scene2Select <1)
+                if (Scene2Select < 1)
                     Scene2Select = 1;
             }
 
@@ -402,7 +403,7 @@ public class SceneController : MonoBehaviour
             else if (currentScene == 2)
             {
                 Scene2Select += 1;
-                if (Scene2Select >1)
+                if (Scene2Select > 1)
                     Scene2Select = 1;
             }
         }
@@ -425,7 +426,7 @@ public class SceneController : MonoBehaviour
             }
 
         }
-        else if(currentScene == 2)
+        else if (currentScene == 2)
         {
             if (Scene2Select == 1)
             {
@@ -435,13 +436,13 @@ public class SceneController : MonoBehaviour
             }
             else if (Scene2Select == 2)
             {
-                
+
                 firstLevel_text.color = initColor;
                 secondLevel_text.color = changeColor;
                 thirdLevel_text.color = initColor;
-                
+
             }
-            else if(Scene2Select == 3)
+            else if (Scene2Select == 3)
             {
                 firstLevel_text.color = initColor;
                 secondLevel_text.color = initColor;
@@ -449,7 +450,7 @@ public class SceneController : MonoBehaviour
             }
 
         }
-        
+
     }
 
 
@@ -462,7 +463,7 @@ public class SceneController : MonoBehaviour
         gr.Raycast(pointerEventData, results);
         if (results.Count != 0)
         {
-            foreach(RaycastResult myresult in results)
+            foreach (RaycastResult myresult in results)
             {
                 if (currentScene == 1)
                 {
@@ -475,7 +476,7 @@ public class SceneController : MonoBehaviour
                         Scene1Select = 2;
                     }
                 }
-                else if(currentScene ==2)
+                else if (currentScene == 2)
                 {
                     if (myresult.gameObject.name == firstLevel.name)
                     {
@@ -485,11 +486,11 @@ public class SceneController : MonoBehaviour
                     {
                         //Scene2Select = 2;
                     }
-                    else if((myresult.gameObject.name == thirdLevel.name))
+                    else if ((myresult.gameObject.name == thirdLevel.name))
                     {
                         //Scene2Select = 3;
                     }
-                }                
+                }
             }
         }
     }

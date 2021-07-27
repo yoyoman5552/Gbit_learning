@@ -128,6 +128,11 @@ public class GridManager : MonoBehaviour
         int startX, startY, endX, endY;
         grid.GetXY(oriPos, out startX, out startY);
         grid.GetXY(targetPos, out endX, out endY);
+        if (endX < 0 || startX < 0 ||
+        endX >= width || startX >= width ||
+        startY < 0 || endY < 0 ||
+        startY >= height || endY >= height
+        ) return null;
         //        Debug.Log ("起点：" + new Vector2 (startX, startY) + ",终点：" + new Vector2 (endX, endY));
         return path.FindPath(startX, startY, endX, endY);
     }
@@ -148,7 +153,7 @@ public class GridManager : MonoBehaviour
     {
         int x, y;
         grid.GetXY(pos, out x, out y);
-        return new Vector3Int(x, y,0);
+        return new Vector3Int(x, y, 0);
     }
     public Vector3 GetWorldPos(int x, int y)
     {
