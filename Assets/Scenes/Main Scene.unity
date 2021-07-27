@@ -1922,7 +1922,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
     - target: {fileID: 2105280210612477776, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: TriggerList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477776, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: TriggerList.Array.data[0]
@@ -1936,13 +1936,17 @@ PrefabInstance:
       propertyPath: TriggerList.Array.data[2]
       value: 
       objectReference: {fileID: 1780081613}
+    - target: {fileID: 2105280210612477776, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
+      propertyPath: TriggerList.Array.data[3]
+      value: 
+      objectReference: {fileID: 1780081614}
     - target: {fileID: 2105280210612477778, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: name
       value: "<size=200><color=white>\u62FC\u56FE\u88C5\u7F6E</color></size>"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477778, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: detail
-      value: "\u9700\u8981\u6536\u96C6\u66F4\u591A\u7684\u62FC\u56FE\u3002"
+      value: "\u96C6\u9F50\u62FC\u56FE\u4EE5\u6FC0\u6D3B\u88C5\u7F6E\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2105280210612477779, guid: 3b84b9775e164e04aa7a93a30ed6afc7, type: 3}
       propertyPath: detail_easy1
@@ -8198,7 +8202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: "\u673A\u68B0\u81C2"
-  objectImage: {fileID: 21300000, guid: 778966e364a087445b6ef16bf8ef0ee9, type: 3}
+  objectImage: {fileID: 21300000, guid: d658cd7e5746e294ba08ed0b2e0806d4, type: 3}
   detail_title: "<size=200><color=white>\u521D\u4EE3\u53EF\u62C6\u5378\u7684\u5916\u7F6E\u653B\u51FB\u6A21\u5757</color></size>"
   detail_index: "\u673A\u68B0\u81C2\u5185\u90E8\u7684\u6DB2\u538B\u9F7F\u8F6E\u80FD\u591F\u51ED\u501F\u5927\u529B\u77E9\u7206\u53D1\u5F3A\u5927\u7684\u80FD\u91CF\uFF0C\u8DB3\u4EE5\u5E94\u4ED8\u4EFB\u4F55\u653B\u51FB\u4EFB\u52A1\u3002(\u6CE8\u610F\uFF1A\u88C5\u5907\u673A\u68B0\u81C2\u72B6\u6001\u4E0B\u65E0\u6CD5\u4E0E\u7269\u54C1\u8FDB\u884C\u4EA4\u4E92)"
 --- !u!114 &320307631
@@ -11412,7 +11416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434282702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.334, y: 0.34399998, z: 0}
+  m_LocalPosition: {x: -4.364, y: 0.351, z: 0}
   m_LocalScale: {x: 0.290279, y: 0.290279, z: 0.290279}
   m_Children:
   - {fileID: 794634670}
@@ -12266,6 +12270,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3938975629a521248bda0b2c27f03d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &440954122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3278286229993856528, guid: 8f72ee05862f04b41bfd2cebed16ae2f, type: 3}
+  m_PrefabInstance: {fileID: 440954094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440954096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72d1f8ecc15ca04a9eedc539fd6d7bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &440954125 stripped
@@ -29818,6 +29833,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 241208582, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208583, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 241208583, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785929632, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 486773310831807476, guid: 6b33ab98a677d3b4a96b3e39093122d7, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -39951,7 +39982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9cf730f7ec2d546beb1830a0cbb5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCondition: {fileID: 1609407945}
+  targetCondition: {fileID: 440954122}
   addFlag: 1
 --- !u!114 &1415267889
 MonoBehaviour:
@@ -52317,7 +52348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9cf730f7ec2d546beb1830a0cbb5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCondition: {fileID: 1609407945}
+  targetCondition: {fileID: 440954122}
   addFlag: 1
 --- !u!114 &1780081598 stripped
 MonoBehaviour:
@@ -52394,7 +52425,26 @@ MonoBehaviour:
   - id: 0
     name: "\u62FC\u56FE"
     image: {fileID: 0}
-    useNum: 0
+    useNum: 9
+--- !u!114 &1780081614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780081595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d76e58640541754b853c2e1f8f86494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 0}
+  itemInfo:
+    id: 0
+    name: "\u7535\u6C60"
+    image: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
+    useNum: 1
 --- !u!1 &1781275432
 GameObject:
   m_ObjectHideFlags: 0
@@ -56504,7 +56554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912198140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.255, y: 0.34399977, z: 0}
+  m_LocalPosition: {x: -4.294, y: 0.333, z: 0}
   m_LocalScale: {x: 0.290279, y: 0.290279, z: 0.290279}
   m_Children:
   - {fileID: 198471423}
@@ -56613,7 +56663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9cf730f7ec2d546beb1830a0cbb5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCondition: {fileID: 1609407945}
+  targetCondition: {fileID: 440954122}
   addFlag: 1
 --- !u!114 &1912198149
 MonoBehaviour:
