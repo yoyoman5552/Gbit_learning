@@ -49,8 +49,9 @@ namespace EveryFunc
     }
     public enum ChangeRoomType
     {
-        normal,
-        SBTimeTrip
+        Normal,
+        SBTimeTrip,
+        Enter
     }
     public enum FSMTriggerID
     {

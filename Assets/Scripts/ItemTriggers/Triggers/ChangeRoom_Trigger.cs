@@ -9,7 +9,7 @@ public class ChangeRoom_Trigger : ITrigger
     public GameObject targetDoor;
     private Transform targetPlayerPos;
     [Tooltip("切换门的方式")]
-    public ChangeRoomType changeRoomType = ChangeRoomType.normal;
+    public ChangeRoomType changeRoomType = ChangeRoomType.Normal;
     private void Start()
     {
         if (targetDoor.transform.Find("PlayerPos") != null)

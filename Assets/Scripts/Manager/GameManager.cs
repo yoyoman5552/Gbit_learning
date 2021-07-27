@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         //FIXME:选择初始房间
         GameObject firstRoom = roomList.Find(s => s.name == "Room1");
-        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null);
+        ChangeRoom(firstRoom, this.transform.Find("StartPos"), null, ChangeRoomType.Enter);
     }
     private void OnDestroy()
     {
@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
     public Volume targetVolume;
     private void InitComponent()
     {
+        Cursor.visible = false;
         chromaticRatio = bloodIndex = 0;
         saveData = new SaveData();
         bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
@@ -139,7 +140,7 @@ public class GameManager : MonoBehaviour
     /// 切换房间
     /// </summary>
     /// <param name="targetRoom">目标房间</param>
-    public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
+    public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.Normal)
     {
 
         //保存数据
@@ -149,13 +150,17 @@ public class GameManager : MonoBehaviour
         playerController.SetReactable(false);
 
         //判断切换方式
-        if (changeRoomType == ChangeRoomType.normal)
+        if (changeRoomType == ChangeRoomType.Normal)
         {
             NormalChangeRoom(targetRoom, targetDoor);
         }
         else if (changeRoomType == ChangeRoomType.SBTimeTrip)
         {
             SpecialChangeRoom(targetRoom, targetDoor);
+        }
+        else if (changeRoomType == ChangeRoomType.Enter)
+        {
+            BlackImage.GetComponent<ChangeRoomController>().ChangeRoom("开头", targetRoom, targetDoor);
         }
     }
     private void NormalChangeRoom(GameObject targetRoom, Transform targetDoor)
