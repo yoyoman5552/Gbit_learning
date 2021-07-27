@@ -7,8 +7,23 @@ public class BGMManager : MonoBehaviour
     public AudioSource source;
     private BGMType currentType;
     public static BGMManager Instance;
+   /*  {
+        get
+        {
+            if (Instance == null)
+                Instance = GameObject.FindObjectOfType<BGMManager>();
+            return Instance;
+        }
+        set
+        {
+            if (Instance != null)
+                Debug.Log("多重实例：+BGMManager");
+            Instance = value;
+        }
+    } */
     private void Awake()
     {
+        Debug.Log("BGMManager awake");
         if (Instance == null)
             Instance = this;
         Init();
@@ -25,10 +40,10 @@ public class BGMManager : MonoBehaviour
         else
         {
             currentType = changeType;
-//            Debug.Log("now type:"+currentType);
+            //            Debug.Log("now type:"+currentType);
         }
         source.clip = clips[(int)currentType];
-        source.Play();  
+        source.Play();
         //if (currentType)
     }
 }

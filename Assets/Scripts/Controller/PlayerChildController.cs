@@ -80,13 +80,13 @@ public class PlayerChildController : MonoBehaviour {
                         break;
                 }
                 //attackAudio.Play ();
-                Debug.Log ("easyAttack");
+//                Debug.Log ("easyAttack");
                 playerAnimator.SetTrigger ("LightAttack");
                 playerAnimator.SetInteger ("ComboStep", comboStep + 1);
                 comboStep = (comboStep + 1) % 4;
                 controller.SetSpeed (controller.moveSpeed * controller.lightAttackMoveSpeedPer);
             } else if (attackType == BreakLevel.hard) {
-                Debug.Log ("heavyAttack");
+         //       Debug.Log ("heavyAttack");
                 playerAnimator.SetTrigger ("HeavyAttack");
                 attackAudio.PlayOneShot(HeavyAttackClip);
                 controller.SetSpeed (controller.moveSpeed * controller.heavyAttackMoveSpeedPer);

@@ -23,6 +23,6 @@ public class DeadState : FSMState
         fsm.Invoke("DeadDelay", 0.5f);
         GameManager.Instance.CheckEnemy();
         //死亡之后状态机禁用
-        fsm.enabled = false;
+        //fsm.enabled = false;
     }
 }

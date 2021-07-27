@@ -13,6 +13,7 @@ TagManager:
   - Breakable
   - Ground
   - PlayerDetect
+  - EnemyWall
   layers:
   - Default
   - TransparentFX

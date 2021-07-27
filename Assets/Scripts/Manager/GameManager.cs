@@ -18,6 +18,20 @@ public class GameManager : MonoBehaviour
 
     //单例模式
     public static GameManager Instance;
+    /* {
+        get
+        {
+            if (Instance == null)
+                Instance = GameObject.FindObjectOfType<GameManager>();
+            return Instance;
+        }
+        set
+        {
+            if (Instance != null)
+                Debug.Log("多重实例：+GameManager");
+            Instance = value;
+        }
+    } */
     //玩家
     [HideInInspector]
     public GameObject player;
@@ -86,7 +100,7 @@ public class GameManager : MonoBehaviour
             bloodRenderer.color = bloodRenderer.color - new Color(0, 0, 0, Time.deltaTime / 5);
         }
         if (chromaticAberration.intensity.value > 0)
-            chromaticAberration.intensity.value = chromaticAberration.intensity.value - Time.deltaTime/5;
+            chromaticAberration.intensity.value = chromaticAberration.intensity.value - Time.deltaTime / 5;
     }
     public Volume targetVolume;
     private void InitComponent()
@@ -94,7 +108,7 @@ public class GameManager : MonoBehaviour
         chromaticRatio = bloodIndex = 0;
         saveData = new SaveData();
         bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
-        globalLight = this.GetComponentInChildren<Light2D>();
+       // globalLight = this.GetComponentInChildren<Light2D>();
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerChildController = player.GetComponentInChildren<PlayerChildController>();
@@ -127,7 +141,7 @@ public class GameManager : MonoBehaviour
     /// <param name="targetRoom">目标房间</param>
     public void ChangeRoom(GameObject targetRoom, Transform targetDoor, Transform lastDoor, ChangeRoomType changeRoomType = ChangeRoomType.normal)
     {
-        
+
         //保存数据
         SaveData(targetRoom, lastDoor);
 

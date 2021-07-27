@@ -7,6 +7,7 @@ public class TargetLostTrigger : FSMTrigger {
     public override bool HandleTrigger (FSMBase fsm) {
         //TODO:targetLost
         //return false;
+        if(fsm.targetTF==null) return true;
         if (Vector3.Distance (fsm.transform.position, fsm.targetTF.position) > fsm.minRadius + 2f) {
             fsm.targetTF = null;
             return true;
