@@ -17,7 +17,7 @@ public class ConfigMap : Editor
         string[] resFiles = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Resources" });
         for (int i = 0; i < resFiles.Length; i++)
         {
-            
+
             resFiles[i] = AssetDatabase.GUIDToAssetPath(resFiles[i]);
             //2. 生成对应关系
             // 名称=路径
@@ -35,7 +35,7 @@ public class ConfigMap : Editor
         StreamWriter sw = new StreamWriter(Application.dataPath + "/StreamingAssets/ConfigMap.txt");
         foreach (var str in resFiles)
         {
-            
+
             sw.Write(str + '赣');
         }
         sw.Close();
@@ -45,12 +45,14 @@ public class ConfigMap : Editor
     public static void GenerateAttackCurve()
     {
         //技能数据的excel文件路径
-        string path = "Assets/Editor/Boss攻击周期.csv";
-    
+        string path = "/Editor/Boss攻击周期.csv";
+
         //获取excel文件信息
-        FileInfo fileInfo = new FileInfo(path);
-        StreamReader sd=fileInfo.OpenText();
+        FileInfo fileInfo = new FileInfo(Application.dataPath + path);
+        StreamReader sd = fileInfo.OpenText();
         string[] strs = sd.ReadToEnd().Split('\n');
+        sd.Close();
+    
         StreamWriter sw = new StreamWriter(Application.dataPath + "/StreamingAssets/AttackList.txt");
         //第一行是标签名，最后一行是空行
         for (int i = 1; i < strs.Length - 1; i++)
@@ -61,15 +63,15 @@ public class ConfigMap : Editor
             int j;
             for (j = 0; j < ConstantList.batteryCount; j++)
                 data.stateList[j] = Convert.ToInt32(row[j]);
-            data.durationTime = Convert.ToInt32(row[j]); ;
+            data.durationTime = Convert.ToSingle(row[j]);
             string JsonString = JsonUtility.ToJson(data);
             sw.Write(JsonString);
             //每个技能表之间加个@，作为分隔标记
             sw.Write('赣');
-            
+
         }
         sw.Close();
-        sd.Close();
+
         /*         //打开excel表格 using表示只在{}内打开，{}后会释放资源
                 using (ExcelPackage package = new ExcelPackage(fileInfo))
                 {

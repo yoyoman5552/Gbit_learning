@@ -8,8 +8,8 @@ public class SetGlobalLight_Trigger : ITrigger {
     public float intensity=1;
 
     public override void Action () {
-        //GameManager.Instance.globalLight.color = color;
-        //GameManager.Instance.globalLight.intensity = intensity;
+        GameManager.Instance.globalLight.color = color;
+        GameManager.Instance.globalLight.intensity = intensity;
         //        target.GetComponent<ItemTrigger>().StartTrigger();
     }
 }

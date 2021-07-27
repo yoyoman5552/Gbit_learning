@@ -25,6 +25,9 @@ public class Breakable_Trigger : ITrigger
                 this.GetComponent<ChangeRoom_Trigger>().Action();
             }
         }
+        if(this.GetComponent<VoiceActive_Trigger>()!=null){
+            this.GetComponent<VoiceActive_Trigger>().Action();
+        }
         /*  if (level == BreakLevel.easy) {
              this.gameObject.SetActive (false);
              Destroy (this.gameObject, 2f);
