@@ -246,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &241208583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1197,10 +1197,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colletBetterAudio: {fileID: 8300000, guid: a1b083bb80a20a345a020ee93ea3d9ea, type: 3}
   bagUIOBJ: {fileID: 3807119385813124445}
-  talkWindow: {fileID: 1845577826}
-  PopUpWindow: {fileID: 1785929632}
+  talkWindow: {fileID: 1639323726}
+  PopUpWindow: {fileID: 104086133289158467}
   targetUI: {fileID: 3600625971286779732}
-  jigsawUI: {fileID: 241208582}
+  jigsawUI: {fileID: 229656132}
   JigsawControlList: 
   JigsawAmount: 9
   totalJigsaw: {fileID: 1433938807}
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   detailSprite: {fileID: 21300000, guid: c11b30a98fcc9a6449220eed677708cd, type: 3}
   detailName: "\u7535\u6C60"
   detailTitle: "<size=200><color=white>\u53E4\u8001\u7684\u80FD\u91CF\u5B58\u50A8\u88C5\u7F6E</color></size>"
-  detailIndex: "\u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90"
+  detailIndex: "\u4F53\u79EF\u8F83\u5C0F\uFF0C\u4FBF\u4E8E\u643A\u5E26\uFF0C\u53EF\u4EE5\u6A21\u5757\u5316\u7EC4\u5408\u4E3A\u5C0F\u578B\u673A\u5668\u4F9B\u80FD\uFF0C\u4E5F\u53EF\u4F5C\u4E3A\u5927\u578B\u673A\u5668\u77ED\u65F6\u95F4\u7684\u5907\u7528\u80FD\u6E90\u3002"
   jigsawName: 
   jigsawIndex: 
 --- !u!95 &1639323726
@@ -3262,7 +3262,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2477e19c85e41ff4b9086271e6012607, type: 3}
-    m_FontSize: 130
+    m_FontSize: 200
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3273,7 +3273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<size=200>Date</size>
+  m_Text: 'Date
 
 '
 --- !u!1 &3600625971286779732
