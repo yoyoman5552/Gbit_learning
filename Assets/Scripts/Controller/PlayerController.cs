@@ -415,6 +415,7 @@ public class PlayerController : MonoBehaviour {
     }
     public void SetArmor (bool flag, int useNum) {
         //装备武器；更改伤害和限定使用次数
+        Debug.Log("isArmor");
         playerAnimator.SetBool ("IsArmor", flag);
         childController.SetBreakLevel (flag, useNum);
     }
