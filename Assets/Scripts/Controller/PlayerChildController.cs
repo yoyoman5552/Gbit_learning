@@ -158,7 +158,6 @@ public class PlayerChildController : MonoBehaviour {
         playerAnimator.SetBool (animationFlag, false);
     }
     public void PressEAction () {
-        Debug.Log ("Press E Action");
         if (controller.PressETarget.GetComponent<ConditionTrigger> () != null) {
             controller.PressETarget.GetComponent<ConditionTrigger> ().StartTrigger ();
         }
