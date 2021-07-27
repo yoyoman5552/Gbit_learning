@@ -19587,8 +19587,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -82126585
-  m_SortingLayer: 3
+  m_SortingLayerID: -1660336627
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6dda7ee583126184c8f217bdc1a38dd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31074,6 +31074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1040418799}
+  - component: {fileID: 1040418800}
   m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Wall
@@ -31089,12 +31090,48 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040418798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.47, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1029018315}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1040418800
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040418798}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.06
+  m_Points:
+  - {x: 4.093822, y: -1.128058}
+  - {x: 3.5965974, y: -4.176447}
+  - {x: -1.1428754, y: -4.0598683}
+  - {x: -0.96870494, y: -2.723856}
+  - {x: -0.95256567, y: -2.6772544}
+  - {x: -1.3833348, y: -2.6886837}
+  - {x: -3.2714887, y: -2.6851196}
+  - {x: -3.3342159, y: -4.0881586}
+  - {x: -8.131039, y: -4.1865253}
+  - {x: -8.086214, y: 2.1635866}
+  - {x: -1.2139932, y: 2.2776735}
+  - {x: -0.29090065, y: 0.6045047}
+  - {x: 1.5413553, y: -0.7130047}
+  - {x: 1.7461321, y: -0.9216248}
+  - {x: 2.3710225, y: -1.5058852}
+  - {x: 4.4610953, y: -1.0030328}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1001 &1043854532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35170,7 +35207,7 @@ GameObject:
   - component: {fileID: 1212878163}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35258,7 +35295,7 @@ GameObject:
   - component: {fileID: 1215743660}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
