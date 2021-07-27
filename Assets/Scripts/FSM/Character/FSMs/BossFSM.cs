@@ -19,6 +19,8 @@ public class BossFSM : FSMBase
     public int[] hurtedMaxHP = new int[2];
     public GameObject generateWeapon;
     public GameObject generateItem;
+    public GameObject battleLight;
+    public GameObject softLight;
     private int maxHP;
     public override void ConfigFSM()
     {
@@ -63,7 +65,8 @@ public class BossFSM : FSMBase
     {
         //如果没血了
         if (HP <= 0) return;
-
+        //如果当前状态是待机，也不扣血
+        if(currentState.stateID==FSMStateID.BossIdle) return;
         if (!isHurted)
         {
             HP = Mathf.Max(HP - damage, 0);
@@ -79,7 +82,7 @@ public class BossFSM : FSMBase
             StartCoroutine(hurtedContinus(hurtedTime));
         }
     }
-    private void BossInit()
+    public void BossInit()
     {
         m_hurtedCount = 0;
         HP = maxHP;

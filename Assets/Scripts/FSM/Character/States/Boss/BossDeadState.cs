@@ -15,6 +15,8 @@ public class BossDeadState : FSMState
 
         //死亡动画播出
         BossFSM bossFSM = fsm.GetComponent<BossFSM>();
+        bossFSM.battleLight.SetActive(false);
+        bossFSM.softLight.SetActive(true);
         Debug.Log("Dead");
         fsm.animator.SetBool("IsDead", true);
 

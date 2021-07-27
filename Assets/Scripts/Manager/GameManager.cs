@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         chromaticRatio = bloodIndex = 0;
         saveData = new SaveData();
         bloodRenderer = bloodEffect.GetComponent<SpriteRenderer>();
-       // globalLight = this.GetComponentInChildren<Light2D>();
+        // globalLight = this.GetComponentInChildren<Light2D>();
         player = GameObject.FindWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerChildController = player.GetComponentInChildren<PlayerChildController>();
@@ -307,5 +307,12 @@ public class GameManager : MonoBehaviour
         ChangeRoom(roomList.Find(s => s.name == parent.name), saveData.lastDoor, null);
 
         //初始化敌人
+
+        if (currentRoom.name == "Factory")
+        {
+            currentRoom.transform.Find("交互物品").Find("起点").GetComponent<PassiveTrigger>().isActive = true;
+            BossFSM bossFSM = currentRoom.transform.Find("Boss").GetComponent<BossFSM>();
+            bossFSM.BossInit();
+        }
     }
 }
