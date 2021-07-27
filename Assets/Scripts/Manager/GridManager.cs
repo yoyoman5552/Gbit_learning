@@ -132,7 +132,7 @@ public class GridManager : MonoBehaviour
 
         foreach (var collider in hitColliders)
         {
-            if (collider.CompareTag("Wall") || collider.CompareTag("Breakable"))
+            if (collider.CompareTag("Wall") || collider.CompareTag("Breakable")||collider.CompareTag("EnemyWall"))
             {
                 return true;
             }
@@ -157,7 +157,7 @@ public class GridManager : MonoBehaviour
     {
         Vector3 tarPos;
         List<PathNode> pathList;
-        int maxTimes = 50;//随机50次，还不成功，就默认回到原地
+        int maxTimes = 500;//随机500次，还不成功，就默认回到原地
         do
         {
             if (maxTimes < 0)
@@ -168,7 +168,7 @@ public class GridManager : MonoBehaviour
             maxTimes--;
             tarPos = GetRandomPos();
             pathList = FindPath(selfPos, tarPos);
-        } while (pathList == null || pathList.Count > radius + 4 || pathList.Count < 2);
+        } while (pathList == null || pathList.Count > radius + 15 || pathList.Count < 2);
 
         return pathList;
     }

@@ -208,7 +208,7 @@ MonoBehaviour:
   initSprintTimer: 0
   SprintSpeed: 0
   initLoadStimer: 0
-  idleTime: 1
+  idleTime: 2.5
   hurtedTime: 0.2
   HurtedSpeed: 1
   attackInterval: 1.5
@@ -236,7 +236,7 @@ MonoBehaviour:
   enemyAudio: {fileID: 8923127337756576094}
   attackClip: {fileID: 8300000, guid: ed68c1436efcea04d897d8c20f647985, type: 3}
   GetHurtClip: {fileID: 8300000, guid: 5b5ee584321c776469349b6137a2f048, type: 3}
-  deadClip: {fileID: 8300000, guid: 3deea12228c02074ca77f581dd1aedef, type: 3}
+  deadClip: {fileID: 8300000, guid: 5b5ee584321c776469349b6137a2f048, type: 3}
 --- !u!61 &806632035328924391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0.02
 --- !u!1 &6856022968719075856
 GameObject:

@@ -20,19 +20,14 @@ public class BatteryFSM : FSMBase
     }
     public void ChangeState(int count)
     {
-        /*         if (count == 0)
-                {
-                    ChangeActiveState(FSMStateID.BatteryIdle);
-                }
-                else
-                {
-         */
-        if (count != 0)
-        {
-            attackIndex = count - 1;
-            ChangeActiveState(FSMStateID.BatteryAttack);
-        }
+        //if (count == 0) ChangeActiveState(FSMStateID.BatteryIdle);
+        //else
+        //{
+            if (count !=0)
+            {
+                attackIndex = count - 1;
+                ChangeActiveState(FSMStateID.BatteryAttack);
+            }
         //}
-
     }
 }

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-
+using UnityEngine;
 namespace EveryFunc.FSM
 {
     public class NormalEnemyFSM : FSMBase
     {
         private void OnEnable()
         {
+            Debug.Log("bgmManager.Instance:" + BGMManager.Instance);
             BGMManager.Instance.ChangeBGM(BGMType.Attack);
         }
         public override void ConfigFSM()
