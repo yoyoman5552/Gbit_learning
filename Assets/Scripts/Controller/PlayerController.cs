@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour {
     //音乐播放器
     [HideInInspector]
     public AudioSource source;
-    [HideInInspector]
+//    [HideInInspector]
     public GameObject PressETarget;
     //动画器
     private Animator playerAnimator;

@@ -12,18 +12,19 @@ public class UIcontroller : MonoBehaviour
     public string detailIndex;
     public string jigsawName;
     public string jigsawIndex;
-
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
 
-
+        animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetUIfalse();
+        if (animator.GetBool("IsShow"))
+            SetUIfalse();
     }
     private void SetUIfalse()
     {

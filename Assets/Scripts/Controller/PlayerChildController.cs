@@ -195,6 +195,11 @@ public class PlayerChildController : MonoBehaviour
         {
             controller.PressETarget.GetComponent<ActiveTrigger>().StartTrigger();
         }
+        StartCoroutine(pressDelay());
+    }
+    IEnumerator pressDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
         controller.PressETarget = null;
     }
     public void SetBreakLevel(bool isArmor, int useNUm)
@@ -204,7 +209,7 @@ public class PlayerChildController : MonoBehaviour
         else
             attackType = BreakLevel.easy;
         armorTimes = useNUm;
-//        Debug.Log("attackType:" + attackType.ToString());
+        //        Debug.Log("attackType:" + attackType.ToString());
     }
     public void fightController(float time)
     {
