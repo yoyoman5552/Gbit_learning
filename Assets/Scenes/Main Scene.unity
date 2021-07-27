@@ -56384,7 +56384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034132, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: detail
-      value: "\u84B8\u6C7D\u706B\u8F66\u6A21\u578B\uFF0C\u73B0\u7248\u672C\u6570\u636E\u5E93\u65E0\u578B\u53F7\u5339\u914D\u3002"
+      value: "\u84B8\u6C7D\u706B\u8F66\u6A21\u578B\uFF0C\u73B0\u7248\u672C\u6570\u636E\u5E93\u65E0\u5339\u914D\u578B\u53F7\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2317517439246034133, guid: b88524da3707b8149b8539d49b5b5d6b, type: 3}
       propertyPath: m_RootOrder
