@@ -204,7 +204,7 @@ public class PlayerChildController : MonoBehaviour
         else
             attackType = BreakLevel.easy;
         armorTimes = useNUm;
-        Debug.Log("attackType:" + attackType.ToString());
+//        Debug.Log("attackType:" + attackType.ToString());
     }
     public void fightController(float time)
     {

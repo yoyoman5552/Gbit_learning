@@ -118,6 +118,11 @@ public class GridManager : MonoBehaviour
         Debug.DrawLine(grid.GetWorldPosition(width, 0), grid.GetWorldPosition(width, height), Color.gray, 100f);
         Debug.DrawLine(grid.GetWorldPosition(0, height), grid.GetWorldPosition(width, height), Color.gray, 100f);
     }
+    public bool IsStandAWall(Vector3 oriPos)
+    {
+        Vector3Int xy = GetXY(oriPos);
+        return IsAWall(xy.x, xy.y);
+    }
     public List<PathNode> FindPath(Vector3 oriPos, Vector3 targetPos)
     {
         int startX, startY, endX, endY;
@@ -132,18 +137,18 @@ public class GridManager : MonoBehaviour
 
         foreach (var collider in hitColliders)
         {
-            if (collider.CompareTag("Wall") || collider.CompareTag("Breakable")||collider.CompareTag("EnemyWall"))
+            if (collider.CompareTag("Wall") || collider.CompareTag("Breakable") || collider.CompareTag("EnemyWall"))
             {
                 return true;
             }
         }
         return false;
     }
-    public Vector3 GetXY(Vector3 pos)
+    public Vector3Int GetXY(Vector3 pos)
     {
         int x, y;
         grid.GetXY(pos, out x, out y);
-        return new Vector3(x, y);
+        return new Vector3Int(x, y,0);
     }
     public Vector3 GetWorldPos(int x, int y)
     {

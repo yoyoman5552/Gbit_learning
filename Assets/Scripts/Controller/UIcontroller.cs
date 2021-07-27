@@ -17,7 +17,7 @@ public class UIcontroller : MonoBehaviour
     void Start()
     {
 
-        
+
     }
 
     // Update is called once per frame
@@ -32,18 +32,23 @@ public class UIcontroller : MonoBehaviour
             getNumForManager = UIManager.Instance.getAllWindow();
             if (getNumForManager == 2)
             {
-                UIManager.Instance.CallDetailUI(detailName,detailTitle, detailIndex, detailSprite,true);
+                UIManager.Instance.CallDetailUI(detailName, detailTitle, detailIndex, detailSprite, true);
 
             }
-            else if(getNumForManager == 1)
+            else if (getNumForManager == 1)
             {
-                UIManager.Instance.CallJigsawUI(jigsawName,jigsawIndex);
+                UIManager.Instance.CallJigsawUI(jigsawName, jigsawIndex);
             }
             else
                 UIManager.Instance.resetTimeScale();
             if (!UIManager.Instance.CheckContinueTrigger())
             {
-                this.gameObject.SetActive(false);
+                if (this.GetComponent<Animator>() != null)
+                    this.GetComponent<Animator>().SetBool("IsShow", false);
+                else
+                {
+                    this.gameObject.SetActive(false);
+                }
             }
             //否则此对话框不关闭
         }

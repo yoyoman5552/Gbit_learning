@@ -6,60 +6,60 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
-    //±êÌâ
+    //ï¿½ï¿½ï¿½ï¿½
     public GameObject title;
-    //Êó±êÑ¡Ôñ
+    //ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
     public bool mouseClick = false;
-    //»­²¼£ºÅÐ¶ÏÊó±êÎ»ÖÃ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
     public GameObject canvas;
-    //±êÌâ½çÃæ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject titleScene;
-    //Ñ¡¹Ø½çÃæ
+    //Ñ¡ï¿½Ø½ï¿½ï¿½ï¿½
     public GameObject chooseScene;
-    //ÔØÈë½çÃæ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject loadScene;
 
-    //±êÌâ½çÃæ°´Å¥
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ°´Å¥
     private Button buttonEnter;
     private Button buttonExit;
-    //°´Å¥ÎÄ±¾_³¡¾°Ò»
+    //ï¿½ï¿½Å¥ï¿½Ä±ï¿½_ï¿½ï¿½ï¿½ï¿½Ò»
     private Text buttonEnter_text;
     private Text buttonExit_text;
 
     public Sprite backgroundSprite_toChange;
     public Image background;
-    //Ñ¡¹Ø½çÃæ°´Å¥
+    //Ñ¡ï¿½Ø½ï¿½ï¿½æ°´Å¥
     private Button firstLevel;
     private Button secondLevel;
     private Button thirdLevel;
-    //°´Å¥ÎÄ±¾_³¡¾°¶þ
+    //ï¿½ï¿½Å¥ï¿½Ä±ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private Text firstLevel_text;
     private Text secondLevel_text;
     private Text thirdLevel_text;
 
 
 
-    //ÎÄ±¾ÑÕÉ«
+    //ï¿½Ä±ï¿½ï¿½ï¿½É«
     private Color initColor;
     public Color changeColor;
 
 
-    //¼üÅÌÑ¡Ôñ£¨±êÌâ½çÃæ£©
+    //ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ñ£¨±ï¿½ï¿½ï¿½ï¿½ï¿½æ£©
     private int Scene1Select;
-    //¼üÅÌÑ¡Ôñ£¨Ñ¡¹Ø½çÃæ£©
+    //ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ñ¡ï¿½Ø½ï¿½ï¿½æ£©
     private int Scene2Select;
 
-    //µ±Ç°½çÃæ
+    //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
     private int currentScene;
 
-    //ÊÇ·ñ°´ÏÂ¼üÅÌ°´¼ü
+    //ï¿½Ç·ï¿½ï¿½Â¼ï¿½ï¿½Ì°ï¿½ï¿½ï¿½
     private bool keyDown = false;
 
-    //×ª³¡ºÚÄ»
+    //×ªï¿½ï¿½ï¿½ï¿½Ä»
     public GameObject blackCover;
     private Image coverBlack;
 
-    //ÕýÔÚ½øÈë/ÍË³ö½çÃæ
+    //ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½/ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool exitScene1 = false;
     private bool enterScene2 = false;
     private bool exitScene2 = false;
@@ -70,47 +70,47 @@ public class SceneController : MonoBehaviour
     private float loadSceneEnter;
     public float initLoadSceneEnterLoad;
     private float loadSceneEnterLoad;
-    //¹ØµÆ¹ý³ÌÊ±¼ä
+    //ï¿½ØµÆ¹ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     public float initLoadSceneTime;
     private float loadSceneTime;
 
-    //¿ØÖÆ±äÁ¿£ºÎ´ÍêÈ«ÔØÈë½çÃæÊ±½ûÖ¹»Ø³µ¹¦ÄÜ
+    //ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö¹ï¿½Ø³ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool canChangeScene = true;
 
-    //ºÚÄ»Í¸Ã÷Í¨µÀ¿ØÖÆ±äÁ¿
+    //ï¿½ï¿½Ä»Í¸ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½
     private Vector4 coverBlackSet;
 
 
-    //ÔØÈë³¡¾°Ïà¹Ø±äÁ¿
+    //ï¿½ï¿½ï¿½ë³¡ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½
 
-    //ÔØÈë½çÃæ¼ÓÔØÍê³É
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private bool scene3Loaded;
 
-    //ÔØÈë½çÃæÒôÆµ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
     public GameObject loadAudio;
     private AudioSource loadAudioSource;
 
-    //×ÖÄ»
+    //ï¿½ï¿½Ä»
     private Text subtitle;
 
     public List<string> subtitle_show = new List<string>();
 
-    //Ã¿ÐÐ×ÖÄ»ÏÔÊ¾Ê±¼ä
+    //Ã¿ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ê¾Ê±ï¿½ï¿½
     private float subtitleShowTime;
     public float initSubtitleShowTime;
-    //Ã¿ÐÐ×ÖÄ»ÓÉµ­±äÉî/ÓÉÉî±äµ­µÄÊ±¼ä
+    //Ã¿ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½äµ­ï¿½ï¿½Ê±ï¿½ï¿½
     private float subtitleLoadTime;
     private float subtitleDisTime;
     public float initSubtitleLoadTime;
-    //µ±Ç°Ê±µÚ¼¸ÐÐ×ÖÄ»
+    //ï¿½ï¿½Ç°Ê±ï¿½Ú¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä»
     private int subtitleNum = 0;
-    //¿ØÖÆtextÍ¸Ã÷¶È
+    //ï¿½ï¿½ï¿½ï¿½textÍ¸ï¿½ï¿½ï¿½ï¿½
     private Vector4 textColor;
-    //¿ªÊ¼½øÈëÓÎÏ·³¡¾°
+    //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
     private bool wordFinish = false;
 
 
-    //°´Å¥ÒôÆµ
+    //ï¿½ï¿½Å¥ï¿½ï¿½Æµ
     public AudioSource buttonAudio;
     public AudioClip enterGameAudio;
     public AudioClip enterGameAudio2;
@@ -142,7 +142,7 @@ public class SceneController : MonoBehaviour
         inputEnter();
         SceneChange();
         loadLastScene();
-        //ÔØÈë½çÃæÔËÐÐ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
 
     }
@@ -170,7 +170,7 @@ public class SceneController : MonoBehaviour
             }
             else
             {
-                //×ÖÌå±äÇ³
+                //ï¿½ï¿½ï¿½ï¿½ï¿½Ç³
                 subtitleLoadTime = initSubtitleLoadTime;
                 subtitleDisTime -= Time.deltaTime;
                 if (subtitleDisTime > 0)
@@ -311,7 +311,7 @@ public class SceneController : MonoBehaviour
             else if (currentScene == 2)
             {
                 buttonAudio.PlayOneShot(enterGameAudio2);
-                //µ±Ç°Ö»ÓÐµÚÒ»¹Ø¿¨¿ÉÑ¡
+                //ï¿½ï¿½Ç°Ö»ï¿½Ðµï¿½Ò»ï¿½Ø¿ï¿½ï¿½ï¿½Ñ¡
                 exitScene2 = true;
 
             }
@@ -324,13 +324,13 @@ public class SceneController : MonoBehaviour
     {
         coverBlack = blackCover.GetComponent<Image>();
 
-        //³¡¾°Ò»°´Å¥³õÊ¼»¯
+        //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Å¥ï¿½ï¿½Ê¼ï¿½ï¿½
         buttonEnter = titleScene.transform.GetChild(0).GetComponent<Button>();
         buttonExit = titleScene.transform.GetChild(1).GetComponent<Button>();
         buttonEnter_text = buttonEnter.GetComponentInChildren<Text>();
         buttonExit_text = buttonExit.GetComponentInChildren<Text>();
 
-        //³¡¾°¶þ°´Å¥³õÊ¼»¯
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½Ê¼ï¿½ï¿½
         firstLevel = chooseScene.transform.GetChild(0).GetComponent<Button>();
         secondLevel = chooseScene.transform.GetChild(1).GetComponent<Button>();
         thirdLevel = chooseScene.transform.GetChild(2).GetComponent<Button>();
@@ -338,7 +338,7 @@ public class SceneController : MonoBehaviour
         secondLevel_text = secondLevel.GetComponentInChildren<Text>();
         thirdLevel_text = thirdLevel.GetComponentInChildren<Text>();
 
-        //³¡¾°Èý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         loadAudioSource = loadAudio.GetComponent<AudioSource>();
         loadAudioSource.volume = 0;
         loadAudio.SetActive(false);
@@ -368,7 +368,7 @@ public class SceneController : MonoBehaviour
 
     private void selectItem()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !keyDown)
+        if (Input.GetKeyDown(KeyCode.W) && !keyDown)
         {
             keyDown = true;
 
@@ -386,11 +386,11 @@ public class SceneController : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.W))
         {
             keyDown = false;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !keyDown)
+        if (Input.GetKeyDown(KeyCode.S) && !keyDown)
         {
             keyDown = true;
             if (currentScene == 1)
@@ -406,7 +406,7 @@ public class SceneController : MonoBehaviour
                     Scene2Select = 1;
             }
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             keyDown = false;
         }

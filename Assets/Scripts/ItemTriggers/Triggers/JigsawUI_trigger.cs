@@ -11,6 +11,8 @@ public class JigsawUI_trigger : ITrigger
     {
 
         //this.gameObject.SetActive(true);
-        UIManager.Instance.CallJigsawUI(name, detail);
+        string title = name.Replace("<size=200><color=white>", "");
+        title = title.Replace("</color></size>", "");
+        UIManager.Instance.CallJigsawUI(title, detail);
     }
 }

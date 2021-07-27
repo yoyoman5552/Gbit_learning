@@ -20,6 +20,7 @@ public class BossAttackState : FSMState
         BGMManager.Instance.ChangeBGM(BGMType.BossBattle);
 
         BossFSM bossFSM = fsm.GetComponent<BossFSM>();
+        bossFSM.battleLight.SetActive(true);
         waitTime = 0;
         batteryArray = bossFSM.batteryArray;
         fsm.animator.SetFloat("AttackStateNum", bossFSM.attackStateNum);
@@ -67,7 +68,7 @@ public class BossAttackState : FSMState
         {
             attackList[i] = JsonUtility.FromJson<BossAttackCurve>(strs[i]);
         }
-        
-        curveIndex=0;
+
+        curveIndex = 0;
     }
 }
