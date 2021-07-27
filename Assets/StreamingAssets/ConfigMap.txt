@@ -1,1 +1,1 @@
-PurpleBullet=PurpleBullet赣RedBullet=RedBullet赣
+BossPurpleBullet=BossPurpleBullet赣BossRedBullet=BossRedBullet赣PurpleBullet=PurpleBullet赣RedBullet=RedBullet赣

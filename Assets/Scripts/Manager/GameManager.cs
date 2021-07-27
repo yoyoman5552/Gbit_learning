@@ -194,8 +194,11 @@ public class GameManager : MonoBehaviour
         targetRoom.SetActive(true);
         //人物位置设置
         Transform playerPos = targetDoor.Find("PlayerPos");
+        Debug.Log("targetDoor:" + targetDoor);
+        if (targetDoor.name == "木板") targetDoor.name = "地下室2门";
         if (playerPos != null)
         {
+            Debug.Log("切换房间：" + playerPos.position);
             player.transform.position = playerPos.position;
             if (playerPos.position.x - targetDoor.position.x > 0.05f)
                 playerController.Flip(1);
@@ -309,7 +312,7 @@ public class GameManager : MonoBehaviour
         {
             parent = parent.parent;
         }
-        Debug.Log("parent:" + parent.name);
+        Debug.Log("parent:" + parent.name + "roomlist contain:" + roomList.Find(s => s.name == parent.name));
         ChangeRoom(roomList.Find(s => s.name == parent.name), saveData.lastDoor, null);
 
         //初始化敌人

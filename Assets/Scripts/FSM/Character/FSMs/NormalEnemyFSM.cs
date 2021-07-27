@@ -53,7 +53,7 @@ namespace EveryFunc.FSM
             attack.addMap(FSMTriggerID.OutOfAttackRange, FSMStateID.Chase);
 
             //hurted的映射
-            hurted.addMap(FSMTriggerID.Dead, FSMStateID.Dead);
+            //hurted.addMap(FSMTriggerID.Dead, FSMStateID.Dead);
 
             //加入状态机
             statesList.Add(idle);
