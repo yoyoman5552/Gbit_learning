@@ -66,9 +66,9 @@ public class UIManager : MonoBehaviour
     //拼图信息UI
     public void CallJigsawUI(string name, string detail)
     {
-        jigsawUI.SetBool("IsShow",true);
-        talkWindow.SetBool("IsShow",false);
-        PopUpWindow.SetBool("IsShow",false);
+        jigsawUI.SetBool("IsShow", true);
+        talkWindow.SetBool("IsShow", false);
+        PopUpWindow.SetBool("IsShow", false);
         for (int i = 0; i < JigsawAmount; i++)
         {
             if (JigsawControlList[i])
@@ -96,9 +96,9 @@ public class UIManager : MonoBehaviour
         //characterImage.sprite = showCharacter;
 
         detailIndex.text = detail;
-        talkWindow.SetBool("IsShow",true);
-        PopUpWindow.SetBool("IsShow",false);
-        jigsawUI.SetBool("IsShow",false);
+        talkWindow.SetBool("IsShow", true);
+        PopUpWindow.SetBool("IsShow", false);
+        jigsawUI.SetBool("IsShow", false);
         Time.timeScale = 0;
     }
     public void CallDetailUI(string name, string detail_title, string detail_index, Sprite showObject, bool hadSound)
@@ -114,9 +114,10 @@ public class UIManager : MonoBehaviour
         objectName.text = name;
         detailTitle.text = detail_title;
         detailIndex.text = detail_index;
-        PopUpWindow.SetBool("IsShow",true);
-        talkWindow.SetBool("IsShow",false);
-        jigsawUI.SetBool("IsShow",false);
+        Debug.Log("call detailUI:" + Input.GetKeyDown(KeyCode.E));
+        PopUpWindow.SetBool("IsShow", true);
+        talkWindow.SetBool("IsShow", false);
+        jigsawUI.SetBool("IsShow", false);
         Time.timeScale = 0;
         if (hadSound)
         {
@@ -144,7 +145,7 @@ public class UIManager : MonoBehaviour
         List<Sprite> nameList = new List<Sprite>();
         foreach (var key in itemList.Keys)
         {
-//            Debug.Log("物品：" + itemList[key].name + ",使用次数：" + itemList[key].useNum);
+            //            Debug.Log("物品：" + itemList[key].name + ",使用次数：" + itemList[key].useNum);
             if (!nameList.Contains(bagUIList[i].sprite))
             {
                 nameList.Add(bagUIList[i].sprite);
@@ -186,13 +187,13 @@ public class UIManager : MonoBehaviour
         }
         //对话式UI
         //talkWindow = GameObject.FindWithTag("UI").transform.GetChild(0).gameObject;
-        talkWindow.SetBool("IsShow",false);
+        talkWindow.SetBool("IsShow", false);
 
         //弹窗式UI
         //PopUpWindow = GameObject.FindWithTag("UI").transform.GetChild(1).gameObject;
-        PopUpWindow.SetBool("IsShow",false);
+        PopUpWindow.SetBool("IsShow", false);
 
-        jigsawUI.SetBool("IsShow",false);
+        jigsawUI.SetBool("IsShow", false);
         SetTargetUI("");
     }
     public void resetTimeScale()
@@ -228,7 +229,7 @@ public class UIManager : MonoBehaviour
     }
     public bool CheckContinueTrigger()
     {
-//        Debug.Log("targetTrigger:" + targetTrigger);
+        //        Debug.Log("targetTrigger:" + targetTrigger);
         if (targetTrigger != null)
         {
             targetTrigger.ContinueTrigger();

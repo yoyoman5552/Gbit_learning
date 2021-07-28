@@ -47,6 +47,7 @@ public class ActiveTrigger : ItemTrigger
         UIManager.Instance.RemoveActiveTrigger();
         for (currentIndex = currentIndex + 1; currentIndex < TriggerList.Count; currentIndex++)
         {
+            Debug.Log("continue:" + TriggerList[currentIndex].ToString());
             TriggerList[currentIndex].Action();
             //如果是跟自言自语有关的，就退出，暂停
             if (TriggerList[currentIndex].GetType() == typeof(UIEasyShow_Trigger))

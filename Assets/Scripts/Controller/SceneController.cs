@@ -8,18 +8,18 @@ public class SceneController : MonoBehaviour
 {
     //����
     public GameObject title;
-    //���ѡ��?
+    //���ѡ��?
     public bool mouseClick = false;
-    //�������ж����λ��?
+    //�������ж����λ��?
     public GameObject canvas;
-    //�������?
+    //�������?
     public GameObject titleScene;
     //ѡ�ؽ���
     public GameObject chooseScene;
-    //�������?
+    //�������?
     public GameObject loadScene;
 
-    //������水�?
+    //������水�?
     private Button buttonEnter;
     private Button buttonExit;
     //��ť�ı�_����һ
@@ -44,7 +44,7 @@ public class SceneController : MonoBehaviour
     public Color changeColor;
 
 
-    //����ѡ�񣨱������?
+    //����ѡ�񣨱������?
     private int Scene1Select;
     //����ѡ��ѡ�ؽ��棩
     private int Scene2Select;
@@ -74,19 +74,19 @@ public class SceneController : MonoBehaviour
     public float initLoadSceneTime;
     private float loadSceneTime;
 
-    //���Ʊ�����δ��ȫ�������ʱ��ֹ�س�����?
+    //���Ʊ�����δ��ȫ�������ʱ��ֹ�س�����?
     private bool canChangeScene = true;
 
     //��Ļ͸��ͨ�����Ʊ���
     private Vector4 coverBlackSet;
 
 
-    //���볡����ر���?
+    //���볡����ر���?
 
-    //�������������?
+    //�������������?
     private bool scene3Loaded;
 
-    //����������?
+    //����������?
     public GameObject loadAudio;
     private AudioSource loadAudioSource;
 
@@ -98,7 +98,7 @@ public class SceneController : MonoBehaviour
     //ÿ����Ļ��ʾʱ��
     private float subtitleShowTime;
     public float initSubtitleShowTime;
-    //ÿ����Ļ�ɵ�����/�����?��ʱ��
+    //ÿ����Ļ�ɵ�����/�����?��ʱ��
     private float subtitleLoadTime;
     private float subtitleDisTime;
     public float initSubtitleLoadTime;
@@ -143,7 +143,7 @@ public class SceneController : MonoBehaviour
         inputEnter();
         SceneChange();
         loadLastScene();
-        //�����������?
+        //�����������?
 
 
     }
@@ -171,7 +171,7 @@ public class SceneController : MonoBehaviour
             }
             else
             {
-                //������?
+                //������?
                 subtitleLoadTime = initSubtitleLoadTime;
                 subtitleDisTime -= Time.deltaTime;
                 if (subtitleDisTime > 0)
@@ -236,6 +236,7 @@ public class SceneController : MonoBehaviour
         }
         else if (exitScene2)
         {
+            Cursor.visible = false;
             canChangeScene = false;
             loadSceneEnterLoad -= Time.deltaTime;
             if (loadSceneEnterLoad > 0)

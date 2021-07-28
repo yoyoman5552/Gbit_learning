@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ItemMaterial
+  m_Name: lowItemMaterial
   m_Shader: {fileID: -6465566751694194690, guid: a970bd5c99edc8b45a0d48b1ddb3af4d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e726189492403d840a3229580bccc4cd, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -38,12 +38,9 @@ Material:
     m_Ints: []
     m_Floats:
     - IsActive: 0
-    - LightRatio: 1.2
+    - LightRatio: 0.8
     - NoiseNum: 2
     - Speed: 1
-    - _Float: 6
-    - _OffsetSize: 200
     m_Colors:
-    - AddColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0}
-    - _offset: {r: 0, g: 0.1, b: 0, a: 0}
+    - AddColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

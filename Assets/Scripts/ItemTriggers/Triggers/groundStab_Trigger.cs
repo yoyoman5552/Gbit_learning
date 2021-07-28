@@ -215,7 +215,7 @@ public class groundStab_Trigger : ITrigger
         //Invoke("fixPosition",standTimer);
         GameObject player = GameManager.Instance.player;
         Vector3 dir = (Vector3)enterPosition - player.transform.position;
-        while (Vector3.Distance(player.transform.position, enterPosition) > 0.2f)
+        while (Vector3.Distance(player.transform.position, enterPosition) > 0.3f)
         {
             player.transform.position = Vector3.Lerp(player.transform.position, enterPosition, 0.2f);
             yield return new WaitForSeconds(Time.deltaTime);

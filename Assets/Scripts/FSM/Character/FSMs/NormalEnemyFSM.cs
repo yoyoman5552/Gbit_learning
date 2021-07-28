@@ -6,7 +6,7 @@ namespace EveryFunc.FSM
     {
         private void OnEnable()
         {
-            Debug.Log("bgmManager.Instance:" + BGMManager.Instance);
+//            Debug.Log("bgmManager.Instance:" + BGMManager.Instance);
             BGMManager.Instance.ChangeBGM(BGMType.Attack);
         }
         public override void ConfigFSM()
