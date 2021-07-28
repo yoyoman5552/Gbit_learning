@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 797420116521841113}
   m_Layer: 0
   m_Name: Basement1_Envrionment Collider
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2369090431330327700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: -0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.01, y: 1.01, z: 1.01}
   m_Children:
   - {fileID: 2369090433074283388}
   - {fileID: 2369090433267390309}
@@ -100,9 +100,265 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2369090433074283387}
+    m_ColliderPaths:
+    - - X: -33477690
+        Y: -452860
+      - X: -29928614
+        Y: 12430493
+      - X: -30658586
+        Y: 12631536
+      - X: -34207302
+        Y: -251613
+  - m_Collider: {fileID: 2369090433267390308}
+    m_ColliderPaths:
+    - - X: -29969608
+        Y: 12704320
+      - X: -12251154
+        Y: 12860057
+      - X: -12262405
+        Y: 14106784
+      - X: -29980564
+        Y: 13950756
+  - m_Collider: {fileID: 2369090432792898167}
+    m_ColliderPaths:
+    - - X: 59970687
+        Y: 6093929
+      - X: 59970687
+        Y: 10099244
+      - X: 41347780
+        Y: 10098951
+      - X: 41348073
+        Y: 6093929
+  - m_Collider: {fileID: 2369090432219544072}
+    m_ColliderPaths:
+    - - X: 62859647
+        Y: 18620847
+      - X: 62907179
+        Y: 19671625
+      - X: 43604255
+        Y: 20544483
+      - X: 43557029
+        Y: 19493987
+  - m_Collider: {fileID: 2369090432897795287}
+    m_ColliderPaths:
+    - - X: 45271568
+        Y: 20293402
+      - X: 46814996
+        Y: 20555147
+      - X: 45184999
+        Y: 30165054
+      - X: 43641912
+        Y: 29903073
+  - m_Collider: {fileID: 2369090433181175296}
+    m_ColliderPaths:
+    - - X: 44981409
+        Y: 19668549
+      - X: 45722940
+        Y: 25735897
+      - X: 44615857
+        Y: 25870904
+      - X: 43874652
+        Y: 19803811
+  - m_Collider: {fileID: 2369090431924225334}
+    m_ColliderPaths:
+    - - X: 79560771
+        Y: 28429784
+      - X: 79591805
+        Y: 29366914
+      - X: 44288530
+        Y: 30535349
+      - X: 44257807
+        Y: 29598502
+  - m_Collider: {fileID: 2369090432569438053}
+    m_ColliderPaths:
+    - - X: 82661491
+        Y: 18575039
+      - X: 83286555
+        Y: 18804961
+      - X: 79379749
+        Y: 29425177
+      - X: 78755061
+        Y: 29195081
+  - m_Collider: {fileID: 2369090432241136470}
+    m_ColliderPaths:
+    - - X: 95284959
+        Y: -32467762
+      - X: 96377871
+        Y: -32088796
+      - X: 86631852
+        Y: -3983120
+      - X: 85539313
+        Y: -4362269
+  - m_Collider: {fileID: 2369090432796850468}
+    m_ColliderPaths:
+    - - X: 87714112
+        Y: -4948140
+      - X: 88773638
+        Y: -4576669
+      - X: 84352019
+        Y: 8034204
+      - X: 83292850
+        Y: 7662554
+  - m_Collider: {fileID: 2369090433296049671}
+    m_ColliderPaths:
+    - - X: 84411547
+        Y: 4263075
+      - X: 84411547
+        Y: 6086232
+      - X: 80517280
+        Y: 6085939
+      - X: 80517573
+        Y: 4263075
+  - m_Collider: {fileID: 2369090431947078449}
+    m_ColliderPaths:
+    - - X: 96050275
+        Y: -36863972
+      - X: 96050275
+        Y: -32138292
+      - X: 95083856
+        Y: -32138585
+      - X: 95084149
+        Y: -36863972
+  - m_Collider: {fileID: 2369090432248593496}
+    m_ColliderPaths:
+    - - X: 18724265
+        Y: -51200927
+      - X: 76213637
+        Y: -50662419
+      - X: 76203003
+        Y: -49558671
+      - X: 18713931
+        Y: -50097469
+  - m_Collider: {fileID: 2369090433020925809}
+    m_ColliderPaths:
+    - - X: -23396185
+        Y: -45604495
+      - X: 10840273
+        Y: -44797479
+      - X: 10800729
+        Y: -43132315
+      - X: -23435429
+        Y: -43939617
+  - m_Collider: {fileID: 2369090433032562878}
+    m_ColliderPaths:
+    - - X: -30215599
+        Y: -52362916
+      - X: -30215599
+        Y: -50248124
+      - X: -50020932
+        Y: -50248417
+      - X: -50020639
+        Y: -52362916
+  - m_Collider: {fileID: 2369090432784011367}
+    m_ColliderPaths:
+    - - X: -1966853
+        Y: -2162661
+      - X: -1924915
+        Y: -1278172
+      - X: -21696979
+        Y: -340982
+      - X: -21738610
+        Y: -1225193
+  - m_Collider: {fileID: 2369090431963611266}
+    m_ColliderPaths:
+    - - X: -4903325
+        Y: -21678631
+      - X: -1843777
+        Y: -1740267
+      - X: -2477403
+        Y: -1643333
+      - X: -5536616
+        Y: -21581451
+  - m_Collider: {fileID: 2369090431720898634}
+    m_ColliderPaths:
+    - - X: -5259623
+        Y: -21784323
+      - X: -5246618
+        Y: -21338105
+      - X: -30556895
+        Y: -20600701
+      - X: -30569599
+        Y: -21046633
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 8.266139, y: 1.8575314}
+      - {x: 8.328646, y: 1.8805236}
+      - {x: 7.9576063, y: 2.8891568}
+      - {x: 7.9591513, y: 2.9366925}
+      - {x: 7.939877, y: 2.9373474}
+      - {x: 7.9379473, y: 2.9425077}
+      - {x: 7.9252048, y: 2.9378161}
+      - {x: 4.428852, y: 3.0535057}
+      - {x: 4.4271073, y: 3.0009892}
+      - {x: 4.364196, y: 2.9902785}
+      - {x: 4.4494357, y: 2.487636}
+      - {x: 4.396289, y: 2.0528264}
+      - {x: 4.360424, y: 2.054419}
+      - {x: 4.355732, y: 1.9493974}
+      - {x: 6.285966, y: 1.8621141}
+      - {x: 6.290689, y: 1.9671638}
+      - {x: 4.6093616, y: 2.0432813}
+      - {x: 4.6814947, y: 2.0555437}
+      - {x: 4.5287247, y: 2.956442}
+      - {x: 7.903017, y: 2.844718}
+    - - {x: 4.524148, y: 2.0470822}
+      - {x: 4.508034, y: 2.0478058}
+      - {x: 4.514782, y: 2.102311}
+    - - {x: -2.996961, y: 1.2704613}
+      - {x: -1.2251157, y: 1.2860351}
+      - {x: -1.2262698, y: 1.4106783}
+      - {x: -2.9980562, y: 1.3950464}
+    - - {x: -3.3477972, y: -0.0452782}
+      - {x: -2.9928896, y: 1.2430571}
+      - {x: -3.0658665, y: 1.2631253}
+      - {x: -3.420702, y: -0.0251691}
+    - - {x: 5.9970393, y: 0.6093929}
+      - {x: 5.9970393, y: 1.0099244}
+      - {x: 4.134778, y: 1.0098658}
+      - {x: 4.1348367, y: 0.6093929}
+    - - {x: 8.771401, y: -0.4947863}
+      - {x: 8.877354, y: -0.45763922}
+      - {x: 8.435175, y: 0.8034106}
+      - {x: 8.329294, y: 0.7662277}
+      - {x: 8.384507, y: 0.6086189}
+      - {x: 8.051728, y: 0.6085646}
+      - {x: 8.051786, y: 0.4263075}
+      - {x: 8.4411545, y: 0.4263368}
+      - {x: 8.441237, y: 0.4469339}
+    - - {x: -0.5259916, y: -2.1784315}
+      - {x: -0.5254633, y: -2.162472}
+      - {x: -0.490328, y: -2.1678345}
+      - {x: -0.18440661, y: -0.1740223}
+      - {x: -0.1946072, y: -0.1724357}
+      - {x: -0.19252071, y: -0.12781571}
+      - {x: -2.1696992, y: -0.0341275}
+      - {x: -2.173832, y: -0.122520804}
+      - {x: -0.2552873, y: -0.2135207}
+      - {x: -0.5498406, y: -2.133077}
+      - {x: -3.0556905, y: -2.0600996}
+      - {x: -3.0569305, y: -2.1046643}
+    - - {x: 9.604999, y: -3.6863973}
+      - {x: 9.605046, y: -3.2202325}
+      - {x: 9.637777, y: -3.208852}
+      - {x: 8.663157, y: -0.39832172}
+      - {x: 8.553941, y: -0.4362546}
+      - {x: 9.517036, y: -3.213856}
+      - {x: 9.508386, y: -3.213888}
+      - {x: 9.508444, y: -3.6863973}
+    - - {x: -2.3396192, y: -4.56042}
+      - {x: 1.0840266, y: -4.4797187}
+      - {x: 1.0800436, y: -4.313232}
+      - {x: -2.3435423, y: -4.3939915}
+    - - {x: 1.8724263, y: -5.1200633}
+      - {x: 7.621363, y: -5.0662127}
+      - {x: 7.620271, y: -4.9558673}
+      - {x: 1.8713934, y: -5.009776}
+    - - {x: -3.0215893, y: -5.236292}
+      - {x: -3.0215893, y: -5.024812}
+      - {x: -5.0020933, y: -5.0248713}
+      - {x: -5.0020347, y: -5.236292}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &2369090431574731473
@@ -117,7 +373,7 @@ GameObject:
   - component: {fileID: 2369090431574731503}
   m_Layer: 0
   m_Name: GameObject (15)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +435,7 @@ GameObject:
   - component: {fileID: 2369090431671977054}
   m_Layer: 0
   m_Name: GameObject (23)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +496,7 @@ GameObject:
   - component: {fileID: 2369090431707567061}
   m_Layer: 0
   m_Name: GameObject (20)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,10 +536,10 @@ EdgeCollider2D:
   - {x: -0.05893532, y: 0.9872033}
   - {x: 0.10138696, y: 1.2424192}
   - {x: 0.41996986, y: 1.6653122}
-  - {x: 0.6977974, y: 1.9208542}
-  - {x: 1.0528933, y: 2.1831832}
-  - {x: 1.444283, y: 2.4115143}
-  - {x: 1.4665277, y: 2.1663349}
+  - {x: 0.7832494, y: 1.8179028}
+  - {x: 1.0890481, y: 2.0491157}
+  - {x: 1.4535772, y: 2.2772124}
+  - {x: 1.4106369, y: 2.0993705}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -300,7 +556,7 @@ GameObject:
   - component: {fileID: 2369090431720898634}
   m_Layer: 0
   m_Name: GameObject (26)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +587,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.51109594, y: 0.483298}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,7 +613,7 @@ GameObject:
   - component: {fileID: 2369090431906388373}
   m_Layer: 0
   m_Name: GameObject (4)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +667,7 @@ GameObject:
   - component: {fileID: 2369090431924225334}
   m_Layer: 0
   m_Name: GameObject (9)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,7 +698,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.82158196, y: -0.4649188}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,7 +724,7 @@ GameObject:
   - component: {fileID: 2369090431947078449}
   m_Layer: 0
   m_Name: GameObject (14)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +755,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.4638312, y: -0.04367444}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,7 +781,7 @@ GameObject:
   - component: {fileID: 2369090431963611266}
   m_Layer: 0
   m_Name: GameObject (25)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -556,7 +812,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.47600663, y: -0.25471222}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -582,7 +838,7 @@ GameObject:
   - component: {fileID: 2369090432117933711}
   m_Layer: 0
   m_Name: GameObject (17)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +911,7 @@ GameObject:
   - component: {fileID: 2369090432219544072}
   m_Layer: 0
   m_Name: GameObject (6)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -686,7 +942,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.22295511, y: 0.43287206}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -712,7 +968,7 @@ GameObject:
   - component: {fileID: 2369090432241136470}
   m_Layer: 0
   m_Name: GameObject (11)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -743,7 +999,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.4567209, y: -0.6129943}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,7 +1025,7 @@ GameObject:
   - component: {fileID: 2369090432248593496}
   m_Layer: 0
   m_Name: GameObject (16)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +1056,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 1.6510215, y: 0.458691}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -826,7 +1082,7 @@ GameObject:
   - component: {fileID: 2369090432387761052}
   m_Layer: 0
   m_Name: GameObject (18)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -894,7 +1150,7 @@ GameObject:
   - component: {fileID: 2369090432428246284}
   m_Layer: 0
   m_Name: GameObject (5)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -907,7 +1163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2369090432428246286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.513, y: 1.317, z: 0}
+  m_LocalPosition: {x: 6.513, y: 1.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2369090431330327699}
@@ -948,7 +1204,7 @@ GameObject:
   - component: {fileID: 2369090432500445051}
   m_Layer: 0
   m_Name: GameObject (28)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1011,7 +1267,7 @@ GameObject:
   - component: {fileID: 2369090432569438053}
   m_Layer: 0
   m_Name: GameObject (10)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1042,7 +1298,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.47508156, y: 0.07660788}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1068,7 +1324,7 @@ GameObject:
   - component: {fileID: 2369090432614326151}
   m_Layer: 0
   m_Name: GameObject (29)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1133,7 +1389,7 @@ GameObject:
   - component: {fileID: 2369090432784011367}
   m_Layer: 0
   m_Name: GameObject (24)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1164,7 +1420,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.31688738, y: 0.46687013}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1190,7 +1446,7 @@ GameObject:
   - component: {fileID: 2369090432792898167}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1221,7 +1477,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.19677486, y: -0.35014382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1247,7 +1503,7 @@ GameObject:
   - component: {fileID: 2369090432796850468}
   m_Layer: 0
   m_Name: GameObject (12)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,7 +1534,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.45804226, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1304,7 +1560,7 @@ GameObject:
   - component: {fileID: 2369090432897795287}
   m_Layer: 0
   m_Name: GameObject (7)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1335,7 +1591,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.5649605, y: 0.13530532}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1361,7 +1617,7 @@ GameObject:
   - component: {fileID: 2369090433008415053}
   m_Layer: 0
   m_Name: GameObject (27)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1416,7 +1672,7 @@ GameObject:
   - component: {fileID: 2369090433020925809}
   m_Layer: 0
   m_Name: GameObject (21)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1703,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.7812902, y: 0.4376705}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1473,7 +1729,7 @@ GameObject:
   - component: {fileID: 2369090433032562878}
   m_Layer: 0
   m_Name: GameObject (22)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1504,7 +1760,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.24101445, y: 0.42087644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1530,7 +1786,7 @@ GameObject:
   - component: {fileID: 2369090433074283387}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1561,7 +1817,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.47164398, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1587,7 +1843,7 @@ GameObject:
   - component: {fileID: 2369090433181175296}
   m_Layer: 0
   m_Name: GameObject (8)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1618,7 +1874,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.4248162, y: 0.27130497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1644,7 +1900,7 @@ GameObject:
   - component: {fileID: 2369090433219637479}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1732,7 +1988,7 @@ GameObject:
   - component: {fileID: 2369090433267390308}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,7 +2019,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.16295056, y: -0.4533417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1789,7 +2045,7 @@ GameObject:
   - component: {fileID: 2369090433296049671}
   m_Layer: 0
   m_Name: GameObject (13)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1820,7 +2076,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.35428762, y: -0.43178776}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -1846,7 +2102,7 @@ GameObject:
   - component: {fileID: 2366619225314392806}
   m_Layer: 7
   m_Name: GameObject (30)
-  m_TagString: Wall
+  m_TagString: EnemyWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

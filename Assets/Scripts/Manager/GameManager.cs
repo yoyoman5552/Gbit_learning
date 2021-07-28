@@ -273,7 +273,7 @@ public class GameManager : MonoBehaviour {
     public void PlayerDead () {
         Debug.Log ("角色死亡");
 
-        BagManager.Instance.itemList = saveData.itemList;
+        //BagManager.Instance.itemList = saveData.itemList;
         playerController.PlayerInit ();
         Transform parent = saveData.lastDoor.parent;
         while (parent.parent != null && !parent.CompareTag ("Room")) {

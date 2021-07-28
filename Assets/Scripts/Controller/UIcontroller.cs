@@ -13,13 +13,11 @@ public class UIcontroller : MonoBehaviour
     public string jigsawName;
     public string jigsawIndex;
     private Animator animator;
-    private bool checkAble;
     // Start is called before the first frame update
     void Start()
     {
 
         animator = this.GetComponent<Animator>();
-        checkAble = false;
     }
 
     // Update is called once per frame
@@ -27,10 +25,6 @@ public class UIcontroller : MonoBehaviour
     {
         if (animator.GetBool("IsShow"))
             SetUIfalse();
-    }
-    public void StartCheckE()
-    {
-        checkAble = true;
     }
     private void SetUIfalse()
     {
@@ -57,7 +51,6 @@ public class UIcontroller : MonoBehaviour
                 {
                     this.gameObject.SetActive(false);
                 }
-                checkAble = false;
             }
             //否则此对话框不关闭
         }
