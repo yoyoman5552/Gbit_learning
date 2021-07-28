@@ -52,9 +52,9 @@ Material:
     - NoiseNum: 3
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Limit: {r: 0.2, g: 0.6, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - Limit: {r: 0.5, g: 0.7, b: 0, a: 0}
+    - _Color: {r: 0.78906554, g: 0.64779866, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0.5498534, g: 0, b: 0.7830189, a: 1}
+    - _Tint: {r: 0.30039787, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []

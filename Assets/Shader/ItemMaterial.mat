@@ -37,13 +37,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - IsActive: 0
-    - LightRatio: 1.2
+    - IsActive: 1
+    - LightRatio: 1.3
     - NoiseNum: 2
     - Speed: 1
     - _Float: 6
     - _OffsetSize: 200
     m_Colors:
-    - AddColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0}
+    - AddColor: {r: 1, g: 1, b: 1, a: 0}
     - _offset: {r: 0, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
