@@ -38,7 +38,7 @@ Material:
     m_Ints: []
     m_Floats:
     - IsActive: 0
-    - LightRatio: 0.8
+    - LightRatio: 0.9
     - NoiseNum: 2
     - Speed: 1
     m_Colors:
