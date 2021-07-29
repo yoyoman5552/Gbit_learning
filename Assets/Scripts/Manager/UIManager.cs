@@ -62,6 +62,10 @@ public class UIManager : MonoBehaviour
         //this.gameObject.SetActive(false);
         initUIObject();
     }
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
 
     //拼图信息UI
     public void CallJigsawUI(string name, string detail)

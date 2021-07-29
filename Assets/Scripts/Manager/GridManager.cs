@@ -37,7 +37,10 @@ public class GridManager : MonoBehaviour
         }
         Instance = this;
     }
-
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
     public void Init()
     {
         //初始化 宽、高、网格、A*算法

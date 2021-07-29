@@ -22,6 +22,11 @@ public class MouseManager : MonoBehaviour
         Instance = this;
         currentCursorTexture = null;
     }
+    private void OnDestroy()
+    {
+        Instance = null;
+    }
+
     RaycastHit2D hitInfo;
 
     //事件：鼠标事件、敌人事件
@@ -35,9 +40,9 @@ public class MouseManager : MonoBehaviour
     void SetCursorTexture()
     {
         //        Ray2D ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z=0f;
-        hitInfo = Physics2D.Raycast(mousePos, Vector3.right*-1, 1f);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+        hitInfo = Physics2D.Raycast(mousePos, Vector3.right * -1, 1f);
         if (hitInfo.collider != null)
         {
             //TODO:切换鼠标贴图
@@ -67,7 +72,7 @@ public class MouseManager : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.CompareTag("Ground"))
             {
-                Debug.Log("hit ground:"+hitInfo.collider.transform.position);
+                Debug.Log("hit ground:" + hitInfo.collider.transform.position);
                 OnMouseClicked?.Invoke(hitInfo.collider.transform.position);
             }
             else if (hitInfo.collider.gameObject.CompareTag("Enemy"))

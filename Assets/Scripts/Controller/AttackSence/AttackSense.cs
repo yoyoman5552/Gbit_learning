@@ -10,9 +10,17 @@ public class AttackSense : MonoBehaviour
         get
         {
             if (instance == null)
-                instance = Transform.FindObjectOfType<AttackSense>();
+                Instance = Transform.FindObjectOfType<AttackSense>();
             return instance;
         }
+        set
+        {
+            instance = value;
+        }
+    }
+    private void OnDestroy()
+    {
+        Instance = null;
     }
     private bool isShake;
 
